@@ -1,0 +1,19 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "promises",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "book",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ref",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
