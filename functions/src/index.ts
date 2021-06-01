@@ -13,7 +13,7 @@ if (!bibleApiKey) {
   throw new Error("Could not found bible API key!");
 }
 
-export const randomPromise = functions.https.onRequest(async (req, res) => {
+export const randomPromise = functions.https.onRequest(async (_, res) => {
   const promisesCollection = db.collection("promises");
   const indexSnapshot = await promisesCollection.doc("index").get();
   const indexData = indexSnapshot.data();
