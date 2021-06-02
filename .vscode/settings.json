@@ -1,3 +1,9 @@
 {
-  "eslint.workingDirectories": ["functions", "client"]
+  "eslint.workingDirectories": [
+    "functions",
+    "client"
+  ],
+  "cSpell.words": [
+    "twemoji"
+  ]
 }
