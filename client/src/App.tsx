@@ -1,14 +1,17 @@
-import axios from "axios";
 import RandomPromise from "./features/promises/RandomPromise";
-import { ReactQueryDevtools } from "react-query/devtools";
+import Twemoji from "./features/twemoji/Twemoji";
 
 function App() {
   return (
-    <div>
-      Promises of God
-      <RandomPromise />
-      <ReactQueryDevtools />
-    </div>
+    <>
+      <main>
+        <h1>
+          Promises of God
+          <Twemoji emoji="🙏" />
+        </h1>
+        <RandomPromise />
+      </main>
+    </>
   );
 }
 
