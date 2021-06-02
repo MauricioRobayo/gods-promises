@@ -1,6 +1,14 @@
 require("dotenv").config();
 const booksEn = require("./books-en.json");
 
+const shuffle = (arr) => {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const randomPosition = Math.floor(Math.random() * i + 1);
+    [arr[i], arr[randomPosition]] = [arr[randomPosition], arr[i]];
+  }
+  return arr;
+};
+
 const getBookId = (bookName) => {
   const book = booksEn.find(
     ({ name }) => name.trim().toLowerCase() === bookName.trim().toLowerCase()
@@ -20,5 +28,6 @@ const getStandardBookName = (naiveName, namesMap) => {
   return naiveName.trim().toLowerCase();
 };
 
+exports.shuffle = shuffle;
 exports.getBookId = getBookId;
 exports.getStandardBookName = getStandardBookName;
