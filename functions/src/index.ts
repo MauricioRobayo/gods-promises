@@ -26,18 +26,21 @@ export const randomPromise = functions.https.onRequest(async (_, res) => {
 
   const {references, count} = indexData;
   const randomRef = references[Math.floor(Math.random() * count)];
-  functions.logger.log(`randomRef: ${randomRef}`);
+  functions.logger.info(`randomRef: ${randomRef}`);
   const promiseRef = promisesCollection.doc(randomRef);
   const promiseSnapshot = await promiseRef.get();
   const promiseData = promiseSnapshot.data();
-  functions.logger.log(`promiseData: ${promiseData}`);
 
   if (promiseData?.[BIBLE_ID]) {
+    functions.logger.info(
+      `promise already in firestore, returning promise: ${promiseData}`
+    );
     res.json(promiseData[BIBLE_ID]);
     return;
   }
 
   try {
+    functions.logger.info("Promise not in firestore, getting it from API...");
     const searchParams = new URLSearchParams({
       fuzziness: "0",
       query: randomRef,

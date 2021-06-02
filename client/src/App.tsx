@@ -1,7 +1,15 @@
-import React from "react";
+import axios from "axios";
+import RandomPromise from "./features/promises/RandomPromise";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 function App() {
-  return <div>Promesas de Dios</div>;
+  return (
+    <div>
+      Promises of God
+      <RandomPromise />
+      <ReactQueryDevtools />
+    </div>
+  );
 }
 
 export default App;
