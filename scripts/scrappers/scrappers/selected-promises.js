@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const axios = require("axios");
 const cheerio = require("cheerio");
-const { getBookId, getStandardBookName } = require("./helpers");
+const { makePromise } = require("../helpers");
 
 const booksMap = {
   "FIRST SAMUEL": "1 SAMUEL",
@@ -26,7 +26,7 @@ const booksMap = {
 
 const url = "https://bible.org/article/selected-promises-god-each-book-bible";
 axios.get(url).then(({ data }) => {
-  let bookId = "";
+  let book = "";
   const promises = [];
   const $ = cheerio.load(data);
   $(
@@ -40,40 +40,26 @@ axios.get(url).then(({ data }) => {
       }
 
       if (el.tagName === "h4") {
-        const book = $el
+        book = $el
           .text()
           .trim()
           .toUpperCase()
           .replace(" AND THE PROMISES OF GOD", "");
-        bookId = getBookId(getStandardBookName(book, booksMap));
         return;
       }
 
-      if (bookId && el.tagName === "ul") {
+      if (book && el.tagName === "ul") {
         $el.children().each((_, li) => {
           const match = $(li)
             .text()
-            .match(/\((\d+:.*)\)\.?$/);
+            .match(/\(([v0-9\-;:,. ]+)\)\.?$/);
           if (match) {
-            const ref = match[1].trim().replace(/ /g, "");
-            const refs = ref.split(";");
-            const references = [];
-            refs.forEach((newRef) => {
-              if (newRef.includes(",")) {
-                const [chapter, multipleRefs] = newRef.split(":");
-                multipleRefs.split(",").forEach((consecutiveRef) => {
-                  references.push(`${bookId} ${chapter}:${consecutiveRef}`);
-                });
-              } else {
-                references.push(`${bookId} ${newRef}`);
-              }
-            });
-            promises.push({
-              book: bookId,
-              references,
-              reference: `${bookId} ${ref}`,
-              source: url,
-            });
+            const verses = match[1];
+            const reference = `${book} ${verses}`;
+            const promise = makePromise({ reference, source: url, booksMap });
+            if (promise) {
+              promises.push(promise);
+            }
           }
         });
       }

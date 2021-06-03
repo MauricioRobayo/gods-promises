@@ -1,24 +1,19 @@
 require("dotenv").config();
+const fs = require("fs").promises;
 const admin = require("firebase-admin");
-const { shuffle } = require("./helpers");
-const p1 = require("./scrapped-data/300-promises.json");
-const p2 = require("./scrapped-data/all-promises.json");
-const p3 = require("./scrapped-data/selected-promises.json");
-const p4 = require("./scrapped-data/160-promises.json");
+
+const [, , ...files] = process.argv;
+if (files.length === 0) {
+  console.error(`Please specify a file or files!`);
+  process.exit(1);
+}
 
 const firebaseCredential = process.env.FIREBASE_CREDENTIAL;
 const firestoreEmulatorHost = process.env.FIRESTORE_EMULATOR_HOST;
 const projectId = process.env.PROJECT_ID;
-const promises = [...p1, ...p2, ...p3, ...p4];
-const uniqueReferences = [
-  ...new Set(promises.map(({ reference }) => reference)),
-];
 
 if (firestoreEmulatorHost && projectId) {
-  // shuffle(uniqueReferences).splice(5);
-  console.log(
-    `Using emulator, inserting ${uniqueReferences.length} random docs!`
-  );
+  console.log("Using emulator...");
   admin.initializeApp({ projectId });
 } else if (firebaseCredential) {
   console.log("Using production...");
@@ -32,19 +27,15 @@ if (firestoreEmulatorHost && projectId) {
 const db = admin.firestore();
 const promisesCollection = db.collection("promises");
 
-const uniquePromises = uniqueReferences.map((uniqueReference) =>
-  promises.find(({ reference }) => reference === uniqueReference)
-);
-
-const writeInBatches = async (promises) => {
+const updateDb = async (promises) => {
   let batch = db.batch();
   let batchCounter = 0;
   const ids = [];
 
   for (const promise of promises) {
-    const { reference } = promise;
+    const { osis } = promise;
     const querySnapShot = await promisesCollection
-      .where("reference", "==", reference)
+      .where("osis", "==", osis)
       .get();
     if (querySnapShot.docs.length > 0) {
       ids.push(querySnapShot.docs[0].id);
@@ -68,20 +59,31 @@ const writeInBatches = async (promises) => {
   return ids;
 };
 
-writeInBatches(uniquePromises)
-  .then((ids) => {
-    const indexRef = promisesCollection.doc("index");
-    const doc = {
-      ids: ids,
-      count: ids.length,
-    };
-    return Promise.all([ids, indexRef.set(doc)]);
+Promise.all(files.map((file) => fs.readFile(file)))
+  .then((filesData) => {
+    const allPromises = filesData
+      .map((fileData) => JSON.parse(fileData))
+      .flat();
+    const uniqueOsis = [...new Set(allPromises.map(({ osis }) => osis))];
+    const uniquePromises = uniqueOsis.map((osis) =>
+      allPromises.find((promise) => promise.osis === osis)
+    );
+    return updateDb(uniquePromises);
   })
-  .then(([ids]) => {
-    return Promise.all([promisesCollection.get(), ids]);
-  })
-  .then(([snap, ids]) => {
-    console.log({ collection: snap.size, ids: ids.length });
+  .then((ids) =>
+    promisesCollection.doc("index").set({ count: ids.length, ids })
+  )
+  .then(() =>
+    Promise.all([
+      promisesCollection.get(),
+      promisesCollection.doc("index").get(),
+    ])
+  )
+  .then(([snap, index]) => {
+    console.log({ collection: snap.size, ids: index.data().ids.length });
     process.exit();
   })
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });

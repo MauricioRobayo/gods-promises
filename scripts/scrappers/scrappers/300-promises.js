@@ -1,7 +1,7 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs").promises;
-const { getBookId, getStandardBookName } = require("./helpers");
+const { makePromise } = require("../helpers");
 
 const url = "https://believersportal.com/list-of-3000-promises-in-the-bible/";
 
@@ -52,33 +52,19 @@ axios.get(url).then(({ data }) => {
       }
 
       book = book === "OLD TESTAMENT" ? "GENESIS" : book;
-      bookId = getBookId(getStandardBookName(book, booksMap));
 
-      if (bookId && el.tagName === "ul") {
+      if (book && el.tagName === "ul") {
         $el.children().each((_, li) => {
           const match = $(li)
             .text()
-            .match(/\((\d+:.*)\)\.?$/);
+            .match(/\(([v0-9\-;:,. ]+)\)\.?$/);
           if (match) {
-            const references = [];
-            const ref = match[1].trim().replace(/ /g, "");
-            const refs = ref.split(";");
-            refs.forEach((newRef) => {
-              if (newRef.includes(",")) {
-                const [chapter, multipleRefs] = newRef.split(":");
-                multipleRefs.split(",").forEach((consecutiveRef) => {
-                  references.push(`${chapter}:${consecutiveRef}`);
-                });
-              } else {
-                references.push(newRef);
-              }
-            });
-            promises.push({
-              book: bookId,
-              references,
-              reference: `${bookId} ${ref}`,
-              source: url,
-            });
+            const verses = match[1];
+            const reference = `${book} ${verses}`;
+            const promise = makePromise({ reference, source: url, booksMap });
+            if (promise) {
+              promises.push(promise);
+            }
           }
         });
       }

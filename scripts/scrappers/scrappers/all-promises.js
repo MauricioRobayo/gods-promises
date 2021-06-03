@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const axios = require("axios");
 const cheerio = require("cheerio");
-const { getBookId, getStandardBookName } = require("./helpers");
+const { makePromise } = require("../helpers");
 
 const booksMap = {
   "I CORINTHIANS": "1 CORINTHIANS",
@@ -34,39 +34,21 @@ axios.get(url).then(({ data }) => {
       }
 
       if (book.toLowerCase() === "my favorite promises") {
-        const cite = $el.find("strong").text();
-        const [book, ref] = cite
-          .replace(/(^\d+) /, "$1-")
-          .trim()
-          .split(" ");
-        const bookId = getBookId(
-          getStandardBookName(book.replace("-", " "), booksMap)
-        );
-        if (bookId && ref && /^\d+:/.test(ref)) {
-          promises.push({
-            book: bookId,
-            references: [ref],
-            reference: `${bookId} ${ref}`,
-            source: url,
-          });
+        const reference = $el.find("strong").text();
+        const promise = makePromise({ reference, source: url, booksMap });
+        if (promise) {
+          promises.push(promise);
         }
         return;
       }
 
-      const match = $el.text().match(/^([^ ]*)/);
+      const match = $el.text().match(/^([0-9:,;-]+)/);
       if (book && match) {
-        const ref = match[1].trim().replace(/[a-z]/gi, "");
-        if (ref === "" || !/^\d+:/.test(ref)) {
-          return;
-        }
-        const bookId = getBookId(getStandardBookName(book, booksMap));
-        if (bookId) {
-          promises.push({
-            book: bookId,
-            references: [ref],
-            reference: `${bookId} ${ref}`,
-            source: url,
-          });
+        const verses = match[1];
+        const reference = `${book} ${verses}`;
+        const promise = makePromise({ reference, source: url, booksMap });
+        if (promise) {
+          promises.push(promise);
         }
       }
     });
