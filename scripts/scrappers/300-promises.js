@@ -13,10 +13,22 @@ const booksMap = {
   "FIRST CHRONICLES": "1 CHRONICLES",
   "SECOND CHRONICLES": "2 CHRONICLES",
   "SONG OF SONGS": "SONG OF SOLOMON",
+  "I CORINTHIANS": "1 CORINTHIANS",
+  "II CORINTHIANS": "2 CORINTHIANS",
+  "I THESSALONIANS": "1 THESSALONIANS",
+  "II THESSALONIANS": "2 THESSALONIANS",
+  "I TIMOTHY": "1 TIMOTHY",
+  "II TIMOTHY": "2 TIMOTHY",
+  "I PETER": "1 PETER",
+  "II PETER": "2 PETER",
+  "I JOHN": "1 JOHN",
+  "II JOHN": "2 JOHN",
+  "III JOHN": "3 JOHN",
 };
 
 axios.get(url).then(({ data }) => {
   let book = "";
+  let bookId = "";
   const promises = [];
   const $ = cheerio.load(data);
   $(".td-post-content")
@@ -32,34 +44,36 @@ axios.get(url).then(({ data }) => {
         return;
       }
 
+      if (el.tagName === "p") {
+        const strong = $el.find("strong");
+        if (strong) {
+          book = strong.text();
+        }
+      }
+
       book = book === "OLD TESTAMENT" ? "GENESIS" : book;
-      if (book && el.tagName === "ul") {
+      bookId = getBookId(getStandardBookName(book, booksMap));
+
+      if (bookId && el.tagName === "ul") {
         $el.children().each((_, li) => {
           const match = $(li)
             .text()
             .match(/\((\d+:.*)\)\.?$/);
-          const bookId = getBookId(getStandardBookName(book, booksMap));
-          if (bookId && match) {
+          if (match) {
+            const promise = [];
             const ref = match[1].trim().replace(/ /g, "");
             const refs = ref.split(";");
             refs.forEach((newRef) => {
               if (newRef.includes(",")) {
                 const [chapter, multipleRefs] = newRef.split(":");
                 multipleRefs.split(",").forEach((consecutiveRef) => {
-                  const promise = {
-                    bookId,
-                    ref: `${chapter}:${consecutiveRef}`,
-                  };
-                  promises.push(promise);
+                  promise.push(`${bookId} ${chapter}:${consecutiveRef}`);
                 });
-                return;
+              } else {
+                promise.push(`${bookId} ${newRef}`);
               }
-              const promise = {
-                bookId,
-                ref: newRef,
-              };
-              promises.push(promise);
             });
+            promises.push({ reference: promise, source: url });
           }
         });
       }

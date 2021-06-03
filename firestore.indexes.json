@@ -5,11 +5,7 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "book",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "ref",
+          "fieldPath": "referenceId",
           "order": "ASCENDING"
         }
       ]

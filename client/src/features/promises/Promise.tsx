@@ -1,4 +1,12 @@
 import React from "react";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  background-color: #f0f0f0;
+  font-family: "Cormorant Garamond", serif;
+  border-radius: 5px;
+  padding: 1rem;
+`;
 
 type PromiseProps = {
   promise: {
@@ -9,9 +17,9 @@ type PromiseProps = {
 
 const Promise = ({ promise }: PromiseProps) => {
   return (
-    <div>
+    <Wrapper>
       <div dangerouslySetInnerHTML={{ __html: promise.content }} />
-    </div>
+    </Wrapper>
   );
 };
 

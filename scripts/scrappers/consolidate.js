@@ -10,11 +10,15 @@ const firebaseCredential = process.env.FIREBASE_CREDENTIAL;
 const firestoreEmulatorHost = process.env.FIRESTORE_EMULATOR_HOST;
 const projectId = process.env.PROJECT_ID;
 const promises = [...p1, ...p2, ...p3, ...p4];
+const stringifiedReferences = promises.map(({ reference }) =>
+  JSON.stringify(reference)
+);
+const uniqueStringifiedReferences = [...new Set(stringifiedReferences)];
 
 if (firestoreEmulatorHost && projectId) {
-  shuffle(promises).splice(5);
+  // shuffle(uniqueStringifiedReferences).splice(5);
   console.log(
-    `Using emulator, inserting demo data ${JSON.stringify(promises, null, 2)}`
+    `Using emulator, inserting ${uniqueStringifiedReferences.length} random docs!`
   );
   admin.initializeApp({ projectId });
 } else if (firebaseCredential) {
@@ -27,8 +31,67 @@ if (firestoreEmulatorHost && projectId) {
 }
 
 const db = admin.firestore();
-const allPromises = promises.map(({ bookId, ref }) => `${bookId} ${ref}`);
-const uniquePromises = [...new Set(allPromises)];
-const indexRef = db.collection("promises").doc("index");
-const doc = { references: uniquePromises, count: uniquePromises.length };
-indexRef.set(doc).then(() => process.exit());
+const promisesCollection = db.collection("promises");
+
+const uniquePromises = uniqueStringifiedReferences.map(
+  (uniqueStringifiedReference) => {
+    return promises.find(
+      (promise) =>
+        JSON.stringify(promise.reference) === uniqueStringifiedReference
+    );
+  }
+);
+
+const writeInBatches = async (promises) => {
+  let batch = db.batch();
+  let batchCounter = 0;
+  const ids = [];
+
+  for (const { reference, source } of promises) {
+    const referenceId = JSON.stringify(reference);
+    const querySnapShot = await promisesCollection
+      .where("referenceId", "==", referenceId)
+      .get();
+    if (querySnapShot.docs.length > 0) {
+      ids.push(querySnapShot.docs[0].id);
+      continue;
+    }
+    const docRef = promisesCollection.doc();
+    ids.push(docRef.id);
+    batch.set(docRef, {
+      reference,
+      source,
+      referenceId,
+    });
+    batchCounter++;
+    if (batchCounter === 500) {
+      await batch.commit();
+      batch = db.batch();
+      batchCounter = 0;
+    }
+  }
+
+  if (batchCounter < 500) {
+    await batch.commit();
+  }
+
+  return ids;
+};
+
+writeInBatches(uniquePromises)
+  .then((ids) => {
+    const indexRef = promisesCollection.doc("index");
+    const doc = {
+      ids: ids,
+      count: ids.length,
+    };
+    return Promise.all([ids, indexRef.set(doc)]);
+  })
+  .then(([ids]) => {
+    return Promise.all([promisesCollection.get(), ids]);
+  })
+  .then(([snap, ids]) => {
+    console.log({ collection: snap.size, ids: ids.length });
+    process.exit();
+  })
+  .catch((err) => console.log(err));

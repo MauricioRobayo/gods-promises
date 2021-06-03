@@ -20,20 +20,18 @@ axios.get(url).then(({ data }) => {
         const book = match[1];
         const ref = match[2];
         const bookId = getBookId(getStandardBookName(book, booksMap));
+        const promise = [];
         if (ref.includes(";")) {
           const [chapter, refs] = ref.split(":");
           refs.split(";").forEach((newRef) => {
-            promises.push({
-              bookId,
-              ref: `${chapter}:${newRef.trim().replace(/[^0-9:-]/g, "")}`,
-            });
+            promise.push(
+              `${bookId} ${chapter}:${newRef.trim().replace(/[^0-9:-]/g, "")}`
+            );
           });
-          return;
+        } else {
+          promise.push(`${bookId} ${ref.trim().replace(/[^0-9:-]/g, "")}`);
         }
-        promises.push({
-          bookId,
-          ref: ref.trim().replace(/[^0-9:-]/g, ""),
-        });
+        promises.push({ reference: promise, source: url });
       }
     });
   });

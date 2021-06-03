@@ -1,465 +1,1786 @@
 [
-  { "bookId": "GEN", "ref": "1:26-28" },
-  { "bookId": "GEN", "ref": "12:2-3" },
-  { "bookId": "GEN", "ref": "18:18" },
-  { "bookId": "GEN", "ref": "15:6" },
-  { "bookId": "GEN", "ref": "17:2" },
-  { "bookId": "GEN", "ref": "17:5" },
-  { "bookId": "GEN", "ref": "18:14" },
-  { "bookId": "GEN", "ref": "18:19" },
-  { "bookId": "GEN", "ref": "18:25" },
-  { "bookId": "GEN", "ref": "22:17-18" },
-  { "bookId": "EXO", "ref": "3:6" },
-  { "bookId": "EXO", "ref": "6:7" },
-  { "bookId": "EXO", "ref": "9:16" },
-  { "bookId": "EXO", "ref": "15:11" },
-  { "bookId": "EXO", "ref": "15:17" },
-  { "bookId": "EXO", "ref": "17:15" },
-  { "bookId": "EXO", "ref": "19:5-6" },
-  { "bookId": "EXO", "ref": "33:14" },
-  { "bookId": "EXO", "ref": "34:6-7" },
-  { "bookId": "LEV", "ref": "10:3" },
-  { "bookId": "LEV", "ref": "11:44" },
-  { "bookId": "LEV", "ref": "17:11" },
-  { "bookId": "LEV", "ref": "18:5" },
-  { "bookId": "LEV", "ref": "20:7-8" },
-  { "bookId": "LEV", "ref": "20:26" },
-  { "bookId": "LEV", "ref": "26:12-13" },
-  { "bookId": "NUM", "ref": "6:24-26" },
-  { "bookId": "NUM", "ref": "11:23" },
-  { "bookId": "NUM", "ref": "14:17" },
-  { "bookId": "NUM", "ref": "15:41" },
-  { "bookId": "NUM", "ref": "23:19" },
-  { "bookId": "DEU", "ref": "1:10-11" },
-  { "bookId": "DEU", "ref": "1:30-31" },
-  { "bookId": "DEU", "ref": "2:7" },
-  { "bookId": "DEU", "ref": "3:22" },
-  { "bookId": "DEU", "ref": "3:24" },
-  { "bookId": "DEU", "ref": "4:7" },
-  { "bookId": "DEU", "ref": "4:29" },
-  { "bookId": "DEU", "ref": "4:31" },
-  { "bookId": "DEU", "ref": "4:35" },
-  { "bookId": "DEU", "ref": "4:39" },
-  { "bookId": "DEU", "ref": "7:9" },
-  { "bookId": "DEU", "ref": "18:17-18" },
-  { "bookId": "DEU", "ref": "20:4" },
-  { "bookId": "DEU", "ref": "29:29" },
-  { "bookId": "JOS", "ref": "1:8" },
-  { "bookId": "JOS", "ref": "1:9" },
-  { "bookId": "JOS", "ref": "2:11" },
-  { "bookId": "JOS", "ref": "21:43-45" },
-  { "bookId": "JOS", "ref": "23:14" },
-  { "bookId": "JDG", "ref": "8:34" },
-  { "bookId": "JDG", "ref": "10:14" },
-  { "bookId": "JDG", "ref": "13:18" },
-  { "bookId": "RUT", "ref": "1:16-17" },
-  { "bookId": "RUT", "ref": "2:12" },
-  { "bookId": "RUT", "ref": "4:14" },
-  { "bookId": "1SA", "ref": "2:2" },
-  { "bookId": "1SA", "ref": "2:6-8" },
-  { "bookId": "1SA", "ref": "2:9" },
-  { "bookId": "1SA", "ref": "2:30" },
-  { "bookId": "1SA", "ref": "7:3" },
-  { "bookId": "1SA", "ref": "10:19" },
-  { "bookId": "1SA", "ref": "12:21-22" },
-  { "bookId": "1SA", "ref": "14:6" },
-  { "bookId": "1SA", "ref": "15:29" },
-  { "bookId": "1SA", "ref": "16:7" },
-  { "bookId": "1SA", "ref": "17:47" },
-  { "bookId": "1SA", "ref": "26:23" },
-  { "bookId": "2SA", "ref": "7:11-14" },
-  { "bookId": "2SA", "ref": "7:16" },
-  { "bookId": "2SA", "ref": "7:22" },
-  { "bookId": "2SA", "ref": "7:24" },
-  { "bookId": "2SA", "ref": "7:28" },
-  { "bookId": "2SA", "ref": "10:12" },
-  { "bookId": "2SA", "ref": "14:14" },
-  { "bookId": "2SA", "ref": "22:4" },
-  { "bookId": "2SA", "ref": "22:31-33" },
-  { "bookId": "1KI", "ref": "2:2-3" },
-  { "bookId": "1KI", "ref": "8:23" },
-  { "bookId": "1KI", "ref": "8:56-58" },
-  { "bookId": "2KI", "ref": "5:15" },
-  { "bookId": "2KI", "ref": "6:16" },
-  { "bookId": "2KI", "ref": "8:19" },
-  { "bookId": "2KI", "ref": "13:23" },
-  { "bookId": "2KI", "ref": "17:39" },
-  { "bookId": "2KI", "ref": "19:25" },
-  { "bookId": "2KI", "ref": "19:30" },
-  { "bookId": "1CH", "ref": "4:10" },
-  { "bookId": "1CH", "ref": "16:10-12" },
-  { "bookId": "1CH", "ref": "16:25-27" },
-  { "bookId": "1CH", "ref": "16:34" },
-  { "bookId": "1CH", "ref": "17:10-14" },
-  { "bookId": "1CH", "ref": "17:20" },
-  { "bookId": "1CH", "ref": "17:22" },
-  { "bookId": "1CH", "ref": "22:9-10" },
-  { "bookId": "1CH", "ref": "28:9" },
-  { "bookId": "1CH", "ref": "29:14" },
-  { "bookId": "2CH", "ref": "6:14-15" },
-  { "bookId": "2CH", "ref": "7:14-16" },
-  { "bookId": "2CH", "ref": "14:11" },
-  { "bookId": "2CH", "ref": "15:2" },
-  { "bookId": "2CH", "ref": "15:4" },
-  { "bookId": "2CH", "ref": "15:7" },
-  { "bookId": "2CH", "ref": "16:9" },
-  { "bookId": "2CH", "ref": "19:7" },
-  { "bookId": "2CH", "ref": "20:15" },
-  { "bookId": "2CH", "ref": "20:20" },
-  { "bookId": "2CH", "ref": "30:9" },
-  { "bookId": "2CH", "ref": "32:7-8" },
-  { "bookId": "EZR", "ref": "7:10" },
-  { "bookId": "EZR", "ref": "8:22" },
-  { "bookId": "EZR", "ref": "9:8-9" },
-  { "bookId": "NEH", "ref": "1:5-6" },
-  { "bookId": "NEH", "ref": "1:8-9" },
-  { "bookId": "NEH", "ref": "2:20" },
-  { "bookId": "NEH", "ref": "4:14" },
-  { "bookId": "NEH", "ref": "8:10" },
-  { "bookId": "NEH", "ref": "9:5-6" },
-  { "bookId": "NEH", "ref": "9:8" },
-  { "bookId": "EST", "ref": "4:13-14" },
-  { "bookId": "EST", "ref": "8:16" },
-  { "bookId": "JOB", "ref": "1:21" },
-  { "bookId": "JOB", "ref": "2:10" },
-  { "bookId": "JOB", "ref": "5:17" },
-  { "bookId": "JOB", "ref": "7:17-18" },
-  { "bookId": "JOB", "ref": "9:2-4" },
-  { "bookId": "JOB", "ref": "10:12" },
-  { "bookId": "JOB", "ref": "12:13-14" },
-  { "bookId": "JOB", "ref": "13:15" },
-  { "bookId": "JOB", "ref": "14:14" },
-  { "bookId": "JOB", "ref": "16:19" },
-  { "bookId": "JOB", "ref": "19:25-27" },
-  { "bookId": "JOB", "ref": "23:10" },
-  { "bookId": "JOB", "ref": "28:28" },
-  { "bookId": "JOB", "ref": "37:23-24" },
-  { "bookId": "JOB", "ref": "42:2" },
-  { "bookId": "PSA", "ref": "1:1-3" },
-  { "bookId": "PSA", "ref": "2:12" },
-  { "bookId": "PSA", "ref": "4:3" },
-  { "bookId": "PSA", "ref": "5:12" },
-  { "bookId": "PSA", "ref": "9:9-10" },
-  { "bookId": "PSA", "ref": "11:7" },
-  { "bookId": "PSA", "ref": "18:30" },
-  { "bookId": "PSA", "ref": "25:12" },
-  { "bookId": "PSA", "ref": "32:8" },
-  { "bookId": "PSA", "ref": "32:10" },
-  { "bookId": "PSA", "ref": "34:22" },
-  { "bookId": "PSA", "ref": "37:4" },
-  { "bookId": "PSA", "ref": "55:22" },
-  { "bookId": "PSA", "ref": "84:11-12" },
-  { "bookId": "PSA", "ref": "103:11-12" },
-  { "bookId": "PSA", "ref": "121:8" },
-  { "bookId": "PSA", "ref": "145:17-20" },
-  { "bookId": "PRO", "ref": "1:7" },
-  { "bookId": "PRO", "ref": "2:6-8" },
-  { "bookId": "PRO", "ref": "3:5-6" },
-  { "bookId": "PRO", "ref": "3:11-12" },
-  { "bookId": "PRO", "ref": "8:17" },
-  { "bookId": "PRO", "ref": "8:35-36" },
-  { "bookId": "PRO", "ref": "9:10" },
-  { "bookId": "PRO", "ref": "14:27" },
-  { "bookId": "PRO", "ref": "15:33" },
-  { "bookId": "PRO", "ref": "16:3" },
-  { "bookId": "PRO", "ref": "18:10" },
-  { "bookId": "PRO", "ref": "19:21" },
-  { "bookId": "PRO", "ref": "19:23" },
-  { "bookId": "PRO", "ref": "21:30" },
-  { "bookId": "PRO", "ref": "22:4" },
-  { "bookId": "ECC", "ref": "2:24-26" },
-  { "bookId": "ECC", "ref": "3:11" },
-  { "bookId": "ECC", "ref": "3:14" },
-  { "bookId": "ECC", "ref": "5:18-19" },
-  { "bookId": "ECC", "ref": "8:12" },
-  { "bookId": "ECC", "ref": "12:13-14" },
-  { "bookId": "SNG", "ref": "2:4" },
-  { "bookId": "SNG", "ref": "2:16" },
-  { "bookId": "SNG", "ref": "6:3" },
-  { "bookId": "SNG", "ref": "7:10" },
-  { "bookId": "SNG", "ref": "8:6-7" },
-  { "bookId": "ISA", "ref": "1:18" },
-  { "bookId": "ISA", "ref": "2:4" },
-  { "bookId": "ISA", "ref": "4:2" },
-  { "bookId": "ISA", "ref": "7:14" },
-  { "bookId": "ISA", "ref": "9:6-7" },
-  { "bookId": "ISA", "ref": "11:1-3" },
-  { "bookId": "ISA", "ref": "11:6-9" },
-  { "bookId": "ISA", "ref": "12:2" },
-  { "bookId": "ISA", "ref": "14:27" },
-  { "bookId": "ISA", "ref": "26:3" },
-  { "bookId": "ISA", "ref": "30:15" },
-  { "bookId": "ISA", "ref": "30:18" },
-  { "bookId": "ISA", "ref": "40:31" },
-  { "bookId": "ISA", "ref": "41:10" },
-  { "bookId": "ISA", "ref": "48:17" },
-  { "bookId": "ISA", "ref": "53:4-6" },
-  { "bookId": "ISA", "ref": "57:15" },
-  { "bookId": "ISA", "ref": "65:17" },
-  { "bookId": "JER", "ref": "1:5" },
-  { "bookId": "JER", "ref": "3:17" },
-  { "bookId": "JER", "ref": "7:5-7" },
-  { "bookId": "JER", "ref": "7:23" },
-  { "bookId": "JER", "ref": "9:23-24" },
-  { "bookId": "JER", "ref": "10:23" },
-  { "bookId": "JER", "ref": "12:15" },
-  { "bookId": "JER", "ref": "17:5" },
-  { "bookId": "JER", "ref": "17:7" },
-  { "bookId": "JER", "ref": "17:10" },
-  { "bookId": "JER", "ref": "23:5-6" },
-  { "bookId": "JER", "ref": "23:23-24" },
-  { "bookId": "JER", "ref": "24:6-7" },
-  { "bookId": "JER", "ref": "29:11-13" },
-  { "bookId": "JER", "ref": "31:33-34" },
-  { "bookId": "JER", "ref": "33:3" },
-  { "bookId": "LAM", "ref": "2:17" },
-  { "bookId": "LAM", "ref": "3:21-23" },
-  { "bookId": "LAM", "ref": "3:24-26" },
-  { "bookId": "LAM", "ref": "3:32-33" },
-  { "bookId": "LAM", "ref": "3:37-38" },
-  { "bookId": "EZK", "ref": "11:19-20" },
-  { "bookId": "EZK", "ref": "18:32" },
-  { "bookId": "EZK", "ref": "20:41-42" },
-  { "bookId": "EZK", "ref": "20:44" },
-  { "bookId": "EZK", "ref": "33:11" },
-  { "bookId": "EZK", "ref": "34:11-16" },
-  { "bookId": "EZK", "ref": "34:23-24" },
-  { "bookId": "EZK", "ref": "36:26-28" },
-  { "bookId": "EZK", "ref": "37:13-14" },
-  { "bookId": "EZK", "ref": "39:29" },
-  { "bookId": "DAN", "ref": "2:20-22" },
-  { "bookId": "DAN", "ref": "2:44" },
-  { "bookId": "DAN", "ref": "4:17" },
-  { "bookId": "DAN", "ref": "4:34-35" },
-  { "bookId": "DAN", "ref": "4:37" },
-  { "bookId": "DAN", "ref": "6:26-27" },
-  { "bookId": "DAN", "ref": "7:14" },
-  { "bookId": "DAN", "ref": "7:18" },
-  { "bookId": "DAN", "ref": "7:27" },
-  { "bookId": "DAN", "ref": "9:4" },
-  { "bookId": "DAN", "ref": "12:2-3" },
-  { "bookId": "HOS", "ref": "1:7" },
-  { "bookId": "HOS", "ref": "1:10-11" },
-  { "bookId": "HOS", "ref": "2:19-20" },
-  { "bookId": "HOS", "ref": "2:23" },
-  { "bookId": "HOS", "ref": "6:6" },
-  { "bookId": "HOS", "ref": "11:4" },
-  { "bookId": "HOS", "ref": "11:9" },
-  { "bookId": "HOS", "ref": "13:14" },
-  { "bookId": "HOS", "ref": "14:9" },
-  { "bookId": "JOL", "ref": "2:11-13" },
-  { "bookId": "JOL", "ref": "2:25-27" },
-  { "bookId": "JOL", "ref": "2:28-32" },
-  { "bookId": "JOL", "ref": "3:16-18" },
-  { "bookId": "AMO", "ref": "3:7-8" },
-  { "bookId": "AMO", "ref": "4:13" },
-  { "bookId": "AMO", "ref": "5:8" },
-  { "bookId": "AMO", "ref": "5:21-24" },
-  { "bookId": "AMO", "ref": "9:13-15" },
-  { "bookId": "JON", "ref": "2:2" },
-  { "bookId": "JON", "ref": "2:7-9" },
-  { "bookId": "JON", "ref": "4:2" },
-  { "bookId": "MIC", "ref": "2:7" },
-  { "bookId": "MIC", "ref": "4:1-2" },
-  { "bookId": "MIC", "ref": "4:3" },
-  { "bookId": "MIC", "ref": "4:4-5" },
-  { "bookId": "MIC", "ref": "5:2" },
-  { "bookId": "MIC", "ref": "5:4-5" },
-  { "bookId": "MIC", "ref": "6:8" },
-  { "bookId": "MIC", "ref": "7:7" },
-  { "bookId": "MIC", "ref": "7:18-19" },
-  { "bookId": "NAM", "ref": "1:2-3" },
-  { "bookId": "NAM", "ref": "1:7" },
-  { "bookId": "NAM", "ref": "1:9" },
-  { "bookId": "NAM", "ref": "1:12-13" },
-  { "bookId": "HAB", "ref": "1:13" },
-  { "bookId": "HAB", "ref": "2:4" },
-  { "bookId": "HAB", "ref": "2:14" },
-  { "bookId": "HAB", "ref": "2:20" },
-  { "bookId": "HAB", "ref": "3:2" },
-  { "bookId": "HAB", "ref": "3:18-19" },
-  { "bookId": "ZEP", "ref": "1:14-15" },
-  { "bookId": "ZEP", "ref": "3:8" },
-  { "bookId": "ZEP", "ref": "3:12" },
-  { "bookId": "ZEP", "ref": "3:17" },
-  { "bookId": "HAG", "ref": "2:5" },
-  { "bookId": "HAG", "ref": "2:6-9" },
-  { "bookId": "ZEC", "ref": "1:3" },
-  { "bookId": "ZEC", "ref": "1:16" },
-  { "bookId": "ZEC", "ref": "2:4-5" },
-  { "bookId": "ZEC", "ref": "2:8" },
-  { "bookId": "ZEC", "ref": "2:10-13" },
-  { "bookId": "ZEC", "ref": "4:6" },
-  { "bookId": "ZEC", "ref": "8:3" },
-  { "bookId": "ZEC", "ref": "8:7" },
-  { "bookId": "ZEC", "ref": "9:9-10" },
-  { "bookId": "ZEC", "ref": "12:10" },
-  { "bookId": "ZEC", "ref": "14:4-5" },
-  { "bookId": "ZEC", "ref": "14:9" },
-  { "bookId": "MAL", "ref": "1:11" },
-  { "bookId": "MAL", "ref": "3:1-3" },
-  { "bookId": "MAL", "ref": "3:6" },
-  { "bookId": "MAL", "ref": "3:7" },
-  { "bookId": "MAL", "ref": "4:2" },
-  { "bookId": "MAT", "ref": "11:28-30" },
-  { "bookId": "MAT", "ref": "28:18-20" },
-  { "bookId": "MRK", "ref": "1:12" },
-  { "bookId": "MRK", "ref": "14:32-41" },
-  { "bookId": "MRK", "ref": "8:34-37" },
-  { "bookId": "MRK", "ref": "10:42-45" },
-  { "bookId": "LUK", "ref": "1:32-33" },
-  { "bookId": "LUK", "ref": "7:47-49" },
-  { "bookId": "LUK", "ref": "10:20" },
-  { "bookId": "LUK", "ref": "18:1-8" },
-  { "bookId": "JHN", "ref": "1:12" },
-  { "bookId": "JHN", "ref": "3:16" },
-  { "bookId": "JHN", "ref": "5:24" },
-  { "bookId": "JHN", "ref": "10:9-10" },
-  { "bookId": "JHN", "ref": "11:25-26" },
-  { "bookId": "JHN", "ref": "15:1-8" },
-  { "bookId": "JHN", "ref": "20:30-31" },
-  { "bookId": "ACT", "ref": "1:8" },
-  { "bookId": "ACT", "ref": "10:40-43" },
-  { "bookId": "ACT", "ref": "4:12" },
-  { "bookId": "ACT", "ref": "4:33" },
-  { "bookId": "ACT", "ref": "13:32-39" },
-  { "bookId": "ACT", "ref": "16:30" },
-  { "bookId": "ACT", "ref": "17:27-28" },
-  { "bookId": "ROM", "ref": "1:16-17" },
-  { "bookId": "ROM", "ref": "3:23-25" },
-  { "bookId": "ROM", "ref": "6:5-11" },
-  { "bookId": "ROM", "ref": "8:18" },
-  { "bookId": "ROM", "ref": "8:28-29" },
-  { "bookId": "ROM", "ref": "12:2" },
-  { "bookId": "1CO", "ref": "1:2" },
-  { "bookId": "1CO", "ref": "1:18" },
-  { "bookId": "1CO", "ref": "2:9" },
-  { "bookId": "1CO", "ref": "3:22-23" },
-  { "bookId": "1CO", "ref": "6:19-20" },
-  { "bookId": "1CO", "ref": "15:22" },
-  { "bookId": "1CO", "ref": "15:58" },
-  { "bookId": "2CO", "ref": "1:3-4" },
-  { "bookId": "2CO", "ref": "2:14" },
-  { "bookId": "2CO", "ref": "3:18" },
-  { "bookId": "2CO", "ref": "4:7" },
-  { "bookId": "2CO", "ref": "5:17" },
-  { "bookId": "2CO", "ref": "5:21" },
-  { "bookId": "2CO", "ref": "9:6-8" },
-  { "bookId": "GAL", "ref": "1:3-4" },
-  { "bookId": "GAL", "ref": "2:20" },
-  { "bookId": "GAL", "ref": "3:13" },
-  { "bookId": "GAL", "ref": "3:27-29" },
-  { "bookId": "GAL", "ref": "5:16" },
-  { "bookId": "GAL", "ref": "5:25" },
-  { "bookId": "GAL", "ref": "5:22-23" },
-  { "bookId": "EPH", "ref": "1:3" },
-  { "bookId": "EPH", "ref": "1:4" },
-  { "bookId": "EPH", "ref": "2:8" },
-  { "bookId": "EPH", "ref": "2:10" },
-  { "bookId": "EPH", "ref": "3:20" },
-  { "bookId": "EPH", "ref": "4:24" },
-  { "bookId": "EPH", "ref": "5:8" },
-  { "bookId": "PHP", "ref": "1:6" },
-  { "bookId": "PHP", "ref": "1:9-11" },
-  { "bookId": "PHP", "ref": "1:21" },
-  { "bookId": "PHP", "ref": "2:10-11" },
-  { "bookId": "PHP", "ref": "2:13" },
-  { "bookId": "PHP", "ref": "4:6-7" },
-  { "bookId": "PHP", "ref": "4:19" },
-  { "bookId": "COL", "ref": "1:12" },
-  { "bookId": "COL", "ref": "1:13" },
-  { "bookId": "COL", "ref": "1:22" },
-  { "bookId": "COL", "ref": "1:27" },
-  { "bookId": "COL", "ref": "2:10" },
-  { "bookId": "COL", "ref": "2:13" },
-  { "bookId": "COL", "ref": "3:1-4" },
-  { "bookId": "COL", "ref": "3:12" },
-  { "bookId": "1TH", "ref": "1:4" },
-  { "bookId": "1TH", "ref": "1:10" },
-  { "bookId": "1TH", "ref": "2:19-20" },
-  { "bookId": "1TH", "ref": "3:13" },
-  { "bookId": "1TH", "ref": "4:16-17" },
-  { "bookId": "1TH", "ref": "5:9-10" },
-  { "bookId": "1TH", "ref": "5:23" },
-  { "bookId": "2TH", "ref": "1:5-10" },
-  { "bookId": "2TH", "ref": "1:11-12" },
-  { "bookId": "2TH", "ref": "2:13-14" },
-  { "bookId": "2TH", "ref": "3:5" },
-  { "bookId": "1TI", "ref": "1:5" },
-  { "bookId": "1TI", "ref": "1:14" },
-  { "bookId": "1TI", "ref": "1:15-16" },
-  { "bookId": "1TI", "ref": "1:17" },
-  { "bookId": "1TI", "ref": "2:4" },
-  { "bookId": "1TI", "ref": "2:5" },
-  { "bookId": "1TI", "ref": "4:8" },
-  { "bookId": "1TI", "ref": "6:6" },
-  { "bookId": "1TI", "ref": "6:17" },
-  { "bookId": "2TI", "ref": "1:7" },
-  { "bookId": "2TI", "ref": "1:9" },
-  { "bookId": "2TI", "ref": "1:10" },
-  { "bookId": "2TI", "ref": "1:12" },
-  { "bookId": "2TI", "ref": "2:11-13" },
-  { "bookId": "2TI", "ref": "3:16-17" },
-  { "bookId": "2TI", "ref": "4:8" },
-  { "bookId": "2TI", "ref": "4:18" },
-  { "bookId": "TIT", "ref": "1:1-2" },
-  { "bookId": "TIT", "ref": "2:11" },
-  { "bookId": "TIT", "ref": "2:13-14" },
-  { "bookId": "TIT", "ref": "3:4-7" },
-  { "bookId": "HEB", "ref": "2:9" },
-  { "bookId": "HEB", "ref": "2:18" },
-  { "bookId": "HEB", "ref": "4:12" },
-  { "bookId": "HEB", "ref": "4:15" },
-  { "bookId": "HEB", "ref": "4:16" },
-  { "bookId": "HEB", "ref": "6:19" },
-  { "bookId": "HEB", "ref": "7:25" },
-  { "bookId": "HEB", "ref": "9:15" },
-  { "bookId": "HEB", "ref": "11:1" },
-  { "bookId": "HEB", "ref": "11:6" },
-  { "bookId": "HEB", "ref": "13:8" },
-  { "bookId": "JAS", "ref": "1:3-4" },
-  { "bookId": "JAS", "ref": "1:17" },
-  { "bookId": "JAS", "ref": "1:25" },
-  { "bookId": "JAS", "ref": "2:13" },
-  { "bookId": "JAS", "ref": "3:17" },
-  { "bookId": "JAS", "ref": "4:7" },
-  { "bookId": "JAS", "ref": "4:8" },
-  { "bookId": "JAS", "ref": "5:20" },
-  { "bookId": "1PE", "ref": "1:2" },
-  { "bookId": "1PE", "ref": "1:3-4" },
-  { "bookId": "1PE", "ref": "1:18-19" },
-  { "bookId": "1PE", "ref": "1:23" },
-  { "bookId": "1PE", "ref": "2:9" },
-  { "bookId": "1PE", "ref": "2:24" },
-  { "bookId": "1PE", "ref": "3:18" },
-  { "bookId": "1PE", "ref": "5:7" },
-  { "bookId": "1PE", "ref": "5:10" },
-  { "bookId": "2PE", "ref": "1:3" },
-  { "bookId": "2PE", "ref": "1:4" },
-  { "bookId": "2PE", "ref": "1:5-11" },
-  { "bookId": "2PE", "ref": "3:8-9" },
-  { "bookId": "2PE", "ref": "3:13" },
-  { "bookId": "1JN", "ref": "1:5" },
-  { "bookId": "1JN", "ref": "1:7" },
-  { "bookId": "1JN", "ref": "1:9" },
-  { "bookId": "1JN", "ref": "2:1-2" },
-  { "bookId": "1JN", "ref": "2:17" },
-  { "bookId": "1JN", "ref": "2:23" },
-  { "bookId": "1JN", "ref": "3:1" },
-  { "bookId": "1JN", "ref": "3:2" },
-  { "bookId": "1JN", "ref": "4:9-10" },
-  { "bookId": "1JN", "ref": "4:18" },
-  { "bookId": "1JN", "ref": "5:1" },
-  { "bookId": "1JN", "ref": "5:11-12" },
-  { "bookId": "1JN", "ref": "5:14-15" },
-  { "bookId": "REV", "ref": "1:3" },
-  { "bookId": "REV", "ref": "1:5-6" },
-  { "bookId": "REV", "ref": "1:18" },
-  { "bookId": "REV", "ref": "3:20-21" },
-  { "bookId": "REV", "ref": "5:9" },
-  { "bookId": "REV", "ref": "11:15" },
-  { "bookId": "REV", "ref": "20:6" },
-  { "bookId": "REV", "ref": "21:4" },
-  { "bookId": "REV", "ref": "21:6-7" },
-  { "bookId": "REV", "ref": "22:17" }
+  {
+    "reference": ["GEN 1:26-28"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GEN 12:2-3", "GEN 18:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GEN 15:6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GEN 17:2", "GEN 17:5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GEN 18:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GEN 18:19"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GEN 18:25"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GEN 22:17-18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EXO 3:6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EXO 6:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EXO 9:16"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EXO 15:11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EXO 15:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EXO 17:15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EXO 19:5-6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EXO 33:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EXO 34:6-7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LEV 10:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LEV 11:44"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LEV 17:11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LEV 18:5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LEV 20:7-8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LEV 20:26"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LEV 26:12-13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NUM 6:24-26"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NUM 11:23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NUM 14:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NUM 15:41"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NUM 23:19"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 1:10-11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 1:30-31"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 2:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 3:22"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 3:24"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 4:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 4:29"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 4:31"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 4:35", "DEU 4:39"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 7:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 18:17-18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 20:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DEU 29:29"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOS 1:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOS 1:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOS 2:11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOS 21:43-45"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOS 23:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JDG 8:34", "JDG 10:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JDG 13:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["RUT 1:16-17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["RUT 2:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["RUT 4:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 2:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 2:6-8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 2:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 2:30"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 7:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 10:19"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 12:21-22"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 14:6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 15:29"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 16:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 17:47"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1SA 26:23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2SA 7:11-14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2SA 7:16"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2SA 7:22"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2SA 7:24"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2SA 7:28"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2SA 10:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2SA 14:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2SA 22:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2SA 22:31-33"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1KI 2:2-3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1KI 8:23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1KI 8:56-58"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2KI 5:15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2KI 6:16"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2KI 8:19"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2KI 13:23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2KI 17:39"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2KI 19:25"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2KI 19:30"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CH 4:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CH 16:10-12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CH 16:25-27"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CH 16:34"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CH 17:10-14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CH 17:20", "1CH 17:22"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CH 22:9-10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CH 28:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CH 29:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 6:14-15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 7:14-16"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 14:11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 15:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 15:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 15:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 16:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 19:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 20:15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 20:20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 30:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CH 32:7-8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZR 7:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZR 8:22"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZR 9:8-9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NEH 1:5-6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NEH 1:8-9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NEH 2:20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NEH 4:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NEH 8:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NEH 9:5-6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NEH 9:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EST 4:13-14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EST 8:16"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 1:21"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 2:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 5:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 7:17-18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 9:2-4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 10:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 12:13-14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 13:15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 14:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 16:19"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 19:25-27"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 23:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 28:28"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 37:23-24"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOB 42:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 1:1-3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 2:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 4:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 5:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 9:9-10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 11:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 18:30"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 25:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 32:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 32:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 34:22"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 37:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 55:22"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 84:11-12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 103:11-12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 121:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PSA 145:17-20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 1:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 2:6-8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 3:5-6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 3:11-12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 8:17", "PRO 8:35-36"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 9:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 14:27"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 15:33"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 16:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 18:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 19:21"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 19:23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 21:30"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PRO 22:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ECC 2:24-26"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ECC 3:11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ECC 3:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ECC 5:18-19"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ECC 8:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ECC 12:13-14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["SNG 2:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["SNG 2:16"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["SNG 6:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["SNG 7:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["SNG 8:6-7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 1:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 2:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 4:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 7:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 9:6-7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 11:1-3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 11:6-9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 12:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 14:27"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 26:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 30:15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 30:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 40:31"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 41:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 48:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 53:4-6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 57:15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ISA 65:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 1:5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 3:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 7:5-7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 7:23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 9:23-24"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 10:23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 12:15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 17:5", "JER 17:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 17:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 23:5-6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 23:23-24"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 24:6-7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 29:11-13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 31:33-34"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JER 33:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LAM 2:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LAM 3:21-23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LAM 3:24-26"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LAM 3:32-33"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LAM 3:37-38"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZK 11:19-20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZK 18:32"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZK 20:41-42", "EZK 20:44"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZK 33:11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZK 34:11-16"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZK 34:23-24"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZK 36:26-28"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZK 37:13-14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EZK 39:29"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DAN 2:20-22"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DAN 2:44"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DAN 4:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DAN 4:34-35"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DAN 4:37"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DAN 6:26-27"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DAN 7:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DAN 7:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DAN 7:27"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DAN 9:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["DAN 12:2-3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HOS 1:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HOS 1:10-11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HOS 2:19-20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HOS 2:23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HOS 6:6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HOS 11:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HOS 11:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HOS 13:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HOS 14:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOL 2:11-13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOL 2:25-27"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOL 2:28-32"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JOL 3:16-18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["AMO 3:7-8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["AMO 4:13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["AMO 5:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["AMO 5:21-24"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["AMO 9:13-15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JON 2:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JON 2:7-9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JON 4:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MIC 2:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MIC 4:1-2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MIC 4:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MIC 4:4-5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MIC 5:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MIC 5:4-5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MIC 6:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MIC 7:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MIC 7:18-19"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NAM 1:2-3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NAM 1:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NAM 1:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["NAM 1:12-13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HAB 1:13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HAB 2:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HAB 2:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HAB 2:20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HAB 3:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HAB 3:18-19"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEP 1:14-15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEP 3:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEP 3:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEP 3:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HAG 2:5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HAG 2:6-9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 1:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 1:16"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 2:4-5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 2:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 2:10-13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 4:6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 8:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 8:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 9:9-10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 12:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 14:4-5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ZEC 14:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MAL 1:11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MAL 3:1-3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MAL 3:6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MAL 3:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MAL 4:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MAT 11:28-30"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MAT 28:18-20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MRK 1:12", "MRK 14:32-41"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MRK 8:34-37"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["MRK 10:42-45"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LUK 1:32-33"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LUK 7:47-49"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LUK 10:20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["LUK 18:1-8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JHN 1:12", "JHN 3:16", "JHN 5:24"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JHN 10:9-10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JHN 11:25-26"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JHN 15:1-8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JHN 20:30-31"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ACT 1:8", "ACT 10:40-43"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ACT 4:12", "ACT 4:33"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ACT 13:32-39", "ACT 16:30"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ACT 17:27-28"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ROM 1:16-17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ROM 3:23-25"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ROM 6:5-11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ROM 8:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ROM 8:28-29"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["ROM 12:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CO 1:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CO 1:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CO 2:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CO 3:22-23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CO 6:19-20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1CO 15:22", "1CO 15:58"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CO 1:3-4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CO 2:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CO 3:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CO 4:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CO 5:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CO 5:21"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2CO 9:6-8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GAL 1:3-4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GAL 2:20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GAL 3:13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GAL 3:27-29"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GAL 5:16", "GAL 5:25"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["GAL 5:22-23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EPH 1:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EPH 1:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EPH 2:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EPH 2:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EPH 3:20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EPH 4:24"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["EPH 5:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PHP 1:6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PHP 1:9-11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PHP 1:21"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PHP 2:10-11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PHP 2:13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PHP 4:6-7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["PHP 4:19"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["COL 1:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["COL 1:13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["COL 1:22"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["COL 1:27"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["COL 2:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["COL 2:13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["COL 3:1-4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["COL 3:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TH 1:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TH 1:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TH 2:19-20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TH 3:13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TH 4:16-17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TH 5:9-10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TH 5:23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TH 1:5-10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TH 1:11-12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TH 2:13-14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TH 3:5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TI 1:5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TI 1:14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TI 1:15-16"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TI 1:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TI 2:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TI 2:5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TI 4:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TI 6:6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1TI 6:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TI 1:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TI 1:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TI 1:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TI 1:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TI 2:11-13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TI 3:16-17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TI 4:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2TI 4:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["TIT 1:1-2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["TIT 2:11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["TIT 2:13-14"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["TIT 3:4-7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HEB 2:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HEB 2:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HEB 4:12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HEB 4:15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HEB 4:16"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HEB 6:19"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HEB 7:25"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HEB 9:15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HEB 11:1", "HEB 11:6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["HEB 13:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JAS 1:3-4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JAS 1:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JAS 1:25"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JAS 2:13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JAS 3:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JAS 4:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JAS 4:8"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["JAS 5:20"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1PE 1:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1PE 1:3-4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1PE 1:18-19"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1PE 1:23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1PE 2:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1PE 2:24"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1PE 3:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1PE 5:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1PE 5:10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2PE 1:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2PE 1:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2PE 1:5-11"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2PE 3:8-9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["2PE 3:13"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 1:5"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 1:7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 1:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 2:1-2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 2:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 2:23"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 3:1"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 3:2"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 4:9-10"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 4:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 5:1"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 5:11-12"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["1JN 5:14-15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["REV 1:3"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["REV 1:5-6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["REV 1:18"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["REV 3:20-21"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["REV 5:9"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["REV 11:15"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["REV 20:6"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["REV 21:4"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["REV 21:6-7"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  },
+  {
+    "reference": ["REV 22:17"],
+    "source": "https://bible.org/article/selected-promises-god-each-book-bible"
+  }
 ]

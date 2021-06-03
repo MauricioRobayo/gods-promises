@@ -1,4 +1,5 @@
 import axios from "axios";
+import {nanoid} from "nanoid";
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 
@@ -6,36 +7,49 @@ admin.initializeApp();
 
 const bibleApiKey = process.env.BIBLE_API_KEY;
 const bibleApiBaseUrl = "https://api.scripture.api.bible/v1";
-const BIBLE_ID = "592420522e16049f-01";
 const db = admin.firestore();
 
 if (!bibleApiKey) {
   throw new Error("Could not found bible API key!");
 }
 
-export const randomPromise = functions.https.onRequest(async (_, res) => {
+const isValidQueryParam = (param: any): param is string => {
+  return param && typeof param === "string";
+};
+
+export const randomPromise = functions.https.onRequest(async (req, res) => {
+  const {bibleId} = req.query;
+
+  if (!isValidQueryParam(bibleId)) {
+    throw new functions.https.HttpsError(
+      "failed-precondition",
+      "Please specify a 'bibleId'!"
+    );
+  }
+
   const promisesCollection = db.collection("promises");
   const indexSnapshot = await promisesCollection.doc("index").get();
   const indexData = indexSnapshot.data();
 
   if (!indexData) {
-    functions.logger.error("Could not retrieve index!");
-    res.status(500).json({error: "Could not retrieve index!"});
-    return;
+    throw new functions.https.HttpsError(
+      "internal",
+      "Could not retrieve index!"
+    );
   }
 
-  const {references, count} = indexData;
-  const randomRef = references[Math.floor(Math.random() * count)];
+  const {promises, count} = indexData;
+  const randomRef = promises[Math.floor(Math.random() * count)];
   functions.logger.info(`randomRef: ${randomRef}`);
-  const promiseRef = promisesCollection.doc(randomRef);
+  const promiseRef = promisesCollection.doc(randomRef.id);
   const promiseSnapshot = await promiseRef.get();
   const promiseData = promiseSnapshot.data();
 
-  if (promiseData?.[BIBLE_ID]) {
+  if (promiseData?.[bibleId]) {
     functions.logger.info(
       `promise already in firestore, returning promise: ${promiseData}`
     );
-    res.json(promiseData[BIBLE_ID]);
+    res.json(promiseData[bibleId]);
     return;
   }
 
@@ -46,19 +60,20 @@ export const randomPromise = functions.https.onRequest(async (_, res) => {
       query: randomRef,
     });
     const {data} = await axios(
-      `${bibleApiBaseUrl}/bibles/${BIBLE_ID}/search?${searchParams}`,
+      `${bibleApiBaseUrl}/bibles/${bibleId}/search?${searchParams}`,
       {headers: {"api-key": bibleApiKey}}
     );
     const {reference, content} = data.data.passages[0];
     const updatedPromise = {
       ...promiseData,
-      [BIBLE_ID]: {
+      [bibleId]: {
+        id: nanoid(8),
         content,
         reference,
       },
     };
     await promiseRef.set(updatedPromise);
-    res.json(updatedPromise[BIBLE_ID]);
+    res.json(updatedPromise[bibleId]);
   } catch (err) {
     if (err.response) {
       functions.logger.error(`Failed to get '${randomRef}'!`);

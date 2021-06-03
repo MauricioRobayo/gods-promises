@@ -57,24 +57,18 @@ axios.get(url).then(({ data }) => {
           if (match) {
             const ref = match[1].trim().replace(/ /g, "");
             const refs = ref.split(";");
+            const promise = [];
             refs.forEach((newRef) => {
               if (newRef.includes(",")) {
                 const [chapter, multipleRefs] = newRef.split(":");
                 multipleRefs.split(",").forEach((consecutiveRef) => {
-                  const promise = {
-                    bookId,
-                    ref: `${chapter}:${consecutiveRef}`,
-                  };
-                  promises.push(promise);
+                  promise.push(`${bookId} ${chapter}:${consecutiveRef}`);
                 });
-                return;
+              } else {
+                promise.push(`${bookId} ${newRef}`);
               }
-              const promise = {
-                bookId,
-                ref: newRef,
-              };
-              promises.push(promise);
             });
+            promises.push({ reference: promise, source: url });
           }
         });
       }

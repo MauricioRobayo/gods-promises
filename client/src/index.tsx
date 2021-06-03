@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
 import * as serviceWorker from "./serviceWorker";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { GlobalStyle } from "./styles";
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,7 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
+        <GlobalStyle />
         <App />
         <ReactQueryDevtools />
       </Provider>
