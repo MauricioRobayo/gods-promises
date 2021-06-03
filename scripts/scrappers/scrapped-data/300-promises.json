@@ -1,1734 +1,2600 @@
 [
   {
-    "reference": ["GEN 1:26-28"],
+    "book": "GEN",
+    "references": ["1:26-28"],
+    "reference": "GEN 1:26-28",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GEN 12:2-3", "GEN 18:18"],
+    "book": "GEN",
+    "references": ["12:2-3", "18:18"],
+    "reference": "GEN 12:2-3;18:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GEN 15:6"],
+    "book": "GEN",
+    "references": ["15:6"],
+    "reference": "GEN 15:6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GEN 17:2", "GEN 17:5"],
+    "book": "GEN",
+    "references": ["17:2", "17:5"],
+    "reference": "GEN 17:2,5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GEN 18:14"],
+    "book": "GEN",
+    "references": ["18:14"],
+    "reference": "GEN 18:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GEN 18:19"],
+    "book": "GEN",
+    "references": ["18:19"],
+    "reference": "GEN 18:19",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GEN 18:25"],
+    "book": "GEN",
+    "references": ["18:25"],
+    "reference": "GEN 18:25",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GEN 22:17-18"],
+    "book": "GEN",
+    "references": ["22:17-18"],
+    "reference": "GEN 22:17-18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EXO 3:6"],
+    "book": "EXO",
+    "references": ["3:6"],
+    "reference": "EXO 3:6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EXO 6:7"],
+    "book": "EXO",
+    "references": ["6:7"],
+    "reference": "EXO 6:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EXO 9:16"],
+    "book": "EXO",
+    "references": ["9:16"],
+    "reference": "EXO 9:16",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EXO 15:11"],
+    "book": "EXO",
+    "references": ["15:11"],
+    "reference": "EXO 15:11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EXO 15:17"],
+    "book": "EXO",
+    "references": ["15:17"],
+    "reference": "EXO 15:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EXO 17:15"],
+    "book": "EXO",
+    "references": ["17:15"],
+    "reference": "EXO 17:15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EXO 19:5-6"],
+    "book": "EXO",
+    "references": ["19:5-6"],
+    "reference": "EXO 19:5-6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EXO 33:14"],
+    "book": "EXO",
+    "references": ["33:14"],
+    "reference": "EXO 33:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EXO 34:6-7"],
+    "book": "EXO",
+    "references": ["34:6-7"],
+    "reference": "EXO 34:6-7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LEV 10:3"],
+    "book": "LEV",
+    "references": ["10:3"],
+    "reference": "LEV 10:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LEV 11:44"],
+    "book": "LEV",
+    "references": ["11:44"],
+    "reference": "LEV 11:44",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LEV 17:11"],
+    "book": "LEV",
+    "references": ["17:11"],
+    "reference": "LEV 17:11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LEV 18:5"],
+    "book": "LEV",
+    "references": ["18:5"],
+    "reference": "LEV 18:5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LEV 20:7-8"],
+    "book": "LEV",
+    "references": ["20:7-8"],
+    "reference": "LEV 20:7-8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LEV 20:26"],
+    "book": "LEV",
+    "references": ["20:26"],
+    "reference": "LEV 20:26",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LEV 26:12-13"],
+    "book": "LEV",
+    "references": ["26:12-13"],
+    "reference": "LEV 26:12-13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NUM 6:24-26"],
+    "book": "NUM",
+    "references": ["6:24-26"],
+    "reference": "NUM 6:24-26",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NUM 11:23"],
+    "book": "NUM",
+    "references": ["11:23"],
+    "reference": "NUM 11:23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NUM 14:17"],
+    "book": "NUM",
+    "references": ["14:17"],
+    "reference": "NUM 14:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NUM 15:41"],
+    "book": "NUM",
+    "references": ["15:41"],
+    "reference": "NUM 15:41",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NUM 23:19"],
+    "book": "NUM",
+    "references": ["23:19"],
+    "reference": "NUM 23:19",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 1:10-11"],
+    "book": "DEU",
+    "references": ["1:10-11"],
+    "reference": "DEU 1:10-11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 1:30-31"],
+    "book": "DEU",
+    "references": ["1:30-31"],
+    "reference": "DEU 1:30-31",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 2:7"],
+    "book": "DEU",
+    "references": ["2:7"],
+    "reference": "DEU 2:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 3:22"],
+    "book": "DEU",
+    "references": ["3:22"],
+    "reference": "DEU 3:22",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 3:24"],
+    "book": "DEU",
+    "references": ["3:24"],
+    "reference": "DEU 3:24",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 4:7"],
+    "book": "DEU",
+    "references": ["4:7"],
+    "reference": "DEU 4:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 4:29"],
+    "book": "DEU",
+    "references": ["4:29"],
+    "reference": "DEU 4:29",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 4:31"],
+    "book": "DEU",
+    "references": ["4:31"],
+    "reference": "DEU 4:31",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 4:35", "DEU 4:39"],
+    "book": "DEU",
+    "references": ["4:35", "4:39"],
+    "reference": "DEU 4:35,39",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 7:9"],
+    "book": "DEU",
+    "references": ["7:9"],
+    "reference": "DEU 7:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 18:17-18"],
+    "book": "DEU",
+    "references": ["18:17-18"],
+    "reference": "DEU 18:17-18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 20:4"],
+    "book": "DEU",
+    "references": ["20:4"],
+    "reference": "DEU 20:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DEU 29:29"],
+    "book": "DEU",
+    "references": ["29:29"],
+    "reference": "DEU 29:29",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOS 1:8"],
+    "book": "JOS",
+    "references": ["1:8"],
+    "reference": "JOS 1:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOS 1:9"],
+    "book": "JOS",
+    "references": ["1:9"],
+    "reference": "JOS 1:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOS 2:11"],
+    "book": "JOS",
+    "references": ["2:11"],
+    "reference": "JOS 2:11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOS 21:43-45"],
+    "book": "JOS",
+    "references": ["21:43-45"],
+    "reference": "JOS 21:43-45",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOS 23:14"],
+    "book": "JOS",
+    "references": ["23:14"],
+    "reference": "JOS 23:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JDG 8:34", "JDG 10:14"],
+    "book": "JDG",
+    "references": ["8:34", "10:14"],
+    "reference": "JDG 8:34;10:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JDG 13:18"],
+    "book": "JDG",
+    "references": ["13:18"],
+    "reference": "JDG 13:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["RUT 1:16-17"],
+    "book": "RUT",
+    "references": ["1:16-17"],
+    "reference": "RUT 1:16-17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["RUT 2:12"],
+    "book": "RUT",
+    "references": ["2:12"],
+    "reference": "RUT 2:12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["RUT 4:14"],
+    "book": "RUT",
+    "references": ["4:14"],
+    "reference": "RUT 4:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 2:2"],
+    "book": "1SA",
+    "references": ["2:2"],
+    "reference": "1SA 2:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 2:6-8"],
+    "book": "1SA",
+    "references": ["2:6-8"],
+    "reference": "1SA 2:6-8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 2:9"],
+    "book": "1SA",
+    "references": ["2:9"],
+    "reference": "1SA 2:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 2:30"],
+    "book": "1SA",
+    "references": ["2:30"],
+    "reference": "1SA 2:30",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 7:3"],
+    "book": "1SA",
+    "references": ["7:3"],
+    "reference": "1SA 7:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 10:19"],
+    "book": "1SA",
+    "references": ["10:19"],
+    "reference": "1SA 10:19",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 12:21-22"],
+    "book": "1SA",
+    "references": ["12:21-22"],
+    "reference": "1SA 12:21-22",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 14:6"],
+    "book": "1SA",
+    "references": ["14:6"],
+    "reference": "1SA 14:6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 15:29"],
+    "book": "1SA",
+    "references": ["15:29"],
+    "reference": "1SA 15:29",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 16:7"],
+    "book": "1SA",
+    "references": ["16:7"],
+    "reference": "1SA 16:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 17:47"],
+    "book": "1SA",
+    "references": ["17:47"],
+    "reference": "1SA 17:47",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1SA 26:23"],
+    "book": "1SA",
+    "references": ["26:23"],
+    "reference": "1SA 26:23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2SA 7:11-14"],
+    "book": "2SA",
+    "references": ["7:11-14"],
+    "reference": "2SA 7:11-14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2SA 7:16"],
+    "book": "2SA",
+    "references": ["7:16"],
+    "reference": "2SA 7:16",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2SA 7:22"],
+    "book": "2SA",
+    "references": ["7:22"],
+    "reference": "2SA 7:22",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2SA 7:24"],
+    "book": "2SA",
+    "references": ["7:24"],
+    "reference": "2SA 7:24",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2SA 7:28"],
+    "book": "2SA",
+    "references": ["7:28"],
+    "reference": "2SA 7:28",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2SA 10:12"],
+    "book": "2SA",
+    "references": ["10:12"],
+    "reference": "2SA 10:12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2SA 14:14"],
+    "book": "2SA",
+    "references": ["14:14"],
+    "reference": "2SA 14:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2SA 22:4"],
+    "book": "2SA",
+    "references": ["22:4"],
+    "reference": "2SA 22:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2SA 22:31-33"],
+    "book": "2SA",
+    "references": ["22:31-33"],
+    "reference": "2SA 22:31-33",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1KI 2:2-3"],
+    "book": "1KI",
+    "references": ["2:2-3"],
+    "reference": "1KI 2:2-3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1KI 8:23"],
+    "book": "1KI",
+    "references": ["8:23"],
+    "reference": "1KI 8:23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1KI 8:56-58"],
+    "book": "1KI",
+    "references": ["8:56-58"],
+    "reference": "1KI 8:56-58",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2KI 5:15"],
+    "book": "2KI",
+    "references": ["5:15"],
+    "reference": "2KI 5:15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2KI 6:16"],
+    "book": "2KI",
+    "references": ["6:16"],
+    "reference": "2KI 6:16",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2KI 8:19"],
+    "book": "2KI",
+    "references": ["8:19"],
+    "reference": "2KI 8:19",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2KI 13:23"],
+    "book": "2KI",
+    "references": ["13:23"],
+    "reference": "2KI 13:23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2KI 17:39"],
+    "book": "2KI",
+    "references": ["17:39"],
+    "reference": "2KI 17:39",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2KI 19:25"],
+    "book": "2KI",
+    "references": ["19:25"],
+    "reference": "2KI 19:25",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2KI 19:30"],
+    "book": "2KI",
+    "references": ["19:30"],
+    "reference": "2KI 19:30",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CH 4:10"],
+    "book": "1CH",
+    "references": ["4:10"],
+    "reference": "1CH 4:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CH 16:10-12"],
+    "book": "1CH",
+    "references": ["16:10-12"],
+    "reference": "1CH 16:10-12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CH 16:25-27"],
+    "book": "1CH",
+    "references": ["16:25-27"],
+    "reference": "1CH 16:25-27",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CH 16:34"],
+    "book": "1CH",
+    "references": ["16:34"],
+    "reference": "1CH 16:34",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CH 17:10-14"],
+    "book": "1CH",
+    "references": ["17:10-14"],
+    "reference": "1CH 17:10-14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CH 17:20", "1CH 17:22"],
+    "book": "1CH",
+    "references": ["17:20", "17:22"],
+    "reference": "1CH 17:20,22",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CH 22:9-10"],
+    "book": "1CH",
+    "references": ["22:9-10"],
+    "reference": "1CH 22:9-10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CH 28:9"],
+    "book": "1CH",
+    "references": ["28:9"],
+    "reference": "1CH 28:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CH 29:14"],
+    "book": "1CH",
+    "references": ["29:14"],
+    "reference": "1CH 29:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 6:14-15"],
+    "book": "2CH",
+    "references": ["6:14-15"],
+    "reference": "2CH 6:14-15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 7:14-16"],
+    "book": "2CH",
+    "references": ["7:14-16"],
+    "reference": "2CH 7:14-16",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 14:11"],
+    "book": "2CH",
+    "references": ["14:11"],
+    "reference": "2CH 14:11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 15:2"],
+    "book": "2CH",
+    "references": ["15:2"],
+    "reference": "2CH 15:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 15:4"],
+    "book": "2CH",
+    "references": ["15:4"],
+    "reference": "2CH 15:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 15:7"],
+    "book": "2CH",
+    "references": ["15:7"],
+    "reference": "2CH 15:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 16:9"],
+    "book": "2CH",
+    "references": ["16:9"],
+    "reference": "2CH 16:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 19:7"],
+    "book": "2CH",
+    "references": ["19:7"],
+    "reference": "2CH 19:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 20:15"],
+    "book": "2CH",
+    "references": ["20:15"],
+    "reference": "2CH 20:15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 20:20"],
+    "book": "2CH",
+    "references": ["20:20"],
+    "reference": "2CH 20:20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 30:9"],
+    "book": "2CH",
+    "references": ["30:9"],
+    "reference": "2CH 30:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CH 32:7-8"],
+    "book": "2CH",
+    "references": ["32:7-8"],
+    "reference": "2CH 32:7-8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZR 7:10"],
+    "book": "EZR",
+    "references": ["7:10"],
+    "reference": "EZR 7:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZR 8:22"],
+    "book": "EZR",
+    "references": ["8:22"],
+    "reference": "EZR 8:22",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZR 9:8-9"],
+    "book": "EZR",
+    "references": ["9:8-9"],
+    "reference": "EZR 9:8-9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NEH 1:5-6"],
+    "book": "NEH",
+    "references": ["1:5-6"],
+    "reference": "NEH 1:5-6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NEH 1:8-9"],
+    "book": "NEH",
+    "references": ["1:8-9"],
+    "reference": "NEH 1:8-9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NEH 2:20"],
+    "book": "NEH",
+    "references": ["2:20"],
+    "reference": "NEH 2:20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NEH 4:14"],
+    "book": "NEH",
+    "references": ["4:14"],
+    "reference": "NEH 4:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NEH 8:10"],
+    "book": "NEH",
+    "references": ["8:10"],
+    "reference": "NEH 8:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NEH 9:5-6"],
+    "book": "NEH",
+    "references": ["9:5-6"],
+    "reference": "NEH 9:5-6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NEH 9:8"],
+    "book": "NEH",
+    "references": ["9:8"],
+    "reference": "NEH 9:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EST 4:13-14"],
+    "book": "EST",
+    "references": ["4:13-14"],
+    "reference": "EST 4:13-14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EST 8:16"],
+    "book": "EST",
+    "references": ["8:16"],
+    "reference": "EST 8:16",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 1:21"],
+    "book": "JOB",
+    "references": ["1:21"],
+    "reference": "JOB 1:21",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 2:10"],
+    "book": "JOB",
+    "references": ["2:10"],
+    "reference": "JOB 2:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 5:17"],
+    "book": "JOB",
+    "references": ["5:17"],
+    "reference": "JOB 5:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 7:17-18"],
+    "book": "JOB",
+    "references": ["7:17-18"],
+    "reference": "JOB 7:17-18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 9:2-4"],
+    "book": "JOB",
+    "references": ["9:2-4"],
+    "reference": "JOB 9:2-4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 10:12"],
+    "book": "JOB",
+    "references": ["10:12"],
+    "reference": "JOB 10:12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 12:13-14"],
+    "book": "JOB",
+    "references": ["12:13-14"],
+    "reference": "JOB 12:13-14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 13:15"],
+    "book": "JOB",
+    "references": ["13:15"],
+    "reference": "JOB 13:15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 14:14"],
+    "book": "JOB",
+    "references": ["14:14"],
+    "reference": "JOB 14:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 16:19"],
+    "book": "JOB",
+    "references": ["16:19"],
+    "reference": "JOB 16:19",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 19:25-27"],
+    "book": "JOB",
+    "references": ["19:25-27"],
+    "reference": "JOB 19:25-27",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 23:10"],
+    "book": "JOB",
+    "references": ["23:10"],
+    "reference": "JOB 23:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 28:28"],
+    "book": "JOB",
+    "references": ["28:28"],
+    "reference": "JOB 28:28",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 37:23-24"],
+    "book": "JOB",
+    "references": ["37:23-24"],
+    "reference": "JOB 37:23-24",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOB 42:2"],
+    "book": "JOB",
+    "references": ["42:2"],
+    "reference": "JOB 42:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 1:1-3"],
+    "book": "PSA",
+    "references": ["1:1-3"],
+    "reference": "PSA 1:1-3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 2:12"],
+    "book": "PSA",
+    "references": ["2:12"],
+    "reference": "PSA 2:12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 4:3"],
+    "book": "PSA",
+    "references": ["4:3"],
+    "reference": "PSA 4:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 5:12"],
+    "book": "PSA",
+    "references": ["5:12"],
+    "reference": "PSA 5:12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 9:9-10"],
+    "book": "PSA",
+    "references": ["9:9-10"],
+    "reference": "PSA 9:9-10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 11:7"],
+    "book": "PSA",
+    "references": ["11:7"],
+    "reference": "PSA 11:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 18:30"],
+    "book": "PSA",
+    "references": ["18:30"],
+    "reference": "PSA 18:30",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 25:12"],
+    "book": "PSA",
+    "references": ["25:12"],
+    "reference": "PSA 25:12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 32:8"],
+    "book": "PSA",
+    "references": ["32:8"],
+    "reference": "PSA 32:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 32:10"],
+    "book": "PSA",
+    "references": ["32:10"],
+    "reference": "PSA 32:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 34:22"],
+    "book": "PSA",
+    "references": ["34:22"],
+    "reference": "PSA 34:22",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 37:4"],
+    "book": "PSA",
+    "references": ["37:4"],
+    "reference": "PSA 37:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 55:22"],
+    "book": "PSA",
+    "references": ["55:22"],
+    "reference": "PSA 55:22",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 84:11-12"],
+    "book": "PSA",
+    "references": ["84:11-12"],
+    "reference": "PSA 84:11-12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 103:11-12"],
+    "book": "PSA",
+    "references": ["103:11-12"],
+    "reference": "PSA 103:11-12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 121:8"],
+    "book": "PSA",
+    "references": ["121:8"],
+    "reference": "PSA 121:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PSA 145:17-20"],
+    "book": "PSA",
+    "references": ["145:17-20"],
+    "reference": "PSA 145:17-20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 1:7"],
+    "book": "PRO",
+    "references": ["1:7"],
+    "reference": "PRO 1:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 2:6-8"],
+    "book": "PRO",
+    "references": ["2:6-8"],
+    "reference": "PRO 2:6-8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 3:5-6"],
+    "book": "PRO",
+    "references": ["3:5-6"],
+    "reference": "PRO 3:5-6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 3:11-12"],
+    "book": "PRO",
+    "references": ["3:11-12"],
+    "reference": "PRO 3:11-12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 8:17", "PRO 8:35-36"],
+    "book": "PRO",
+    "references": ["8:17", "8:35-36"],
+    "reference": "PRO 8:17,35-36",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 9:10"],
+    "book": "PRO",
+    "references": ["9:10"],
+    "reference": "PRO 9:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 14:27"],
+    "book": "PRO",
+    "references": ["14:27"],
+    "reference": "PRO 14:27",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 15:33"],
+    "book": "PRO",
+    "references": ["15:33"],
+    "reference": "PRO 15:33",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 16:3"],
+    "book": "PRO",
+    "references": ["16:3"],
+    "reference": "PRO 16:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 18:10"],
+    "book": "PRO",
+    "references": ["18:10"],
+    "reference": "PRO 18:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 19:21"],
+    "book": "PRO",
+    "references": ["19:21"],
+    "reference": "PRO 19:21",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 19:23"],
+    "book": "PRO",
+    "references": ["19:23"],
+    "reference": "PRO 19:23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 21:30"],
+    "book": "PRO",
+    "references": ["21:30"],
+    "reference": "PRO 21:30",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PRO 22:4"],
+    "book": "PRO",
+    "references": ["22:4"],
+    "reference": "PRO 22:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ECC 2:24-26"],
+    "book": "ECC",
+    "references": ["2:24-26"],
+    "reference": "ECC 2:24-26",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ECC 3:11"],
+    "book": "ECC",
+    "references": ["3:11"],
+    "reference": "ECC 3:11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ECC 3:14"],
+    "book": "ECC",
+    "references": ["3:14"],
+    "reference": "ECC 3:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ECC 5:18-19"],
+    "book": "ECC",
+    "references": ["5:18-19"],
+    "reference": "ECC 5:18-19",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ECC 8:12"],
+    "book": "ECC",
+    "references": ["8:12"],
+    "reference": "ECC 8:12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ECC 12:13-14"],
+    "book": "ECC",
+    "references": ["12:13-14"],
+    "reference": "ECC 12:13-14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["SNG 2:4"],
+    "book": "SNG",
+    "references": ["2:4"],
+    "reference": "SNG 2:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["SNG 2:16"],
+    "book": "SNG",
+    "references": ["2:16"],
+    "reference": "SNG 2:16",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["SNG 6:3"],
+    "book": "SNG",
+    "references": ["6:3"],
+    "reference": "SNG 6:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["SNG 7:10"],
+    "book": "SNG",
+    "references": ["7:10"],
+    "reference": "SNG 7:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["SNG 8:6-7"],
+    "book": "SNG",
+    "references": ["8:6-7"],
+    "reference": "SNG 8:6-7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 1:18"],
+    "book": "ISA",
+    "references": ["1:18"],
+    "reference": "ISA 1:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 2:4"],
+    "book": "ISA",
+    "references": ["2:4"],
+    "reference": "ISA 2:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 4:2"],
+    "book": "ISA",
+    "references": ["4:2"],
+    "reference": "ISA 4:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 7:14"],
+    "book": "ISA",
+    "references": ["7:14"],
+    "reference": "ISA 7:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 9:6-7"],
+    "book": "ISA",
+    "references": ["9:6-7"],
+    "reference": "ISA 9:6-7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 11:1-3"],
+    "book": "ISA",
+    "references": ["11:1-3"],
+    "reference": "ISA 11:1-3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 11:6-9"],
+    "book": "ISA",
+    "references": ["11:6-9"],
+    "reference": "ISA 11:6-9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 12:2"],
+    "book": "ISA",
+    "references": ["12:2"],
+    "reference": "ISA 12:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 14:27"],
+    "book": "ISA",
+    "references": ["14:27"],
+    "reference": "ISA 14:27",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 26:3"],
+    "book": "ISA",
+    "references": ["26:3"],
+    "reference": "ISA 26:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 30:15"],
+    "book": "ISA",
+    "references": ["30:15"],
+    "reference": "ISA 30:15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 30:18"],
+    "book": "ISA",
+    "references": ["30:18"],
+    "reference": "ISA 30:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 40:31"],
+    "book": "ISA",
+    "references": ["40:31"],
+    "reference": "ISA 40:31",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 41:10"],
+    "book": "ISA",
+    "references": ["41:10"],
+    "reference": "ISA 41:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 48:17"],
+    "book": "ISA",
+    "references": ["48:17"],
+    "reference": "ISA 48:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 53:4-6"],
+    "book": "ISA",
+    "references": ["53:4-6"],
+    "reference": "ISA 53:4-6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 57:15"],
+    "book": "ISA",
+    "references": ["57:15"],
+    "reference": "ISA 57:15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ISA 65:17"],
+    "book": "ISA",
+    "references": ["65:17"],
+    "reference": "ISA 65:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 1:5"],
+    "book": "JER",
+    "references": ["1:5"],
+    "reference": "JER 1:5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 3:17"],
+    "book": "JER",
+    "references": ["3:17"],
+    "reference": "JER 3:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 7:5-7"],
+    "book": "JER",
+    "references": ["7:5-7"],
+    "reference": "JER 7:5-7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 7:23"],
+    "book": "JER",
+    "references": ["7:23"],
+    "reference": "JER 7:23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 9:23-24"],
+    "book": "JER",
+    "references": ["9:23-24"],
+    "reference": "JER 9:23-24",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 10:23"],
+    "book": "JER",
+    "references": ["10:23"],
+    "reference": "JER 10:23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 12:15"],
+    "book": "JER",
+    "references": ["12:15"],
+    "reference": "JER 12:15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 17:5", "JER 17:7"],
+    "book": "JER",
+    "references": ["17:5", "17:7"],
+    "reference": "JER 17:5,7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 17:10"],
+    "book": "JER",
+    "references": ["17:10"],
+    "reference": "JER 17:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 23:5-6"],
+    "book": "JER",
+    "references": ["23:5-6"],
+    "reference": "JER 23:5-6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 23:23-24"],
+    "book": "JER",
+    "references": ["23:23-24"],
+    "reference": "JER 23:23-24",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 24:6-7"],
+    "book": "JER",
+    "references": ["24:6-7"],
+    "reference": "JER 24:6-7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 29:11-13"],
+    "book": "JER",
+    "references": ["29:11-13"],
+    "reference": "JER 29:11-13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 31:33-34"],
+    "book": "JER",
+    "references": ["31:33-34"],
+    "reference": "JER 31:33-34",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JER 33:3"],
+    "book": "JER",
+    "references": ["33:3"],
+    "reference": "JER 33:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LAM 2:17"],
+    "book": "LAM",
+    "references": ["2:17"],
+    "reference": "LAM 2:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LAM 3:21-23"],
+    "book": "LAM",
+    "references": ["3:21-23"],
+    "reference": "LAM 3:21-23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LAM 3:24-26"],
+    "book": "LAM",
+    "references": ["3:24-26"],
+    "reference": "LAM 3:24-26",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LAM 3:32-33"],
+    "book": "LAM",
+    "references": ["3:32-33"],
+    "reference": "LAM 3:32-33",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LAM 3:37-38"],
+    "book": "LAM",
+    "references": ["3:37-38"],
+    "reference": "LAM 3:37-38",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZK 11:19-20"],
+    "book": "EZK",
+    "references": ["11:19-20"],
+    "reference": "EZK 11:19-20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZK 18:32"],
+    "book": "EZK",
+    "references": ["18:32"],
+    "reference": "EZK 18:32",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZK 20:41-42", "EZK 20:44"],
+    "book": "EZK",
+    "references": ["20:41-42", "20:44"],
+    "reference": "EZK 20:41-42,44",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZK 33:11"],
+    "book": "EZK",
+    "references": ["33:11"],
+    "reference": "EZK 33:11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZK 34:11-16"],
+    "book": "EZK",
+    "references": ["34:11-16"],
+    "reference": "EZK 34:11-16",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZK 34:23-24"],
+    "book": "EZK",
+    "references": ["34:23-24"],
+    "reference": "EZK 34:23-24",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZK 36:26-28"],
+    "book": "EZK",
+    "references": ["36:26-28"],
+    "reference": "EZK 36:26-28",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZK 37:13-14"],
+    "book": "EZK",
+    "references": ["37:13-14"],
+    "reference": "EZK 37:13-14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EZK 39:29"],
+    "book": "EZK",
+    "references": ["39:29"],
+    "reference": "EZK 39:29",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DAN 2:20-22"],
+    "book": "DAN",
+    "references": ["2:20-22"],
+    "reference": "DAN 2:20-22",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DAN 2:44"],
+    "book": "DAN",
+    "references": ["2:44"],
+    "reference": "DAN 2:44",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DAN 4:17"],
+    "book": "DAN",
+    "references": ["4:17"],
+    "reference": "DAN 4:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DAN 4:34-35"],
+    "book": "DAN",
+    "references": ["4:34-35"],
+    "reference": "DAN 4:34-35",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DAN 4:37"],
+    "book": "DAN",
+    "references": ["4:37"],
+    "reference": "DAN 4:37",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DAN 6:26-27"],
+    "book": "DAN",
+    "references": ["6:26-27"],
+    "reference": "DAN 6:26-27",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DAN 7:14"],
+    "book": "DAN",
+    "references": ["7:14"],
+    "reference": "DAN 7:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DAN 7:18"],
+    "book": "DAN",
+    "references": ["7:18"],
+    "reference": "DAN 7:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DAN 7:27"],
+    "book": "DAN",
+    "references": ["7:27"],
+    "reference": "DAN 7:27",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DAN 9:4"],
+    "book": "DAN",
+    "references": ["9:4"],
+    "reference": "DAN 9:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["DAN 12:2-3"],
+    "book": "DAN",
+    "references": ["12:2-3"],
+    "reference": "DAN 12:2-3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HOS 1:7"],
+    "book": "HOS",
+    "references": ["1:7"],
+    "reference": "HOS 1:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HOS 1:10-11"],
+    "book": "HOS",
+    "references": ["1:10-11"],
+    "reference": "HOS 1:10-11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HOS 2:19-20"],
+    "book": "HOS",
+    "references": ["2:19-20"],
+    "reference": "HOS 2:19-20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HOS 2:23"],
+    "book": "HOS",
+    "references": ["2:23"],
+    "reference": "HOS 2:23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HOS 6:6"],
+    "book": "HOS",
+    "references": ["6:6"],
+    "reference": "HOS 6:6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HOS 11:4"],
+    "book": "HOS",
+    "references": ["11:4"],
+    "reference": "HOS 11:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HOS 11:9"],
+    "book": "HOS",
+    "references": ["11:9"],
+    "reference": "HOS 11:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HOS 13:14"],
+    "book": "HOS",
+    "references": ["13:14"],
+    "reference": "HOS 13:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HOS 14:9"],
+    "book": "HOS",
+    "references": ["14:9"],
+    "reference": "HOS 14:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOL 2:11-13"],
+    "book": "JOL",
+    "references": ["2:11-13"],
+    "reference": "JOL 2:11-13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOL 2:25-27"],
+    "book": "JOL",
+    "references": ["2:25-27"],
+    "reference": "JOL 2:25-27",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOL 2:28-32"],
+    "book": "JOL",
+    "references": ["2:28-32"],
+    "reference": "JOL 2:28-32",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JOL 3:16-18"],
+    "book": "JOL",
+    "references": ["3:16-18"],
+    "reference": "JOL 3:16-18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["AMO 3:7-8"],
+    "book": "AMO",
+    "references": ["3:7-8"],
+    "reference": "AMO 3:7-8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["AMO 4:13"],
+    "book": "AMO",
+    "references": ["4:13"],
+    "reference": "AMO 4:13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["AMO 5:8"],
+    "book": "AMO",
+    "references": ["5:8"],
+    "reference": "AMO 5:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["AMO 5:21-24"],
+    "book": "AMO",
+    "references": ["5:21-24"],
+    "reference": "AMO 5:21-24",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["AMO 9:13-15"],
+    "book": "AMO",
+    "references": ["9:13-15"],
+    "reference": "AMO 9:13-15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JON 2:2"],
+    "book": "JON",
+    "references": ["2:2"],
+    "reference": "JON 2:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JON 2:7-9"],
+    "book": "JON",
+    "references": ["2:7-9"],
+    "reference": "JON 2:7-9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JON 4:2"],
+    "book": "JON",
+    "references": ["4:2"],
+    "reference": "JON 4:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MIC 2:7"],
+    "book": "MIC",
+    "references": ["2:7"],
+    "reference": "MIC 2:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MIC 4:1-2"],
+    "book": "MIC",
+    "references": ["4:1-2"],
+    "reference": "MIC 4:1-2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MIC 4:3"],
+    "book": "MIC",
+    "references": ["4:3"],
+    "reference": "MIC 4:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MIC 4:4-5"],
+    "book": "MIC",
+    "references": ["4:4-5"],
+    "reference": "MIC 4:4-5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MIC 5:2"],
+    "book": "MIC",
+    "references": ["5:2"],
+    "reference": "MIC 5:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MIC 5:4-5"],
+    "book": "MIC",
+    "references": ["5:4-5"],
+    "reference": "MIC 5:4-5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MIC 6:8"],
+    "book": "MIC",
+    "references": ["6:8"],
+    "reference": "MIC 6:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MIC 7:7"],
+    "book": "MIC",
+    "references": ["7:7"],
+    "reference": "MIC 7:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MIC 7:18-19"],
+    "book": "MIC",
+    "references": ["7:18-19"],
+    "reference": "MIC 7:18-19",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NAM 1:2-3"],
+    "book": "NAM",
+    "references": ["1:2-3"],
+    "reference": "NAM 1:2-3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NAM 1:7"],
+    "book": "NAM",
+    "references": ["1:7"],
+    "reference": "NAM 1:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NAM 1:9"],
+    "book": "NAM",
+    "references": ["1:9"],
+    "reference": "NAM 1:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["NAM 1:12-13"],
+    "book": "NAM",
+    "references": ["1:12-13"],
+    "reference": "NAM 1:12-13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HAB 1:13"],
+    "book": "HAB",
+    "references": ["1:13"],
+    "reference": "HAB 1:13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HAB 2:4"],
+    "book": "HAB",
+    "references": ["2:4"],
+    "reference": "HAB 2:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HAB 2:14"],
+    "book": "HAB",
+    "references": ["2:14"],
+    "reference": "HAB 2:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HAB 2:20"],
+    "book": "HAB",
+    "references": ["2:20"],
+    "reference": "HAB 2:20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HAB 3:2"],
+    "book": "HAB",
+    "references": ["3:2"],
+    "reference": "HAB 3:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HAB 3:18-19"],
+    "book": "HAB",
+    "references": ["3:18-19"],
+    "reference": "HAB 3:18-19",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEP 1:14-15"],
+    "book": "ZEP",
+    "references": ["1:14-15"],
+    "reference": "ZEP 1:14-15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEP 3:8"],
+    "book": "ZEP",
+    "references": ["3:8"],
+    "reference": "ZEP 3:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEP 3:12"],
+    "book": "ZEP",
+    "references": ["3:12"],
+    "reference": "ZEP 3:12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEP 3:17"],
+    "book": "ZEP",
+    "references": ["3:17"],
+    "reference": "ZEP 3:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HAG 2:5"],
+    "book": "HAG",
+    "references": ["2:5"],
+    "reference": "HAG 2:5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HAG 2:6-9"],
+    "book": "HAG",
+    "references": ["2:6-9"],
+    "reference": "HAG 2:6-9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 1:3"],
+    "book": "ZEC",
+    "references": ["1:3"],
+    "reference": "ZEC 1:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 1:16"],
+    "book": "ZEC",
+    "references": ["1:16"],
+    "reference": "ZEC 1:16",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 2:4-5"],
+    "book": "ZEC",
+    "references": ["2:4-5"],
+    "reference": "ZEC 2:4-5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 2:8"],
+    "book": "ZEC",
+    "references": ["2:8"],
+    "reference": "ZEC 2:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 2:10-13"],
+    "book": "ZEC",
+    "references": ["2:10-13"],
+    "reference": "ZEC 2:10-13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 4:6"],
+    "book": "ZEC",
+    "references": ["4:6"],
+    "reference": "ZEC 4:6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 8:3"],
+    "book": "ZEC",
+    "references": ["8:3"],
+    "reference": "ZEC 8:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 8:7"],
+    "book": "ZEC",
+    "references": ["8:7"],
+    "reference": "ZEC 8:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 9:9-10"],
+    "book": "ZEC",
+    "references": ["9:9-10"],
+    "reference": "ZEC 9:9-10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 12:10"],
+    "book": "ZEC",
+    "references": ["12:10"],
+    "reference": "ZEC 12:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 14:4-5"],
+    "book": "ZEC",
+    "references": ["14:4-5"],
+    "reference": "ZEC 14:4-5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ZEC 14:9"],
+    "book": "ZEC",
+    "references": ["14:9"],
+    "reference": "ZEC 14:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MAL 1:11"],
+    "book": "MAL",
+    "references": ["1:11"],
+    "reference": "MAL 1:11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MAL 3:1-3"],
+    "book": "MAL",
+    "references": ["3:1-3"],
+    "reference": "MAL 3:1-3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MAL 3:6"],
+    "book": "MAL",
+    "references": ["3:6"],
+    "reference": "MAL 3:6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MAL 3:7"],
+    "book": "MAL",
+    "references": ["3:7"],
+    "reference": "MAL 3:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MAL 4:2"],
+    "book": "MAL",
+    "references": ["4:2"],
+    "reference": "MAL 4:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MAT 11:28-30"],
+    "book": "MAT",
+    "references": ["11:28-30"],
+    "reference": "MAT 11:28-30",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MAT 28:18-20"],
+    "book": "MAT",
+    "references": ["28:18-20"],
+    "reference": "MAT 28:18-20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MRK 1:12", "MRK 14:32-41"],
+    "book": "MRK",
+    "references": ["1:12", "14:32-41"],
+    "reference": "MRK 1:12;14:32-41",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MRK 8:34-37"],
+    "book": "MRK",
+    "references": ["8:34-37"],
+    "reference": "MRK 8:34-37",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["MRK 10:42-45"],
+    "book": "MRK",
+    "references": ["10:42-45"],
+    "reference": "MRK 10:42-45",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LUK 1:32-33"],
+    "book": "LUK",
+    "references": ["1:32-33"],
+    "reference": "LUK 1:32-33",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LUK 7:47-49"],
+    "book": "LUK",
+    "references": ["7:47-49"],
+    "reference": "LUK 7:47-49",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["LUK 10:20"],
+    "book": "LUK",
+    "references": ["10:20"],
+    "reference": "LUK 10:20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JHN 1:12", "JHN 3:16", "JHN 5:24"],
+    "book": "JHN",
+    "references": ["1:12", "3:16", "5:24"],
+    "reference": "JHN 1:12;3:16;5:24",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JHN 10:9-10"],
+    "book": "JHN",
+    "references": ["10:9-10"],
+    "reference": "JHN 10:9-10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JHN 11:25-26"],
+    "book": "JHN",
+    "references": ["11:25-26"],
+    "reference": "JHN 11:25-26",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JHN 15:1-8"],
+    "book": "JHN",
+    "references": ["15:1-8"],
+    "reference": "JHN 15:1-8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JHN 20:30-31"],
+    "book": "JHN",
+    "references": ["20:30-31"],
+    "reference": "JHN 20:30-31",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ACT 1:8", "ACT 10:40-43"],
+    "book": "ACT",
+    "references": ["1:8", "10:40-43"],
+    "reference": "ACT 1:8;10:40-43",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ACT 4:12", "ACT 4:33"],
+    "book": "ACT",
+    "references": ["4:12", "4:33"],
+    "reference": "ACT 4:12,33",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ACT 13:32-39", "ACT 16:30"],
+    "book": "ACT",
+    "references": ["13:32-39", "16:30"],
+    "reference": "ACT 13:32-39;16:30",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ACT 17:27-28"],
+    "book": "ACT",
+    "references": ["17:27-28"],
+    "reference": "ACT 17:27-28",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ROM 1:16-17"],
+    "book": "ROM",
+    "references": ["1:16-17"],
+    "reference": "ROM 1:16-17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ROM 3:23-25"],
+    "book": "ROM",
+    "references": ["3:23-25"],
+    "reference": "ROM 3:23-25",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ROM 6:5-11"],
+    "book": "ROM",
+    "references": ["6:5-11"],
+    "reference": "ROM 6:5-11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ROM 8:18"],
+    "book": "ROM",
+    "references": ["8:18"],
+    "reference": "ROM 8:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ROM 8:28-29"],
+    "book": "ROM",
+    "references": ["8:28-29"],
+    "reference": "ROM 8:28-29",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["ROM 12:2"],
+    "book": "ROM",
+    "references": ["12:2"],
+    "reference": "ROM 12:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CO 1:2"],
+    "book": "1CO",
+    "references": ["1:2"],
+    "reference": "1CO 1:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CO 1:18"],
+    "book": "1CO",
+    "references": ["1:18"],
+    "reference": "1CO 1:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CO 2:9"],
+    "book": "1CO",
+    "references": ["2:9"],
+    "reference": "1CO 2:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CO 3:22-23"],
+    "book": "1CO",
+    "references": ["3:22-23"],
+    "reference": "1CO 3:22-23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CO 6:19-20"],
+    "book": "1CO",
+    "references": ["6:19-20"],
+    "reference": "1CO 6:19-20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1CO 15:22", "1CO 15:58"],
+    "book": "1CO",
+    "references": ["15:22", "15:58"],
+    "reference": "1CO 15:22,58",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CO 1:3-4"],
+    "book": "2CO",
+    "references": ["1:3-4"],
+    "reference": "2CO 1:3-4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CO 2:14"],
+    "book": "2CO",
+    "references": ["2:14"],
+    "reference": "2CO 2:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CO 3:18"],
+    "book": "2CO",
+    "references": ["3:18"],
+    "reference": "2CO 3:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CO 4:7"],
+    "book": "2CO",
+    "references": ["4:7"],
+    "reference": "2CO 4:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CO 5:17"],
+    "book": "2CO",
+    "references": ["5:17"],
+    "reference": "2CO 5:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CO 5:21"],
+    "book": "2CO",
+    "references": ["5:21"],
+    "reference": "2CO 5:21",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2CO 9:6-8"],
+    "book": "2CO",
+    "references": ["9:6-8"],
+    "reference": "2CO 9:6-8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GAL 1:3-4"],
+    "book": "GAL",
+    "references": ["1:3-4"],
+    "reference": "GAL 1:3-4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GAL 2:20"],
+    "book": "GAL",
+    "references": ["2:20"],
+    "reference": "GAL 2:20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GAL 3:13"],
+    "book": "GAL",
+    "references": ["3:13"],
+    "reference": "GAL 3:13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GAL 3:27-29"],
+    "book": "GAL",
+    "references": ["3:27-29"],
+    "reference": "GAL 3:27-29",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GAL 5:16", "GAL 5:25"],
+    "book": "GAL",
+    "references": ["5:16", "5:25"],
+    "reference": "GAL 5:16,25",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["GAL 5:22-23"],
+    "book": "GAL",
+    "references": ["5:22-23"],
+    "reference": "GAL 5:22-23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EPH 1:3"],
+    "book": "EPH",
+    "references": ["1:3"],
+    "reference": "EPH 1:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EPH 1:4"],
+    "book": "EPH",
+    "references": ["1:4"],
+    "reference": "EPH 1:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EPH 2:8"],
+    "book": "EPH",
+    "references": ["2:8"],
+    "reference": "EPH 2:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EPH 2:10"],
+    "book": "EPH",
+    "references": ["2:10"],
+    "reference": "EPH 2:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EPH 3:20"],
+    "book": "EPH",
+    "references": ["3:20"],
+    "reference": "EPH 3:20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EPH 4:24"],
+    "book": "EPH",
+    "references": ["4:24"],
+    "reference": "EPH 4:24",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["EPH 5:8"],
+    "book": "EPH",
+    "references": ["5:8"],
+    "reference": "EPH 5:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PHP 1:6"],
+    "book": "PHP",
+    "references": ["1:6"],
+    "reference": "PHP 1:6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PHP 1:9-11"],
+    "book": "PHP",
+    "references": ["1:9-11"],
+    "reference": "PHP 1:9-11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PHP 1:21"],
+    "book": "PHP",
+    "references": ["1:21"],
+    "reference": "PHP 1:21",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PHP 2:10-11"],
+    "book": "PHP",
+    "references": ["2:10-11"],
+    "reference": "PHP 2:10-11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PHP 2:13"],
+    "book": "PHP",
+    "references": ["2:13"],
+    "reference": "PHP 2:13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PHP 4:6-7"],
+    "book": "PHP",
+    "references": ["4:6-7"],
+    "reference": "PHP 4:6-7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["PHP 4:19"],
+    "book": "PHP",
+    "references": ["4:19"],
+    "reference": "PHP 4:19",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TH 1:4"],
+    "book": "1TH",
+    "references": ["1:4"],
+    "reference": "1TH 1:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TH 1:10"],
+    "book": "1TH",
+    "references": ["1:10"],
+    "reference": "1TH 1:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TH 2:19-20"],
+    "book": "1TH",
+    "references": ["2:19-20"],
+    "reference": "1TH 2:19-20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TH 3:13"],
+    "book": "1TH",
+    "references": ["3:13"],
+    "reference": "1TH 3:13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TH 4:16-17"],
+    "book": "1TH",
+    "references": ["4:16-17"],
+    "reference": "1TH 4:16-17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TH 5:9-10"],
+    "book": "1TH",
+    "references": ["5:9-10"],
+    "reference": "1TH 5:9-10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TH 5:23"],
+    "book": "1TH",
+    "references": ["5:23"],
+    "reference": "1TH 5:23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2TH 1:5-10"],
+    "book": "2TH",
+    "references": ["1:5-10"],
+    "reference": "2TH 1:5-10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2TH 1:11-12"],
+    "book": "2TH",
+    "references": ["1:11-12"],
+    "reference": "2TH 1:11-12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2TH 2:13-14"],
+    "book": "2TH",
+    "references": ["2:13-14"],
+    "reference": "2TH 2:13-14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2TH 3:5"],
+    "book": "2TH",
+    "references": ["3:5"],
+    "reference": "2TH 3:5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TI 1:5"],
+    "book": "1TI",
+    "references": ["1:5"],
+    "reference": "1TI 1:5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TI 1:14"],
+    "book": "1TI",
+    "references": ["1:14"],
+    "reference": "1TI 1:14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TI 1:15-16"],
+    "book": "1TI",
+    "references": ["1:15-16"],
+    "reference": "1TI 1:15-16",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TI 1:17"],
+    "book": "1TI",
+    "references": ["1:17"],
+    "reference": "1TI 1:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TI 2:4"],
+    "book": "1TI",
+    "references": ["2:4"],
+    "reference": "1TI 2:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TI 2:5"],
+    "book": "1TI",
+    "references": ["2:5"],
+    "reference": "1TI 2:5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TI 4:8"],
+    "book": "1TI",
+    "references": ["4:8"],
+    "reference": "1TI 4:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TI 6:6"],
+    "book": "1TI",
+    "references": ["6:6"],
+    "reference": "1TI 6:6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1TI 6:17"],
+    "book": "1TI",
+    "references": ["6:17"],
+    "reference": "1TI 6:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2TI 1:7"],
+    "book": "2TI",
+    "references": ["1:7"],
+    "reference": "2TI 1:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2TI 1:9"],
+    "book": "2TI",
+    "references": ["1:9"],
+    "reference": "2TI 1:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2TI 1:10"],
+    "book": "2TI",
+    "references": ["1:10"],
+    "reference": "2TI 1:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2TI 1:12"],
+    "book": "2TI",
+    "references": ["1:12"],
+    "reference": "2TI 1:12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2TI 2:11-13"],
+    "book": "2TI",
+    "references": ["2:11-13"],
+    "reference": "2TI 2:11-13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2TI 4:8"],
+    "book": "2TI",
+    "references": ["4:8"],
+    "reference": "2TI 4:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2TI 4:18"],
+    "book": "2TI",
+    "references": ["4:18"],
+    "reference": "2TI 4:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["TIT 1:1-2"],
+    "book": "TIT",
+    "references": ["1:1-2"],
+    "reference": "TIT 1:1-2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["TIT 2:11"],
+    "book": "TIT",
+    "references": ["2:11"],
+    "reference": "TIT 2:11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["TIT 2:13-14"],
+    "book": "TIT",
+    "references": ["2:13-14"],
+    "reference": "TIT 2:13-14",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["TIT 3:4-7"],
+    "book": "TIT",
+    "references": ["3:4-7"],
+    "reference": "TIT 3:4-7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HEB 2:9"],
+    "book": "HEB",
+    "references": ["2:9"],
+    "reference": "HEB 2:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HEB 2:18"],
+    "book": "HEB",
+    "references": ["2:18"],
+    "reference": "HEB 2:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HEB 4:15"],
+    "book": "HEB",
+    "references": ["4:15"],
+    "reference": "HEB 4:15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HEB 4:16"],
+    "book": "HEB",
+    "references": ["4:16"],
+    "reference": "HEB 4:16",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HEB 6:19"],
+    "book": "HEB",
+    "references": ["6:19"],
+    "reference": "HEB 6:19",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HEB 7:25"],
+    "book": "HEB",
+    "references": ["7:25"],
+    "reference": "HEB 7:25",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HEB 9:15"],
+    "book": "HEB",
+    "references": ["9:15"],
+    "reference": "HEB 9:15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HEB 11:1", "HEB 11:6"],
+    "book": "HEB",
+    "references": ["11:1", "11:6"],
+    "reference": "HEB 11:1,6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["HEB 13:8"],
+    "book": "HEB",
+    "references": ["13:8"],
+    "reference": "HEB 13:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JAS 1:17"],
+    "book": "JAS",
+    "references": ["1:17"],
+    "reference": "JAS 1:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JAS 1:25"],
+    "book": "JAS",
+    "references": ["1:25"],
+    "reference": "JAS 1:25",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JAS 2:13"],
+    "book": "JAS",
+    "references": ["2:13"],
+    "reference": "JAS 2:13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JAS 3:17"],
+    "book": "JAS",
+    "references": ["3:17"],
+    "reference": "JAS 3:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JAS 4:7"],
+    "book": "JAS",
+    "references": ["4:7"],
+    "reference": "JAS 4:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JAS 4:8"],
+    "book": "JAS",
+    "references": ["4:8"],
+    "reference": "JAS 4:8",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["JAS 5:20"],
+    "book": "JAS",
+    "references": ["5:20"],
+    "reference": "JAS 5:20",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1PE 1:2"],
+    "book": "1PE",
+    "references": ["1:2"],
+    "reference": "1PE 1:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1PE 1:3-4"],
+    "book": "1PE",
+    "references": ["1:3-4"],
+    "reference": "1PE 1:3-4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1PE 1:18-19"],
+    "book": "1PE",
+    "references": ["1:18-19"],
+    "reference": "1PE 1:18-19",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1PE 1:23"],
+    "book": "1PE",
+    "references": ["1:23"],
+    "reference": "1PE 1:23",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1PE 2:9"],
+    "book": "1PE",
+    "references": ["2:9"],
+    "reference": "1PE 2:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1PE 2:24"],
+    "book": "1PE",
+    "references": ["2:24"],
+    "reference": "1PE 2:24",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1PE 3:18"],
+    "book": "1PE",
+    "references": ["3:18"],
+    "reference": "1PE 3:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1PE 5:7"],
+    "book": "1PE",
+    "references": ["5:7"],
+    "reference": "1PE 5:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1PE 5:10"],
+    "book": "1PE",
+    "references": ["5:10"],
+    "reference": "1PE 5:10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2PE 1:3"],
+    "book": "2PE",
+    "references": ["1:3"],
+    "reference": "2PE 1:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2PE 1:4"],
+    "book": "2PE",
+    "references": ["1:4"],
+    "reference": "2PE 1:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2PE 1:5-11"],
+    "book": "2PE",
+    "references": ["1:5-11"],
+    "reference": "2PE 1:5-11",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2PE 3:8-9"],
+    "book": "2PE",
+    "references": ["3:8-9"],
+    "reference": "2PE 3:8-9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["2PE 3:13"],
+    "book": "2PE",
+    "references": ["3:13"],
+    "reference": "2PE 3:13",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 1:5"],
+    "book": "1JN",
+    "references": ["1:5"],
+    "reference": "1JN 1:5",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 1:7"],
+    "book": "1JN",
+    "references": ["1:7"],
+    "reference": "1JN 1:7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 1:9"],
+    "book": "1JN",
+    "references": ["1:9"],
+    "reference": "1JN 1:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 2:1-2"],
+    "book": "1JN",
+    "references": ["2:1-2"],
+    "reference": "1JN 2:1-2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 2:17"],
+    "book": "1JN",
+    "references": ["2:17"],
+    "reference": "1JN 2:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 3:1"],
+    "book": "1JN",
+    "references": ["3:1"],
+    "reference": "1JN 3:1",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 3:2"],
+    "book": "1JN",
+    "references": ["3:2"],
+    "reference": "1JN 3:2",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 4:9-10"],
+    "book": "1JN",
+    "references": ["4:9-10"],
+    "reference": "1JN 4:9-10",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 4:18"],
+    "book": "1JN",
+    "references": ["4:18"],
+    "reference": "1JN 4:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 5:1"],
+    "book": "1JN",
+    "references": ["5:1"],
+    "reference": "1JN 5:1",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 5:11-12"],
+    "book": "1JN",
+    "references": ["5:11-12"],
+    "reference": "1JN 5:11-12",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["1JN 5:14-15"],
+    "book": "1JN",
+    "references": ["5:14-15"],
+    "reference": "1JN 5:14-15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["REV 1:3"],
+    "book": "REV",
+    "references": ["1:3"],
+    "reference": "REV 1:3",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["REV 1:5-6"],
+    "book": "REV",
+    "references": ["1:5-6"],
+    "reference": "REV 1:5-6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["REV 1:18"],
+    "book": "REV",
+    "references": ["1:18"],
+    "reference": "REV 1:18",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["REV 3:20-21"],
+    "book": "REV",
+    "references": ["3:20-21"],
+    "reference": "REV 3:20-21",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["REV 5:9"],
+    "book": "REV",
+    "references": ["5:9"],
+    "reference": "REV 5:9",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["REV 11:15"],
+    "book": "REV",
+    "references": ["11:15"],
+    "reference": "REV 11:15",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["REV 20:6"],
+    "book": "REV",
+    "references": ["20:6"],
+    "reference": "REV 20:6",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["REV 21:4"],
+    "book": "REV",
+    "references": ["21:4"],
+    "reference": "REV 21:4",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["REV 21:6-7"],
+    "book": "REV",
+    "references": ["21:6-7"],
+    "reference": "REV 21:6-7",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   },
   {
-    "reference": ["REV 22:17"],
+    "book": "REV",
+    "references": ["22:17"],
+    "reference": "REV 22:17",
     "source": "https://believersportal.com/list-of-3000-promises-in-the-bible/"
   }
 ]

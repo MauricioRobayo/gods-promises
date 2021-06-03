@@ -60,20 +60,25 @@ axios.get(url).then(({ data }) => {
             .text()
             .match(/\((\d+:.*)\)\.?$/);
           if (match) {
-            const promise = [];
+            const references = [];
             const ref = match[1].trim().replace(/ /g, "");
             const refs = ref.split(";");
             refs.forEach((newRef) => {
               if (newRef.includes(",")) {
                 const [chapter, multipleRefs] = newRef.split(":");
                 multipleRefs.split(",").forEach((consecutiveRef) => {
-                  promise.push(`${bookId} ${chapter}:${consecutiveRef}`);
+                  references.push(`${chapter}:${consecutiveRef}`);
                 });
               } else {
-                promise.push(`${bookId} ${newRef}`);
+                references.push(newRef);
               }
             });
-            promises.push({ reference: promise, source: url });
+            promises.push({
+              book: bookId,
+              references,
+              reference: `${bookId} ${ref}`,
+              source: url,
+            });
           }
         });
       }

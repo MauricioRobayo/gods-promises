@@ -43,7 +43,12 @@ axios.get(url).then(({ data }) => {
           getStandardBookName(book.replace("-", " "), booksMap)
         );
         if (bookId && ref && /^\d+:/.test(ref)) {
-          promises.push({ reference: [`${bookId} ${ref}`], source: url });
+          promises.push({
+            book: bookId,
+            references: [ref],
+            reference: `${bookId} ${ref}`,
+            source: url,
+          });
         }
         return;
       }
@@ -57,7 +62,9 @@ axios.get(url).then(({ data }) => {
         const bookId = getBookId(getStandardBookName(book, booksMap));
         if (bookId) {
           promises.push({
-            reference: [`${bookId} ${match[1].trim().replace(/[a-z]/gi, "")}`],
+            book: bookId,
+            references: [ref],
+            reference: `${bookId} ${ref}`,
             source: url,
           });
         }

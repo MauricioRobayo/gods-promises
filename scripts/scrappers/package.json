@@ -11,9 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
+    "bible-passage-reference-parser": "^2.0.1",
     "cheerio": "^1.0.0-rc.9",
     "dotenv": "^10.0.0",
     "firebase": "^8.6.3",
-    "firebase-admin": "^9.9.0"
+    "firebase-admin": "^9.9.0",
+    "scroll-scripture-parser": "^1.2.3"
   }
 }

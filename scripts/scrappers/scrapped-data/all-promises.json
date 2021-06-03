@@ -1,1062 +1,1592 @@
 [
   {
-    "reference": ["2PE 1:4"],
+    "book": "2PE",
+    "references": ["1:4"],
+    "reference": "2PE 1:4",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JER 29:11"],
+    "book": "JER",
+    "references": ["29:11"],
+    "reference": "JER 29:11",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 11:28-29"],
+    "book": "MAT",
+    "references": ["11:28-29"],
+    "reference": "MAT 11:28-29",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ISA 40:29-31"],
+    "book": "ISA",
+    "references": ["40:29-31"],
+    "reference": "ISA 40:29-31",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["PHP 4:19"],
+    "book": "PHP",
+    "references": ["4:19"],
+    "reference": "PHP 4:19",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 8:37-39"],
+    "book": "ROM",
+    "references": ["8:37-39"],
+    "reference": "ROM 8:37-39",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["PRO 1:33"],
+    "book": "PRO",
+    "references": ["1:33"],
+    "reference": "PRO 1:33",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 14:27"],
+    "book": "JHN",
+    "references": ["14:27"],
+    "reference": "JHN 14:27",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 10:9"],
+    "book": "ROM",
+    "references": ["10:9"],
+    "reference": "ROM 10:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 6:23"],
+    "book": "ROM",
+    "references": ["6:23"],
+    "reference": "ROM 6:23",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 6:6"],
+    "book": "MAT",
+    "references": ["6:6"],
+    "reference": "MAT 6:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 6:25"],
+    "book": "MAT",
+    "references": ["6:25"],
+    "reference": "MAT 6:25",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 7:7"],
+    "book": "MAT",
+    "references": ["7:7"],
+    "reference": "MAT 7:7",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 9:6"],
+    "book": "MAT",
+    "references": ["9:6"],
+    "reference": "MAT 9:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 9:35"],
+    "book": "MAT",
+    "references": ["9:35"],
+    "reference": "MAT 9:35",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 10:1"],
+    "book": "MAT",
+    "references": ["10:1"],
+    "reference": "MAT 10:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 11:28"],
+    "book": "MAT",
+    "references": ["11:28"],
+    "reference": "MAT 11:28",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 12:40"],
+    "book": "MAT",
+    "references": ["12:40"],
+    "reference": "MAT 12:40",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 13:41"],
+    "book": "MAT",
+    "references": ["13:41"],
+    "reference": "MAT 13:41",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 16:19"],
+    "book": "MAT",
+    "references": ["16:19"],
+    "reference": "MAT 16:19",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 25:34"],
+    "book": "MAT",
+    "references": ["25:34"],
+    "reference": "MAT 25:34",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 26:26"],
+    "book": "MAT",
+    "references": ["26:26"],
+    "reference": "MAT 26:26",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 28:5"],
+    "book": "MAT",
+    "references": ["28:5"],
+    "reference": "MAT 28:5",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MAT 28:18"],
+    "book": "MAT",
+    "references": ["28:18"],
+    "reference": "MAT 28:18",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 1:17"],
+    "book": "MRK",
+    "references": ["1:17"],
+    "reference": "MRK 1:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 1:34"],
+    "book": "MRK",
+    "references": ["1:34"],
+    "reference": "MRK 1:34",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 1:41"],
+    "book": "MRK",
+    "references": ["1:41"],
+    "reference": "MRK 1:41",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 2:10"],
+    "book": "MRK",
+    "references": ["2:10"],
+    "reference": "MRK 2:10",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 2:17"],
+    "book": "MRK",
+    "references": ["2:17"],
+    "reference": "MRK 2:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 3:11"],
+    "book": "MRK",
+    "references": ["3:11"],
+    "reference": "MRK 3:11",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 3:14"],
+    "book": "MRK",
+    "references": ["3:14"],
+    "reference": "MRK 3:14",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 3:35"],
+    "book": "MRK",
+    "references": ["3:35"],
+    "reference": "MRK 3:35",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 4:26"],
+    "book": "MRK",
+    "references": ["4:26"],
+    "reference": "MRK 4:26",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 5:36"],
+    "book": "MRK",
+    "references": ["5:36"],
+    "reference": "MRK 5:36",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 6:12"],
+    "book": "MRK",
+    "references": ["6:12"],
+    "reference": "MRK 6:12",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 8:31"],
+    "book": "MRK",
+    "references": ["8:31"],
+    "reference": "MRK 8:31",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 9:31"],
+    "book": "MRK",
+    "references": ["9:31"],
+    "reference": "MRK 9:31",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 10:26"],
+    "book": "MRK",
+    "references": ["10:26"],
+    "reference": "MRK 10:26",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 11:22"],
+    "book": "MRK",
+    "references": ["11:22"],
+    "reference": "MRK 11:22",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 14:24"],
+    "book": "MRK",
+    "references": ["14:24"],
+    "reference": "MRK 14:24",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 14:62"],
+    "book": "MRK",
+    "references": ["14:62"],
+    "reference": "MRK 14:62",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 16:6"],
+    "book": "MRK",
+    "references": ["16:6"],
+    "reference": "MRK 16:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["MRK 16:15"],
+    "book": "MRK",
+    "references": ["16:15"],
+    "reference": "MRK 16:15",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["LUK 1:32"],
+    "book": "LUK",
+    "references": ["1:32"],
+    "reference": "LUK 1:32",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["LUK 2:14"],
+    "book": "LUK",
+    "references": ["2:14"],
+    "reference": "LUK 2:14",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["LUK 3:5"],
+    "book": "LUK",
+    "references": ["3:5"],
+    "reference": "LUK 3:5",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 1:12-13"],
+    "book": "JHN",
+    "references": ["1:12-13"],
+    "reference": "JHN 1:12-13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 3:16"],
+    "book": "JHN",
+    "references": ["3:16"],
+    "reference": "JHN 3:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 5:24"],
+    "book": "JHN",
+    "references": ["5:24"],
+    "reference": "JHN 5:24",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 10:9"],
+    "book": "JHN",
+    "references": ["10:9"],
+    "reference": "JHN 10:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 11:25"],
+    "book": "JHN",
+    "references": ["11:25"],
+    "reference": "JHN 11:25",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 12:26"],
+    "book": "JHN",
+    "references": ["12:26"],
+    "reference": "JHN 12:26",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 12:31"],
+    "book": "JHN",
+    "references": ["12:31"],
+    "reference": "JHN 12:31",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 12:46"],
+    "book": "JHN",
+    "references": ["12:46"],
+    "reference": "JHN 12:46",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 14:1"],
+    "book": "JHN",
+    "references": ["14:1"],
+    "reference": "JHN 14:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 14:12"],
+    "book": "JHN",
+    "references": ["14:12"],
+    "reference": "JHN 14:12",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 14:18"],
+    "book": "JHN",
+    "references": ["14:18"],
+    "reference": "JHN 14:18",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 14:26"],
+    "book": "JHN",
+    "references": ["14:26"],
+    "reference": "JHN 14:26",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 15:4"],
+    "book": "JHN",
+    "references": ["15:4"],
+    "reference": "JHN 15:4",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 15:7"],
+    "book": "JHN",
+    "references": ["15:7"],
+    "reference": "JHN 15:7",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 15:11"],
+    "book": "JHN",
+    "references": ["15:11"],
+    "reference": "JHN 15:11",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 15:15"],
+    "book": "JHN",
+    "references": ["15:15"],
+    "reference": "JHN 15:15",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 15:26"],
+    "book": "JHN",
+    "references": ["15:26"],
+    "reference": "JHN 15:26",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 16:13"],
+    "book": "JHN",
+    "references": ["16:13"],
+    "reference": "JHN 16:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 16:23"],
+    "book": "JHN",
+    "references": ["16:23"],
+    "reference": "JHN 16:23",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 16:27"],
+    "book": "JHN",
+    "references": ["16:27"],
+    "reference": "JHN 16:27",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 16:33"],
+    "book": "JHN",
+    "references": ["16:33"],
+    "reference": "JHN 16:33",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 17:3"],
+    "book": "JHN",
+    "references": ["17:3"],
+    "reference": "JHN 17:3",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 17:20"],
+    "book": "JHN",
+    "references": ["17:20"],
+    "reference": "JHN 17:20",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 20:21"],
+    "book": "JHN",
+    "references": ["20:21"],
+    "reference": "JHN 20:21",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 20:29"],
+    "book": "JHN",
+    "references": ["20:29"],
+    "reference": "JHN 20:29",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JHN 20:21"],
+    "book": "JHN",
+    "references": ["20:21"],
+    "reference": "JHN 20:21",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 1:5"],
+    "book": "ACT",
+    "references": ["1:5"],
+    "reference": "ACT 1:5",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 1:8"],
+    "book": "ACT",
+    "references": ["1:8"],
+    "reference": "ACT 1:8",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 2:1"],
+    "book": "ACT",
+    "references": ["2:1"],
+    "reference": "ACT 2:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 2:21"],
+    "book": "ACT",
+    "references": ["2:21"],
+    "reference": "ACT 2:21",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 2:38"],
+    "book": "ACT",
+    "references": ["2:38"],
+    "reference": "ACT 2:38",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 3:6"],
+    "book": "ACT",
+    "references": ["3:6"],
+    "reference": "ACT 3:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 3:19"],
+    "book": "ACT",
+    "references": ["3:19"],
+    "reference": "ACT 3:19",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 3:25"],
+    "book": "ACT",
+    "references": ["3:25"],
+    "reference": "ACT 3:25",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 4:12"],
+    "book": "ACT",
+    "references": ["4:12"],
+    "reference": "ACT 4:12",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 4:33"],
+    "book": "ACT",
+    "references": ["4:33"],
+    "reference": "ACT 4:33",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 10:40"],
+    "book": "ACT",
+    "references": ["10:40"],
+    "reference": "ACT 10:40",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 11:16"],
+    "book": "ACT",
+    "references": ["11:16"],
+    "reference": "ACT 11:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 13:32"],
+    "book": "ACT",
+    "references": ["13:32"],
+    "reference": "ACT 13:32",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 16:31"],
+    "book": "ACT",
+    "references": ["16:31"],
+    "reference": "ACT 16:31",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 17:27"],
+    "book": "ACT",
+    "references": ["17:27"],
+    "reference": "ACT 17:27",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ACT 18:9"],
+    "book": "ACT",
+    "references": ["18:9"],
+    "reference": "ACT 18:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 1:16"],
+    "book": "ROM",
+    "references": ["1:16"],
+    "reference": "ROM 1:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 3:21"],
+    "book": "ROM",
+    "references": ["3:21"],
+    "reference": "ROM 3:21",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 5:1"],
+    "book": "ROM",
+    "references": ["5:1"],
+    "reference": "ROM 5:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 5:5"],
+    "book": "ROM",
+    "references": ["5:5"],
+    "reference": "ROM 5:5",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 5:8"],
+    "book": "ROM",
+    "references": ["5:8"],
+    "reference": "ROM 5:8",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 6:5"],
+    "book": "ROM",
+    "references": ["6:5"],
+    "reference": "ROM 6:5",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 6:14"],
+    "book": "ROM",
+    "references": ["6:14"],
+    "reference": "ROM 6:14",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 6:17"],
+    "book": "ROM",
+    "references": ["6:17"],
+    "reference": "ROM 6:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 6:22"],
+    "book": "ROM",
+    "references": ["6:22"],
+    "reference": "ROM 6:22",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 7:4"],
+    "book": "ROM",
+    "references": ["7:4"],
+    "reference": "ROM 7:4",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 8:1"],
+    "book": "ROM",
+    "references": ["8:1"],
+    "reference": "ROM 8:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 8:9"],
+    "book": "ROM",
+    "references": ["8:9"],
+    "reference": "ROM 8:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 8:14"],
+    "book": "ROM",
+    "references": ["8:14"],
+    "reference": "ROM 8:14",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 8:28"],
+    "book": "ROM",
+    "references": ["8:28"],
+    "reference": "ROM 8:28",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 10:4"],
+    "book": "ROM",
+    "references": ["10:4"],
+    "reference": "ROM 10:4",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 10:9"],
+    "book": "ROM",
+    "references": ["10:9"],
+    "reference": "ROM 10:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 12:2"],
+    "book": "ROM",
+    "references": ["12:2"],
+    "reference": "ROM 12:2",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 14:17"],
+    "book": "ROM",
+    "references": ["14:17"],
+    "reference": "ROM 14:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["ROM 15:13"],
+    "book": "ROM",
+    "references": ["15:13"],
+    "reference": "ROM 15:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 1:4"],
+    "book": "1CO",
+    "references": ["1:4"],
+    "reference": "1CO 1:4",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 1:30"],
+    "book": "1CO",
+    "references": ["1:30"],
+    "reference": "1CO 1:30",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 2:9"],
+    "book": "1CO",
+    "references": ["2:9"],
+    "reference": "1CO 2:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 2:12"],
+    "book": "1CO",
+    "references": ["2:12"],
+    "reference": "1CO 2:12",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 2:16"],
+    "book": "1CO",
+    "references": ["2:16"],
+    "reference": "1CO 2:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 3:16"],
+    "book": "1CO",
+    "references": ["3:16"],
+    "reference": "1CO 3:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 3:23"],
+    "book": "1CO",
+    "references": ["3:23"],
+    "reference": "1CO 3:23",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 6:11"],
+    "book": "1CO",
+    "references": ["6:11"],
+    "reference": "1CO 6:11",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 6:17"],
+    "book": "1CO",
+    "references": ["6:17"],
+    "reference": "1CO 6:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 6:19"],
+    "book": "1CO",
+    "references": ["6:19"],
+    "reference": "1CO 6:19",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 10:13"],
+    "book": "1CO",
+    "references": ["10:13"],
+    "reference": "1CO 10:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 15:20"],
+    "book": "1CO",
+    "references": ["15:20"],
+    "reference": "1CO 15:20",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 15:48"],
+    "book": "1CO",
+    "references": ["15:48"],
+    "reference": "1CO 15:48",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 15:52"],
+    "book": "1CO",
+    "references": ["15:52"],
+    "reference": "1CO 15:52",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1CO 15:58"],
+    "book": "1CO",
+    "references": ["15:58"],
+    "reference": "1CO 15:58",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 1:3"],
+    "book": "2CO",
+    "references": ["1:3"],
+    "reference": "2CO 1:3",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 1:20"],
+    "book": "2CO",
+    "references": ["1:20"],
+    "reference": "2CO 1:20",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 2:14"],
+    "book": "2CO",
+    "references": ["2:14"],
+    "reference": "2CO 2:14",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 3:18"],
+    "book": "2CO",
+    "references": ["3:18"],
+    "reference": "2CO 3:18",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 4:5"],
+    "book": "2CO",
+    "references": ["4:5"],
+    "reference": "2CO 4:5",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 4:18"],
+    "book": "2CO",
+    "references": ["4:18"],
+    "reference": "2CO 4:18",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 5:1"],
+    "book": "2CO",
+    "references": ["5:1"],
+    "reference": "2CO 5:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 5:5"],
+    "book": "2CO",
+    "references": ["5:5"],
+    "reference": "2CO 5:5",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 5:17"],
+    "book": "2CO",
+    "references": ["5:17"],
+    "reference": "2CO 5:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 6:16"],
+    "book": "2CO",
+    "references": ["6:16"],
+    "reference": "2CO 6:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 9:6"],
+    "book": "2CO",
+    "references": ["9:6"],
+    "reference": "2CO 9:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2CO 12:9"],
+    "book": "2CO",
+    "references": ["12:9"],
+    "reference": "2CO 12:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 1:3"],
+    "book": "GAL",
+    "references": ["1:3"],
+    "reference": "GAL 1:3",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 2:16"],
+    "book": "GAL",
+    "references": ["2:16"],
+    "reference": "GAL 2:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 2:19"],
+    "book": "GAL",
+    "references": ["2:19"],
+    "reference": "GAL 2:19",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 3:11"],
+    "book": "GAL",
+    "references": ["3:11"],
+    "reference": "GAL 3:11",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 3:13"],
+    "book": "GAL",
+    "references": ["3:13"],
+    "reference": "GAL 3:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 3:18"],
+    "book": "GAL",
+    "references": ["3:18"],
+    "reference": "GAL 3:18",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 3:24"],
+    "book": "GAL",
+    "references": ["3:24"],
+    "reference": "GAL 3:24",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 3:26"],
+    "book": "GAL",
+    "references": ["3:26"],
+    "reference": "GAL 3:26",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 4:4"],
+    "book": "GAL",
+    "references": ["4:4"],
+    "reference": "GAL 4:4",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 5:5"],
+    "book": "GAL",
+    "references": ["5:5"],
+    "reference": "GAL 5:5",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 5:16"],
+    "book": "GAL",
+    "references": ["5:16"],
+    "reference": "GAL 5:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["GAL 6:8"],
+    "book": "GAL",
+    "references": ["6:8"],
+    "reference": "GAL 6:8",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["EPH 1:3"],
+    "book": "EPH",
+    "references": ["1:3"],
+    "reference": "EPH 1:3",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["EPH 1:7"],
+    "book": "EPH",
+    "references": ["1:7"],
+    "reference": "EPH 1:7",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["EPH 1:10"],
+    "book": "EPH",
+    "references": ["1:10"],
+    "reference": "EPH 1:10",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["EPH 1:17"],
+    "book": "EPH",
+    "references": ["1:17"],
+    "reference": "EPH 1:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["EPH 2:1"],
+    "book": "EPH",
+    "references": ["2:1"],
+    "reference": "EPH 2:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["EPH 2:4"],
+    "book": "EPH",
+    "references": ["2:4"],
+    "reference": "EPH 2:4",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["EPH 2:8"],
+    "book": "EPH",
+    "references": ["2:8"],
+    "reference": "EPH 2:8",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["EPH 2:13"],
+    "book": "EPH",
+    "references": ["2:13"],
+    "reference": "EPH 2:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["EPH 3:20"],
+    "book": "EPH",
+    "references": ["3:20"],
+    "reference": "EPH 3:20",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["EPH 4:23"],
+    "book": "EPH",
+    "references": ["4:23"],
+    "reference": "EPH 4:23",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["EPH 5:8"],
+    "book": "EPH",
+    "references": ["5:8"],
+    "reference": "EPH 5:8",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["PHP 1:6"],
+    "book": "PHP",
+    "references": ["1:6"],
+    "reference": "PHP 1:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["PHP 1:21"],
+    "book": "PHP",
+    "references": ["1:21"],
+    "reference": "PHP 1:21",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["PHP 2:13"],
+    "book": "PHP",
+    "references": ["2:13"],
+    "reference": "PHP 2:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["PHP 3:7"],
+    "book": "PHP",
+    "references": ["3:7"],
+    "reference": "PHP 3:7",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["PHP 3:20"],
+    "book": "PHP",
+    "references": ["3:20"],
+    "reference": "PHP 3:20",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["PHP 4:6"],
+    "book": "PHP",
+    "references": ["4:6"],
+    "reference": "PHP 4:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["PHP 4:13"],
+    "book": "PHP",
+    "references": ["4:13"],
+    "reference": "PHP 4:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["PHP 4:19"],
+    "book": "PHP",
+    "references": ["4:19"],
+    "reference": "PHP 4:19",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["COL 1:12"],
+    "book": "COL",
+    "references": ["1:12"],
+    "reference": "COL 1:12",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["COL 1:20"],
+    "book": "COL",
+    "references": ["1:20"],
+    "reference": "COL 1:20",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["COL 1:27"],
+    "book": "COL",
+    "references": ["1:27"],
+    "reference": "COL 1:27",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["COL 2:10"],
+    "book": "COL",
+    "references": ["2:10"],
+    "reference": "COL 2:10",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["COL 3:1"],
+    "book": "COL",
+    "references": ["3:1"],
+    "reference": "COL 3:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["COL 3:24"],
+    "book": "COL",
+    "references": ["3:24"],
+    "reference": "COL 3:24",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1TH 1:10"],
+    "book": "1TH",
+    "references": ["1:10"],
+    "reference": "1TH 1:10",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1TH 3:13"],
+    "book": "1TH",
+    "references": ["3:13"],
+    "reference": "1TH 3:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1TH 4:16"],
+    "book": "1TH",
+    "references": ["4:16"],
+    "reference": "1TH 4:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1TH 5:9"],
+    "book": "1TH",
+    "references": ["5:9"],
+    "reference": "1TH 5:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1TH 5:23"],
+    "book": "1TH",
+    "references": ["5:23"],
+    "reference": "1TH 5:23",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TH 1:10"],
+    "book": "2TH",
+    "references": ["1:10"],
+    "reference": "2TH 1:10",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TH 2:13"],
+    "book": "2TH",
+    "references": ["2:13"],
+    "reference": "2TH 2:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TH 2:16"],
+    "book": "2TH",
+    "references": ["2:16"],
+    "reference": "2TH 2:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TH 3:3"],
+    "book": "2TH",
+    "references": ["3:3"],
+    "reference": "2TH 3:3",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TH 3:16"],
+    "book": "2TH",
+    "references": ["3:16"],
+    "reference": "2TH 3:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1TI 1:14"],
+    "book": "1TI",
+    "references": ["1:14"],
+    "reference": "1TI 1:14",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1TI 2:3"],
+    "book": "1TI",
+    "references": ["2:3"],
+    "reference": "1TI 2:3",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1TI 4:8"],
+    "book": "1TI",
+    "references": ["4:8"],
+    "reference": "1TI 4:8",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1TI 6:6"],
+    "book": "1TI",
+    "references": ["6:6"],
+    "reference": "1TI 6:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1TI 6:17"],
+    "book": "1TI",
+    "references": ["6:17"],
+    "reference": "1TI 6:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TI 1:7"],
+    "book": "2TI",
+    "references": ["1:7"],
+    "reference": "2TI 1:7",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TI 1:9"],
+    "book": "2TI",
+    "references": ["1:9"],
+    "reference": "2TI 1:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TI 1:12"],
+    "book": "2TI",
+    "references": ["1:12"],
+    "reference": "2TI 1:12",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TI 2:1"],
+    "book": "2TI",
+    "references": ["2:1"],
+    "reference": "2TI 2:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TI 2:11"],
+    "book": "2TI",
+    "references": ["2:11"],
+    "reference": "2TI 2:11",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TI 2:19"],
+    "book": "2TI",
+    "references": ["2:19"],
+    "reference": "2TI 2:19",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TI 4:8"],
+    "book": "2TI",
+    "references": ["4:8"],
+    "reference": "2TI 4:8",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2TI 4:18"],
+    "book": "2TI",
+    "references": ["4:18"],
+    "reference": "2TI 4:18",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["TIT 2:11"],
+    "book": "TIT",
+    "references": ["2:11"],
+    "reference": "TIT 2:11",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["TIT 3:4"],
+    "book": "TIT",
+    "references": ["3:4"],
+    "reference": "TIT 3:4",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 1:3"],
+    "book": "HEB",
+    "references": ["1:3"],
+    "reference": "HEB 1:3",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 1:9"],
+    "book": "HEB",
+    "references": ["1:9"],
+    "reference": "HEB 1:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 2:6"],
+    "book": "HEB",
+    "references": ["2:6"],
+    "reference": "HEB 2:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 2:18"],
+    "book": "HEB",
+    "references": ["2:18"],
+    "reference": "HEB 2:18",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 3:14"],
+    "book": "HEB",
+    "references": ["3:14"],
+    "reference": "HEB 3:14",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 4:9"],
+    "book": "HEB",
+    "references": ["4:9"],
+    "reference": "HEB 4:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 4:14"],
+    "book": "HEB",
+    "references": ["4:14"],
+    "reference": "HEB 4:14",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 6:17"],
+    "book": "HEB",
+    "references": ["6:17"],
+    "reference": "HEB 6:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 7:25"],
+    "book": "HEB",
+    "references": ["7:25"],
+    "reference": "HEB 7:25",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 8:8"],
+    "book": "HEB",
+    "references": ["8:8"],
+    "reference": "HEB 8:8",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 9:11"],
+    "book": "HEB",
+    "references": ["9:11"],
+    "reference": "HEB 9:11",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 9:26"],
+    "book": "HEB",
+    "references": ["9:26"],
+    "reference": "HEB 9:26",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 10:9"],
+    "book": "HEB",
+    "references": ["10:9"],
+    "reference": "HEB 10:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 10:14"],
+    "book": "HEB",
+    "references": ["10:14"],
+    "reference": "HEB 10:14",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 10:16"],
+    "book": "HEB",
+    "references": ["10:16"],
+    "reference": "HEB 10:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 10:19"],
+    "book": "HEB",
+    "references": ["10:19"],
+    "reference": "HEB 10:19",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 11:1"],
+    "book": "HEB",
+    "references": ["11:1"],
+    "reference": "HEB 11:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 11:6"],
+    "book": "HEB",
+    "references": ["11:6"],
+    "reference": "HEB 11:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 12:28"],
+    "book": "HEB",
+    "references": ["12:28"],
+    "reference": "HEB 12:28",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 13:8"],
+    "book": "HEB",
+    "references": ["13:8"],
+    "reference": "HEB 13:8",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["HEB 13:20"],
+    "book": "HEB",
+    "references": ["13:20"],
+    "reference": "HEB 13:20",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JAS 1:4"],
+    "book": "JAS",
+    "references": ["1:4"],
+    "reference": "JAS 1:4",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JAS 1:12"],
+    "book": "JAS",
+    "references": ["1:12"],
+    "reference": "JAS 1:12",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JAS 1:13"],
+    "book": "JAS",
+    "references": ["1:13"],
+    "reference": "JAS 1:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JAS 1:17"],
+    "book": "JAS",
+    "references": ["1:17"],
+    "reference": "JAS 1:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JAS 1:25"],
+    "book": "JAS",
+    "references": ["1:25"],
+    "reference": "JAS 1:25",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JAS 2:5"],
+    "book": "JAS",
+    "references": ["2:5"],
+    "reference": "JAS 2:5",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JAS 4:6"],
+    "book": "JAS",
+    "references": ["4:6"],
+    "reference": "JAS 4:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JAS 5:14"],
+    "book": "JAS",
+    "references": ["5:14"],
+    "reference": "JAS 5:14",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["JAS 5:20"],
+    "book": "JAS",
+    "references": ["5:20"],
+    "reference": "JAS 5:20",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1PE 1:3"],
+    "book": "1PE",
+    "references": ["1:3"],
+    "reference": "1PE 1:3",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1PE 1:18"],
+    "book": "1PE",
+    "references": ["1:18"],
+    "reference": "1PE 1:18",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1PE 1:25"],
+    "book": "1PE",
+    "references": ["1:25"],
+    "reference": "1PE 1:25",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1PE 2:9"],
+    "book": "1PE",
+    "references": ["2:9"],
+    "reference": "1PE 2:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1PE 2:24"],
+    "book": "1PE",
+    "references": ["2:24"],
+    "reference": "1PE 2:24",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1PE 3:12"],
+    "book": "1PE",
+    "references": ["3:12"],
+    "reference": "1PE 3:12",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1PE 3:18"],
+    "book": "1PE",
+    "references": ["3:18"],
+    "reference": "1PE 3:18",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1PE 5:4"],
+    "book": "1PE",
+    "references": ["5:4"],
+    "reference": "1PE 5:4",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1PE 5:7"],
+    "book": "1PE",
+    "references": ["5:7"],
+    "reference": "1PE 5:7",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1PE 5:10"],
+    "book": "1PE",
+    "references": ["5:10"],
+    "reference": "1PE 5:10",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2PE 1:2"],
+    "book": "2PE",
+    "references": ["1:2"],
+    "reference": "2PE 1:2",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2PE 3:9"],
+    "book": "2PE",
+    "references": ["3:9"],
+    "reference": "2PE 3:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["2PE 3:13"],
+    "book": "2PE",
+    "references": ["3:13"],
+    "reference": "2PE 3:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 1:2"],
+    "book": "1JN",
+    "references": ["1:2"],
+    "reference": "1JN 1:2",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 1:7"],
+    "book": "1JN",
+    "references": ["1:7"],
+    "reference": "1JN 1:7",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 1:9"],
+    "book": "1JN",
+    "references": ["1:9"],
+    "reference": "1JN 1:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 2:1"],
+    "book": "1JN",
+    "references": ["2:1"],
+    "reference": "1JN 2:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 2:12"],
+    "book": "1JN",
+    "references": ["2:12"],
+    "reference": "1JN 2:12",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 2:17"],
+    "book": "1JN",
+    "references": ["2:17"],
+    "reference": "1JN 2:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 2:20"],
+    "book": "1JN",
+    "references": ["2:20"],
+    "reference": "1JN 2:20",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 2:25"],
+    "book": "1JN",
+    "references": ["2:25"],
+    "reference": "1JN 2:25",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 2:27"],
+    "book": "1JN",
+    "references": ["2:27"],
+    "reference": "1JN 2:27",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 3:1"],
+    "book": "1JN",
+    "references": ["3:1"],
+    "reference": "1JN 3:1",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 3:21"],
+    "book": "1JN",
+    "references": ["3:21"],
+    "reference": "1JN 3:21",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 4:9"],
+    "book": "1JN",
+    "references": ["4:9"],
+    "reference": "1JN 4:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 4:13"],
+    "book": "1JN",
+    "references": ["4:13"],
+    "reference": "1JN 4:13",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["1JN 4:16"],
+    "book": "1JN",
+    "references": ["4:16"],
+    "reference": "1JN 4:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 1:3"],
+    "book": "REV",
+    "references": ["1:3"],
+    "reference": "REV 1:3",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 1:5"],
+    "book": "REV",
+    "references": ["1:5"],
+    "reference": "REV 1:5",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 1:18"],
+    "book": "REV",
+    "references": ["1:18"],
+    "reference": "REV 1:18",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 3:20"],
+    "book": "REV",
+    "references": ["3:20"],
+    "reference": "REV 3:20",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 5:9"],
+    "book": "REV",
+    "references": ["5:9"],
+    "reference": "REV 5:9",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 7:16"],
+    "book": "REV",
+    "references": ["7:16"],
+    "reference": "REV 7:16",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 11:15"],
+    "book": "REV",
+    "references": ["11:15"],
+    "reference": "REV 11:15",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 20:6"],
+    "book": "REV",
+    "references": ["20:6"],
+    "reference": "REV 20:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 21:4"],
+    "book": "REV",
+    "references": ["21:4"],
+    "reference": "REV 21:4",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 21:6"],
+    "book": "REV",
+    "references": ["21:6"],
+    "reference": "REV 21:6",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 22:3"],
+    "book": "REV",
+    "references": ["22:3"],
+    "reference": "REV 22:3",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   },
   {
-    "reference": ["REV 22:17"],
+    "book": "REV",
+    "references": ["22:17"],
+    "reference": "REV 22:17",
     "source": "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible"
   }
 ]

@@ -10,15 +10,14 @@ const firebaseCredential = process.env.FIREBASE_CREDENTIAL;
 const firestoreEmulatorHost = process.env.FIRESTORE_EMULATOR_HOST;
 const projectId = process.env.PROJECT_ID;
 const promises = [...p1, ...p2, ...p3, ...p4];
-const stringifiedReferences = promises.map(({ reference }) =>
-  JSON.stringify(reference)
-);
-const uniqueStringifiedReferences = [...new Set(stringifiedReferences)];
+const uniqueReferences = [
+  ...new Set(promises.map(({ reference }) => reference)),
+];
 
 if (firestoreEmulatorHost && projectId) {
-  // shuffle(uniqueStringifiedReferences).splice(5);
+  // shuffle(uniqueReferences).splice(5);
   console.log(
-    `Using emulator, inserting ${uniqueStringifiedReferences.length} random docs!`
+    `Using emulator, inserting ${uniqueReferences.length} random docs!`
   );
   admin.initializeApp({ projectId });
 } else if (firebaseCredential) {
@@ -33,13 +32,8 @@ if (firestoreEmulatorHost && projectId) {
 const db = admin.firestore();
 const promisesCollection = db.collection("promises");
 
-const uniquePromises = uniqueStringifiedReferences.map(
-  (uniqueStringifiedReference) => {
-    return promises.find(
-      (promise) =>
-        JSON.stringify(promise.reference) === uniqueStringifiedReference
-    );
-  }
+const uniquePromises = uniqueReferences.map((uniqueReference) =>
+  promises.find(({ reference }) => reference === uniqueReference)
 );
 
 const writeInBatches = async (promises) => {
@@ -47,10 +41,10 @@ const writeInBatches = async (promises) => {
   let batchCounter = 0;
   const ids = [];
 
-  for (const { reference, source } of promises) {
-    const referenceId = JSON.stringify(reference);
+  for (const promise of promises) {
+    const { reference } = promise;
     const querySnapShot = await promisesCollection
-      .where("referenceId", "==", referenceId)
+      .where("reference", "==", reference)
       .get();
     if (querySnapShot.docs.length > 0) {
       ids.push(querySnapShot.docs[0].id);
@@ -58,11 +52,7 @@ const writeInBatches = async (promises) => {
     }
     const docRef = promisesCollection.doc();
     ids.push(docRef.id);
-    batch.set(docRef, {
-      reference,
-      source,
-      referenceId,
-    });
+    batch.set(docRef, promise);
     batchCounter++;
     if (batchCounter === 500) {
       await batch.commit();
