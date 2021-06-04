@@ -1,12 +1,10 @@
-import axios from "axios";
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 import {MongoClient, Collection} from "mongodb";
 import * as osisToEn from "bible-reference-formatter";
+import bibleSuperSearchApi from "./bibleSuperSearchApi";
 
 const config = functions.config();
-
-const BIBLE_ID = "kjv";
 
 admin.initializeApp();
 
@@ -25,41 +23,6 @@ const getMongoDbCollection = async (
 const osisToHumanReadableReference = (osis: string): string =>
   osisToEn("niv-long", osis).replace(/–/g, "-");
 
-type ApiResult = {
-  verses: {
-    [bibleId: string]: {
-      [chapter: string]: {
-        [verse: string]: {
-          id: number;
-          book: number;
-          chapter: number;
-          verse: number;
-          text: string;
-          italics: string;
-          claimed: boolean;
-        };
-      };
-    };
-  };
-};
-type ApiResponse = {
-  results: ApiResult[];
-};
-
-const buildPromiseTextFromResponse = (response: ApiResponse): string => {
-  return response.results
-    .map(({verses}) => {
-      const chapters = Object.values(verses[BIBLE_ID]);
-      return chapters
-        .map((chapter) => {
-          const verses = Object.values(chapter);
-          return verses.map(({text}) => text).join("\n");
-        })
-        .join("\n");
-    })
-    .join("\n");
-};
-
 export const randomPromise = functions.https.onRequest(async (_req, res) => {
   try {
     const collection = await getMongoDbCollection("promises");
@@ -68,10 +31,7 @@ export const randomPromise = functions.https.onRequest(async (_req, res) => {
     const humanReadableReference = osisToHumanReadableReference(
       randomPromise.osis
     );
-    const {data} = await axios.get(
-      `https://api.biblesupersearch.com/api?bible=${BIBLE_ID}&reference=${humanReadableReference}`
-    );
-    const text = buildPromiseTextFromResponse(data);
+    const text = await bibleSuperSearchApi("en", humanReadableReference);
     res.send({
       text,
       reference: humanReadableReference,
