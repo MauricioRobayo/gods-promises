@@ -30,7 +30,8 @@ const promisesCollection = db.collection("promises");
 const updateDb = async (promises) => {
   let batch = db.batch();
   let batchCounter = 0;
-  const ids = [];
+  const index = await promisesCollection.doc("index").get();
+  const ids = index.data() ? index.data().ids : [];
 
   for (const promise of promises) {
     const { osis } = promise;
@@ -63,11 +64,11 @@ Promise.all(files.map((file) => fs.readFile(file)))
     const allPromises = filesData
       .map((fileData) => JSON.parse(fileData))
       .flat();
-    // const uniqueOsis = [...new Set(allPromises.map(({ osis }) => osis))];
-    // const uniquePromises = uniqueOsis.map((osis) =>
-    //   allPromises.find((promise) => promise.osis === osis)
-    // );
-    return updateDb(allPromises);
+    const uniqueOsis = [...new Set(allPromises.map(({ osis }) => osis))];
+    const uniquePromises = uniqueOsis.map((osis) =>
+      allPromises.find((promise) => promise.osis === osis)
+    );
+    return updateDb(uniquePromises);
   })
   .then((ids) =>
     promisesCollection.doc("index").set({ count: ids.length, ids })
@@ -79,32 +80,10 @@ Promise.all(files.map((file) => fs.readFile(file)))
     ])
   )
   .then(([snap, index]) => {
-    const osis = snap.docs.map((doc) => doc.data().osis);
-    const uniques = [...new Set(osis)];
-    const freq = new Map();
-    osis.forEach((o) => {
-      if (freq.has(o)) {
-        freq.set(o, freq.get(o) + 1);
-      } else {
-        freq.set(o, 1);
-      }
-    });
-    const dups = Array.from(freq.keys()).filter((key) => freq.get(key) > 1);
-    const [firstDup] = dups;
-    console.log(firstDup);
-    console.log(dups.length, uniques.length);
     console.log({ collection: snap.size, ids: index.data().ids.length });
-    return promisesCollection.where("osis", "==", firstDup).get();
-  })
-  .then((pp) => {
-    console.log(
-      "🙋‍♂️",
-      pp.docs.forEach((d) => {
-        console.log(d.data());
-      })
-    );
     process.exit();
   })
   .catch((err) => {
+    console.error(err);
     process.exit(1);
   });
