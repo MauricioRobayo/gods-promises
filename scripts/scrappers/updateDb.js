@@ -1,6 +1,5 @@
-require("dotenv").config();
 const fs = require("fs").promises;
-const admin = require("firebase-admin");
+const { getMongoDbCollection } = require("./helpers");
 
 const [, , ...files] = process.argv;
 if (files.length === 0) {
@@ -8,74 +7,29 @@ if (files.length === 0) {
   process.exit(1);
 }
 
-if (process.env.FIRESTORE_EMULATOR_HOST) {
-  console.log("Using emulator...");
-  admin.initializeApp({ projectId: "promises-edfea" });
-} else {
-  console.log("Using production...");
-  admin.initializeApp();
-}
-
-const db = admin.firestore();
-const promisesCollection = db.collection("promises");
+const createUniqueIndex = async (collection, field) => {
+  return await collection.createIndex({ [field]: 1 }, { unique: true });
+};
 
 const updateDb = async (promises) => {
-  let batch = db.batch();
-  let batchCounter = 0;
-  const index = await promisesCollection.doc("index").get();
-  const ids = index.data() ? index.data().ids : [];
-
-  for (const promise of promises) {
-    const { osis } = promise;
-    const querySnapShot = await promisesCollection
-      .where("osis", "==", osis)
-      .get();
-    if (querySnapShot.docs.length > 0) {
-      continue;
-    }
-    const docRef = promisesCollection.doc();
-    ids.push(docRef.id);
-    batch.set(docRef, promise);
-    batchCounter++;
-    if (batchCounter === 500) {
-      await batch.commit();
-      batch = db.batch();
-      batchCounter = 0;
-    }
-  }
-
-  if (batchCounter < 500) {
-    await batch.commit();
-  }
-
-  return ids;
+  const promisesCollection = await getMongoDbCollection("promises");
+  const index = await createUniqueIndex(promisesCollection, "osis");
+  console.log(`Successfully created index ${index}!`);
+  return promisesCollection.insertMany(promises, { ordered: false });
 };
 
 Promise.all(files.map((file) => fs.readFile(file)))
-  .then((filesData) => {
-    const allPromises = filesData
-      .map((fileData) => JSON.parse(fileData))
-      .flat();
-    const uniqueOsis = [...new Set(allPromises.map(({ osis }) => osis))];
-    const uniquePromises = uniqueOsis.map((osis) =>
-      allPromises.find((promise) => promise.osis === osis)
-    );
-    return updateDb(uniquePromises);
-  })
-  .then((ids) =>
-    promisesCollection.doc("index").set({ count: ids.length, ids })
-  )
-  .then(() =>
-    Promise.all([
-      promisesCollection.get(),
-      promisesCollection.doc("index").get(),
-    ])
-  )
-  .then(([snap, index]) => {
-    console.log({ collection: snap.size, ids: index.data().ids.length });
+  .then((filesData) => filesData.map((fileData) => JSON.parse(fileData)).flat())
+  .then((promises) => updateDb(promises))
+  .then((result) => {
+    console.log(result);
     process.exit();
   })
   .catch((err) => {
+    if (err.code === 11000) {
+      console.log(`Skipped ${err.writeErrors.length} duplicated promises`);
+      process.exit();
+    }
     console.error(err);
     process.exit(1);
   });

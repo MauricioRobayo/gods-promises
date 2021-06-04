@@ -16,6 +16,6 @@
     "cheerio": "^1.0.0-rc.9",
     "dotenv": "^10.0.0",
     "firebase": "^8.6.3",
-    "firebase-admin": "^9.9.0"
+    "mongodb": "^3.6.9"
   }
 }

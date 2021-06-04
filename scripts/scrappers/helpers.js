@@ -1,9 +1,20 @@
 require("dotenv").config();
+const { MongoClient } = require("mongodb");
+
 const bcv_parser =
   require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
 const booksEn = require("./books-en.json");
 
 const bcv = new bcv_parser();
+
+const getMongoDbCollection = async (collection) => {
+  const client = new MongoClient(process.env.MONGODB_URI, {
+    useUnifiedTopology: true,
+  });
+  await client.connect();
+  const db = client.db(process.env.MONGODB_DB);
+  return db.collection(collection);
+};
 
 const shuffle = (arr) => {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -92,3 +103,4 @@ const makePromise = ({ reference, source, booksMap }) => {
 
 exports.shuffle = shuffle;
 exports.makePromise = makePromise;
+exports.getMongoDbCollection = getMongoDbCollection;
