@@ -8,20 +8,12 @@ if (files.length === 0) {
   process.exit(1);
 }
 
-const firebaseCredential = process.env.FIREBASE_CREDENTIAL;
-const firestoreEmulatorHost = process.env.FIRESTORE_EMULATOR_HOST;
-const projectId = process.env.PROJECT_ID;
-
-if (firestoreEmulatorHost && projectId) {
+if (process.env.FIRESTORE_EMULATOR_HOST) {
   console.log("Using emulator...");
-  admin.initializeApp({ projectId });
-} else if (firebaseCredential) {
-  console.log("Using production...");
-  admin.initializeApp({
-    credential: admin.credential.cert(JSON.parse(firebaseCredential)),
-  });
+  admin.initializeApp({ projectId: "promises-edfea" });
 } else {
-  throw new Error("Could not load emulator neither production!");
+  console.log("Using production...");
+  admin.initializeApp();
 }
 
 const db = admin.firestore();
