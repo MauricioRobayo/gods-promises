@@ -4,11 +4,6 @@ import Promise from "./Promise";
 
 const RandomPromise = () => {
   const { isLoading, data } = useRandomPromise();
-
-  if (isLoading) {
-    return <div>Loading random promise...</div>;
-  }
-
-  return <Promise promise={data} />;
+  return <Promise promise={data} isLoading={isLoading} />;
 };
 export default RandomPromise;

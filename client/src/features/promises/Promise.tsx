@@ -1,16 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import ContentLoader from "../loaders/ContentLoader";
 
-const Wrapper = styled.figure`
+const Figure = styled.figure`
   margin: 0;
   background-color: #f0f0f0;
   font-family: "Cormorant Garamond", serif;
   border-radius: 0.5rem;
   padding: 1.25em;
+  width: clamp(320px, 90vw, 520px);
 `;
 
 const Blockquote = styled.blockquote`
   color: #000;
+  line-height: 1.25em;
 `;
 
 const Figcaption = styled.figcaption`
@@ -29,14 +32,21 @@ type PromiseProps = {
     reference: string;
     source: string;
   };
+  isLoading: boolean;
 };
 
-const Promise = ({ promise }: PromiseProps) => {
+const Promise = ({ promise, isLoading }: PromiseProps) => {
   return (
-    <Wrapper>
-      <Blockquote dangerouslySetInnerHTML={{ __html: promise.text }} />
-      <Figcaption>{promise.reference}</Figcaption>
-    </Wrapper>
+    <Figure>
+      {isLoading ? (
+        <ContentLoader />
+      ) : (
+        <>
+          <Blockquote dangerouslySetInnerHTML={{ __html: promise.text }} />
+          <Figcaption>{promise.reference}</Figcaption>
+        </>
+      )}
+    </Figure>
   );
 };
 
