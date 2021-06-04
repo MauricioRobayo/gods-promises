@@ -9,6 +9,7 @@ const bcv = new bcv_parser();
 
 const getMongoDbCollection = async (collection) => {
   const client = new MongoClient(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
     useUnifiedTopology: true,
   });
   await client.connect();

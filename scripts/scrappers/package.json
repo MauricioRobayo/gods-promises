@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bible-passage-reference-parser": "^2.0.1",
+    "bible-reference-formatter": "^1.0.1",
     "cheerio": "^1.0.0-rc.9",
     "dotenv": "^10.0.0",
     "firebase": "^8.6.3",

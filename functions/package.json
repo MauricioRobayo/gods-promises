@@ -18,6 +18,7 @@
   "dependencies": {
     "@types/mongodb": "^3.6.17",
     "axios": "^0.21.1",
+    "bible-reference-formatter": "^1.0.1",
     "firebase-admin": "^9.2.0",
     "firebase-functions": "^3.11.0",
     "mongodb": "^3.6.9"
