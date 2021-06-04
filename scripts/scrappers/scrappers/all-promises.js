@@ -3,21 +3,6 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const { makePromise } = require("../helpers");
 
-const booksMap = {
-  "I CORINTHIANS": "1 CORINTHIANS",
-  "II CORINTHIANS": "2 CORINTHIANS",
-  "I THESSALONIANS": "1 THESSALONIANS",
-  "II THESSALONIANS": "2 THESSALONIANS",
-  "I TIMOTHY": "1 TIMOTHY",
-  "II TIMOTHY": "2 TIMOTHY",
-  "I Peter": "1 Peter",
-  "II Peter": "2 Peter",
-  "I John": "1 John",
-  "God is love": "God is love",
-  "II John": "2 John",
-  "III John": "3 John",
-};
-
 const url =
   "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible";
 axios.get(url).then(({ data }) => {
@@ -35,7 +20,7 @@ axios.get(url).then(({ data }) => {
 
       if (book.toLowerCase() === "my favorite promises") {
         const reference = $el.find("strong").text();
-        const promise = makePromise({ reference, source: url, booksMap });
+        const promise = makePromise({ reference, source: url });
         if (promise) {
           promises.push(promise);
         }
@@ -46,7 +31,7 @@ axios.get(url).then(({ data }) => {
       if (book && match) {
         const verses = match[1];
         const reference = `${book} ${verses}`;
-        const promise = makePromise({ reference, source: url, booksMap });
+        const promise = makePromise({ reference, source: url });
         if (promise) {
           promises.push(promise);
         }
