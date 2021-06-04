@@ -36,5 +36,8 @@
   "private": true,
   "prettier": {
     "bracketSpacing": false
+  },
+  "volta": {
+    "node": "12.22.1"
   }
 }
