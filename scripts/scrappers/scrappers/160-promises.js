@@ -3,10 +3,6 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const { makePromise } = require("../helpers");
 
-const booksMap = {
-  Psalm: "Psalms",
-};
-
 const url = "https://outuponthewaters.com/160-promises-of-god-from-scripture/";
 axios.get(url).then(({ data }) => {
   const promises = [];
@@ -18,7 +14,7 @@ axios.get(url).then(({ data }) => {
       const match = promise.match(/ - (.*)$/);
       if (match) {
         const reference = match[1];
-        const promise = makePromise({ reference, source: url, booksMap });
+        const promise = makePromise({ reference, source: url });
         if (promise) {
           promises.push(promise);
         }

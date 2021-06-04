@@ -3,27 +3,6 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const { makePromise } = require("../helpers");
 
-const booksMap = {
-  "FIRST SAMUEL": "1 SAMUEL",
-  "SECOND SAMUEL": "2 SAMUEL",
-  "FIRST KINGS": "1 KINGS",
-  "SECOND KINGS": "2 KINGS",
-  "FIRST CHRONICLES": "1 CHRONICLES",
-  "SECOND CHRONICLES": "2 CHRONICLES",
-  "SONG OF SONGS": "SONG OF SOLOMON",
-  "FIRST CORINTHIANS": "1 CORINTHIANS",
-  "SECOND CORINTHIANS": "2 CORINTHIANS",
-  "FIRST THESSALONIANS": "1 THESSALONIANS",
-  "SECOND THESSALONIANS": "2 THESSALONIANS",
-  "FIRST TIMOTHY": "1 TIMOTHY",
-  "SECOND TIMOTHY": "2 TIMOTHY",
-  "FIRST PETER": "1 PETER",
-  "SECOND PETER": "2 PETER",
-  "FIRST JOHN": "1 JOHN",
-  "SECOND JOHN": "2 JOHN",
-  "THIRD JOHN": "3 JOHN",
-};
-
 const url = "https://bible.org/article/selected-promises-god-each-book-bible";
 axios.get(url).then(({ data }) => {
   let book = "";
@@ -56,7 +35,7 @@ axios.get(url).then(({ data }) => {
           if (match) {
             const verses = match[1];
             const reference = `${book} ${verses}`;
-            const promise = makePromise({ reference, source: url, booksMap });
+            const promise = makePromise({ reference, source: url });
             if (promise) {
               promises.push(promise);
             }

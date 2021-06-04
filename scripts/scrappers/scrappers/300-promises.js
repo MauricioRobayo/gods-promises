@@ -5,27 +5,6 @@ const { makePromise } = require("../helpers");
 
 const url = "https://believersportal.com/list-of-3000-promises-in-the-bible/";
 
-const booksMap = {
-  "FIRST SAMUEL": "1 SAMUEL",
-  "SECOND SAMUEL": "2 SAMUEL",
-  "FIRST KINGS": "1 KINGS",
-  "SECOND KINGS": "2 KINGS",
-  "FIRST CHRONICLES": "1 CHRONICLES",
-  "SECOND CHRONICLES": "2 CHRONICLES",
-  "SONG OF SONGS": "SONG OF SOLOMON",
-  "I CORINTHIANS": "1 CORINTHIANS",
-  "II CORINTHIANS": "2 CORINTHIANS",
-  "I THESSALONIANS": "1 THESSALONIANS",
-  "II THESSALONIANS": "2 THESSALONIANS",
-  "I TIMOTHY": "1 TIMOTHY",
-  "II TIMOTHY": "2 TIMOTHY",
-  "I PETER": "1 PETER",
-  "II PETER": "2 PETER",
-  "I JOHN": "1 JOHN",
-  "II JOHN": "2 JOHN",
-  "III JOHN": "3 JOHN",
-};
-
 axios.get(url).then(({ data }) => {
   let book = "";
   let bookId = "";
@@ -61,7 +40,7 @@ axios.get(url).then(({ data }) => {
           if (match) {
             const verses = match[1];
             const reference = `${book} ${verses}`;
-            const promise = makePromise({ reference, source: url, booksMap });
+            const promise = makePromise({ reference, source: url });
             if (promise) {
               promises.push(promise);
             }

@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "scrape": "ls scrappers/*.js | xargs -t -n1 node",
-    "db:update:emulator": "FIRESTORE_EMULATOR_HOST=localhost:8080 node updateDb.js",
     "db:update": "node updateDb.js"
   },
   "author": "",
