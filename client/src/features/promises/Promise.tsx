@@ -40,6 +40,9 @@ const Footer = styled.footer`
 const Button = styled.button`
   background-color: transparent;
   border: none;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.25em;
 `;
 
 const ButtonsWrapper = styled.div`
