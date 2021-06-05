@@ -10,7 +10,6 @@ const Main = styled.main`
 `;
 
 const Title = styled.h1`
-  font-family: "Signika Negative", serif;
   font-weight: bold;
 `;
 

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ContentLoader from "../loaders/ContentLoader";
+import Twemoji from "../twemoji/Twemoji";
 
 const Figure = styled.figure`
   margin: 0;
@@ -26,6 +27,27 @@ const Figcaption = styled.figcaption`
   }
 `;
 
+const Footer = styled.footer`
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  a {
+    text-decoration: none;
+  }
+`;
+
+const Button = styled.button`
+  background-color: transparent;
+  border: none;
+`;
+
+const ButtonsWrapper = styled.div`
+  & > button:not(:last-child) {
+    margin-right: 1rem;
+  }
+`;
+
 type PromiseProps = {
   promise: {
     text: string;
@@ -37,16 +59,35 @@ type PromiseProps = {
 
 const Promise = ({ promise, isLoading }: PromiseProps) => {
   return (
-    <Figure>
-      {isLoading ? (
-        <ContentLoader />
-      ) : (
-        <>
-          <Blockquote dangerouslySetInnerHTML={{ __html: promise.text }} />
-          <Figcaption>{promise.reference}</Figcaption>
-        </>
-      )}
-    </Figure>
+    <article>
+      <Figure>
+        {isLoading ? (
+          <ContentLoader />
+        ) : (
+          <>
+            <Blockquote dangerouslySetInnerHTML={{ __html: promise.text }} />
+            <Figcaption>{promise.reference}</Figcaption>
+          </>
+        )}
+      </Figure>
+      <Footer>
+        {isLoading ? null : (
+          <div>
+            <a href={promise.source} target="_blank" rel="noreferrer">
+              source
+            </a>
+          </div>
+        )}
+        <ButtonsWrapper>
+          <Button>
+            <Twemoji emoji="📢" /> tweet
+          </Button>
+          <Button>
+            <Twemoji emoji="🔃" /> refresh
+          </Button>
+        </ButtonsWrapper>
+      </Footer>
+    </article>
   );
 };
 
