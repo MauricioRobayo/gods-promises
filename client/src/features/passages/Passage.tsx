@@ -32,7 +32,7 @@ const Footer = styled.footer`
   font-size: 0.85rem;
   margin-top: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   a {
     text-decoration: none;
   }
@@ -75,17 +75,7 @@ const Passage = ({ promise, isLoading }: PassageProps) => {
         )}
       </Figure>
       <Footer>
-        {isLoading ? null : (
-          <div>
-            <a href={promise.source} target="_blank" rel="noreferrer">
-              source
-            </a>
-          </div>
-        )}
         <ButtonsWrapper>
-          <Button>
-            <Twemoji emoji="📢" /> tweet
-          </Button>
           <Button>
             <Twemoji emoji="🔃" /> refresh
           </Button>

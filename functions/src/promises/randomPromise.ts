@@ -28,16 +28,6 @@ export const randomPromise = functions.https.onRequest(async (_req, res) => {
       BIBLE_ID,
       humanReadableReference
     );
-    const updatedRandomPromise = {
-      ...randomPromise,
-      content: {
-        ...randomPromise.content,
-        [BIBLE_ID]: {
-          text,
-          reference: randomPromise.reference,
-        },
-      },
-    };
     collection.updateOne(
       {_id: randomPromise._id},
       {

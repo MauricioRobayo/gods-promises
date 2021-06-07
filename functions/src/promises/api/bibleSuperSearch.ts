@@ -47,7 +47,9 @@ class BibleSuperSearch implements ExternalApi {
           })
           .join("\n");
       })
-      .join("\n");
+      .join("\n")
+      .replace("¶", "")
+      .trim();
   }
 }
 
