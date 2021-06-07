@@ -1,5 +1,5 @@
 const fs = require("fs").promises;
-const { getMongoDbCollection } = require("./helpers");
+const { getMongoDbCollection, shuffle } = require("./helpers");
 
 const [, , ...files] = process.argv;
 if (files.length === 0) {
@@ -20,7 +20,7 @@ const updateDb = async (promises) => {
 
 Promise.all(files.map((file) => fs.readFile(file)))
   .then((filesData) => filesData.map((fileData) => JSON.parse(fileData)).flat())
-  .then((promises) => updateDb(promises))
+  .then((promises) => updateDb(shuffle(promises).slice(0, 10)))
   .then((result) => {
     console.log(result);
     process.exit();

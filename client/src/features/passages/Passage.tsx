@@ -51,7 +51,7 @@ const ButtonsWrapper = styled.div`
   }
 `;
 
-type PromiseProps = {
+type PassageProps = {
   promise: {
     text: string;
     reference: string;
@@ -60,7 +60,7 @@ type PromiseProps = {
   isLoading: boolean;
 };
 
-const Promise = ({ promise, isLoading }: PromiseProps) => {
+const Passage = ({ promise, isLoading }: PassageProps) => {
   return (
     <article>
       <Figure>
@@ -94,4 +94,4 @@ const Promise = ({ promise, isLoading }: PromiseProps) => {
   );
 };
 
-export default Promise;
+export default Passage;

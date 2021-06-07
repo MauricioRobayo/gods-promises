@@ -1,7 +1,7 @@
 import { useQuery, UseQueryOptions } from "react-query";
 import axios from "axios";
 
-type UseRandomPromiseOptions = Pick<
+type UseRandomPassageOptions = Pick<
   UseQueryOptions,
   | "refetchOnMount"
   | "refetchOnWindowFocus"
@@ -10,23 +10,19 @@ type UseRandomPromiseOptions = Pick<
   | "staleTime"
 >;
 
-const useRandomPromise = ({
+const useRandomPassage = ({
   refetchOnMount = false,
   refetchOnWindowFocus = false,
   refetchOnReconnect = false,
   cacheTime = 60 * 60 * 1000,
   staleTime = 60 * 60 * 1000,
-}: UseRandomPromiseOptions = {}) => {
-  const fetchRandomPromise = async () => {
-    try {
-      const response = await axios.get("/randomPromise");
-      return response.data;
-    } catch (e) {
-      console.log(e);
-    }
+}: UseRandomPassageOptions = {}) => {
+  const fetchRandomPassage = async () => {
+    const { data } = await axios.get("/randomPromise");
+    return data;
   };
 
-  return useQuery("randomPromise", fetchRandomPromise, {
+  return useQuery("randomPromise", fetchRandomPassage, {
     refetchOnMount,
     refetchOnWindowFocus,
     refetchOnReconnect,
@@ -35,4 +31,4 @@ const useRandomPromise = ({
   });
 };
 
-export default useRandomPromise;
+export default useRandomPassage;
