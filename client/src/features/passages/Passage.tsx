@@ -15,6 +15,7 @@ const Figure = styled.figure`
 const Blockquote = styled.blockquote`
   color: #000;
   line-height: 1.25em;
+  font-size: 1.25rem;
 `;
 
 const Figcaption = styled.figcaption`
