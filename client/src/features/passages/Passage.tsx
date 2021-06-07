@@ -6,7 +6,7 @@ import Twemoji from "../twemoji/Twemoji";
 const Figure = styled.figure`
   margin: 0;
   background-color: #f0f0f0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Quattrocento", serif;
   border-radius: 0.5rem;
   padding: 1.25em;
   width: clamp(320px, 90vw, 520px);
@@ -15,13 +15,12 @@ const Figure = styled.figure`
 const Blockquote = styled.blockquote`
   color: #000;
   line-height: 1.25em;
-  font-size: 1.25rem;
 `;
 
 const Figcaption = styled.figcaption`
   margin-top: 1em;
   text-align: right;
-  font-style: italic;
+  font-size: 0.85rem;
   &::before {
     content: "—";
     margin-right: 0.25em;
