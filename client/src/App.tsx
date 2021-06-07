@@ -11,7 +11,7 @@ const Main = styled.main`
 
 const Title = styled.h1`
   margin: 2rem 0;
-  font-weight: bold;
+  font-weight: 900;
 `;
 
 function App() {

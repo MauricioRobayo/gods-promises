@@ -1,3 +1,24 @@
+import * as osisToEn from "bible-reference-formatter";
+import * as functions from "firebase-functions";
+import {MongoClient, Collection} from "mongodb";
+
+export const osisToHumanReadableReference = (osis: string): string =>
+  osisToEn("niv-long", osis).replace(/–/g, "-");
+
+const config = functions.config();
+
+export const getMongoDbCollection = async (
+  collection: string
+): Promise<Collection> => {
+  const client = new MongoClient(config.mongodb.uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  await client.connect();
+  const db = client.db(config.mongodb.database);
+  return db.collection(collection);
+};
+
 export const nivLongToSpanish = (passage: string): string => {
   const translation: Record<string, string> = {
     Genesis: "Génesis",

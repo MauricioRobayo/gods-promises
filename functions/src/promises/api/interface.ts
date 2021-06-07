@@ -1,8 +1,8 @@
-export type Language = "en" | "es";
+export type BibleId = "kjv";
 
 export interface ExternalApi {
   getPassageFromReference: (
-    language: Language,
+    bibleId: BibleId,
     reference: string
   ) => Promise<string>;
 }

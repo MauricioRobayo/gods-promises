@@ -1,5 +1,5 @@
 import axios from "axios";
-import {ExternalApi, Language} from "./interface";
+import {ExternalApi, BibleId} from "./interface";
 import {JSDOM} from "jsdom";
 import {https, logger} from "firebase-functions";
 
@@ -16,17 +16,17 @@ type Response = {
 class ApiBible implements ExternalApi {
   constructor(private apiKey: string) {}
 
-  private languageToBibleMap = {
-    es: "592420522e16049f-01",
-    en: "de4e12af7f28f599-01",
+  #bibleIdMap = {
+    kjv: "de4e12af7f28f599-01",
+    rv_1909: "592420522e16049f-01",
   };
 
   async getPassageFromReference(
-    language: Language,
+    bibleId: BibleId,
     reference: string
   ): Promise<string> {
-    const bible = this.languageToBibleMap[language];
-    const url = `https://api.scripture.api.bible/v1/bibles/${bible}/search?query=${reference}`;
+    const apiBibleId = this.#bibleIdMap[bibleId];
+    const url = `https://api.scripture.api.bible/v1/bibles/${apiBibleId}/search?query=${reference}`;
     const {data} = await axios(url, {headers: {"api-key": this.apiKey}});
     return this.buildTextFromResponse(data);
   }

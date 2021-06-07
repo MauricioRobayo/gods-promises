@@ -6,7 +6,7 @@ import Twemoji from "../twemoji/Twemoji";
 const Figure = styled.figure`
   margin: 0;
   background-color: #f0f0f0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Quattrocento", serif;
   border-radius: 0.5rem;
   padding: 1.25em;
   width: clamp(320px, 90vw, 520px);

@@ -11,6 +11,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     color: #444;
-    font-family: "Signika Negative", serif;
+    font-family: Lato, serif;
   }
 `;

@@ -1,5 +1,5 @@
 import axios from "axios";
-import {ExternalApi, Language} from "./interface";
+import {ExternalApi, BibleId} from "./interface";
 
 type ApiResult = {
   verses: {
@@ -23,20 +23,14 @@ type ApiResponse = {
 };
 
 class BibleSuperSearch implements ExternalApi {
-  #languageToBibleMap = {
-    es: "rvg",
-    en: "kjv",
-  };
-
   async getPassageFromReference(
-    language: Language,
+    bibleId: BibleId,
     reference: string
   ): Promise<string> {
-    const bible = this.#languageToBibleMap[language];
     const {data} = await axios.get(
-      `https://api.biblesupersearch.com/api?bible=${bible}&reference=${reference}`
+      `https://api.biblesupersearch.com/api?bible=${bibleId}&reference=${reference}`
     );
-    return this.buildPromiseTextFromResponse(bible, data);
+    return this.buildPromiseTextFromResponse(bibleId, data);
   }
 
   private buildPromiseTextFromResponse(

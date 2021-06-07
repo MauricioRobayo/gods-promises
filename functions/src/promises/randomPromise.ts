@@ -1,32 +1,12 @@
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
-import {MongoClient, Collection} from "mongodb";
-import * as osisToEn from "bible-reference-formatter";
-// import BibleSuperSearch from "./api/bibleSuperSearch";
-import ApiBible from "./api/apiBible";
+import BibleSuperSearch from "./api/bibleSuperSearch";
+import {osisToHumanReadableReference, getMongoDbCollection} from "../helpers";
 
-const config = functions.config();
-const LANGUAGE = "en";
-
-// const bibleSuperSearch = new BibleSuperSearch();
-const apiBible = new ApiBible(config.bible_api.key);
+const BIBLE_ID = "kjv";
+const bibleSuperSearch = new BibleSuperSearch();
 
 admin.initializeApp();
-
-const getMongoDbCollection = async (
-  collection: string
-): Promise<Collection> => {
-  const client = new MongoClient(config.mongodb.uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-  await client.connect();
-  const db = client.db(config.mongodb.database);
-  return db.collection(collection);
-};
-
-const osisToHumanReadableReference = (osis: string): string =>
-  osisToEn("niv-long", osis).replace(/–/g, "-");
 
 export const randomPromise = functions.https.onRequest(async (_req, res) => {
   const collection = await getMongoDbCollection("promises");
@@ -36,34 +16,33 @@ export const randomPromise = functions.https.onRequest(async (_req, res) => {
     const humanReadableReference = osisToHumanReadableReference(
       randomPromise.osis
     );
-    if (randomPromise.content?.[LANGUAGE]) {
+    if (randomPromise.content?.[BIBLE_ID]) {
       res.json({
-        text: randomPromise.content[LANGUAGE].text,
-        reference: randomPromise.content[LANGUAGE].reference,
+        text: randomPromise.content[BIBLE_ID].text,
+        reference: randomPromise.content[BIBLE_ID].reference,
         source: randomPromise.source,
       });
       return;
     }
-    const text = await apiBible.getPassageFromReference(
-      LANGUAGE,
+    const text = await bibleSuperSearch.getPassageFromReference(
+      BIBLE_ID,
       humanReadableReference
     );
     const updatedRandomPromise = {
       ...randomPromise,
       content: {
         ...randomPromise.content,
-        [LANGUAGE]: {
+        [BIBLE_ID]: {
           text,
           reference: randomPromise.reference,
         },
       },
     };
-    functions.logger.log("😀 5", JSON.stringify(updatedRandomPromise._id));
     collection.updateOne(
       {_id: randomPromise._id},
       {
         $set: {
-          [`content.${LANGUAGE}`]: {
+          [`content.${BIBLE_ID}`]: {
             text,
             reference: humanReadableReference,
           },
