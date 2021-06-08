@@ -1,5 +1,5 @@
 import { useQuery, UseQueryOptions } from "react-query";
-import axios from "axios";
+import { functions } from "../features/firebase";
 
 type UseRandomPassageOptions = Pick<
   UseQueryOptions,
@@ -17,12 +17,13 @@ const useRandomPassage = ({
   cacheTime = 60 * 60 * 1000,
   staleTime = 60 * 60 * 1000,
 }: UseRandomPassageOptions = {}) => {
-  const fetchRandomPassage = async () => {
-    const { data } = await axios.get("/randomPromise");
-    return data;
+  const randomPromise = functions.httpsCallable("randomPromise");
+  const getRandomPromise = async () => {
+    const response = await randomPromise();
+    return response.data;
   };
 
-  return useQuery("randomPromise", fetchRandomPassage, {
+  return useQuery("randomPromise", getRandomPromise, {
     refetchOnMount,
     refetchOnWindowFocus,
     refetchOnReconnect,

@@ -12,7 +12,7 @@ const bibleSuperSearch = new BibleSuperSearch();
 
 admin.initializeApp();
 
-export const randomPromise = functions.https.onRequest(async (_req, res) => {
+export const randomPromise = functions.https.onCall(async () => {
   const promisesCollection = await getMongoDbCollection("promises");
   const randomPromises = await getRandomPromises(100);
   try {
@@ -36,12 +36,11 @@ export const randomPromise = functions.https.onRequest(async (_req, res) => {
       }
 
       if (randomPromise.content?.[BIBLE_ID]) {
-        res.json({
+        return {
           text: randomPromise.content[BIBLE_ID].text,
           reference: randomPromise.content[BIBLE_ID].reference,
           source: randomPromise.source,
-        });
-        return;
+        };
       }
 
       const response = await bibleSuperSearch.getPassageFromReference(
@@ -61,12 +60,11 @@ export const randomPromise = functions.https.onRequest(async (_req, res) => {
             },
           }
         );
-        res.json({
+        return {
           text: response.text,
           reference: humanReadableReference,
           source: randomPromise.source,
-        });
-        return;
+        };
       }
 
       await promisesCollection.updateOne(
@@ -79,7 +77,9 @@ export const randomPromise = functions.https.onRequest(async (_req, res) => {
       );
     }
   } catch (err) {
-    functions.logger.error(`randomPromise failed: ${err.message}`);
-    throw new functions.https.HttpsError("internal", "randomPromise failed!");
+    functions.logger.error(`randomPromise error: ${JSON.stringify(err)}`);
+    throw new functions.https.HttpsError("internal", "randomPromise error");
   }
+  functions.logger.error("Could not get a random promise!");
+  throw new functions.https.HttpsError("internal", "randomPromise failed");
 });

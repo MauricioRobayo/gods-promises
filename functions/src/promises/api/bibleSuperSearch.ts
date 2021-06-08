@@ -1,7 +1,7 @@
 import axios from "axios";
 import {logger} from "firebase-functions";
-import {BibleId} from "../../types";
-import {ExternalApi, QueryResponse} from "./interface";
+import {BibleId, QueryResponse} from "../../types";
+import {ExternalApi} from "./interface";
 
 type ApiResult = {
   verses: {
@@ -30,7 +30,6 @@ class BibleSuperSearch implements ExternalApi {
     reference: string
   ): Promise<QueryResponse> {
     try {
-      logger.log("🚑 -1 not an error");
       const {data} = await axios.get(
         `https://api.biblesupersearch.com/api?bible=${bibleId}&reference=${reference}`
       );
@@ -39,10 +38,7 @@ class BibleSuperSearch implements ExternalApi {
         text: this.buildPromiseTextFromResponse(bibleId, data),
       };
     } catch (err) {
-      logger.log("🚑 here 1!", err);
       if (err.response) {
-        logger.log("🚑 here 2!", err);
-        logger.log("🚑 here 2!", err.response.data.errors);
         return {
           status: "error",
           errors: err.response.data.errors,
