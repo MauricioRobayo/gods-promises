@@ -1,9 +1,18 @@
 import * as osisToEn from "bible-reference-formatter";
 import * as functions from "firebase-functions";
 import {MongoClient, Collection} from "mongodb";
+import {IBasePromise, Content} from "../types";
 
-export const osisToHumanReadableReference = (osis: string): string =>
-  osisToEn("niv-long", osis).replace(/–/g, "-");
+export const osisToHumanReadableReference = (osis: string): string | null => {
+  try {
+    return osisToEn("niv-long", osis).replace(/–/g, "-");
+  } catch (err) {
+    functions.logger.error(
+      `osisToHumanReadableReference: ${JSON.stringify(err)}`
+    );
+    return null;
+  }
+};
 
 const config = functions.config();
 
@@ -17,6 +26,27 @@ export const getMongoDbCollection = async (
   await client.connect();
   const db = client.db(config.mongodb.database);
   return db.collection(collection);
+};
+
+export const getRandomPromises = async (
+  size: number
+): Promise<
+  (IBasePromise & {
+    content?: Content;
+  })[]
+> => {
+  const collection = await getMongoDbCollection("promises");
+  const cursor = collection.aggregate<
+    IBasePromise & {
+      content?: Content;
+    }
+  >([
+    {
+      $match: {errors: {$exists: false}},
+    },
+    {$sample: {size}},
+  ]);
+  return cursor.toArray();
 };
 
 export const nivLongToSpanish = (passage: string): string => {

@@ -1,4 +1,5 @@
 import React from "react";
+import { useQueryClient } from "react-query";
 import styled from "styled-components";
 import ContentLoader from "../loaders/ContentLoader";
 import Twemoji from "../twemoji/Twemoji";
@@ -21,7 +22,6 @@ const Blockquote = styled.blockquote`
 const Figcaption = styled.figcaption`
   margin-top: 1em;
   text-align: right;
-  font-style: italic;
   &::before {
     content: "—";
     margin-right: 0.25em;
@@ -42,8 +42,9 @@ const Button = styled.button`
   background-color: transparent;
   border: none;
   display: inline-flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.25em;
+  cursor: pointer;
 `;
 
 const ButtonsWrapper = styled.div`
@@ -62,6 +63,10 @@ type PassageProps = {
 };
 
 const Passage = ({ promise, isLoading }: PassageProps) => {
+  const queryClient = useQueryClient();
+  const onRefreshButtonClick = () => {
+    queryClient.resetQueries("randomPromise");
+  };
   return (
     <article>
       <Figure>
@@ -76,7 +81,7 @@ const Passage = ({ promise, isLoading }: PassageProps) => {
       </Figure>
       <Footer>
         <ButtonsWrapper>
-          <Button>
+          <Button onClick={onRefreshButtonClick}>
             <Twemoji emoji="🔃" /> refresh
           </Button>
         </ButtonsWrapper>

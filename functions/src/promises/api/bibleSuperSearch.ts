@@ -1,5 +1,7 @@
 import axios from "axios";
-import {ExternalApi, BibleId} from "./interface";
+import {logger} from "firebase-functions";
+import {BibleId} from "../../types";
+import {ExternalApi, QueryResponse} from "./interface";
 
 type ApiResult = {
   verses: {
@@ -26,11 +28,31 @@ class BibleSuperSearch implements ExternalApi {
   async getPassageFromReference(
     bibleId: BibleId,
     reference: string
-  ): Promise<string> {
-    const {data} = await axios.get(
-      `https://api.biblesupersearch.com/api?bible=${bibleId}&reference=${reference}`
-    );
-    return this.buildPromiseTextFromResponse(bibleId, data);
+  ): Promise<QueryResponse> {
+    try {
+      logger.log("🚑 -1 not an error");
+      const {data} = await axios.get(
+        `https://api.biblesupersearch.com/api?bible=${bibleId}&reference=${reference}`
+      );
+      return {
+        status: "success",
+        text: this.buildPromiseTextFromResponse(bibleId, data),
+      };
+    } catch (err) {
+      logger.log("🚑 here 1!", err);
+      if (err.response) {
+        logger.log("🚑 here 2!", err);
+        logger.log("🚑 here 2!", err.response.data.errors);
+        return {
+          status: "error",
+          errors: err.response.data.errors,
+        };
+      }
+      logger.error(
+        `BibleSuperSearch.getPassageFromReference error${err.message}`
+      );
+      throw new Error(`Failed to retrieve '${reference}' from ${bibleId}!`);
+    }
   }
 
   private buildPromiseTextFromResponse(

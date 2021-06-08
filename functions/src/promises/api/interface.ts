@@ -1,8 +1,8 @@
-export type BibleId = "kjv";
+import {BibleId, QueryResponse} from "../../types";
 
 export interface ExternalApi {
   getPassageFromReference: (
     bibleId: BibleId,
     reference: string
-  ) => Promise<string>;
+  ) => Promise<QueryResponse>;
 }
