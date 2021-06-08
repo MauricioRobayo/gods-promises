@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
 import styled from "styled-components";
 import ContentLoader from "../loaders/ContentLoader";
@@ -67,6 +68,7 @@ const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
   const onRefreshButtonClick = () => {
     queryClient.resetQueries("randomGPromise");
   };
+  const { t } = useTranslation();
   return (
     <article>
       <Figure>
@@ -82,7 +84,7 @@ const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
       <Footer>
         <ButtonsWrapper>
           <Button onClick={onRefreshButtonClick}>
-            <Twemoji emoji="🔃" /> refresh
+            <Twemoji emoji="🔃" /> {t("refresh")}
           </Button>
         </ButtonsWrapper>
       </Footer>
