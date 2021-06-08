@@ -53,7 +53,7 @@ const ButtonsWrapper = styled.div`
   }
 `;
 
-type PassageProps = {
+type GPromiseProps = {
   promise: {
     text: string;
     reference: string;
@@ -62,7 +62,7 @@ type PassageProps = {
   isLoading: boolean;
 };
 
-const GPromise = ({ promise, isLoading }: PassageProps) => {
+const GPromise = ({ promise, isLoading }: GPromiseProps) => {
   const queryClient = useQueryClient();
   const onRefreshButtonClick = () => {
     queryClient.resetQueries("randomGPromise");

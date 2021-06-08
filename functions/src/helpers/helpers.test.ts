@@ -1,4 +1,23 @@
-import {nivLongToSpanish} from "./helpers";
+import {nivLongToSpanish, cleanPassage} from "./helpers";
+
+describe("cleanPassage", () => {
+  const baseText = "some passage";
+  const keepChars = ["?", "!", ".", '"', "'"];
+  const replaceChars = [";", ":", ","];
+  const appendChars = ["", "9"];
+  it.each(keepChars)("should keep %p at the end of a string", (keep) => {
+    expect(cleanPassage(`${baseText}${keep}`)).toBe(`${baseText}${keep}`);
+  });
+  it.each(replaceChars)(
+    'should replace %p at the end of a string with a "."',
+    (replace) => {
+      expect(cleanPassage(`${baseText}${replace}`)).toBe(`${baseText}.`);
+    }
+  );
+  it.each(appendChars)("should add '.' if string ends with %p", (append) => {
+    expect(cleanPassage(`${baseText}${append}`)).toBe(`${baseText}${append}.`);
+  });
+});
 
 describe("nivLongToSpanish", () => {
   const passages = [
@@ -15,7 +34,7 @@ describe("nivLongToSpanish", () => {
     ],
   ];
   const error = ["", "non existing", "Peter"];
-  it.each(passages)("should translate %p to %p", (en, es) => {
+  it.each(passages)("should convert %p to %p", (en, es) => {
     expect(nivLongToSpanish(en)).toBe(es);
   });
   it.each(error)("should throw an error for %p", (error) => {

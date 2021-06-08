@@ -1,5 +1,6 @@
 import axios from "axios";
 import {logger} from "firebase-functions";
+import {cleanPassage} from "../../helpers/helpers";
 import {BibleId, QueryResponse} from "../../types";
 import {ExternalApi} from "./interface";
 
@@ -65,11 +66,8 @@ class BibleSuperSearch implements ExternalApi {
           })
           .join("\n");
       })
-      .join("\n")
-      .replace("¶", "")
-      .trim()
-      .replace(/[^\w?!'"]$/, ".");
-    return /\w$/.test(text) ? `${text}.` : text;
+      .join("\n");
+    return cleanPassage(text);
   }
 }
 

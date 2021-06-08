@@ -1,7 +1,7 @@
 import { useQuery, UseQueryOptions } from "react-query";
 import { firebaseCallable } from "../features/firebase";
 
-type UseRandomPassageOptions = Pick<
+type UseRandomGPromiseOptions = Pick<
   UseQueryOptions,
   | "refetchOnMount"
   | "refetchOnWindowFocus"
@@ -16,7 +16,7 @@ const useRandomGPromise = ({
   refetchOnReconnect = false,
   cacheTime = 60 * 60 * 1000,
   staleTime = 60 * 60 * 1000,
-}: UseRandomPassageOptions = {}) => {
+}: UseRandomGPromiseOptions = {}) => {
   const randomGPromise = firebaseCallable<
     {
       reference: string;

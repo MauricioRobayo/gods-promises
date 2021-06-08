@@ -3,6 +3,14 @@ import * as functions from "firebase-functions";
 import {MongoClient, Collection} from "mongodb";
 import {IGPromise, Content} from "../types";
 
+export const cleanPassage = (passage: string): string => {
+  const cleanedText = passage
+    .replace("¶", "")
+    .trim()
+    .replace(/[^\w?!'"]$/, ".");
+  return /\w$/.test(cleanedText) ? `${cleanedText}.` : cleanedText;
+};
+
 export const osisToHumanReadableReference = (osis: string): string | null => {
   try {
     return osisToEn("niv-long", osis).replace(/–/g, "-");
