@@ -1,7 +1,7 @@
 import * as osisToEn from "bible-reference-formatter";
 import * as functions from "firebase-functions";
 import {MongoClient, Collection} from "mongodb";
-import {IBasePromise, Content} from "../types";
+import {IGPromise, Content} from "../types";
 
 export const osisToHumanReadableReference = (osis: string): string | null => {
   try {
@@ -31,13 +31,13 @@ export const getMongoDbCollection = async (
 export const getRandomPromises = async (
   size: number
 ): Promise<
-  (IBasePromise & {
+  (IGPromise & {
     content?: Content;
   })[]
 > => {
   const collection = await getMongoDbCollection("g-promises");
   const cursor = collection.aggregate<
-    IBasePromise & {
+    IGPromise & {
       content?: Content;
     }
   >([{$match: {errors: {$exists: false}}}, {$sample: {size}}]);
