@@ -15,16 +15,16 @@ export type Content = Record<
     reference: string;
   }
 >;
-export interface IBasePromise {
+export interface IGPromise {
   _id: string;
   osis: string;
   originalReference: string;
   source: string;
 }
-export interface ISuccessfulPromise extends IBasePromise {
+export interface ISuccessfulGPromise extends IGPromise {
   content: Content;
 }
-export interface IFailedPromise extends IBasePromise {
+export interface IFailedGPromise extends IGPromise {
   errors: string[];
 }
-export type IPromise = ISuccessfulPromise | IFailedPromise;
+export type IPromise = ISuccessfulGPromise | IFailedGPromise;

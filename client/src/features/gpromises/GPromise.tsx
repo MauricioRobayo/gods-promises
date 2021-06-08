@@ -65,7 +65,7 @@ type PassageProps = {
 const GPromise = ({ promise, isLoading }: PassageProps) => {
   const queryClient = useQueryClient();
   const onRefreshButtonClick = () => {
-    queryClient.resetQueries("randomPromise");
+    queryClient.resetQueries("randomGPromise");
   };
   return (
     <article>
