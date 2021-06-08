@@ -13,6 +13,7 @@ i18n
     interpolation: {
       escapeValue: false,
     },
+    keySeparator: false,
     supportedLngs: ["en", "es"],
     detection: {
       order: ["path", "localStorage", "navigator"],
