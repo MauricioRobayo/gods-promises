@@ -54,7 +54,7 @@ const ButtonsWrapper = styled.div`
 `;
 
 type GPromiseProps = {
-  promise: {
+  gPromise: {
     text: string;
     reference: string;
     source: string;
@@ -62,7 +62,7 @@ type GPromiseProps = {
   isLoading: boolean;
 };
 
-const GPromise = ({ promise, isLoading }: GPromiseProps) => {
+const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
   const queryClient = useQueryClient();
   const onRefreshButtonClick = () => {
     queryClient.resetQueries("randomGPromise");
@@ -74,8 +74,8 @@ const GPromise = ({ promise, isLoading }: GPromiseProps) => {
           <ContentLoader />
         ) : (
           <>
-            <Blockquote dangerouslySetInnerHTML={{ __html: promise.text }} />
-            <Figcaption>{promise.reference}</Figcaption>
+            <Blockquote dangerouslySetInnerHTML={{ __html: gPromise.text }} />
+            <Figcaption>{gPromise.reference}</Figcaption>
           </>
         )}
       </Figure>

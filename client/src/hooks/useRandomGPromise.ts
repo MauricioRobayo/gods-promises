@@ -1,5 +1,6 @@
 import { useQuery, UseQueryOptions } from "react-query";
 import { firebaseCallable } from "../features/firebase";
+import { BibleId } from "../types";
 
 type UseRandomGPromiseOptions = Pick<
   UseQueryOptions,
@@ -23,7 +24,7 @@ const useRandomGPromise = ({
       text: string;
       source: string;
     },
-    string
+    BibleId
   >("randomGPromise", "kjv");
 
   return useQuery("randomGPromise", randomGPromise, {

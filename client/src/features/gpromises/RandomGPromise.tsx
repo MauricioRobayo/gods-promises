@@ -9,6 +9,6 @@ const RandomGPromise = () => {
     return <div>Something went wrong!</div>;
   }
 
-  return <GPromise promise={data!} isLoading={isLoading} />;
+  return <GPromise gPromise={data!} isLoading={isLoading} />;
 };
 export default RandomGPromise;
