@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { store } from "./app/store";
@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import * as serviceWorker from "./serviceWorker";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { GlobalStyle } from "./styles";
+import "./features/i18next";
 
 const queryClient = new QueryClient();
 
@@ -15,7 +16,9 @@ ReactDOM.render(
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <GlobalStyle />
-        <App />
+        <Suspense fallback="....is loading">
+          <App />
+        </Suspense>
         <ReactQueryDevtools />
       </Provider>
     </QueryClientProvider>
