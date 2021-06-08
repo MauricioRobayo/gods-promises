@@ -12,9 +12,9 @@ const bibleSuperSearch = new BibleSuperSearch();
 
 admin.initializeApp();
 
-export const randomPromise = functions.https.onCall(
+export const randomGPromise = functions.https.onCall(
   async (bibleId: BibleId) => {
-    const promisesCollection = await getMongoDbCollection("promises");
+    const promisesCollection = await getMongoDbCollection("gpromises");
     const randomPromises = await getRandomPromises(100);
     try {
       for (const randomPromise of randomPromises) {

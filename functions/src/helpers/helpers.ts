@@ -35,17 +35,12 @@ export const getRandomPromises = async (
     content?: Content;
   })[]
 > => {
-  const collection = await getMongoDbCollection("promises");
+  const collection = await getMongoDbCollection("gpromises");
   const cursor = collection.aggregate<
     IBasePromise & {
       content?: Content;
     }
-  >([
-    {
-      $match: {errors: {$exists: false}},
-    },
-    {$sample: {size}},
-  ]);
+  >([{$match: {errors: {$exists: false}}}, {$sample: {size}}]);
   return cursor.toArray();
 };
 

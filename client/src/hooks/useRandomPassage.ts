@@ -1,5 +1,5 @@
 import { useQuery, UseQueryOptions } from "react-query";
-import { functions } from "../features/firebase";
+import { createFunction } from "../features/firebase";
 
 type UseRandomPassageOptions = Pick<
   UseQueryOptions,
@@ -17,11 +17,17 @@ const useRandomPassage = ({
   cacheTime = 60 * 60 * 1000,
   staleTime = 60 * 60 * 1000,
 }: UseRandomPassageOptions = {}) => {
-  const randomPromise = functions.httpsCallable("randomPromise");
-  const getRandomPromise = async () => {
-    const response = await randomPromise();
-    return response.data;
-  };
+  const randomPromise =
+    createFunction<
+      string,
+      {
+        reference: string;
+        text: string;
+        source: string;
+      }
+    >("randomPromise");
+
+  const getRandomPromise = () => randomPromise("kjv");
 
   return useQuery("randomPromise", getRandomPromise, {
     refetchOnMount,
@@ -29,6 +35,7 @@ const useRandomPassage = ({
     refetchOnReconnect,
     cacheTime,
     staleTime,
+    retry: false,
   });
 };
 
