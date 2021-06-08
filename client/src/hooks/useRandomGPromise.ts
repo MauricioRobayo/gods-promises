@@ -10,7 +10,7 @@ type UseRandomPassageOptions = Pick<
   | "staleTime"
 >;
 
-const useRandomPassage = ({
+const useRandomGPromise = ({
   refetchOnMount = false,
   refetchOnWindowFocus = false,
   refetchOnReconnect = false,
@@ -36,4 +36,4 @@ const useRandomPassage = ({
   });
 };
 
-export default useRandomPassage;
+export default useRandomGPromise;

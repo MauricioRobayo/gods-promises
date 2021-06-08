@@ -1,9 +1,9 @@
 import React from "react";
-import useRandomPassage from "../../hooks/useRandomPassage";
+import useRandomGPromise from "../../hooks/useRandomGPromise";
 import GPromise from "./GPromise";
 
 const RandomGPromise = () => {
-  const { isLoading, isError, data } = useRandomPassage();
+  const { isLoading, isError, data } = useRandomGPromise();
 
   if (isError) {
     return <div>Something went wrong!</div>;
