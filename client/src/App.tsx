@@ -2,6 +2,9 @@ import RandomGPromise from "./features/gpromises/RandomGPromise";
 import Twemoji from "./features/twemoji/Twemoji";
 import styled from "styled-components/macro";
 import { useTranslation } from "react-i18next";
+import { Link, useLocation, Switch, Route, Redirect } from "react-router-dom";
+import { useEffect } from "react";
+import LanguageSelector from "./features/i18next/LanguageSelector";
 
 const Main = styled.main`
   display: flex;
@@ -15,45 +18,33 @@ const Title = styled.h1`
   font-weight: 900;
 `;
 
-const LanguageSelector = styled.div`
-  margin: 1rem auto;
-  display: flex;
-  justify-content: center;
-  & > *:not(:last-child) {
-    margin-right: 1rem;
-  }
-`;
-
-const langs: Record<string, { nativeName: string }> = {
-  en: { nativeName: "English" },
-  es: { nativeName: "Español" },
-};
+const base = "/:lang(en|es)";
 
 function App() {
+  const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
-  console.log(i18n.language);
+
+  useEffect(() => {
+    const [, lang] = pathname.split("/");
+    i18n.changeLanguage(lang || "en");
+  }, [pathname, i18n]);
 
   return (
     <>
       <Main>
         <Title>
-          <Twemoji emoji="🙏" />
-          {t("God's Promises")}
+          <Twemoji emoji="🙏" /> {t("God's Promises")}
         </Title>
-        <RandomGPromise />
+        <Switch>
+          <Route
+            path={`${base}/p/:gpromiseId`}
+            render={() => <div>Promise</div>}
+          />
+          <Route exact={true} path={base} component={RandomGPromise} />
+          <Redirect to="en" />
+        </Switch>
       </Main>
-      <LanguageSelector>
-        {Object.keys(langs).map((lang) => (
-          <button
-            key={lang}
-            type="submit"
-            disabled={lang === i18n.language}
-            onClick={() => i18n.changeLanguage(lang)}
-          >
-            {langs[lang].nativeName}
-          </button>
-        ))}
-      </LanguageSelector>
+      <LanguageSelector />
     </>
   );
 }

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/MauricioRobayo/promesas#readme",
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.7",
     "npm-run-all": "^4.1.5"
   },
   "volta": {
@@ -27,6 +28,7 @@
     "i18next": "^20.3.1",
     "i18next-browser-languagedetector": "^6.1.1",
     "i18next-http-backend": "^1.2.6",
-    "react-i18next": "^11.10.0"
+    "react-i18next": "^11.10.0",
+    "react-router-dom": "^5.2.0"
   }
 }

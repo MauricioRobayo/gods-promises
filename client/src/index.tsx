@@ -4,6 +4,7 @@ import App from "./App";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { GlobalStyle } from "./styles";
@@ -17,7 +18,9 @@ ReactDOM.render(
       <Provider store={store}>
         <GlobalStyle />
         <Suspense fallback="....is loading">
-          <App />
+          <Router>
+            <App />
+          </Router>
         </Suspense>
         <ReactQueryDevtools />
       </Provider>
