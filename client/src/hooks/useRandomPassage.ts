@@ -1,5 +1,5 @@
 import { useQuery, UseQueryOptions } from "react-query";
-import { createFunction } from "../features/firebase";
+import { firebaseCallable } from "../features/firebase";
 
 type UseRandomPassageOptions = Pick<
   UseQueryOptions,
@@ -17,19 +17,16 @@ const useRandomPassage = ({
   cacheTime = 60 * 60 * 1000,
   staleTime = 60 * 60 * 1000,
 }: UseRandomPassageOptions = {}) => {
-  const randomGPromise =
-    createFunction<
-      string,
-      {
-        reference: string;
-        text: string;
-        source: string;
-      }
-    >("randomGPromise");
+  const randomGPromise = firebaseCallable<
+    {
+      reference: string;
+      text: string;
+      source: string;
+    },
+    string
+  >("randomGPromise", "kjv");
 
-  const getRandomGPromise = () => randomGPromise("kjv");
-
-  return useQuery("randomGPromise", getRandomGPromise, {
+  return useQuery("randomGPromise", randomGPromise, {
     refetchOnMount,
     refetchOnWindowFocus,
     refetchOnReconnect,
