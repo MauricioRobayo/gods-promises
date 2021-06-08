@@ -1,14 +1,14 @@
 import React from "react";
 import useRandomPassage from "../../hooks/useRandomPassage";
-import Passage from "./Passage";
+import GPromise from "./GPromise";
 
-const RandomPassage = () => {
+const RandomGPromise = () => {
   const { isLoading, isError, data } = useRandomPassage();
 
   if (isError) {
     return <div>Something went wrong!</div>;
   }
 
-  return <Passage promise={data} isLoading={isLoading} />;
+  return <GPromise promise={data} isLoading={isLoading} />;
 };
-export default RandomPassage;
+export default RandomGPromise;

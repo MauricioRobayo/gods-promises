@@ -15,5 +15,7 @@ export const app = firebase.initializeApp(firebaseConfig);
 export const functions = app.functions();
 
 if (process.env.NODE_ENV === "development") {
+  // @ts-ignore
+  window.app = app;
   functions.useEmulator("127.0.0.1", 5001);
 }

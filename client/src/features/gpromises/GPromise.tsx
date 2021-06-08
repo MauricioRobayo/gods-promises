@@ -62,7 +62,7 @@ type PassageProps = {
   isLoading: boolean;
 };
 
-const Passage = ({ promise, isLoading }: PassageProps) => {
+const GPromise = ({ promise, isLoading }: PassageProps) => {
   const queryClient = useQueryClient();
   const onRefreshButtonClick = () => {
     queryClient.resetQueries("randomPromise");
@@ -90,4 +90,4 @@ const Passage = ({ promise, isLoading }: PassageProps) => {
   );
 };
 
-export default Passage;
+export default GPromise;

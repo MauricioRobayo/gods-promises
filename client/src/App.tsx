@@ -1,4 +1,4 @@
-import RandomPassage from "./features/passages/RandomPassage";
+import RandomGPromise from "./features/gpromises/RandomGPromise";
 import Twemoji from "./features/twemoji/Twemoji";
 import styled from "styled-components/macro";
 
@@ -21,7 +21,7 @@ function App() {
         <Title>
           <Twemoji emoji="🙏" /> God's Promises
         </Title>
-        <RandomPassage />
+        <RandomGPromise />
       </Main>
     </>
   );
