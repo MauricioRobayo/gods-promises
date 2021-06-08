@@ -13,16 +13,11 @@ const firebaseConfig = {
 
 export const app = firebase.initializeApp(firebaseConfig);
 export const functions = app.functions();
-export function firebaseCallable<T, R>(
-  name: string,
-  data: R
-): () => Promise<T> {
+export function firebaseCallable<T, R>(name: string): (data: R) => Promise<T> {
   const callable = functions.httpsCallable(name);
-  return async () => (await callable(data)).data;
+  return async (data) => (await callable(data)).data;
 }
 
 if (process.env.NODE_ENV === "development") {
-  // @ts-ignore
-  window.app = app;
   functions.useEmulator("127.0.0.1", 5001);
 }

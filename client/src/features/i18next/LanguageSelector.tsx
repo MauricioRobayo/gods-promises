@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { BibleId } from "../../types";
 
 const Wrapper = styled.div`
   margin: 1rem auto;
@@ -12,9 +13,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const langs: Record<string, { nativeName: string }> = {
-  en: { nativeName: "English" },
-  es: { nativeName: "Español" },
+export const langs: Record<string, { nativeName: string; bibleId: BibleId }> = {
+  en: { nativeName: "English", bibleId: "kjv" },
+  es: { nativeName: "Español", bibleId: "rvg" },
 };
 
 const LanguageSelector = () => {
