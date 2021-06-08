@@ -25,7 +25,7 @@ const LanguageSelector = () => {
       {Object.keys(langs).map((lang) => {
         const [, , ...path] = pathname.split("/");
         if (i18n.language === lang) {
-          return <span>{langs[lang].nativeName}</span>;
+          return <span key={lang}>{langs[lang].nativeName}</span>;
         }
         return (
           <Link key={lang} to={`/${lang}/${path.join("/")}`}>
