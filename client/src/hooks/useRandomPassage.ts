@@ -17,7 +17,7 @@ const useRandomPassage = ({
   cacheTime = 60 * 60 * 1000,
   staleTime = 60 * 60 * 1000,
 }: UseRandomPassageOptions = {}) => {
-  const randomPromise =
+  const randomGPromise =
     createFunction<
       string,
       {
@@ -25,11 +25,11 @@ const useRandomPassage = ({
         text: string;
         source: string;
       }
-    >("randomPromise");
+    >("randomGPromise");
 
-  const getRandomPromise = () => randomPromise("kjv");
+  const getRandomGPromise = () => randomGPromise("kjv");
 
-  return useQuery("randomPromise", getRandomPromise, {
+  return useQuery("randomGPromise", getRandomGPromise, {
     refetchOnMount,
     refetchOnWindowFocus,
     refetchOnReconnect,

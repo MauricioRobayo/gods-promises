@@ -35,7 +35,7 @@ export const getRandomPromises = async (
     content?: Content;
   })[]
 > => {
-  const collection = await getMongoDbCollection("gpromises");
+  const collection = await getMongoDbCollection("g-promises");
   const cursor = collection.aggregate<
     IBasePromise & {
       content?: Content;

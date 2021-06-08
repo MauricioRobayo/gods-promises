@@ -12,7 +12,7 @@ const createUniqueIndex = async (collection, field) => {
 };
 
 const updateDb = async (promises) => {
-  const promisesCollection = await getMongoDbCollection("promises");
+  const promisesCollection = await getMongoDbCollection("g-promises");
   const index = await createUniqueIndex(promisesCollection, "osis");
   console.log(`Successfully created index ${index}!`);
   return promisesCollection.insertMany(promises, { ordered: false });
@@ -20,7 +20,8 @@ const updateDb = async (promises) => {
 
 Promise.all(files.map((file) => fs.readFile(file)))
   .then((filesData) => filesData.map((fileData) => JSON.parse(fileData)).flat())
-  .then((promises) => updateDb(shuffle(promises)))
+  .then((promises) => updateDb(promises))
+  // .then((promises) => updateDb(shuffle(promises).slice(0, 5)))
   .then((result) => {
     console.log({ insertedCount: result.insertedCount });
     process.exit();

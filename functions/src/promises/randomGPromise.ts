@@ -14,7 +14,7 @@ admin.initializeApp();
 
 export const randomGPromise = functions.https.onCall(
   async (bibleId: BibleId) => {
-    const promisesCollection = await getMongoDbCollection("gpromises");
+    const promisesCollection = await getMongoDbCollection("g-promises");
     const randomPromises = await getRandomPromises(100);
     try {
       for (const randomPromise of randomPromises) {
