@@ -2,7 +2,7 @@ import RandomGPromise from "./features/gpromises/RandomGPromise";
 import Twemoji from "./features/twemoji/Twemoji";
 import styled from "styled-components/macro";
 import { useTranslation } from "react-i18next";
-import { Link, useLocation, Switch, Route, Redirect } from "react-router-dom";
+import { useLocation, Switch, Route, Redirect } from "react-router-dom";
 import { useEffect } from "react";
 import LanguageSelector from "./features/i18next/LanguageSelector";
 
