@@ -55,7 +55,7 @@ class BibleSuperSearch implements ExternalApi {
     bible: string,
     response: ApiResponse
   ): string {
-    return response.results
+    const text = response.results
       .map(({verses}) => {
         const chapters = Object.values(verses[bible]);
         return chapters
@@ -67,7 +67,9 @@ class BibleSuperSearch implements ExternalApi {
       })
       .join("\n")
       .replace("¶", "")
-      .trim();
+      .trim()
+      .replace(/[^\w?!'"]$/, ".");
+    return /\w$/.test(text) ? `${text}.` : text;
   }
 }
 
