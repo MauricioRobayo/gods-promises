@@ -33,8 +33,8 @@ export function getMissingKeysInObject<T extends string>(
 const getMissingBibles = (bibles: BibleIds, content: Content): BibleId[] =>
   getMissingKeysInObject(bibles as unknown as BibleId[], content);
 
-export const randomGPromise = functions.https.onCall(
-  async (): Promise<GPromiseDTO> => {
+export const randomGPromise = functions.https.onRequest(
+  async (req: functions.Request, res: functions.Response<GPromiseDTO>) => {
     const gPromisesCollection = await getMongoDbCollection("g-promises");
     const randomGPromises = await getRandomPromises(100);
 
@@ -66,7 +66,8 @@ export const randomGPromise = functions.https.onCall(
 
         if (missingBibleIds.length === 0) {
           functions.logger.info("😎 returning DTO directly from MongoDB");
-          return gPromise.toDTO();
+          res.json(gPromise.toDTO());
+          return;
         }
 
         try {
@@ -90,7 +91,8 @@ export const randomGPromise = functions.https.onCall(
             }
           );
           gPromise.content = newContent;
-          return gPromise.toDTO();
+          res.json(gPromise.toDTO());
+          return;
         } catch (err) {
           functions.logger.error(
             `Failed trying to fetch passages from bibleIds ${missingBibleIds}: ${JSON.stringify(
