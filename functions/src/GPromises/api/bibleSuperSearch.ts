@@ -43,15 +43,14 @@ class BibleSuperSearch implements ExternalApi {
         bibles
       )}&reference=${reference}`
     );
-    const content = Object.fromEntries(
-      bibles.map((bible) => [
-        bible,
-        {
-          text: this.buildPassageTextFromResponse(bible, data),
-          reference: this.translator(this.bibles[bible].lang, reference),
-        },
-      ])
-    );
+    const c: Content = {};
+    const content = bibles.reduce((acc, curr) => {
+      acc[curr] = {
+        text: this.buildPassageTextFromResponse(curr, data),
+        reference: this.translator(this.bibles[curr].lang, reference),
+      };
+      return acc;
+    }, c);
     return content;
   }
 
