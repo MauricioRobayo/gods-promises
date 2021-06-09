@@ -1,1 +1,1 @@
-export {randomGPromise} from "./promises/randomGPromise";
+export {randomGPromise} from "./GPromises/randomGPromise";

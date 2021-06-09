@@ -1,4 +1,5 @@
 const fs = require("fs").promises;
+const { nanoid } = require("nanoid");
 const { getMongoDbCollection, shuffle } = require("./helpers");
 
 const [, , ...files] = process.argv;
@@ -19,7 +20,16 @@ const updateDb = async (promises) => {
 };
 
 Promise.all(files.map((file) => fs.readFile(file)))
-  .then((filesData) => filesData.map((fileData) => JSON.parse(fileData)).flat())
+  .then((filesData) =>
+    filesData
+      .map((fileData) =>
+        JSON.parse(fileData).map((data) => ({
+          _id: nanoid(8),
+          ...data,
+        }))
+      )
+      .flat()
+  )
   // .then((promises) => updateDb(promises))
   .then((promises) => updateDb(shuffle(promises).slice(0, 5)))
   .then((result) => {

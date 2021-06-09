@@ -2,6 +2,8 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
 import styled from "styled-components";
+import { GPromise as GPromiseType } from "../../types";
+import { langs } from "../i18next";
 import ContentLoader from "../loaders/ContentLoader";
 import Twemoji from "../twemoji/Twemoji";
 
@@ -55,16 +57,15 @@ const ButtonsWrapper = styled.div`
 `;
 
 type GPromiseProps = {
-  gPromise: {
-    text: string;
-    reference: string;
-    source: string;
-  };
+  gPromise: GPromiseType;
   isLoading: boolean;
 };
 
 const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
   const queryClient = useQueryClient();
+  const { i18n } = useTranslation();
+  const { bibleId } = langs[i18n.language];
+  const content = gPromise.content[bibleId];
   const onRefreshButtonClick = () => {
     queryClient.resetQueries("randomGPromise");
   };
@@ -76,8 +77,8 @@ const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
           <ContentLoader />
         ) : (
           <>
-            <Blockquote dangerouslySetInnerHTML={{ __html: gPromise.text }} />
-            <Figcaption>{gPromise.reference}</Figcaption>
+            <Blockquote dangerouslySetInnerHTML={{ __html: content.text }} />
+            <Figcaption>{content.reference}</Figcaption>
           </>
         )}
       </Figure>

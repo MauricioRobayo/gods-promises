@@ -1,6 +1,6 @@
 export {
   osisToHumanReadableReference,
-  nivLongToSpanish,
   getMongoDbCollection,
   getRandomPromises,
+  translator,
 } from "./helpers";

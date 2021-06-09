@@ -20,7 +20,7 @@ describe("cleanPassage", () => {
 });
 
 describe("nivLongToSpanish", () => {
-  const passages = [
+  const successCases = [
     ["1 Timothy", "1 Timoteo"],
     ["1 Timothy 1:2-3", "1 Timoteo 1:2-3"],
     [
@@ -33,11 +33,11 @@ describe("nivLongToSpanish", () => {
       "Juan 1 Juan 1, 2 Juan 3 3 Juan 1:2-3;4-5",
     ],
   ];
-  const error = ["", "non existing", "Peter"];
-  it.each(passages)("should convert %p to %p", (en, es) => {
+  const errorCases = ["", "non existing", "Peter"];
+  it.each(successCases)("should convert %p to %p", (en, es) => {
     expect(nivLongToSpanish(en)).toBe(es);
   });
-  it.each(error)("should throw an error for %p", (error) => {
-    expect(() => nivLongToSpanish(error)).toThrow();
+  it.each(errorCases)("should throw an error for %p", (errorCase) => {
+    expect(() => nivLongToSpanish(errorCase)).toThrow();
   });
 });

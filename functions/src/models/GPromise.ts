@@ -6,7 +6,6 @@ export type Content = Partial<
     {
       text: string;
       reference: string;
-      failed?: true;
     }
   >
 >;
@@ -23,7 +22,6 @@ export type GPromiseOptions = {
   originalReference: string;
   source: string;
   content?: Content;
-  failed?: true;
 };
 
 export default class GPromise {
@@ -31,30 +29,30 @@ export default class GPromise {
   osis: string;
   originalReference: string;
   source: string;
-  content?: Content;
-  failed?: true;
+  content: Content;
 
   constructor({
     _id,
     osis,
     originalReference,
     source,
-    content,
-    failed,
+    content = {},
   }: GPromiseOptions) {
     this._id = _id;
     this.osis = osis;
     this.originalReference = originalReference;
     this.source = source;
     this.content = content;
-    this.failed = failed;
   }
 
   toDTO(): GPromiseDTO {
+    if (!this.content) {
+      throw new Error("GPromise.toDTO: cannot create DTO without content!");
+    }
     return {
       id: this._id,
       source: this.source,
-      content: this.content ?? {},
+      content: this.content,
     };
   }
 }

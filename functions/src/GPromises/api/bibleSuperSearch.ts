@@ -1,10 +1,14 @@
 import axios from "axios";
-import {logger} from "firebase-functions";
 import {cleanPassage} from "../../helpers/helpers";
-import {BibleId, QueryResponse} from "../../types";
+import {Content} from "../../models/GPromise";
+import {BibleId, BibleIds, Bibles, Lang} from "../../types";
 import {ExternalApi} from "./interface";
 
 type ApiResult = {
+  /* eslint-disable camelcase */
+  book_name: string;
+  book_raw: string;
+  /* eslint-enable camelcase */
   verses: {
     [bibleId: string]: {
       [chapter: string]: {
@@ -26,33 +30,32 @@ type ApiResponse = {
 };
 
 class BibleSuperSearch implements ExternalApi {
+  constructor(
+    private bibles: Bibles,
+    private translator: (lang: Lang, reference: string) => string
+  ) {}
   async getPassageFromReference(
-    bibleId: BibleId,
+    bibles: BibleId[],
     reference: string
-  ): Promise<QueryResponse> {
-    try {
-      const {data} = await axios.get(
-        `https://api.biblesupersearch.com/api?bible=${bibleId}&reference=${reference}`
-      );
-      return {
-        status: "success",
-        text: this.buildPromiseTextFromResponse(bibleId, data),
-      };
-    } catch (err) {
-      if (err.response) {
-        return {
-          status: "error",
-          errors: err.response.data.errors,
-        };
-      }
-      logger.error(
-        `BibleSuperSearch.getPassageFromReference error${err.message}`
-      );
-      throw new Error(`Failed to retrieve '${reference}' from ${bibleId}!`);
-    }
+  ): Promise<Content> {
+    const {data} = await axios.get(
+      `https://api.biblesupersearch.com/api?bible=${JSON.stringify(
+        bibles
+      )}&reference=${reference}`
+    );
+    const content = Object.fromEntries(
+      bibles.map((bible) => [
+        bible,
+        {
+          text: this.buildPassageTextFromResponse(bible, data),
+          reference: this.translator(this.bibles[bible].lang, reference),
+        },
+      ])
+    );
+    return content;
   }
 
-  private buildPromiseTextFromResponse(
+  private buildPassageTextFromResponse(
     bible: string,
     response: ApiResponse
   ): string {

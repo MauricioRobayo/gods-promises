@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 import { useTranslation } from "react-i18next";
 import { useLocation, Switch, Route, Redirect } from "react-router-dom";
 import { useEffect } from "react";
-import LanguageSelector from "./features/i18next/LanguageSelector";
+import { LanguageSelector } from "./features/i18next";
 
 const Main = styled.main`
   display: flex;

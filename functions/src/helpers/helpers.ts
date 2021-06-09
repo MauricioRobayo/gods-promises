@@ -1,7 +1,9 @@
 import * as osisToEn from "bible-reference-formatter";
 import * as functions from "firebase-functions";
 import {MongoClient, Collection} from "mongodb";
-import {IGPromise, Content} from "../types";
+import {GPromiseOptions} from "../models/GPromise";
+import {SuccessOrError, ok, err} from "../GPromises/api/interface";
+import {Lang} from "../types";
 
 export const cleanPassage = (passage: string): string => {
   const cleanedText = passage
@@ -11,14 +13,13 @@ export const cleanPassage = (passage: string): string => {
   return /\w$/.test(cleanedText) ? `${cleanedText}.` : cleanedText;
 };
 
-export const osisToHumanReadableReference = (osis: string): string | null => {
+export const osisToHumanReadableReference = (
+  osis: string
+): SuccessOrError<string> => {
   try {
-    return osisToEn("niv-long", osis).replace(/–/g, "-");
-  } catch (err) {
-    functions.logger.error(
-      `osisToHumanReadableReference: ${JSON.stringify(err)}`
-    );
-    return null;
+    return ok(osisToEn("niv-long", osis).replace(/–/g, "-"));
+  } catch (e) {
+    return err(JSON.stringify(e));
   }
 };
 
@@ -38,18 +39,23 @@ export const getMongoDbCollection = async (
 
 export const getRandomPromises = async (
   size: number
-): Promise<
-  (IGPromise & {
-    content?: Content;
-  })[]
-> => {
+): Promise<GPromiseOptions[]> => {
   const collection = await getMongoDbCollection("g-promises");
-  const cursor = collection.aggregate<
-    IGPromise & {
-      content?: Content;
-    }
-  >([{$match: {errors: {$exists: false}}}, {$sample: {size}}]);
+  const cursor = collection.aggregate<GPromiseOptions>([
+    {$match: {failed: {$exists: false}}},
+    {$sample: {size}},
+  ]);
   return cursor.toArray();
+};
+
+export const translator = (lang: Lang, reference: string): string => {
+  switch (lang) {
+    case "es":
+      return nivLongToSpanish(reference);
+    case "en":
+    default:
+      return reference;
+  }
 };
 
 export const nivLongToSpanish = (passage: string): string => {

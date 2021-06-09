@@ -23,7 +23,8 @@
     "firebase-admin": "^9.2.0",
     "firebase-functions": "^3.11.0",
     "jsdom": "^16.6.0",
-    "mongodb": "^3.6.9"
+    "mongodb": "^3.6.9",
+    "nanoid": "^3.1.23"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
