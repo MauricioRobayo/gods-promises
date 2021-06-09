@@ -41,7 +41,6 @@ export const randomGPromise = functions.https.onRequest(
     try {
       for (const randomGPromise of randomGPromises) {
         const gPromise = new GPromise(randomGPromise);
-        functions.logger.info(`😎 1 ${JSON.stringify(gPromise.toDTO)}`);
         const humanReadableReference = osisToHumanReadableReference(
           gPromise.osis
         );
@@ -62,10 +61,7 @@ export const randomGPromise = functions.https.onRequest(
         }
 
         const missingBibleIds = getMissingBibles(bibleIds, gPromise.content);
-        functions.logger.info(`😎 2 missing bible ids ${missingBibleIds}`);
-
         if (missingBibleIds.length === 0) {
-          functions.logger.info("😎 returning DTO directly from MongoDB");
           res.json(gPromise.toDTO());
           return;
         }
@@ -81,7 +77,6 @@ export const randomGPromise = functions.https.onRequest(
                 ...content,
               }
             : content;
-          functions.logger.info(`😎 new content generated ${newContent}`);
           await gPromisesCollection.updateOne(
             {_id: randomGPromise._id},
             {
