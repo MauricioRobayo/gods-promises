@@ -1,6 +1,7 @@
 const fs = require("fs").promises;
 const { nanoid } = require("nanoid");
-const { getMongoDbCollection, shuffle } = require("./helpers");
+const { shuffle } = require("./helpers");
+const { getMongoDbCollection } = require("../../functions/lib/helpers/helpers");
 
 const [, , ...files] = process.argv;
 if (files.length === 0) {

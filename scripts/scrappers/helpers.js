@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { MongoClient } = require("mongodb");
+const {MongoClient} = require("mongodb");
 
 const bcv_parser =
   require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
@@ -32,7 +32,7 @@ const makePromiseOrThrow = (options) => {
       throw new Error(`makePromise: missing required '${requirement}'`);
     }
   });
-  const { osis, reference, source } = options;
+  const {osis, reference, source} = options;
   return {
     osis,
     originalReference: reference,
@@ -40,7 +40,7 @@ const makePromiseOrThrow = (options) => {
   };
 };
 
-const makePromise = ({ reference, source }) => {
+const makePromise = ({reference, source}) => {
   try {
     const osis = bcv.parse(reference).osis();
     return makePromiseOrThrow({
