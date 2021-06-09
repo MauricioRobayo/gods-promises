@@ -1,7 +1,7 @@
 import axios from "axios";
 import {cleanPassage} from "../../helpers/helpers";
 import {Content} from "../../models/GPromise";
-import {BibleId, BibleIds, Bibles, Lang} from "../../types";
+import {BibleId, Bibles, Lang} from "../../types";
 import {ExternalApi} from "./interface";
 
 type ApiResult = {
