@@ -27,14 +27,14 @@ const config = functions.config();
 
 export const getMongoDbCollection = async (
   collection: string
-): Promise<Collection> => {
+): Promise<Collection<GPromiseOptions>> => {
   const client = new MongoClient(config.mongodb.uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
   await client.connect();
   const db = client.db(config.mongodb.database);
-  return db.collection(collection);
+  return db.collection<GPromiseOptions>(collection);
 };
 
 export const getRandomPromises = async (
