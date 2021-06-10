@@ -1,6 +1,1 @@
-export {
-  getMissingBibles,
-  osisToHumanReadableReference,
-  getMongoDbCollection,
-  translator,
-} from "./helpers";
+export {getMissingBibles, getMongoDbCollection, translator} from "./helpers";
