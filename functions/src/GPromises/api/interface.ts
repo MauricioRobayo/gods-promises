@@ -26,7 +26,7 @@ type Error = {
 
 export type SuccessOrError<T> = Success<T> | Error;
 
-export interface ExternalApi {
+export interface BibleSearcher {
   getPassageFromReference: (
     bibles: BibleId[],
     reference: string
