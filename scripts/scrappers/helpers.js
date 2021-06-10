@@ -1,6 +1,6 @@
 require("dotenv").config();
-const {MongoClient} = require("mongodb");
-
+const { MongoClient } = require("mongodb");
+const osisToEn = require("bible-reference-formatter");
 const bcv_parser =
   require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
 
@@ -25,33 +25,36 @@ const shuffle = (arr) => {
 };
 
 const makePromiseOrThrow = (options) => {
-  const requirements = ["osis", "reference", "source"];
+  const requirements = ["niv", "originalReference", "osis", "source"];
   requirements.forEach((requirement) => {
     const option = options[requirement];
     if (!option || !typeof option === "string" || option.trim() === "") {
       throw new Error(`makePromise: missing required '${requirement}'`);
     }
   });
-  const {osis, reference, source} = options;
+  const { osis, originalReference, niv, source } = options;
   return {
+    niv,
+    originalReference,
     osis,
-    originalReference: reference,
     source,
   };
 };
 
-const makePromise = ({reference, source}) => {
+const osisToNivLong = (osis) => osisToEn("niv-long", osis);
+
+const makePromise = ({ reference, source }) => {
   try {
     const osis = bcv.parse(reference).osis();
+    const niv = osisToNivLong(osis);
     return makePromiseOrThrow({
+      niv,
+      originalReference: reference,
       osis,
-      reference,
       source,
     });
   } catch (err) {
-    console.log(
-      `makePromise failed on reference '${reference}': ${err.message}`
-    );
+    console.log(`makePromise failed on reference '${reference}'`, err);
     return null;
   }
 };
