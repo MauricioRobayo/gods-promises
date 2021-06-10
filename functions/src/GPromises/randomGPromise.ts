@@ -2,31 +2,32 @@ import * as functions from "firebase-functions";
 import BibleSuperSearch from "./api/bibleSuperSearch";
 import {
   osisToHumanReadableReference,
-  getRandomPromises,
   getMongoDbCollection,
   translator,
   getMissingBibles,
 } from "../helpers";
-import GPromise, {GPromiseDTO} from "../models/GPromise";
+import {getRandomPromises} from "../queries";
+import {GPromiseDTO, IGPromise} from "../models/GPromise";
 import {bibles, bibleIds} from "../config";
 
 const bibleSuperSearch = new BibleSuperSearch(bibles, translator);
 
 export const randomGPromise = functions.https.onRequest(
-  async (req: functions.Request, res: functions.Response<GPromiseDTO>) => {
-    const gPromisesCollection = await getMongoDbCollection("g-promises");
+  async (_req: functions.Request, res: functions.Response<GPromiseDTO>) => {
+    const gPromisesCollection = await getMongoDbCollection<IGPromise>(
+      "g-promises"
+    );
     const randomGPromises = await getRandomPromises(100);
 
     try {
       for (const randomGPromise of randomGPromises) {
-        const gPromise = new GPromise(randomGPromise);
         const humanReadableReference = osisToHumanReadableReference(
-          gPromise.osis
+          randomGPromise.osis
         );
 
         if (humanReadableReference.isError) {
           await gPromisesCollection.updateOne(
-            {_id: gPromise._id},
+            {_id: randomGPromise._id},
             {
               $set: {
                 failed: true,
@@ -39,9 +40,12 @@ export const randomGPromise = functions.https.onRequest(
           continue;
         }
 
-        const missingBibleIds = getMissingBibles(bibleIds, gPromise.content);
+        const missingBibleIds = getMissingBibles(
+          bibleIds,
+          randomGPromise.content
+        );
         if (missingBibleIds.length === 0) {
-          res.json(gPromise.toDTO());
+          res.json(randomGPromise.toDTO());
           return;
         }
 
@@ -64,8 +68,8 @@ export const randomGPromise = functions.https.onRequest(
               },
             }
           );
-          gPromise.content = newContent;
-          res.json(gPromise.toDTO());
+          randomGPromise.content = newContent;
+          res.json(randomGPromise.toDTO());
           return;
         } catch (err) {
           functions.logger.error(

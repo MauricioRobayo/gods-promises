@@ -24,7 +24,7 @@ export type IGPromise = {
   content?: Content;
 };
 
-export default class GPromise {
+export class GPromise {
   _id: string;
   osis: string;
   originalReference: string;

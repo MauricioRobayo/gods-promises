@@ -45,26 +45,17 @@ export const osisToHumanReadableReference = (
 
 const config = functions.config();
 
-export const getMongoDbCollection = async (
+export async function getMongoDbCollection<T>(
   collection: string
-): Promise<Collection<IGPromise>> => {
+): Promise<Collection<T>> {
   const client = new MongoClient(config.mongodb.uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
   await client.connect();
   const db = client.db(config.mongodb.database);
-  return db.collection<IGPromise>(collection);
-};
-
-export const getRandomPromises = async (size: number): Promise<IGPromise[]> => {
-  const collection = await getMongoDbCollection("g-promises");
-  const cursor = collection.aggregate<IGPromise>([
-    {$match: {failed: {$exists: false}}},
-    {$sample: {size}},
-  ]);
-  return cursor.toArray();
-};
+  return db.collection<T>(collection);
+}
 
 export const translator = (lang: Lang, reference: string): string => {
   switch (lang) {
