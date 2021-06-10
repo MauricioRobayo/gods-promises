@@ -34,14 +34,12 @@ type GPromiseProps = {
   isLoading: boolean;
 };
 
-const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
+export default function GPromiseContainer({
+  gPromise,
+  isLoading,
+}: GPromiseProps) {
   const { i18n } = useTranslation();
   const { bibleId } = langs[i18n.language];
-  const content = gPromise?.content[bibleId];
-
-  if (!content) {
-    return <div>We don't have content for that promise</div>;
-  }
 
   return (
     <article>
@@ -50,13 +48,11 @@ const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
           <ContentLoader />
         ) : (
           <>
-            <Blockquote>{content.text}</Blockquote>
-            <Figcaption>{content.reference}</Figcaption>
+            <Blockquote>{gPromise.content[bibleId]?.text}</Blockquote>
+            <Figcaption>{gPromise.content[bibleId]?.reference}</Figcaption>
           </>
         )}
       </Figure>
     </article>
   );
-};
-
-export default GPromise;
+}

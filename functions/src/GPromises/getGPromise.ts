@@ -5,7 +5,7 @@ import {getGPromiseById} from "../queries";
 import {updateMissingContent} from "./utils";
 
 export const getGPromise = functions.https.onCall(
-  async ({gPromiseId}: {gPromiseId: string}): Promise<GPromiseDTO> => {
+  async (gPromiseId: string): Promise<GPromiseDTO> => {
     const gPromise = await getGPromiseById(gPromiseId);
 
     if (!gPromise) {

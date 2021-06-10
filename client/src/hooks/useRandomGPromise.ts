@@ -8,7 +8,6 @@ export default function useRandomGPromise() {
   }
 
   return useQuery("randomGPromise", randomGPromise, {
-    retry: false,
     staleTime: Infinity,
   });
 }

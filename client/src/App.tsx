@@ -6,6 +6,7 @@ import { useLocation, Switch, Route, Redirect } from "react-router-dom";
 import { useEffect } from "react";
 import { LanguageSelector } from "./features/i18next";
 import { useQueryClient } from "react-query";
+import GPromise from "./features/gpromises/GPromise";
 
 const Main = styled.main`
   display: flex;
@@ -66,12 +67,13 @@ function App() {
           <Twemoji emoji="🙏" /> {t("God's Promises")}
         </Title>
         <Switch>
-          <Route
-            path={`${base}/p/:gpromiseId`}
-            render={() => <div>Promise</div>}
-          />
-          <Route exact path={base} component={RandomGPromise} />
-          <Redirect to="en" />
+          <Route path={`${base}/p/:gPromiseId`}>
+            <GPromise />
+          </Route>
+          <Route exact path={base}>
+            <RandomGPromise />
+          </Route>
+          <Redirect to="/en" />
         </Switch>
         <Footer>
           <ButtonsWrapper>

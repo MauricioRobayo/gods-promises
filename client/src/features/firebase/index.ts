@@ -15,7 +15,10 @@ export const app = firebase.initializeApp(firebaseConfig);
 export const functions = app.functions();
 export function firebaseCallable<T, R>(name: string): (data: R) => Promise<T> {
   const callable = functions.httpsCallable(name);
-  return async (data) => (await callable(data)).data;
+  return async (data) => {
+    console.log("😀", { data });
+    return (await callable(data)).data;
+  };
 }
 
 if (process.env.NODE_ENV === "development") {

@@ -1,6 +1,6 @@
 import React from "react";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
-import GPromise from "./GPromiseContainer";
+import GPromiseContainer from "./GPromiseContainer";
 
 export default function RandomGPromise() {
   const { isLoading, isError, data } = useRandomGPromise();
@@ -9,5 +9,5 @@ export default function RandomGPromise() {
     return <div>Something went wrong!</div>;
   }
 
-  return <GPromise gPromise={data!} isLoading={isLoading} />;
+  return <GPromiseContainer gPromise={data!} isLoading={isLoading} />;
 }
