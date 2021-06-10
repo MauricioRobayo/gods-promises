@@ -5,7 +5,6 @@ import { useLocation, Switch, Route, Redirect } from "react-router-dom";
 import { useEffect } from "react";
 import { LanguageSelector } from "./features/i18next";
 import GPromise from "./features/gPromises/GPromise";
-import RandomGPromise from "./features/gPromises/RandomGPromise";
 import useRandomGPromise from "./hooks/useRandomGPromise";
 import { useQueryClient } from "react-query";
 
@@ -71,9 +70,6 @@ function App() {
         <Switch>
           <Route path={`${base}/p/:gPromiseId`}>
             <GPromise />
-          </Route>
-          <Route path={base}>
-            <RandomGPromise />
           </Route>
           <Redirect to="/en" />
         </Switch>
