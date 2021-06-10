@@ -1,1 +1,6 @@
-export {getMissingBibles, getMongoDbCollection, translator} from "./helpers";
+export {
+  getMissingBibles,
+  getMongoDbCollection,
+  translator,
+  updateMissingContent,
+} from "./helpers";

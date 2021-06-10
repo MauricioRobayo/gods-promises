@@ -1,7 +1,52 @@
 import * as functions from "firebase-functions";
 import {MongoClient, Collection} from "mongodb";
-import {Content} from "../models/GPromise";
+import {Content, GPromise, IGPromise} from "../models/GPromise";
 import {Lang, BibleIds, BibleId} from "../types";
+import {bibleIds, bibles} from "../config";
+import {BibleSuperSearch} from "../GPromises/api";
+
+export const translator = (lang: Lang, reference: string): string => {
+  switch (lang) {
+    case "es":
+      return nivLongToSpanish(reference);
+    case "en":
+    default:
+      return reference;
+  }
+};
+
+export const updateMissingContent = async (
+  gPromise: GPromise,
+  gPromisesCollection: Collection<IGPromise>
+): Promise<GPromise> => {
+  const bibleSuperSearch = new BibleSuperSearch(bibles, translator);
+  const missingBibleIds = getMissingBibles(bibleIds, gPromise.content);
+
+  if (missingBibleIds.length === 0) {
+    return gPromise;
+  }
+
+  const content = await bibleSuperSearch.getPassageFromReference(
+    missingBibleIds,
+    gPromise.niv
+  );
+  const newContent = gPromise.content
+    ? {
+        ...gPromise.content,
+        ...content,
+      }
+    : content;
+  await gPromisesCollection.updateOne(
+    {_id: gPromise._id},
+    {
+      $set: {
+        content: newContent,
+      },
+    }
+  );
+  gPromise.content = newContent;
+  return gPromise;
+};
 
 export function getMissingKeysInObject<T extends string>(
   ids: T[],
@@ -44,16 +89,6 @@ export async function getMongoDbCollection<T>(
   const db = client.db(config.mongodb.database);
   return db.collection<T>(collection);
 }
-
-export const translator = (lang: Lang, reference: string): string => {
-  switch (lang) {
-    case "es":
-      return nivLongToSpanish(reference);
-    case "en":
-    default:
-      return reference;
-  }
-};
 
 export const nivLongToSpanish = (passage: string): string => {
   const translation: Record<string, string> = {
