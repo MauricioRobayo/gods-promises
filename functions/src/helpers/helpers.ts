@@ -1,7 +1,7 @@
 import * as osisToEn from "bible-reference-formatter";
 import * as functions from "firebase-functions";
 import {MongoClient, Collection} from "mongodb";
-import {IGPromise, Content} from "../models/GPromise";
+import {Content} from "../models/GPromise";
 import {SuccessOrError, ok, err} from "../GPromises/api/interface";
 import {Lang, BibleIds, BibleId} from "../types";
 
