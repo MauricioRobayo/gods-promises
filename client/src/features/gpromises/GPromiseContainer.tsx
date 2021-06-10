@@ -1,11 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useQueryClient } from "react-query";
 import styled from "styled-components";
 import { GPromise as GPromiseType } from "../../types";
 import { langs } from "../i18next";
 import ContentLoader from "../loaders/ContentLoader";
-import Twemoji from "../twemoji/Twemoji";
 
 const Figure = styled.figure`
   margin: 0;
@@ -31,45 +29,15 @@ const Figcaption = styled.figcaption`
   }
 `;
 
-const Footer = styled.footer`
-  font-size: 0.85rem;
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  a {
-    text-decoration: none;
-  }
-`;
-
-const Button = styled.button`
-  background-color: transparent;
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25em;
-  cursor: pointer;
-`;
-
-const ButtonsWrapper = styled.div`
-  & > button:not(:last-child) {
-    margin-right: 1rem;
-  }
-`;
-
 type GPromiseProps = {
   gPromise: GPromiseType;
   isLoading: boolean;
 };
 
 const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
-  const queryClient = useQueryClient();
   const { i18n } = useTranslation();
   const { bibleId } = langs[i18n.language];
   const content = gPromise?.content[bibleId];
-  const onRefreshButtonClick = () => {
-    queryClient.resetQueries("randomGPromise");
-  };
-  const { t } = useTranslation();
 
   if (!content) {
     return <div>We don't have content for that promise</div>;
@@ -87,13 +55,6 @@ const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
           </>
         )}
       </Figure>
-      <Footer>
-        <ButtonsWrapper>
-          <Button onClick={onRefreshButtonClick}>
-            <Twemoji emoji="🔃" /> {t("next")}
-          </Button>
-        </ButtonsWrapper>
-      </Footer>
     </article>
   );
 };
