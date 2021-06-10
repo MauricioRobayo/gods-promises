@@ -1,9 +1,4 @@
-import * as functions from "firebase-functions";
-import {MongoClient, Collection} from "mongodb";
-import {Content, GPromise, IGPromise} from "../models/GPromise";
-import {Lang, BibleIds, BibleId} from "../types";
-import {bibleIds, bibles} from "../config";
-import {BibleSuperSearch} from "../GPromises/api";
+import {Lang} from "../../types";
 
 export const translator = (lang: Lang, reference: string): string => {
   switch (lang) {
@@ -14,81 +9,6 @@ export const translator = (lang: Lang, reference: string): string => {
       return reference;
   }
 };
-
-export const updateMissingContent = async (
-  gPromise: GPromise,
-  gPromisesCollection: Collection<IGPromise>
-): Promise<GPromise> => {
-  const bibleSuperSearch = new BibleSuperSearch(bibles, translator);
-  const missingBibleIds = getMissingBibles(bibleIds, gPromise.content);
-
-  if (missingBibleIds.length === 0) {
-    return gPromise;
-  }
-
-  const content = await bibleSuperSearch.getPassageFromReference(
-    missingBibleIds,
-    gPromise.niv
-  );
-  const newContent = gPromise.content
-    ? {
-        ...gPromise.content,
-        ...content,
-      }
-    : content;
-  await gPromisesCollection.updateOne(
-    {_id: gPromise._id},
-    {
-      $set: {
-        content: newContent,
-      },
-    }
-  );
-  gPromise.content = newContent;
-  return gPromise;
-};
-
-export function getMissingKeysInObject<T extends string>(
-  ids: T[],
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  content: Record<string, any> = {}
-): T[] {
-  const objectKeys = Object.keys(content);
-  const missingKeys = [];
-  for (const key of ids) {
-    if (!objectKeys.includes(key)) {
-      missingKeys.push(key);
-    }
-  }
-  return missingKeys;
-}
-
-export const getMissingBibles = (
-  bibles: BibleIds,
-  content: Content
-): BibleId[] => getMissingKeysInObject(bibles as unknown as BibleId[], content);
-
-export const cleanPassage = (passage: string): string => {
-  const cleanedText = passage
-    .replace("¶", "")
-    .trim()
-    .replace(/[^\w?!'"]$/, ".");
-  return /\w$/.test(cleanedText) ? `${cleanedText}.` : cleanedText;
-};
-
-const config = functions.config();
-
-export async function getMongoDbCollection<T>(
-  collection: string
-): Promise<Collection<T>> {
-  const client = new MongoClient(config.mongodb.uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-  await client.connect();
-  const db = client.db(config.mongodb.database);
-  return db.collection<T>(collection);
-}
 
 export const nivLongToSpanish = (passage: string): string => {
   const translation: Record<string, string> = {

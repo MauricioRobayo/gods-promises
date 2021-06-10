@@ -1,4 +1,4 @@
-import {getMongoDbCollection} from "../helpers";
+import {getMongoDbCollection} from "../utils";
 import {GPromise, IGPromise} from "../models/GPromise";
 
 const getRandomPromises = async (size: number): Promise<GPromise[]> => {

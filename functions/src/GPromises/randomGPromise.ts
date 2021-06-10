@@ -1,5 +1,6 @@
 import * as functions from "firebase-functions";
-import {getMongoDbCollection, updateMissingContent} from "../helpers";
+import {getMongoDbCollection} from "../utils";
+import {updateMissingContent} from "./utils";
 import {getRandomPromises} from "../queries";
 import {GPromiseDTO, IGPromise} from "../models/GPromise";
 

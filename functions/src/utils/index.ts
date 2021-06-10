@@ -1,0 +1,1 @@
+export {getMongoDbCollection} from "./utils";

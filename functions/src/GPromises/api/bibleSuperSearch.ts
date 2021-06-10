@@ -1,5 +1,5 @@
 import axios from "axios";
-import {cleanPassage} from "../../helpers/helpers";
+import {cleanPassage} from "./utils";
 import {Content} from "../../models/GPromise";
 import {BibleId, Bibles, Lang} from "../../types";
 import {BibleSearcher} from "./interface";
