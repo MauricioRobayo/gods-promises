@@ -40,9 +40,6 @@ export class GPromise {
   }
 
   toDTO(): GPromiseDTO {
-    if (!this.content) {
-      throw new Error("GPromise.toDTO: cannot create DTO without content!");
-    }
     return {
       id: this._id,
       source: this.source,
