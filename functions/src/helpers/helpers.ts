@@ -1,7 +1,7 @@
 import * as osisToEn from "bible-reference-formatter";
 import * as functions from "firebase-functions";
 import {MongoClient, Collection} from "mongodb";
-import {GPromiseOptions, Content} from "../models/GPromise";
+import {IGPromise, Content} from "../models/GPromise";
 import {SuccessOrError, ok, err} from "../GPromises/api/interface";
 import {Lang, BibleIds, BibleId} from "../types";
 
@@ -47,21 +47,19 @@ const config = functions.config();
 
 export const getMongoDbCollection = async (
   collection: string
-): Promise<Collection<GPromiseOptions>> => {
+): Promise<Collection<IGPromise>> => {
   const client = new MongoClient(config.mongodb.uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
   await client.connect();
   const db = client.db(config.mongodb.database);
-  return db.collection<GPromiseOptions>(collection);
+  return db.collection<IGPromise>(collection);
 };
 
-export const getRandomPromises = async (
-  size: number
-): Promise<GPromiseOptions[]> => {
+export const getRandomPromises = async (size: number): Promise<IGPromise[]> => {
   const collection = await getMongoDbCollection("g-promises");
-  const cursor = collection.aggregate<GPromiseOptions>([
+  const cursor = collection.aggregate<IGPromise>([
     {$match: {failed: {$exists: false}}},
     {$sample: {size}},
   ]);

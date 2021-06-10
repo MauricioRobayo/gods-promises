@@ -16,7 +16,7 @@ export type GPromiseDTO = {
   content: Content;
 };
 
-export type GPromiseOptions = {
+export type IGPromise = {
   _id: string;
   osis: string;
   originalReference: string;
@@ -31,13 +31,7 @@ export default class GPromise {
   source: string;
   content: Content;
 
-  constructor({
-    _id,
-    osis,
-    originalReference,
-    source,
-    content = {},
-  }: GPromiseOptions) {
+  constructor({_id, osis, originalReference, source, content = {}}: IGPromise) {
     this._id = _id;
     this.osis = osis;
     this.originalReference = originalReference;
