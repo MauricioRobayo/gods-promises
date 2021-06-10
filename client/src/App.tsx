@@ -1,12 +1,13 @@
-import RandomGPromise from "./features/gpromises/RandomGPromise";
 import Twemoji from "./features/twemoji/Twemoji";
 import styled from "styled-components/macro";
 import { useTranslation } from "react-i18next";
 import { useLocation, Switch, Route, Redirect } from "react-router-dom";
 import { useEffect } from "react";
 import { LanguageSelector } from "./features/i18next";
+import GPromise from "./features/gPromises/GPromise";
+import RandomGPromise from "./features/gPromises/RandomGPromise";
+import useRandomGPromise from "./hooks/useRandomGPromise";
 import { useQueryClient } from "react-query";
-import GPromise from "./features/gpromises/GPromise";
 
 const Main = styled.main`
   display: flex;
@@ -50,10 +51,11 @@ const base = "/:lang(en|es)";
 function App() {
   const queryClient = useQueryClient();
   const onRefreshButtonClick = () => {
-    queryClient.resetQueries("randomGPromise");
+    queryClient.invalidateQueries("randomGPromise");
   };
   const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
+  useRandomGPromise();
 
   useEffect(() => {
     const [, lang] = pathname.split("/");
@@ -70,7 +72,7 @@ function App() {
           <Route path={`${base}/p/:gPromiseId`}>
             <GPromise />
           </Route>
-          <Route exact path={base}>
+          <Route path={base}>
             <RandomGPromise />
           </Route>
           <Redirect to="/en" />
