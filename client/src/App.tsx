@@ -70,7 +70,7 @@ function App() {
             path={`${base}/p/:gpromiseId`}
             render={() => <div>Promise</div>}
           />
-          <Route exact={true} path={base} component={RandomGPromise} />
+          <Route exact path={base} component={RandomGPromise} />
           <Redirect to="en" />
         </Switch>
         <Footer>
