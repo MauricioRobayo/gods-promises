@@ -4,14 +4,14 @@ import {BibleSuperSearch} from "../api";
 import {translator, getMissingBibles} from ".";
 import {getMongoDbCollection} from "../../utils";
 
+const bibleSuperSearch = new BibleSuperSearch(bibles, translator);
+const collection = getMongoDbCollection<IGPromise>("g-promises");
+
 export const updateMissingContent = async (
   gPromise: GPromise
 ): Promise<GPromise> => {
-  const gPromisesCollection = await getMongoDbCollection<IGPromise>(
-    "g-promises"
-  );
-  const bibleSuperSearch = new BibleSuperSearch(bibles, translator);
   const missingBibleIds = getMissingBibles(bibleIds, gPromise.content);
+  const gPromisesCollection = await collection;
 
   if (missingBibleIds.length === 0) {
     return gPromise;
