@@ -1,37 +1,16 @@
 import * as functions from "firebase-functions";
-import * as admin from "firebase-admin";
 import BibleSuperSearch from "./api/bibleSuperSearch";
 import {
   osisToHumanReadableReference,
   getRandomPromises,
   getMongoDbCollection,
   translator,
+  getMissingBibles,
 } from "../helpers";
-import GPromise, {Content, GPromiseDTO} from "../models/GPromise";
+import GPromise, {GPromiseDTO} from "../models/GPromise";
 import {bibles, bibleIds} from "../config";
-import {BibleId, BibleIds} from "../types";
 
 const bibleSuperSearch = new BibleSuperSearch(bibles, translator);
-
-admin.initializeApp();
-
-export function getMissingKeysInObject<T extends string>(
-  ids: T[],
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  content: Record<string, any> = {}
-): T[] {
-  const objectKeys = Object.keys(content);
-  const missingKeys = [];
-  for (const key of ids) {
-    if (!objectKeys.includes(key)) {
-      missingKeys.push(key);
-    }
-  }
-  return missingKeys;
-}
-
-const getMissingBibles = (bibles: BibleIds, content: Content): BibleId[] =>
-  getMissingKeysInObject(bibles as unknown as BibleId[], content);
 
 export const randomGPromise = functions.https.onRequest(
   async (req: functions.Request, res: functions.Response<GPromiseDTO>) => {

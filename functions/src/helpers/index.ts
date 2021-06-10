@@ -1,4 +1,5 @@
 export {
+  getMissingBibles,
   osisToHumanReadableReference,
   getMongoDbCollection,
   getRandomPromises,
