@@ -13,10 +13,7 @@ export const randomGPromise = functions.https.onRequest(
 
     for (const randomGPromise of randomGPromises) {
       try {
-        const updatedPromise = await updateMissingContent(
-          randomGPromise,
-          gPromisesCollection
-        );
+        const updatedPromise = await updateMissingContent(randomGPromise);
         res.json(updatedPromise.toDTO());
         return;
       } catch (err) {

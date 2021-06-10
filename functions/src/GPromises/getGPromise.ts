@@ -2,6 +2,7 @@ import * as functions from "firebase-functions";
 import {GPromiseDTO} from "../models/GPromise";
 import {HttpsError} from "firebase-functions/lib/providers/https";
 import {getGPromiseById} from "../queries";
+import {updateMissingContent} from "./utils";
 
 export const getGPromise = functions.https.onCall(
   async ({gPromiseId}: {gPromiseId: string}): Promise<GPromiseDTO> => {
@@ -14,6 +15,7 @@ export const getGPromise = functions.https.onCall(
       );
     }
 
-    return gPromise.toDTO();
+    const updatedPromise = await updateMissingContent(gPromise);
+    return updatedPromise.toDTO();
   }
 );

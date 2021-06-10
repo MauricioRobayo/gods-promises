@@ -1,13 +1,15 @@
 import {GPromise, IGPromise} from "../../models/GPromise";
 import {bibleIds, bibles} from "../../config";
 import {BibleSuperSearch} from "../api";
-import {Collection} from "mongodb";
 import {translator, getMissingBibles} from ".";
+import {getMongoDbCollection} from "../../utils";
 
 export const updateMissingContent = async (
-  gPromise: GPromise,
-  gPromisesCollection: Collection<IGPromise>
+  gPromise: GPromise
 ): Promise<GPromise> => {
+  const gPromisesCollection = await getMongoDbCollection<IGPromise>(
+    "g-promises"
+  );
   const bibleSuperSearch = new BibleSuperSearch(bibles, translator);
   const missingBibleIds = getMissingBibles(bibleIds, gPromise.content);
 
