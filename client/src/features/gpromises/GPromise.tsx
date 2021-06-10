@@ -82,7 +82,7 @@ const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
           <ContentLoader />
         ) : (
           <>
-            <Blockquote dangerouslySetInnerHTML={{ __html: content.text }} />
+            <Blockquote>{content.text}</Blockquote>
             <Figcaption>{content.reference}</Figcaption>
           </>
         )}
