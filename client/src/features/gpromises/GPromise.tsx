@@ -65,11 +65,16 @@ const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
   const queryClient = useQueryClient();
   const { i18n } = useTranslation();
   const { bibleId } = langs[i18n.language];
-  const content = gPromise.content[bibleId];
+  const content = gPromise?.content[bibleId];
   const onRefreshButtonClick = () => {
     queryClient.resetQueries("randomGPromise");
   };
   const { t } = useTranslation();
+
+  if (!content) {
+    return <div>We don't have content for that promise</div>;
+  }
+
   return (
     <article>
       <Figure>
@@ -85,7 +90,7 @@ const GPromise = ({ gPromise, isLoading }: GPromiseProps) => {
       <Footer>
         <ButtonsWrapper>
           <Button onClick={onRefreshButtonClick}>
-            <Twemoji emoji="🔃" /> {t("refresh")}
+            <Twemoji emoji="🔃" /> {t("next")}
           </Button>
         </ButtonsWrapper>
       </Footer>

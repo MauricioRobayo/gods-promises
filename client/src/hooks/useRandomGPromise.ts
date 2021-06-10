@@ -1,34 +1,14 @@
-import { useQuery, UseQueryOptions } from "react-query";
-import { firebaseCallable } from "../features/firebase";
-import { GPromise, BibleId } from "../types";
+import axios from "axios";
+import { useQuery } from "react-query";
 
-type UseRandomGPromiseOptions = { bibleId: BibleId } & Pick<
-  UseQueryOptions,
-  | "refetchOnMount"
-  | "refetchOnWindowFocus"
-  | "refetchOnReconnect"
-  | "cacheTime"
-  | "staleTime"
->;
+export default function useRandomGPromise() {
+  async function randomGPromise() {
+    const { data } = await axios.get("/random");
+    return data;
+  }
 
-const useRandomGPromise = ({
-  bibleId,
-  refetchOnMount = false,
-  refetchOnWindowFocus = false,
-  refetchOnReconnect = false,
-  cacheTime = 60 * 60 * 1000,
-  staleTime = 60 * 60 * 1000,
-}: UseRandomGPromiseOptions) => {
-  const randomGPromise = firebaseCallable<GPromise, BibleId>("randomGPromise");
-
-  return useQuery("randomGPromise", () => randomGPromise(bibleId), {
-    refetchOnMount,
-    refetchOnWindowFocus,
-    refetchOnReconnect,
-    cacheTime,
-    staleTime,
+  return useQuery("randomGPromise", randomGPromise, {
     retry: false,
+    staleTime: Infinity,
   });
-};
-
-export default useRandomGPromise;
+}

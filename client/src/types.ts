@@ -10,6 +10,8 @@ export type Content = Partial<
 >;
 export type GPromise = {
   id: string;
+  osis: string;
+  niv: string;
   source: string;
   content: Content;
 };
