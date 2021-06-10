@@ -1,11 +1,6 @@
 import * as functions from "firebase-functions";
 import BibleSuperSearch from "./api/bibleSuperSearch";
-import {
-  osisToHumanReadableReference,
-  getMongoDbCollection,
-  translator,
-  getMissingBibles,
-} from "../helpers";
+import {getMongoDbCollection, translator, getMissingBibles} from "../helpers";
 import {getRandomPromises} from "../queries";
 import {GPromiseDTO, IGPromise} from "../models/GPromise";
 import {bibles, bibleIds} from "../config";
@@ -21,29 +16,11 @@ export const randomGPromise = functions.https.onRequest(
 
     try {
       for (const randomGPromise of randomGPromises) {
-        const humanReadableReference = osisToHumanReadableReference(
-          randomGPromise.osis
-        );
-
-        if (humanReadableReference.isError) {
-          await gPromisesCollection.updateOne(
-            {_id: randomGPromise._id},
-            {
-              $set: {
-                failed: true,
-              },
-            }
-          );
-          functions.logger.error(
-            `osisToHumanReadableReference failed on '${randomGPromise.osis}' with error '${humanReadableReference.error}'`
-          );
-          continue;
-        }
-
         const missingBibleIds = getMissingBibles(
           bibleIds,
           randomGPromise.content
         );
+
         if (missingBibleIds.length === 0) {
           res.json(randomGPromise.toDTO());
           return;
@@ -52,7 +29,7 @@ export const randomGPromise = functions.https.onRequest(
         try {
           const content = await bibleSuperSearch.getPassageFromReference(
             missingBibleIds,
-            humanReadableReference.data
+            randomGPromise.niv
           );
           const newContent = randomGPromise.content
             ? {
