@@ -46,7 +46,7 @@ export default function Home() {
       <Angel>
         <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
-      <div>{t("Give me a promise!")}</div>
+      <div>{t("Get a promise!")}</div>
     </Button>
   );
 }
