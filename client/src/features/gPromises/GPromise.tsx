@@ -7,19 +7,42 @@ import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { langs } from "../i18next";
 import Twemoji from "../twemoji/Twemoji";
 import {
+  BibleId,
   GPromise as GPromiseType,
   selectNextGPromise,
   setCurrentGPromise,
   setNextGPromise,
 } from "./gPromisesSlice";
 
-const Figure = styled.figure`
+export const bibleName: Record<BibleId, string> = {
+  kjv: "Authorized King James Version",
+  rvg: "Reina Valera Gómez",
+};
+
+const Main = styled.figure`
   margin: 0;
   background-color: #f0f0f0;
-  font-family: "Quattrocento", serif;
+  font-family: "Cardo", serif;
   border-radius: 0.5rem;
   padding: 1.25em;
   width: clamp(320px, 90vw, 520px);
+`;
+
+const Header = styled.div`
+  margin: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+
+const Title = styled.h2`
+  font-family: "Cardo", serif;
+  font-style: italic;
+`;
+
+const Subtitle = styled.div`
+  font-size: 0.85rem;
+  color: #888;
 `;
 
 const Blockquote = styled.blockquote`
@@ -28,20 +51,11 @@ const Blockquote = styled.blockquote`
   font-size: 1.25rem;
 `;
 
-const Figcaption = styled.figcaption`
-  margin-top: 1em;
-  text-align: right;
-  &::before {
-    content: "—";
-    margin-right: 0.25em;
-  }
-`;
-
 const Footer = styled.footer`
   font-size: 0.85rem;
-  margin-top: 1rem;
+  margin: 1rem 1rem 0 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   a {
     text-decoration: none;
   }
@@ -50,7 +64,8 @@ const Footer = styled.footer`
 const Button = styled.button`
   background-color: transparent;
   border: none;
-  display: inline-flex;
+  display: flex;
+  align-items: flex-start;
   align-items: center;
   gap: 0.25em;
   cursor: pointer;
@@ -93,14 +108,17 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
 
   return (
     <article>
-      <Figure>
+      <Header>
+        <Title>{gPromise.content[bibleId]?.reference}</Title>
+        <Subtitle>{bibleName[bibleId]}</Subtitle>
+      </Header>
+      <Main>
         <Blockquote>{gPromise.content[bibleId]?.text}</Blockquote>
-        <Figcaption>{gPromise.content[bibleId]?.reference}</Figcaption>
-      </Figure>
+      </Main>
       <Footer>
         <ButtonsWrapper>
           <Button onClick={onNextClickHandler}>
-            <Twemoji emoji="⏩" /> {t("next")}
+            {t("next")} <Twemoji emoji="⏩" />
           </Button>
         </ButtonsWrapper>
       </Footer>

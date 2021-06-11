@@ -8,6 +8,10 @@ type TwemojiProps = {
   className?: string;
 };
 
+const Wrapper = styled.span`
+  line-height: 0;
+`;
+
 const StyledImg = styled.img<Pick<TwemojiProps, "height" | "width">>`
   display: inline-block;
   height: ${({ height }) => height};
@@ -22,7 +26,7 @@ const Twemoji = ({
 }: TwemojiProps) => {
   const emojiCode = emoji.codePointAt(0)?.toString(16);
   return (
-    <span>
+    <Wrapper>
       <StyledImg
         className={className}
         src={`https://twemoji.maxcdn.com/v/latest/svg/${emojiCode}.svg`}
@@ -30,7 +34,7 @@ const Twemoji = ({
         height={height}
         width={width}
       />
-    </span>
+    </Wrapper>
   );
 };
 
