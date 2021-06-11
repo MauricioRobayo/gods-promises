@@ -16,16 +16,19 @@ const rotate = keyframes`
 		transform: translatey(0px);
 	}`;
 
-const Button = styled.button`
+const Button = styled.button.attrs({
+  type: "button",
+})`
   background-color: transparent;
   border: none;
+  cursor: pointer;
 `;
 
 const Angel = styled.div`
   background-color: transparent;
   margin: 2rem;
   img {
-    filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.35));
+    filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.5));
     animation: ${rotate} 6s ease-in-out infinite;
   }
 `;
@@ -37,16 +40,13 @@ export default function Home() {
 
   return (
     <Button
-      type="button"
       onClick={() => queryClient.invalidateQueries("randomGPromise")}
       title={t("start")}
     >
       <Angel>
-        <Twemoji emoji="😇" height={"4rem"} />
+        <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
-      <div>
-        <Twemoji emoji="▶" /> {t("start")}
-      </div>
+      <div>{t("Give me a promise!")}</div>
     </Button>
   );
 }
