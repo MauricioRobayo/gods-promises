@@ -5,7 +5,7 @@ import { useLocation, Switch, Route, Redirect } from "react-router-dom";
 import { useEffect } from "react";
 import { LanguageSelector } from "./features/i18next";
 import GPromise from "./features/gPromises/GPromise";
-import useRandomGPromise from "./hooks/useRandomGPromise";
+import { Home } from "./features/home";
 import { useQueryClient } from "react-query";
 
 const Main = styled.main`
@@ -54,7 +54,6 @@ function App() {
   };
   const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
-  useRandomGPromise();
 
   useEffect(() => {
     const [, lang] = pathname.split("/");
@@ -71,12 +70,16 @@ function App() {
           <Route path={`${base}/p/:gPromiseId`}>
             <GPromise />
           </Route>
-          <Redirect to="/en" />
+          <Route path={base}>
+            <Home />
+          </Route>
+          <Redirect path="/p/:gPromiseId" to="/en/p/:gPromiseId" />
+          <Redirect path="/" to="/en" />
         </Switch>
         <Footer>
           <ButtonsWrapper>
             <Button onClick={onRefreshButtonClick}>
-              <Twemoji emoji="🔃" /> {t("next")}
+              <Twemoji emoji="⏩" /> {t("next")}
             </Button>
           </ButtonsWrapper>
         </Footer>
