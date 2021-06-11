@@ -5,8 +5,8 @@ import styled, { keyframes } from "styled-components/macro";
 import { useAppDispatch } from "../../app/hooks";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { setCurrentGPromise } from "../gPromises/gPromisesSlice";
+import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
-import PulseLoader from "react-spinners/PulseLoader";
 
 const color = "hsl(205, 87%, 76%)";
 const lightColor = "hsl(205, 87%, 96%)";
@@ -72,7 +72,7 @@ export default function Home() {
         <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
       {isLoading ? (
-        <PulseLoader speedMultiplier={0.5} color={lightColor} />
+        <Loader />
       ) : (
         <Button onClick={getAPromise} title={t("start")}>
           <div>{t("Get a promise!")}</div>
