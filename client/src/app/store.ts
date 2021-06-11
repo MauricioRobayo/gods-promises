@@ -15,3 +15,8 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
+
+if (process.env.NODE_ENV === "development") {
+  // @ts-ignore
+  window.dev = { ...store, state: store.getState() };
+}
