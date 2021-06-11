@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
 import styled, { keyframes } from "styled-components/macro";
+import useRandomGPromise from "../../hooks/useRandomGPromise";
 import Twemoji from "../twemoji/Twemoji";
 
 const rotate = keyframes`
@@ -32,6 +33,8 @@ const Angel = styled.div`
 export default function Home() {
   const queryClient = useQueryClient();
   const { t } = useTranslation();
+  useRandomGPromise();
+
   return (
     <Button
       type="button"
