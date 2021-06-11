@@ -36,5 +36,6 @@ export const gPromiseSlice = createSlice({
 });
 
 export const { addGPromise } = gPromiseSlice.actions;
-
+export const { selectById: selectGPromiseById, selectIds: selectGPromiseIds } =
+  gPromisesAdapter.getSelectors();
 export default gPromiseSlice.reducer;
