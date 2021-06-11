@@ -14,7 +14,7 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
-        "source": "/api/random",
+        "source": "/random",
         "function": "random"
       },
       {
