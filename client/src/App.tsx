@@ -37,7 +37,7 @@ function App() {
         <Title>
           <Twemoji emoji="🙏" /> {t("God's Promises")}
         </Title>
-        {currentGPromise ? <GPromise /> : <Home />}
+        {currentGPromise ? <GPromise gPromise={currentGPromise} /> : <Home />}
       </Main>
       <LanguageSelector />
     </>

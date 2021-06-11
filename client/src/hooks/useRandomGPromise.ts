@@ -3,6 +3,7 @@ import { useQuery, useQueryClient } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addGPromise,
+  GPromise,
   selectAllGPromises,
   setNextGPromise,
 } from "../features/gPromises/gPromisesSlice";
@@ -17,15 +18,15 @@ export default function useRandomGPromise() {
     queryClient.setQueryData(["promise", data.id], data);
     return data;
   }
-  const { data, isLoading, isError } = useQuery(
+  const { data, isLoading, isError } = useQuery<GPromise>(
     "randomGPromise",
     randomGPromise,
     {
       staleTime: Infinity,
       onSuccess: (gPromise) => {
-        if (gPromise[gPromise.id]) {
+        if (gPromises.some(({ id }) => id === gPromise.id)) {
           const nextRandomGPromise =
-            gPromises[Math.floor(Math.random() * gPromise.length)];
+            gPromises[Math.floor(Math.random() * gPromises.length)];
           dispatch(setNextGPromise(nextRandomGPromise));
           return;
         }

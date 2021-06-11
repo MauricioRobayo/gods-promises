@@ -57,7 +57,6 @@ export default function Home() {
 
   const getAPromise = () => {
     queryClient.refetchQueries("randomGPromise");
-    console.log("😀", { nextGPromise });
 
     if (!nextGPromise) {
       return;
