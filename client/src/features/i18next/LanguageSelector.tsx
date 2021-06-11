@@ -24,7 +24,10 @@ export const LanguageSelector = () => {
           return <span key={lang}>{langs[lang].nativeName}</span>;
         }
         return (
-          <Link key={lang} to={`/${lang}/${path.join("/")}`}>
+          <Link
+            key={lang}
+            to={`${lang === "en" ? "/" : "/es/"}${path.join("/")}`}
+          >
             {langs[lang].nativeName}
           </Link>
         );
