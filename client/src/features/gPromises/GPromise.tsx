@@ -124,7 +124,7 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
     <Article>
       <Header>
         <Title>{gPromise.content[bibleId]?.reference}</Title>
-        <Subtitle>{bibleName[bibleId]}</Subtitle>
+        <Subtitle>{gPromise.content[bibleId]?.bibleName}</Subtitle>
       </Header>
       <Section>
         <Blockquote>{gPromise.content[bibleId]?.text}</Blockquote>
