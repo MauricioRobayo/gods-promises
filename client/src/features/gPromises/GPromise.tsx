@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
+import Loader from "../loaders/Loader";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
@@ -75,11 +76,14 @@ const Button = styled.button`
   gap: 0.25em;
   cursor: pointer;
   text-transform: capitalize;
+  & > *:not(:last-child) {
+    margin-right: 0.05em;
+  }
 `;
 
 const ButtonsWrapper = styled.div`
   & > button:not(:last-child) {
-    margin-right: 1rem;
+    margin-right: 1em;
   }
 `;
 
@@ -93,7 +97,7 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
   const nextGPromise = useAppSelector(selectNextGPromise);
   const dispatch = useAppDispatch();
   const queryClient = useQueryClient();
-  const { data: randomGPromise } = useRandomGPromise();
+  const { isLoading, isError, data: randomGPromise } = useRandomGPromise();
 
   useEffect(() => {
     if (!randomGPromise) {
@@ -112,6 +116,10 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
     dispatch(setNextGPromise(null));
   };
 
+  if (isError) {
+    return <div>{t("Something unexpected happened!")}</div>;
+  }
+
   return (
     <Article>
       <Header>
@@ -123,9 +131,14 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
       </Section>
       <Footer>
         <ButtonsWrapper>
-          <Button onClick={onNextClickHandler}>
-            {t("next")} <Twemoji emoji="⏩" />
-          </Button>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <Button onClick={onNextClickHandler}>
+              <span>{t("next")}</span>
+              <Twemoji emoji="⏩" />
+            </Button>
+          )}
         </ButtonsWrapper>
       </Footer>
     </Article>
