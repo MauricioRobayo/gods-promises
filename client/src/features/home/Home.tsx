@@ -7,6 +7,7 @@ import useRandomGPromise from "../../hooks/useRandomGPromise";
 import {
   selectNextGPromise,
   setCurrentGPromise,
+  setNextGPromise,
 } from "../gPromises/gPromisesSlice";
 import Twemoji from "../twemoji/Twemoji";
 
@@ -62,6 +63,7 @@ export default function Home() {
       return;
     }
     dispatch(setCurrentGPromise(nextGPromise));
+    dispatch(setNextGPromise(null));
   };
 
   if (isError) {

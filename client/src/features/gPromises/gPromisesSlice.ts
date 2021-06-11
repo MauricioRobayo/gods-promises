@@ -25,15 +25,18 @@ export type GPromise = {
 };
 
 type InitialState = {
-  currentGPromise?: GPromise;
-  nextGPromise?: GPromise;
+  currentGPromise: GPromise | null;
+  nextGPromise: GPromise | null;
 };
 
 const gPromisesAdapter = createEntityAdapter<GPromise>({});
 
 export const gPromiseSlice = createSlice({
   name: "counter",
-  initialState: gPromisesAdapter.getInitialState<InitialState>({}),
+  initialState: gPromisesAdapter.getInitialState<InitialState>({
+    currentGPromise: null,
+    nextGPromise: null,
+  }),
   reducers: {
     addGPromise(state, action: PayloadAction<GPromise>) {
       gPromisesAdapter.addOne(state, action.payload);
@@ -41,7 +44,7 @@ export const gPromiseSlice = createSlice({
     setCurrentGPromise(state, action: PayloadAction<GPromise>) {
       state.currentGPromise = action.payload;
     },
-    setNextGPromise(state, action: PayloadAction<GPromise>) {
+    setNextGPromise(state, action: PayloadAction<GPromise | null>) {
       state.nextGPromise = action.payload;
     },
   },
