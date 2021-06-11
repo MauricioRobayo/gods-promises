@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
 import styled from "styled-components";
-import { GPromise as GPromiseType } from "../../types";
+import { GPromise as GPromiseType } from "./gPromiseSlice";
 import { langs } from "../i18next";
 import ContentLoader from "../loaders/ContentLoader";
 import Twemoji from "../twemoji/Twemoji";

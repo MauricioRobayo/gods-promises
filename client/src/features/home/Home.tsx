@@ -1,6 +1,5 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useQueryClient } from "react-query";
 import styled, { keyframes } from "styled-components/macro";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import Twemoji from "../twemoji/Twemoji";
@@ -30,6 +29,7 @@ const Button = styled.button.attrs({
   padding: 0.5em 1em;
   border-radius: 8px;
   cursor: pointer;
+  color: #444;
 `;
 
 const Angel = styled.div`
@@ -42,19 +42,19 @@ const Angel = styled.div`
 `;
 
 export default function Home() {
-  const queryClient = useQueryClient();
   const { t } = useTranslation();
   useRandomGPromise();
+
+  const getAPromise = () => {
+    alert("this should move to the first promise");
+  };
 
   return (
     <Wrapper>
       <Angel>
         <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
-      <Button
-        onClick={() => queryClient.invalidateQueries("randomGPromise")}
-        title={t("start")}
-      >
+      <Button onClick={getAPromise} title={t("start")}>
         <div>{t("Get a promise!")}</div>
       </Button>
     </Wrapper>
