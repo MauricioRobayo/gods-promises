@@ -19,7 +19,7 @@ export const bibleName: Record<BibleId, string> = {
   rvg: "Reina Valera Gómez",
 };
 
-const Main = styled.figure`
+const Section = styled.section`
   margin: 0;
   background-color: #f0f0f0;
   font-family: "Cardo", serif;
@@ -30,9 +30,11 @@ const Main = styled.figure`
 
 const Header = styled.div`
   margin: 0.5rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 `;
 
 const Title = styled.h2`
@@ -113,9 +115,9 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
         <Title>{gPromise.content[bibleId]?.reference}</Title>
         <Subtitle>{bibleName[bibleId]}</Subtitle>
       </Header>
-      <Main>
+      <Section>
         <Blockquote>{gPromise.content[bibleId]?.text}</Blockquote>
-      </Main>
+      </Section>
       <Footer>
         <ButtonsWrapper>
           <Button onClick={onNextClickHandler}>
