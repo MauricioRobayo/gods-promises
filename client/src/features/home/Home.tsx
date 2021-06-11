@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useQueryClient } from "react-query";
 import styled, { keyframes } from "styled-components/macro";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import Twemoji from "../twemoji/Twemoji";
@@ -42,11 +43,12 @@ const Angel = styled.div`
 `;
 
 export default function Home() {
+  const queryClient = useQueryClient();
   const { t } = useTranslation();
   useRandomGPromise();
 
   const getAPromise = () => {
-    alert("this should move to the first promise");
+    queryClient.refetchQueries("randomGPromise");
   };
 
   return (
