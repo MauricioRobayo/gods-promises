@@ -69,6 +69,7 @@ const Button = styled.button`
   align-items: center;
   gap: 0.25em;
   cursor: pointer;
+  text-transform: capitalize;
 `;
 
 const ButtonsWrapper = styled.div`
