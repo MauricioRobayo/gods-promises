@@ -97,7 +97,7 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
   const nextGPromise = useAppSelector(selectNextGPromise);
   const dispatch = useAppDispatch();
   const queryClient = useQueryClient();
-  const { isLoading, isError, data: randomGPromise } = useRandomGPromise();
+  const { isFetching, isError, data: randomGPromise } = useRandomGPromise();
 
   useEffect(() => {
     if (!randomGPromise) {
@@ -131,7 +131,7 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
       </Section>
       <Footer>
         <ButtonsWrapper>
-          {isLoading ? (
+          {isFetching ? (
             <Loader />
           ) : (
             <Button onClick={onNextClickHandler}>
