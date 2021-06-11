@@ -59,4 +59,9 @@ export const selectCurrentGPromise = (state: RootState) =>
   state.gPromises.currentGPromise;
 export const selectNextGPromise = (state: RootState) =>
   state.gPromises.nextGPromise;
+export const selectRandomGPromise = ({ gPromises }: RootState) => {
+  const randomIdx =
+    gPromises.ids[Math.floor(Math.random() * gPromises.ids.length)];
+  return gPromises.entities[randomIdx];
+};
 export default gPromiseSlice.reducer;

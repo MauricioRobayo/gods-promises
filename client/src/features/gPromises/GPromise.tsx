@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
-import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { useAppSelector } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { langs } from "../i18next";
 import Twemoji from "../twemoji/Twemoji";
 import {
   GPromise as GPromiseType,
-  selectAllGPromises,
   selectNextGPromise,
   setCurrentGPromise,
   setNextGPromise,
@@ -71,28 +69,26 @@ type GPromiseProps = {
 export default function GPromiseContainer({ gPromise }: GPromiseProps) {
   const { t, i18n } = useTranslation();
   const { bibleId } = langs[i18n.language];
-  const nextGPromise = useSelector(selectNextGPromise);
-  const dispatch = useDispatch();
-  const { data: randomGPromise } = useRandomGPromise();
+  const nextGPromise = useAppSelector(selectNextGPromise);
+  const dispatch = useAppDispatch();
   const queryClient = useQueryClient();
-  const gPromises = useAppSelector(selectAllGPromises);
+  const { data: randomGPromise } = useRandomGPromise();
+
+  useEffect(() => {
+    if (!randomGPromise) {
+      return;
+    }
+
+    dispatch(setNextGPromise(randomGPromise));
+  }, [randomGPromise, dispatch]);
 
   const onNextClickHandler = () => {
     queryClient.refetchQueries("randomGPromise");
     if (!nextGPromise) {
       return;
     }
-    if (!randomGPromise) {
-      return;
-    }
-
-    let nextRandomGPromise = randomGPromise;
-    if (nextGPromise.id === randomGPromise.id) {
-      nextRandomGPromise =
-        gPromises[Math.floor(Math.random() * gPromises.length)];
-    }
     dispatch(setCurrentGPromise(nextGPromise));
-    dispatch(setNextGPromise(nextRandomGPromise));
+    dispatch(setNextGPromise(null));
   };
 
   return (

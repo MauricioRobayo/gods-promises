@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
-import { useDispatch, useSelector } from "react-redux";
 import styled, { keyframes } from "styled-components/macro";
+import { useAppDispatch } from "../../app/hooks";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
-import {
-  selectNextGPromise,
-  setCurrentGPromise,
-  setNextGPromise,
-} from "../gPromises/gPromisesSlice";
+import { setCurrentGPromise } from "../gPromises/gPromisesSlice";
 import Twemoji from "../twemoji/Twemoji";
 
 const rotate = keyframes`
@@ -49,20 +45,16 @@ const Angel = styled.div`
 `;
 
 export default function Home() {
-  const queryClient = useQueryClient();
   const { t } = useTranslation();
-  const { isLoading, isError } = useRandomGPromise();
-  const dispatch = useDispatch();
-  const nextGPromise = useSelector(selectNextGPromise);
+  const { isLoading, isError, data: randomGPromise } = useRandomGPromise();
+  const dispatch = useAppDispatch();
+  const queryClient = useQueryClient();
 
   const getAPromise = () => {
     queryClient.refetchQueries("randomGPromise");
-
-    if (!nextGPromise) {
-      return;
+    if (randomGPromise) {
+      dispatch(setCurrentGPromise(randomGPromise));
     }
-    dispatch(setCurrentGPromise(nextGPromise));
-    dispatch(setNextGPromise(null));
   };
 
   if (isError) {
