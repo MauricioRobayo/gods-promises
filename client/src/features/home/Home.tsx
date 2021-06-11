@@ -24,7 +24,7 @@ const Angel = styled.div`
   background-color: transparent;
   margin: 2rem;
   img {
-    filter: drop-shadow(0px 12px 25px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.35));
     animation: ${rotate} 6s ease-in-out infinite;
   }
 `;
