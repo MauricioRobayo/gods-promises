@@ -17,12 +17,7 @@
     "url": "https://github.com/MauricioRobayo/promesas/issues"
   },
   "homepage": "https://github.com/MauricioRobayo/promesas#readme",
-  "devDependencies": {
-    "@types/react-router-dom": "^5.1.7",
-    "npm-run-all": "^4.1.5"
-  },
   "volta": {
     "node": "12.22.1"
-  },
-  "dependencies": {}
+  }
 }
