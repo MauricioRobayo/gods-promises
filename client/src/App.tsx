@@ -1,11 +1,10 @@
-import Twemoji from "./features/twemoji/Twemoji";
-import styled from "styled-components/macro";
-import { useTranslation } from "react-i18next";
-import { useLocation, Switch, Route, Redirect } from "react-router-dom";
 import { useEffect } from "react";
-import { LanguageSelector } from "./features/i18next";
-import GPromise from "./features/gPromises/GPromise";
+import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
+import styled from "styled-components/macro";
 import { Home } from "./features/home";
+import { LanguageSelector } from "./features/i18next";
+import Twemoji from "./features/twemoji/Twemoji";
 
 const Main = styled.main`
   display: flex;
@@ -18,8 +17,6 @@ const Title = styled.h1`
   margin: 2rem 0;
   font-weight: 900;
 `;
-
-const base = "/:lang(en|es)";
 
 function App() {
   const { pathname } = useLocation();
@@ -36,16 +33,7 @@ function App() {
         <Title>
           <Twemoji emoji="🙏" /> {t("God's Promises")}
         </Title>
-        <Switch>
-          <Route path={`${base}/p/:gPromiseId`}>
-            <GPromise />
-          </Route>
-          <Route path={base}>
-            <Home />
-          </Route>
-          <Redirect path="/p/:gPromiseId" to="/en/p/:gPromiseId" />
-          <Redirect path="/" to="/en" />
-        </Switch>
+        <Home />
       </Main>
       <LanguageSelector />
     </>
