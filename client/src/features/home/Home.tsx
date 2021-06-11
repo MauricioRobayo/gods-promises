@@ -16,17 +16,25 @@ const rotate = keyframes`
 		transform: translatey(0px);
 	}`;
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const Button = styled.button.attrs({
   type: "button",
 })`
-  background-color: transparent;
-  border: none;
+  background-color: hsl(205, 87%, 95%);
+  border: 2px solid hsl(205, 87%, 75%);
+  padding: 0.5em 1em;
+  border-radius: 8px;
   cursor: pointer;
 `;
 
 const Angel = styled.div`
   background-color: transparent;
-  margin: 2rem;
+  margin: 2rem 0;
   img {
     filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.5));
     animation: ${rotate} 6s ease-in-out infinite;
@@ -39,14 +47,16 @@ export default function Home() {
   useRandomGPromise();
 
   return (
-    <Button
-      onClick={() => queryClient.invalidateQueries("randomGPromise")}
-      title={t("start")}
-    >
+    <Wrapper>
       <Angel>
         <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
-      <div>{t("Get a promise!")}</div>
-    </Button>
+      <Button
+        onClick={() => queryClient.invalidateQueries("randomGPromise")}
+        title={t("start")}
+      >
+        <div>{t("Get a promise!")}</div>
+      </Button>
+    </Wrapper>
   );
 }
