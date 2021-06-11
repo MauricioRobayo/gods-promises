@@ -1,8 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
 import styled, { keyframes } from "styled-components/macro";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
+import {
+  selectNextGPromise,
+  setCurrentGPromise,
+} from "../gPromises/gPromisesSlice";
 import Twemoji from "../twemoji/Twemoji";
 
 const rotate = keyframes`
@@ -45,20 +50,36 @@ const Angel = styled.div`
 export default function Home() {
   const queryClient = useQueryClient();
   const { t } = useTranslation();
-  useRandomGPromise();
+  const { isLoading, isError } = useRandomGPromise();
+  const dispatch = useDispatch();
+  const nextGPromise = useSelector(selectNextGPromise);
 
   const getAPromise = () => {
     queryClient.refetchQueries("randomGPromise");
+    console.log("😀", { nextGPromise });
+
+    if (!nextGPromise) {
+      return;
+    }
+    dispatch(setCurrentGPromise(nextGPromise));
   };
+
+  if (isError) {
+    return <div>Something wrong happened fetching a random promise!</div>;
+  }
 
   return (
     <Wrapper>
       <Angel>
         <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
-      <Button onClick={getAPromise} title={t("start")}>
-        <div>{t("Get a promise!")}</div>
-      </Button>
+      {isLoading ? (
+        <div>Loading promises...</div>
+      ) : (
+        <Button onClick={getAPromise} title={t("start")}>
+          <div>{t("Get a promise!")}</div>
+        </Button>
+      )}
     </Wrapper>
   );
 }
