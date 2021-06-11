@@ -19,13 +19,16 @@ export const bibleName: Record<BibleId, string> = {
   rvg: "Reina Valera Gómez",
 };
 
+const Article = styled.article`
+  width: clamp(300px, 90vw, 768px);
+`;
+
 const Section = styled.section`
   margin: 0;
   background-color: #f0f0f0;
   font-family: "Cardo", serif;
   border-radius: 0.5rem;
   padding: 1.25em;
-  width: clamp(320px, 90vw, 520px);
 `;
 
 const Header = styled.div`
@@ -110,7 +113,7 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
   };
 
   return (
-    <article>
+    <Article>
       <Header>
         <Title>{gPromise.content[bibleId]?.reference}</Title>
         <Subtitle>{bibleName[bibleId]}</Subtitle>
@@ -125,6 +128,6 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
           </Button>
         </ButtonsWrapper>
       </Footer>
-    </article>
+    </Article>
   );
 }
