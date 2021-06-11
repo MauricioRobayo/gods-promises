@@ -1,19 +1,17 @@
-import {BibleId} from "../types";
+import {logger} from "firebase-functions";
+import {BibleId, Bibles} from "../types";
 
-export type Content = Partial<
-  Record<
-    BibleId,
-    {
-      text: string;
-      reference: string;
-    }
-  >
->;
+type Passage = {
+  text: string;
+  reference: string;
+};
+
+export type Content = Partial<Record<BibleId, Passage>>;
 
 export type GPromiseDTO = {
   id: string;
   source: string;
-  content: Content;
+  content: Record<BibleId, Passage & {bibleName: string}>;
 };
 
 export type IGPromise = {
@@ -33,14 +31,10 @@ export class GPromise {
   source: string;
   content: Content;
 
-  constructor({
-    _id,
-    osis,
-    niv,
-    originalReference,
-    source,
-    content = {},
-  }: IGPromise) {
+  constructor(
+    {_id, osis, niv, originalReference, source, content = {}}: IGPromise,
+    private bibles: Bibles
+  ) {
     this._id = _id;
     this.osis = osis;
     this.niv = niv;
@@ -50,10 +44,30 @@ export class GPromise {
   }
 
   toDTO(): GPromiseDTO {
+    const content = Object.entries(this.content).reduce(
+      (acc, [bibleId, content]) => {
+        if (!content) {
+          logger.error(
+            `GPromise.toDTO: cannot return DTO with missing content for GPromise id '${this._id}'!`
+          );
+          throw new Error(
+            "GPromise.toDTO: cannot return DTO with missing content!"
+          );
+        }
+        acc[bibleId as BibleId] = {
+          text: content.text,
+          reference: content.reference,
+          bibleName: this.bibles[bibleId as BibleId].name,
+        };
+        return acc;
+      },
+      {} as GPromiseDTO["content"]
+    );
+
     return {
       id: this._id,
       source: this.source,
-      content: this.content,
+      content,
     };
   }
 }

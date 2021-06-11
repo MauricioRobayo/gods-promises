@@ -1,5 +1,6 @@
 import {getMongoDbCollection} from "../utils";
 import {GPromise, IGPromise} from "../models/GPromise";
+import {bibles} from "../config";
 
 export default async function getGPromiseById(
   id: string
@@ -11,5 +12,5 @@ export default async function getGPromiseById(
   if (!promise) {
     return null;
   }
-  return new GPromise(promise);
+  return new GPromise(promise, bibles);
 }
