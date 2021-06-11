@@ -1,7 +1,10 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import gPromisesReducer from "../features/gPromises/gPromisesSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    gPromises: gPromisesReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;

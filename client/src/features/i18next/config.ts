@@ -2,7 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import Backend from "i18next-http-backend";
-import { BibleId } from "../gPromises/gPromiseSlice";
+import { BibleId } from "../gPromises/gPromisesSlice";
 
 export const langs: Record<string, { nativeName: string; bibleId: BibleId }> = {
   en: { nativeName: "English", bibleId: "kjv" },
