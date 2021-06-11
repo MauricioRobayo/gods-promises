@@ -37,7 +37,7 @@ const Button = styled.button.attrs({
 
 const Angel = styled.div`
   background-color: transparent;
-  margin: 2rem 0;
+  margin: 2rem 0 4rem;
   img {
     filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.5));
     animation: ${rotate} 6s ease-in-out infinite;
