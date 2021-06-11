@@ -9,6 +9,12 @@ import { Home } from "./features/home";
 import { LanguageSelector } from "./features/i18next";
 import Twemoji from "./features/twemoji/Twemoji";
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`;
+
 const Main = styled.main`
   display: flex;
   flex-direction: column;
@@ -19,6 +25,11 @@ const Main = styled.main`
 const Title = styled.h1`
   margin: 2rem 0;
   font-weight: 900;
+`;
+
+const StyledLanguageSelector = styled(LanguageSelector)`
+  flex: 1;
+  align-items: flex-end;
 `;
 
 function App() {
@@ -32,15 +43,15 @@ function App() {
   }, [pathname, i18n]);
 
   return (
-    <>
+    <Wrapper>
       <Main>
         <Title>
           <Twemoji emoji="🙏" /> {t("God's Promises")}
         </Title>
         {currentGPromise ? <GPromise gPromise={currentGPromise} /> : <Home />}
       </Main>
-      <LanguageSelector />
-    </>
+      <StyledLanguageSelector />
+    </Wrapper>
   );
 }
 
