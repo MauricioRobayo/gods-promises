@@ -1,34 +1,26 @@
-import { useQuery, UseQueryOptions } from "react-query";
-import { firebaseCallable } from "../features/firebase";
-import { GPromise, BibleId } from "../types";
+import axios from "axios";
+import { useQuery, useQueryClient } from "react-query";
+import { GPromise } from "../features/gPromises/gPromisesSlice";
 
-type UseRandomGPromiseOptions = { bibleId: BibleId } & Pick<
-  UseQueryOptions,
-  | "refetchOnMount"
-  | "refetchOnWindowFocus"
-  | "refetchOnReconnect"
-  | "cacheTime"
-  | "staleTime"
->;
+export default function useRandomGPromise() {
+  const queryClient = useQueryClient();
 
-const useRandomGPromise = ({
-  bibleId,
-  refetchOnMount = false,
-  refetchOnWindowFocus = false,
-  refetchOnReconnect = false,
-  cacheTime = 60 * 60 * 1000,
-  staleTime = 60 * 60 * 1000,
-}: UseRandomGPromiseOptions) => {
-  const randomGPromise = firebaseCallable<GPromise, BibleId>("randomGPromise");
+  async function randomGPromise() {
+    const { data } = await axios.get("/random");
+    queryClient.setQueryData(["promise", data.id], data);
+    return data;
+  }
+  const { data, isLoading, isError } = useQuery<GPromise>(
+    "randomGPromise",
+    randomGPromise,
+    {
+      staleTime: Infinity,
+    }
+  );
 
-  return useQuery("randomGPromise", () => randomGPromise(bibleId), {
-    refetchOnMount,
-    refetchOnWindowFocus,
-    refetchOnReconnect,
-    cacheTime,
-    staleTime,
-    retry: false,
-  });
-};
-
-export default useRandomGPromise;
+  return {
+    data,
+    isLoading,
+    isError,
+  };
+}

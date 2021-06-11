@@ -30,8 +30,8 @@ Promise.all(files.map((file) => fs.readFile(file)))
       )
       .flat()
   )
-  // .then((promises) => updateDb(promises))
-  .then((promises) => updateDb(shuffle(promises).slice(0, 5)))
+  .then((promises) => updateDb(promises))
+  // .then((promises) => updateDb(shuffle(promises).slice(0, 5)))
   .then((result) => {
     console.log({ insertedCount: result.insertedCount });
     process.exit();

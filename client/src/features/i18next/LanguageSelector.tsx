@@ -13,18 +13,25 @@ const Wrapper = styled.div`
   }
 `;
 
-export const LanguageSelector = () => {
+type LanguageSelectorProps = {
+  className?: string;
+};
+
+export const LanguageSelector = ({ className = "" }: LanguageSelectorProps) => {
   const { pathname } = useLocation();
   const { i18n } = useTranslation();
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       {Object.keys(langs).map((lang) => {
         const [, , ...path] = pathname.split("/");
         if (i18n.language === lang) {
           return <span key={lang}>{langs[lang].nativeName}</span>;
         }
         return (
-          <Link key={lang} to={`/${lang}/${path.join("/")}`}>
+          <Link
+            key={lang}
+            to={`${lang === "en" ? "/" : "/es/"}${path.join("/")}`}
+          >
             {langs[lang].nativeName}
           </Link>
         );

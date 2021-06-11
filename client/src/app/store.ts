@@ -1,9 +1,9 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import gPromisesReducer from "../features/gPromises/gPromisesSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    gPromises: gPromisesReducer,
   },
 });
 
@@ -15,3 +15,8 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
+
+if (process.env.NODE_ENV === "development") {
+  // @ts-ignore
+  window.dev = { ...store, state: store.getState() };
+}

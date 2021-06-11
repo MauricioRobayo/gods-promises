@@ -1,4 +1,4 @@
-import {getMongoDbCollection} from "../helpers";
+import {getMongoDbCollection} from "../utils";
 import {GPromise, IGPromise} from "../models/GPromise";
 
 export default async function getGPromiseById(

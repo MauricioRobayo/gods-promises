@@ -1,0 +1,1 @@
+export {cleanPassage} from "./cleanPassage";

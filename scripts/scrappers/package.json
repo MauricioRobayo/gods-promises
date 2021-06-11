@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "scrape": "ls scrappers/*.js | xargs -t -n1 node",
+    "scrape": "ls scrappers/*.js | xargs -t -n1 node | tee scrape.debug.log",
     "db:update": "node updateDb.js"
   },
   "author": "",

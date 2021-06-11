@@ -1,10 +1,19 @@
-import RandomGPromise from "./features/gpromises/RandomGPromise";
-import Twemoji from "./features/twemoji/Twemoji";
-import styled from "styled-components/macro";
-import { useTranslation } from "react-i18next";
-import { useLocation, Switch, Route, Redirect } from "react-router-dom";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+import styled from "styled-components/macro";
+import GPromise from "./features/gPromises/GPromise";
+import { selectCurrentGPromise } from "./features/gPromises/gPromisesSlice";
+import { Home } from "./features/home";
 import { LanguageSelector } from "./features/i18next";
+import Twemoji from "./features/twemoji/Twemoji";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`;
 
 const Main = styled.main`
   display: flex;
@@ -18,11 +27,15 @@ const Title = styled.h1`
   font-weight: 900;
 `;
 
-const base = "/:lang(en|es)";
+const StyledLanguageSelector = styled(LanguageSelector)`
+  flex: 1;
+  align-items: flex-end;
+`;
 
 function App() {
   const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
+  const currentGPromise = useSelector(selectCurrentGPromise);
 
   useEffect(() => {
     const [, lang] = pathname.split("/");
@@ -30,22 +43,15 @@ function App() {
   }, [pathname, i18n]);
 
   return (
-    <>
+    <Wrapper>
       <Main>
         <Title>
           <Twemoji emoji="🙏" /> {t("God's Promises")}
         </Title>
-        <Switch>
-          <Route
-            path={`${base}/p/:gpromiseId`}
-            render={() => <div>Promise</div>}
-          />
-          <Route exact={true} path={base} component={RandomGPromise} />
-          <Redirect to="en" />
-        </Switch>
+        {currentGPromise ? <GPromise gPromise={currentGPromise} /> : <Home />}
       </Main>
-      <LanguageSelector />
-    </>
+      <StyledLanguageSelector />
+    </Wrapper>
   );
 }
 

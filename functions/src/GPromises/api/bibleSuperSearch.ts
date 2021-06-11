@@ -1,25 +1,16 @@
 import axios from "axios";
-import {cleanPassage} from "../../helpers/helpers";
+import {cleanPassage} from "./utils";
 import {Content} from "../../models/GPromise";
 import {BibleId, Bibles, Lang} from "../../types";
-import {ExternalApi} from "./interface";
+import {BibleSearcher} from "./interface";
 
 type ApiResult = {
-  /* eslint-disable camelcase */
-  book_name: string;
-  book_raw: string;
-  /* eslint-enable camelcase */
   verses: {
     [bibleId: string]: {
       [chapter: string]: {
         [verse: string]: {
-          id: number;
           book: number;
-          chapter: number;
-          verse: number;
           text: string;
-          italics: string;
-          claimed: boolean;
         };
       };
     };
@@ -29,7 +20,7 @@ type ApiResponse = {
   results: ApiResult[];
 };
 
-class BibleSuperSearch implements ExternalApi {
+class BibleSuperSearch implements BibleSearcher {
   constructor(
     private bibles: Bibles,
     private translator: (lang: Lang, reference: string) => string
