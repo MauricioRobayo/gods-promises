@@ -6,7 +6,9 @@ export default function useRandomGPromise() {
   const queryClient = useQueryClient();
 
   async function randomGPromise() {
-    const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/random`);
+    console.log({ apiUrl: process.env.REACT_APP_API_URL });
+
+    const { data } = await axios.get("/random");
     queryClient.setQueryData(["promise", data.id], data);
     return data;
   }
