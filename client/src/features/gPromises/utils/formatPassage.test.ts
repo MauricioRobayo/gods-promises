@@ -10,6 +10,7 @@ describe("cleanPassage", () => {
     ["Some passage", "Some passage…"],
     ["some passage", "…some passage…"],
     ["some passage;", "…some passage…"],
+    ["some passage:", "…some passage…"],
     ["some passage,", "…some passage…"],
     ["¶Some passage.", "Some passage."],
   ];

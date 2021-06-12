@@ -6,6 +6,6 @@ export function formatPassage(passage: string): string {
       : trimmedPassage;
   return formattedText
     .replace("¶", "")
-    .replace(/[;,]$/, "")
+    .replace(/[;:,]$/, "")
     .replace(/([\w])$/, "$1…");
 }
