@@ -4,6 +4,7 @@ import { useQueryClient } from "react-query";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
+import { mediumSize, smallSize } from "../../styles";
 import { langs } from "../i18next";
 import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
@@ -14,21 +15,19 @@ import {
   setNextGPromise,
 } from "./gPromisesSlice";
 
-const Article = styled.article`
-  width: clamp(300px, 90vw, 768px);
-`;
+const mediumSidesSpace = "1.25em";
+const smallSidesSpace = "1em";
 
-const Section = styled.section`
-  margin: 0;
-  background-color: #f0f0f0;
-  font-family: "Cardo", serif;
-  border-radius: 0.5rem;
-  padding: 1.25em;
+const Article = styled.article`
+  width: clamp(${smallSize}, 90vw, ${mediumSize});
 `;
 
 const Header = styled.div`
-  margin: 0.5rem 1rem;
-  @media (min-width: 768px) {
+  margin: 0.5em ${smallSidesSpace};
+  @media (min-width: ${smallSize}) {
+    margin: 0.5rem ${mediumSidesSpace};
+  }
+  @media (min-width: ${mediumSize}) {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -45,6 +44,17 @@ const Subtitle = styled.div`
   color: #888;
 `;
 
+const BlockquoteWrapper = styled.section`
+  margin: 0;
+  background-color: #f0f0f0;
+  font-family: "Cardo", serif;
+  border-radius: 0.5rem;
+  padding: ${smallSidesSpace};
+  @media (min-width: ${smallSize}) {
+    padding: ${mediumSidesSpace};
+  }
+`;
+
 const Blockquote = styled.blockquote`
   color: #000;
   line-height: 1.25em;
@@ -53,7 +63,10 @@ const Blockquote = styled.blockquote`
 
 const Footer = styled.footer`
   font-size: 0.85rem;
-  margin: 1rem 1rem 0 0;
+  margin: 0.5em ${smallSidesSpace};
+  @media (min-width: ${smallSize}) {
+    margin: 0.5rem ${mediumSidesSpace};
+  }
   display: flex;
   justify-content: flex-end;
   a {
@@ -120,9 +133,9 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
         <Title>{gPromise.content[bibleId]?.reference}</Title>
         <Subtitle>{gPromise.content[bibleId]?.bibleName}</Subtitle>
       </Header>
-      <Section>
+      <BlockquoteWrapper>
         <Blockquote>{gPromise.content[bibleId]?.text}</Blockquote>
-      </Section>
+      </BlockquoteWrapper>
       <Footer>
         <ButtonsWrapper>
           {isFetching ? (

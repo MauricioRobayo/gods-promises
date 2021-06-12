@@ -8,6 +8,7 @@ import { selectCurrentGPromise } from "./features/gPromises/gPromisesSlice";
 import { Home } from "./features/home";
 import { LanguageSelector } from "./features/i18next";
 import Twemoji from "./features/twemoji/Twemoji";
+import { mediumSize } from "./styles";
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,10 +25,10 @@ const Main = styled.main`
 
 const Title = styled.h1`
   font-size: 1.75rem;
-  @media (min-width: 768px) {
+  @media (min-width: ${mediumSize}) {
     font-size: 2rem;
   }
-  margin: 2rem 0;
+  margin: 2em 0 1em;
   font-weight: 900;
 `;
 
