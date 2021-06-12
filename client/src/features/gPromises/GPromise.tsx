@@ -144,7 +144,7 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
       <Footer>
         <ButtonsWrapper>
           {isFetching ? (
-            <Loader />
+            <Loader size={8} />
           ) : (
             <Button onClick={onNextClickHandler}>
               <span>{t("next")}</span>
