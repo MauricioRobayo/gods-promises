@@ -59,16 +59,9 @@ const BlockquoteWrapper = styled.section`
 `;
 
 const Blockquote = styled.blockquote`
-  quotes: "“" "”" "‘" "’";
   color: ${({ theme }) => theme.color.text1};
-  line-height: 1.25em;
+  line-height: 1.5em;
   font-size: 1.25rem;
-  &::before {
-    content: open-quote;
-  }
-  &::after {
-    content: close-quote;
-  }
 `;
 
 const Footer = styled.footer`
