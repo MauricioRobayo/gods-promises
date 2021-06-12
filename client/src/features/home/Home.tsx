@@ -28,9 +28,9 @@ const Wrapper = styled.div`
 const Button = styled.button.attrs({
   type: "button",
 })`
-  background-color: ${({ theme }) => theme.color.surface1};
+  background-color: ${({ theme }) => theme.color.surface3};
   border: 2px solid currentColor;
-  color: ${({ theme }) => theme.color.text1};
+  color: ${({ theme }) => theme.color.brand};
   padding: 0.5em 1em;
   border-radius: 8px;
   cursor: pointer;
@@ -42,7 +42,7 @@ const Angel = styled.div`
   margin: 2rem 0 3rem;
   img {
     filter: drop-shadow(
-      0px 12px 24px ${({ theme }) => theme.color.surfaceShadow}
+      0px 12px 24px ${({ theme }) => theme.color.surfaceShadow1}
     );
     animation: ${rotate} 6s ease-in-out infinite;
   }

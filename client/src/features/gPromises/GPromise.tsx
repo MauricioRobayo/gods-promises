@@ -24,9 +24,9 @@ const Article = styled.article`
 `;
 
 const Header = styled.div`
-  margin: 0.5em ${smallSidesSpace};
+  margin: 0 ${smallSidesSpace} 1rem;
   @media (min-width: ${({ theme }) => theme.size.small}) {
-    margin: 0.5rem ${mediumSidesSpace};
+    margin: 0 ${mediumSidesSpace} 1rem;
   }
   @media (min-width: ${({ theme }) => theme.size.medium}) {
     display: flex;
@@ -36,20 +36,22 @@ const Header = styled.div`
 `;
 
 const Title = styled.h2`
-  font-family: ${({ theme }) => theme.font.secondary};
+  font-family: ${({ theme }) => theme.font.family.secondary};
+  font-size: ${({ theme }) => theme.font.size.large};
   font-style: italic;
 `;
 
 const Subtitle = styled.div`
-  font-size: 0.85rem;
-  color: #888;
+  color: ${({ theme }) => theme.color.text2};
+  font-size: ${({ theme }) => theme.font.size.small};
 `;
 
 const BlockquoteWrapper = styled.section`
   margin: 0;
-  background-color: #f0f0f0;
-  font-family: ${({ theme }) => theme.font.secondary};
+  background-color: ${({ theme }) => theme.color.surface3};
+  font-family: ${({ theme }) => theme.font.family.secondary};
   border-radius: 0.5rem;
+  box-shadow: 0 4px 6px 0 ${({ theme }) => theme.color.surfaceShadow2};
   padding: ${smallSidesSpace};
   @media (min-width: ${({ theme }) => theme.size.small}) {
     padding: ${mediumSidesSpace};
@@ -57,16 +59,16 @@ const BlockquoteWrapper = styled.section`
 `;
 
 const Blockquote = styled.blockquote`
-  color: #000;
+  color: ${({ theme }) => theme.color.text1};
   line-height: 1.25em;
   font-size: 1.25rem;
 `;
 
 const Footer = styled.footer`
-  font-size: 0.85rem;
-  margin: 0.5em ${smallSidesSpace};
+  font-size: ${({ theme }) => theme.font.size.small};
+  margin: 1em ${smallSidesSpace} 0;
   @media (min-width: ${({ theme }) => theme.size.small}) {
-    margin: 0.5rem ${mediumSidesSpace};
+    margin: 1rem ${mediumSidesSpace} 0;
   }
   display: flex;
   justify-content: flex-end;
@@ -79,13 +81,13 @@ const Button = styled.button`
   background-color: transparent;
   border: none;
   display: flex;
-  align-items: flex-start;
   align-items: center;
   gap: 0.25em;
   cursor: pointer;
   text-transform: capitalize;
+  color: ${({ theme }) => theme.color.brand};
   & > *:not(:last-child) {
-    margin-right: 0.05em;
+    margin-right: 0.25em;
   }
 `;
 

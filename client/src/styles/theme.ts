@@ -10,8 +10,8 @@ type Color = {
   surface2: string;
   surface3: string;
   surface4: string;
-  surfaceShadow: string;
-  shadowStrength: number;
+  surfaceShadow1: string;
+  surfaceShadow2: string;
 };
 
 type ThemeType = {
@@ -28,8 +28,16 @@ const size = {
   small: "320px",
 } as const;
 const font = {
-  primary: "Lato, serif",
-  secondary: "Cardo, serif",
+  family: {
+    primary: "Lato, serif",
+    secondary: "Cardo, serif",
+  },
+  size: {
+    small: "0.85rem",
+    medium: "1rem",
+    large: "1.5rem",
+    extraLarge: "2rem",
+  },
 } as const;
 const device = {
   medium: `(min-width: ${size.medium})`,
@@ -53,24 +61,22 @@ export const theme: { light: ThemeType; dark: ThemeType } = {
       surface2: `hsl(${brandColor.hue} 20% 99%)`,
       surface3: `hsl(${brandColor.hue} 20% 92%)`,
       surface4: `hsl(${brandColor.hue} 20% 85%)`,
-      surfaceShadow: `hsl(${brandColor.hue} 10% 20%)`,
-      shadowStrength: 0.02,
+      surfaceShadow1: `hsl(${brandColor.hue} 10% 40%)`,
+      surfaceShadow2: `hsl(${brandColor.hue} 10% 70%)`,
     },
   },
   dark: {
     ...sharedStyles,
     color: {
-      brand: `hsl(${brandColor.hue} ${brandColor.saturation / 1.25}% ${
-        brandColor.lightness / 1.25
-      }%)`,
+      brand: `hsl(${brandColor.hue} 82% 70%)`,
       text1: `hsl(${brandColor.hue} 15% 75%)`,
       text2: `hsl(${brandColor.hue} 10% 61%)`,
       surface1: `hsl(${brandColor.hue} 10% 20%)`,
       surface2: `hsl(${brandColor.hue} 10% 25%)`,
       surface3: `hsl(${brandColor.hue} 5% 30%)`,
       surface4: `hsl(${brandColor.hue} 5% 35%)`,
-      surfaceShadow: `hsl(${brandColor.hue} 30% 13%)`,
-      shadowStrength: 0.2,
+      surfaceShadow1: `hsl(${brandColor.hue} 30% 3%)`,
+      surfaceShadow2: `hsl(${brandColor.hue} 30% 13%)`,
     },
   },
 };

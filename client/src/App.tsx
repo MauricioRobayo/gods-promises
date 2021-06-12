@@ -34,11 +34,9 @@ const Title = styled.h1`
   }
   margin: 2em 0 1em;
   font-weight: 900;
-  color: ${({ theme }) => theme.color.text1};
 `;
 
 const Footer = styled.footer`
-  color: ${({ theme }) => theme.color.text2};
   flex: 1;
   align-items: flex-end;
   display: flex;
