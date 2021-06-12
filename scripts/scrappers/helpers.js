@@ -6,22 +6,22 @@ const bcv_parser =
 
 const bcv = new bcv_parser();
 
-const getMongoDbCollection = async (collection) => {
-  const client = new MongoClient(process.env.MONGODB_URI, {
+const getMongoDbCollection = async ({ mongodbUri, mongoDb, collection }) => {
+  const client = new MongoClient(mongodbUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
   await client.connect();
-  const db = client.db(process.env.MONGODB_DB);
+  const db = client.db(mongoDb);
   return db.collection(collection);
 };
 
-const shuffle = (arr) => {
-  for (let i = arr.length - 1; i > 0; i--) {
+const shuffle = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
     const randomPosition = Math.floor(Math.random() * i + 1);
-    [arr[i], arr[randomPosition]] = [arr[randomPosition], arr[i]];
+    [array[i], array[randomPosition]] = [array[randomPosition], array[i]];
   }
-  return arr;
+  return array;
 };
 
 const makePromiseOrThrow = (options) => {
