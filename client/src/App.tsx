@@ -32,7 +32,7 @@ const Title = styled.h1`
   @media ${({ theme }) => theme.device.medium} {
     font-size: 2rem;
   }
-  margin: 2em 0 1em;
+  margin: 2em 0 2em;
   font-weight: 900;
 `;
 
