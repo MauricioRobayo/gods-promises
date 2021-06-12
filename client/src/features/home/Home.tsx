@@ -8,9 +8,6 @@ import { setCurrentGPromise } from "../gPromises/gPromisesSlice";
 import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
 
-const color = "hsl(205, 87%, 76%)";
-const lightColor = "hsl(205, 87%, 96%)";
-
 const rotate = keyframes`
   0% {
 		transform: translatey(0px);
@@ -31,9 +28,9 @@ const Wrapper = styled.div`
 const Button = styled.button.attrs({
   type: "button",
 })`
-  background-color: ${lightColor};
+  background-color: ${({ theme }) => theme.color.surface1};
   border: 2px solid currentColor;
-  color: ${color};
+  color: ${({ theme }) => theme.color.text1};
   padding: 0.5em 1em;
   border-radius: 8px;
   cursor: pointer;
@@ -42,9 +39,11 @@ const Button = styled.button.attrs({
 
 const Angel = styled.div`
   background-color: transparent;
-  margin: 2rem 0 4rem;
+  margin: 2rem 0 3rem;
   img {
-    filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(
+      0px 12px 24px ${({ theme }) => theme.color.surfaceShadow}
+    );
     animation: ${rotate} 6s ease-in-out infinite;
   }
 `;

@@ -8,6 +8,11 @@ import { selectCurrentGPromise } from "./features/gPromises/gPromisesSlice";
 import { Home } from "./features/home";
 import { LanguageSelector } from "./features/i18next";
 import Twemoji from "./features/twemoji/Twemoji";
+import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
+import { theme } from "./styles";
+import { GlobalStyle } from "./styles";
+import { Normalize } from "styled-normalize";
+import { ThemeProvider } from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,11 +28,17 @@ const Main = styled.main`
 `;
 
 const Title = styled.h1`
-  margin: 2rem 0;
+  font-size: 1.75rem;
+  @media ${({ theme }) => theme.device.medium} {
+    font-size: 2rem;
+  }
+  margin: 2em 0 1em;
   font-weight: 900;
+  color: ${({ theme }) => theme.color.text1};
 `;
 
-const StyledLanguageSelector = styled(LanguageSelector)`
+const Footer = styled.footer`
+  color: ${({ theme }) => theme.color.text2};
   flex: 1;
   align-items: flex-end;
 `;
@@ -36,6 +47,7 @@ function App() {
   const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
   const currentGPromise = useSelector(selectCurrentGPromise);
+  const preferredColorScheme = usePreferredColorScheme();
 
   useEffect(() => {
     const [, lang] = pathname.split("/");
@@ -43,15 +55,21 @@ function App() {
   }, [pathname, i18n]);
 
   return (
-    <Wrapper>
-      <Main>
-        <Title>
-          <Twemoji emoji="🙏" /> {t("God's Promises")}
-        </Title>
-        {currentGPromise ? <GPromise gPromise={currentGPromise} /> : <Home />}
-      </Main>
-      <StyledLanguageSelector />
-    </Wrapper>
+    <ThemeProvider theme={theme[preferredColorScheme]}>
+      <Normalize />
+      <GlobalStyle />
+      <Wrapper>
+        <Main>
+          <Title>
+            <Twemoji emoji="🙏" /> {t("God's Promises")}
+          </Title>
+          {currentGPromise ? <GPromise gPromise={currentGPromise} /> : <Home />}
+        </Main>
+        <Footer>
+          <LanguageSelector />
+        </Footer>
+      </Wrapper>
+    </ThemeProvider>
   );
 }
 

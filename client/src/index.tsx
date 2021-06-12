@@ -7,7 +7,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { GlobalStyle } from "./styles";
 import "./features/i18next";
 
 const queryClient = new QueryClient();
@@ -16,7 +15,6 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <GlobalStyle />
         <Suspense fallback="....is loading">
           <Router>
             <App />
