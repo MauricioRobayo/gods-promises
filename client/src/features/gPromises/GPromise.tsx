@@ -1,24 +1,18 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
-import Loader from "../loaders/Loader";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { langs } from "../i18next";
+import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
 import {
-  BibleId,
   GPromise as GPromiseType,
   selectNextGPromise,
   setCurrentGPromise,
   setNextGPromise,
 } from "./gPromisesSlice";
-
-export const bibleName: Record<BibleId, string> = {
-  kjv: "Authorized King James Version",
-  rvg: "Reina Valera Gómez",
-};
 
 const Article = styled.article`
   width: clamp(300px, 90vw, 768px);
