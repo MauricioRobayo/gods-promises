@@ -4,7 +4,6 @@ import { useQueryClient } from "react-query";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
-import { mediumSize, smallSize } from "../../styles";
 import { langs } from "../i18next";
 import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
@@ -19,15 +18,16 @@ const mediumSidesSpace = "1.25em";
 const smallSidesSpace = "1em";
 
 const Article = styled.article`
-  width: clamp(${smallSize}, 90vw, ${mediumSize});
+  width: ${({ theme }) =>
+    `clamp(${theme.size.small}, 90vw, ${theme.size.medium})`};
 `;
 
 const Header = styled.div`
   margin: 0.5em ${smallSidesSpace};
-  @media (min-width: ${smallSize}) {
+  @media (min-width: ${({ theme }) => theme.size.small}) {
     margin: 0.5rem ${mediumSidesSpace};
   }
-  @media (min-width: ${mediumSize}) {
+  @media (min-width: ${({ theme }) => theme.size.medium}) {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -35,7 +35,7 @@ const Header = styled.div`
 `;
 
 const Title = styled.h2`
-  font-family: "Cardo", serif;
+  font-family: ${({ theme }) => theme.font.secondary};
   font-style: italic;
 `;
 
@@ -47,10 +47,10 @@ const Subtitle = styled.div`
 const BlockquoteWrapper = styled.section`
   margin: 0;
   background-color: #f0f0f0;
-  font-family: "Cardo", serif;
+  font-family: ${({ theme }) => theme.font.secondary};
   border-radius: 0.5rem;
   padding: ${smallSidesSpace};
-  @media (min-width: ${smallSize}) {
+  @media (min-width: ${({ theme }) => theme.size.small}) {
     padding: ${mediumSidesSpace};
   }
 `;
@@ -64,7 +64,7 @@ const Blockquote = styled.blockquote`
 const Footer = styled.footer`
   font-size: 0.85rem;
   margin: 0.5em ${smallSidesSpace};
-  @media (min-width: ${smallSize}) {
+  @media (min-width: ${({ theme }) => theme.size.small}) {
     margin: 0.5rem ${mediumSidesSpace};
   }
   display: flex;

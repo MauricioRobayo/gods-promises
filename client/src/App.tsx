@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@emotion/react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -8,7 +9,8 @@ import { selectCurrentGPromise } from "./features/gPromises/gPromisesSlice";
 import { Home } from "./features/home";
 import { LanguageSelector } from "./features/i18next";
 import Twemoji from "./features/twemoji/Twemoji";
-import { mediumSize } from "./styles";
+import usePrefersColorScheme from "./hooks/usePrefersColorScheme";
+import { theme } from "./styles";
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,7 +27,7 @@ const Main = styled.main`
 
 const Title = styled.h1`
   font-size: 1.75rem;
-  @media (min-width: ${mediumSize}) {
+  @media (min-width: ${({ theme }) => theme.size.medium}) {
     font-size: 2rem;
   }
   margin: 2em 0 1em;
@@ -41,6 +43,7 @@ function App() {
   const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
   const currentGPromise = useSelector(selectCurrentGPromise);
+  const preferredColorScheme = usePrefersColorScheme();
 
   useEffect(() => {
     const [, lang] = pathname.split("/");
@@ -48,15 +51,17 @@ function App() {
   }, [pathname, i18n]);
 
   return (
-    <Wrapper>
-      <Main>
-        <Title>
-          <Twemoji emoji="🙏" /> {t("God's Promises")}
-        </Title>
-        {currentGPromise ? <GPromise gPromise={currentGPromise} /> : <Home />}
-      </Main>
-      <StyledLanguageSelector />
-    </Wrapper>
+    <ThemeProvider theme={theme[preferredColorScheme]}>
+      <Wrapper>
+        <Main>
+          <Title>
+            <Twemoji emoji="🙏" /> {t("God's Promises")}
+          </Title>
+          {currentGPromise ? <GPromise gPromise={currentGPromise} /> : <Home />}
+        </Main>
+        <StyledLanguageSelector />
+      </Wrapper>
+    </ThemeProvider>
   );
 }
 

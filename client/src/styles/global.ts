@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
-
-export const mediumSize = "768px";
-export const smallSize = "320px";
+import { sharedStyles } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -14,6 +12,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     color: #444;
-    font-family: Lato, serif;
+    font-family: ${sharedStyles.font.primary};
   }
 `;
