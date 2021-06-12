@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 const Button = styled.button.attrs({
   type: "button",
 })`
-  background-color: ${({ theme }) => theme.color.surface3};
+  background-color: transparent;
   border: 2px solid currentColor;
   color: ${({ theme }) => theme.color.brand};
   padding: 0.5em 1em;
