@@ -42,6 +42,8 @@ const Footer = styled.footer`
   flex: 1;
   align-items: flex-end;
   display: flex;
+  justify-content: center;
+  padding: 1rem 0;
 `;
 
 function App() {

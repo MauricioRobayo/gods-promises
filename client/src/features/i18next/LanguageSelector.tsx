@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import { langs } from "./";
 
 const Wrapper = styled.div`
-  margin: 1rem auto;
   display: flex;
   justify-content: center;
   & > *:not(:last-child) {
