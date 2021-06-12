@@ -41,6 +41,7 @@ const Footer = styled.footer`
   color: ${({ theme }) => theme.color.text2};
   flex: 1;
   align-items: flex-end;
+  display: flex;
 `;
 
 function App() {
