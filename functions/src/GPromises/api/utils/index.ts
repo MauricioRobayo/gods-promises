@@ -1,1 +1,1 @@
-export {cleanPassage} from "./cleanPassage";
+export {buildPassageTextFromResponse} from "./buildPassageTextFromResponse";

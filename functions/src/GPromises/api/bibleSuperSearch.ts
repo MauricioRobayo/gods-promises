@@ -1,8 +1,8 @@
 import axios from "axios";
-import {cleanPassage} from "./utils";
 import {Content} from "../../models/GPromise";
 import {BibleId, Bibles, Lang} from "../../types";
 import {BibleSearcher} from "./interface";
+import {buildPassageTextFromResponse} from "./utils";
 
 type ApiResult = {
   verses: {
@@ -16,7 +16,7 @@ type ApiResult = {
     };
   };
 };
-type ApiResponse = {
+export type ApiResponse = {
   results: ApiResult[];
 };
 
@@ -37,30 +37,12 @@ class BibleSuperSearch implements BibleSearcher {
     const c: Content = {};
     const content = bibles.reduce((acc, curr) => {
       acc[curr] = {
-        text: this.buildPassageTextFromResponse(curr, data),
+        text: buildPassageTextFromResponse(curr, data),
         reference: this.translator(this.bibles[curr].lang, reference),
       };
       return acc;
     }, c);
     return content;
-  }
-
-  private buildPassageTextFromResponse(
-    bible: string,
-    response: ApiResponse
-  ): string {
-    const text = response.results
-      .map(({verses}) => {
-        const chapters = Object.values(verses[bible]);
-        return chapters
-          .map((chapter) => {
-            const verses = Object.values(chapter);
-            return verses.map(({text}) => text).join("\n");
-          })
-          .join("\n");
-      })
-      .join("\n");
-    return cleanPassage(text);
   }
 }
 
