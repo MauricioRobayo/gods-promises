@@ -13,6 +13,7 @@ import {
   setCurrentGPromise,
   setNextGPromise,
 } from "./gPromisesSlice";
+import { formatPassage } from "./utils";
 
 const mediumSidesSpace = "1.25em";
 const smallSidesSpace = "1em";
@@ -127,14 +128,16 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
     return <div>{t("Something unexpected happened!")}</div>;
   }
 
+  const { text, reference, bibleName } = gPromise.content[bibleId];
+  const passage = formatPassage(text);
   return (
     <Article>
       <Header>
-        <Title>{gPromise.content[bibleId]?.reference}</Title>
-        <Subtitle>{gPromise.content[bibleId]?.bibleName}</Subtitle>
+        <Title>{reference}</Title>
+        <Subtitle>{bibleName}</Subtitle>
       </Header>
       <BlockquoteWrapper>
-        <Blockquote>{gPromise.content[bibleId]?.text}</Blockquote>
+        <Blockquote>{passage}</Blockquote>
       </BlockquoteWrapper>
       <Footer>
         <ButtonsWrapper>
