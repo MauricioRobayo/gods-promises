@@ -1,5 +1,6 @@
-import {getMongoDbCollection} from "../utils";
+import {bibles} from "../config";
 import {GPromise, IGPromise} from "../models/GPromise";
+import {getMongoDbCollection} from "../utils";
 
 const getRandomPromises = async (size: number): Promise<GPromise[]> => {
   const collection = await getMongoDbCollection<IGPromise>("g-promises");
@@ -8,7 +9,7 @@ const getRandomPromises = async (size: number): Promise<GPromise[]> => {
     {$sample: {size}},
   ]);
   const promises = await cursor.toArray();
-  return promises.map((promise) => new GPromise(promise));
+  return promises.map((promise) => new GPromise(promise, bibles));
 };
 
 export default getRandomPromises;

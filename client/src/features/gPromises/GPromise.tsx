@@ -1,40 +1,33 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
-import Loader from "../loaders/Loader";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { langs } from "../i18next";
+import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
 import {
-  BibleId,
   GPromise as GPromiseType,
   selectNextGPromise,
   setCurrentGPromise,
   setNextGPromise,
 } from "./gPromisesSlice";
 
-export const bibleName: Record<BibleId, string> = {
-  kjv: "Authorized King James Version",
-  rvg: "Reina Valera Gómez",
-};
+const mediumSidesSpace = "1.25em";
+const smallSidesSpace = "1em";
 
 const Article = styled.article`
-  width: clamp(300px, 90vw, 768px);
-`;
-
-const Section = styled.section`
-  margin: 0;
-  background-color: #f0f0f0;
-  font-family: "Cardo", serif;
-  border-radius: 0.5rem;
-  padding: 1.25em;
+  width: ${({ theme }) =>
+    `clamp(${theme.size.small}, 90vw, ${theme.size.medium})`};
 `;
 
 const Header = styled.div`
-  margin: 0.5rem 1rem;
-  @media (min-width: 768px) {
+  margin: 0.5em ${smallSidesSpace};
+  @media (min-width: ${({ theme }) => theme.size.small}) {
+    margin: 0.5rem ${mediumSidesSpace};
+  }
+  @media (min-width: ${({ theme }) => theme.size.medium}) {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -42,13 +35,24 @@ const Header = styled.div`
 `;
 
 const Title = styled.h2`
-  font-family: "Cardo", serif;
+  font-family: ${({ theme }) => theme.font.secondary};
   font-style: italic;
 `;
 
 const Subtitle = styled.div`
   font-size: 0.85rem;
   color: #888;
+`;
+
+const BlockquoteWrapper = styled.section`
+  margin: 0;
+  background-color: #f0f0f0;
+  font-family: ${({ theme }) => theme.font.secondary};
+  border-radius: 0.5rem;
+  padding: ${smallSidesSpace};
+  @media (min-width: ${({ theme }) => theme.size.small}) {
+    padding: ${mediumSidesSpace};
+  }
 `;
 
 const Blockquote = styled.blockquote`
@@ -59,7 +63,10 @@ const Blockquote = styled.blockquote`
 
 const Footer = styled.footer`
   font-size: 0.85rem;
-  margin: 1rem 1rem 0 0;
+  margin: 0.5em ${smallSidesSpace};
+  @media (min-width: ${({ theme }) => theme.size.small}) {
+    margin: 0.5rem ${mediumSidesSpace};
+  }
   display: flex;
   justify-content: flex-end;
   a {
@@ -97,7 +104,7 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
   const nextGPromise = useAppSelector(selectNextGPromise);
   const dispatch = useAppDispatch();
   const queryClient = useQueryClient();
-  const { isLoading, isError, data: randomGPromise } = useRandomGPromise();
+  const { isFetching, isError, data: randomGPromise } = useRandomGPromise();
 
   useEffect(() => {
     if (!randomGPromise) {
@@ -124,14 +131,14 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
     <Article>
       <Header>
         <Title>{gPromise.content[bibleId]?.reference}</Title>
-        <Subtitle>{bibleName[bibleId]}</Subtitle>
+        <Subtitle>{gPromise.content[bibleId]?.bibleName}</Subtitle>
       </Header>
-      <Section>
+      <BlockquoteWrapper>
         <Blockquote>{gPromise.content[bibleId]?.text}</Blockquote>
-      </Section>
+      </BlockquoteWrapper>
       <Footer>
         <ButtonsWrapper>
-          {isLoading ? (
+          {isFetching ? (
             <Loader />
           ) : (
             <Button onClick={onNextClickHandler}>

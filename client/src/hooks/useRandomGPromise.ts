@@ -10,7 +10,7 @@ export default function useRandomGPromise() {
     queryClient.setQueryData(["promise", data.id], data);
     return data;
   }
-  const { data, isLoading, isError } = useQuery<GPromise>(
+  const { data, isLoading, isFetching, isError } = useQuery<GPromise>(
     "randomGPromise",
     randomGPromise,
     {
@@ -21,6 +21,7 @@ export default function useRandomGPromise() {
   return {
     data,
     isLoading,
+    isFetching,
     isError,
   };
 }
