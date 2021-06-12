@@ -43,11 +43,18 @@ const device = {
   medium: `(min-width: ${size.medium})`,
   small: `(min-width: ${size.small})`,
 } as const;
+const space = {
+  side: {
+    small: "1em",
+    medium: "1.25em",
+  },
+};
 
 export const sharedStyles = {
   size,
   font,
   device,
+  space,
 } as const;
 
 export const theme: { light: ThemeType; dark: ThemeType } = {

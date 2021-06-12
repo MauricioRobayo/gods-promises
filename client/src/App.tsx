@@ -24,7 +24,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
+  margin: 0;
 `;
 
 const Title = styled.h1`

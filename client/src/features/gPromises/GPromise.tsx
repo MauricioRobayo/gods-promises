@@ -15,18 +15,15 @@ import {
 } from "./gPromisesSlice";
 import { formatPassage } from "./utils";
 
-const mediumSidesSpace = "1.25em";
-const smallSidesSpace = "1em";
-
 const Article = styled.article`
-  width: ${({ theme }) =>
-    `clamp(${theme.size.small}, 90vw, ${theme.size.medium})`};
+  width: 90vw;
+  max-width: ${({ theme }) => theme.size.medium};
 `;
 
 const Header = styled.div`
-  margin: 0 ${smallSidesSpace} 1rem;
+  margin: 0 ${({ theme }) => theme.space.side.small} 1rem;
   @media (min-width: ${({ theme }) => theme.size.small}) {
-    margin: 0 ${mediumSidesSpace} 1rem;
+    margin: 0 ${({ theme }) => theme.space.side.medium} 1rem;
   }
   @media (min-width: ${({ theme }) => theme.size.medium}) {
     display: flex;
@@ -52,9 +49,9 @@ const BlockquoteWrapper = styled.section`
   font-family: ${({ theme }) => theme.font.family.secondary};
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px 0 ${({ theme }) => theme.color.surfaceShadow2};
-  padding: ${smallSidesSpace};
+  padding: ${({ theme }) => theme.space.side.small};
   @media (min-width: ${({ theme }) => theme.size.small}) {
-    padding: ${mediumSidesSpace};
+    padding: ${({ theme }) => theme.space.side.medium};
   }
 `;
 
@@ -66,9 +63,9 @@ const Blockquote = styled.blockquote`
 
 const Footer = styled.footer`
   font-size: ${({ theme }) => theme.font.size.small};
-  margin: 1em ${smallSidesSpace} 0;
+  margin: 1em ${({ theme }) => theme.space.side.small} 0;
   @media (min-width: ${({ theme }) => theme.size.small}) {
-    margin: 1rem ${mediumSidesSpace} 0;
+    margin: 1rem ${({ theme }) => theme.space.side.medium} 0;
   }
   display: flex;
   justify-content: flex-end;
