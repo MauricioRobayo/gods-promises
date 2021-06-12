@@ -23,6 +23,10 @@ const Main = styled.main`
 `;
 
 const Title = styled.h1`
+  font-size: 1.75rem;
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
   margin: 2rem 0;
   font-weight: 900;
 `;
