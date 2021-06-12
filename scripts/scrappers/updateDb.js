@@ -41,6 +41,11 @@ if (mongodbUri !== localhost && careful !== "yes") {
   process.exit(1);
 }
 
+if (files.length === 0) {
+  console.error(chalk.bold(chalk.red("ERROR!")), "No files provided!");
+  process.exit(1);
+}
+
 const createUniqueIndex = async (collection, field) =>
   collection.createIndex({ [field]: 1 }, { unique: true });
 
