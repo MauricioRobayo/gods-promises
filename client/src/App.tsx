@@ -6,11 +6,15 @@ import styled from "styled-components/macro";
 import { Normalize } from "styled-normalize";
 import GPromise from "./features/gPromises/GPromise";
 import { Home } from "./features/home";
-import { LanguageSelector } from "./features/i18next";
+import {
+  DEFAULT_LANG,
+  LanguageSelector,
+  supportedLngs,
+} from "./features/i18next";
 import Twemoji from "./features/twemoji/Twemoji";
 import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
 import { GlobalStyle, theme } from "./styles";
-import { PROMISE_PATH } from "./styles/config";
+import { PROMISE_PATH } from "./config";
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,6 +46,8 @@ const Footer = styled.footer`
   padding: 1rem 0;
 `;
 
+const basePath = `(${supportedLngs.join("|")})`;
+
 function App() {
   const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
@@ -49,7 +55,7 @@ function App() {
 
   useEffect(() => {
     const [, lang] = pathname.split("/");
-    i18n.changeLanguage(lang || "en");
+    i18n.changeLanguage(lang);
   }, [pathname, i18n]);
 
   return (
@@ -61,14 +67,14 @@ function App() {
           <Title>
             <Twemoji emoji="🙏" /> {t("God's Promises")}
           </Title>
-          <Route exact path="/(en|es)">
+          <Route exact path={basePath}>
             <Home />
           </Route>
-          <Route exact path={`/(en|es)/${PROMISE_PATH}/:gPromiseId`}>
+          <Route exact path={`/${basePath}/${PROMISE_PATH}/:gPromiseId`}>
             <GPromise />
           </Route>
           <Route exact path="/">
-            <Redirect to="/en" />
+            <Redirect to={`/${DEFAULT_LANG}`} />
           </Route>
         </Main>
         <Footer>

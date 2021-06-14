@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 import styled, { keyframes } from "styled-components/macro";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
-import { PROMISE_PATH } from "../../styles/config";
+import { PROMISE_PATH } from "../../config";
 import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
 

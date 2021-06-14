@@ -5,8 +5,8 @@ import { useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
 import useGPromise from "../../hooks/useGPromise";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
-import { PROMISE_PATH } from "../../styles/config";
-import { langs } from "../i18next";
+import { PROMISE_PATH } from "../../config";
+import { lngs } from "../i18next";
 import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
 
@@ -92,7 +92,7 @@ const ButtonsWrapper = styled.div`
 export default function GPromiseContainer() {
   const { t, i18n } = useTranslation();
   const { push } = useHistory();
-  const { bibleId } = langs[i18n.language];
+  const { bibleId } = lngs[i18n.language];
   const { gPromiseId } = useParams<{ gPromiseId: string }>();
   const { isError: isErrorGPromise, data: gPromise } = useGPromise(gPromiseId);
   const {
