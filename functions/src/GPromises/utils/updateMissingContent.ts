@@ -1,13 +1,13 @@
 import {GPromise, IGPromise} from "../../models/GPromise";
 import {bibleIds, bibles} from "../../config";
 import {BibleSuperSearch} from "../api";
-import {translator, getMissingBibles} from ".";
+import {translateReference, getMissingBibles} from ".";
 import {getMongoDbCollection} from "../../utils";
 import {formatPassage} from "./formatPassage";
 
 const bibleSuperSearch = new BibleSuperSearch(
   bibles,
-  translator,
+  translateReference,
   formatPassage
 );
 const collection = getMongoDbCollection<IGPromise>("g-promises");
