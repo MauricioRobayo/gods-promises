@@ -5,6 +5,7 @@ import { useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
 import useGPromise from "../../hooks/useGPromise";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
+import { PROMISE_PATH } from "../../styles/config";
 import { langs } from "../i18next";
 import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
@@ -111,7 +112,7 @@ export default function GPromiseContainer() {
     }
 
     queryClient.refetchQueries("randomGPromise");
-    push(`/${i18n.language}/${randomGPromise.id}`);
+    push(`/${i18n.language}/${PROMISE_PATH}/${randomGPromise.id}`);
   };
 
   if (isErrorGPromise || isErrorRandomGPromise || !gPromise) {

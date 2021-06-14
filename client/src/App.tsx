@@ -10,6 +10,7 @@ import { LanguageSelector } from "./features/i18next";
 import Twemoji from "./features/twemoji/Twemoji";
 import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
 import { GlobalStyle, theme } from "./styles";
+import { PROMISE_PATH } from "./styles/config";
 
 const Wrapper = styled.div`
   display: flex;
@@ -63,7 +64,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/(en|es)/:gPromiseId">
+          <Route exact path={`/(en|es)/${PROMISE_PATH}/:gPromiseId`}>
             <GPromise />
           </Route>
         </Main>

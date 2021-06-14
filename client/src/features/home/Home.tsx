@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 import styled, { keyframes } from "styled-components/macro";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
+import { PROMISE_PATH } from "../../styles/config";
 import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
 
@@ -56,7 +57,7 @@ export default function Home() {
       return;
     }
 
-    push(`/${i18n.language}/${randomGPromise.id}`);
+    push(`/${i18n.language}/${PROMISE_PATH}/${randomGPromise.id}`);
   };
 
   if (isError) {
