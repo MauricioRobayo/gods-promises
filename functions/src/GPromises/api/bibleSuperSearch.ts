@@ -42,10 +42,13 @@ class BibleSuperSearch implements BibleSearcher {
     bibles: BibleId[],
     reference: string
   ): Promise<Content> {
+    // We need to convert en-dash to hyphen so the API can understand the reference.
+    // https://github.com/MauricioRobayo/promesas/issues/10#issue-919895469
+    const referenceWithHyphen = reference.replace(/–/g, "-");
     const {data} = await axios.get(
       `https://api.biblesupersearch.com/api?bible=${JSON.stringify(
         bibles
-      )}&reference=${reference.replace(/–/g, "-")}`
+      )}&reference=${referenceWithHyphen}`
     );
     const content = bibles.reduce((acc, curr) => {
       acc[curr] = {
