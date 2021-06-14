@@ -5,11 +5,11 @@ import {translateReference, getMissingBibles} from ".";
 import {getMongoDbCollection} from "../../utils";
 import {formatPassage} from "./formatPassage";
 
-const bibleSuperSearch = new BibleSuperSearch(
+const bibleSuperSearch = new BibleSuperSearch({
   bibles,
-  translateReference,
-  formatPassage
-);
+  translator: translateReference,
+  formatter: formatPassage,
+});
 const collection = getMongoDbCollection<IGPromise>("g-promises");
 
 export const updateMissingContent = async (

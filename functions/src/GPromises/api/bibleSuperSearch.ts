@@ -4,6 +4,8 @@ import {BibleId, Bibles, Lang} from "../../types";
 import {BibleSearcher} from "./interface";
 import {buildPassageTextFromResponse} from "./utils";
 
+type Translator = (lang: Lang, reference: string) => string;
+type Formatter = (text: string) => string;
 type ApiResult = {
   verses: {
     [bibleId: string]: {
@@ -20,11 +22,22 @@ export type ApiResponse = {
 };
 
 class BibleSuperSearch implements BibleSearcher {
-  constructor(
-    private bibles: Bibles,
-    private translator: (lang: Lang, reference: string) => string,
-    private formatter: (text: string) => string
-  ) {}
+  private bibles: Bibles;
+  private formatter: Formatter;
+  private translator: Translator;
+  constructor({
+    bibles,
+    formatter,
+    translator,
+  }: {
+    bibles: Bibles;
+    formatter: Formatter;
+    translator: Translator;
+  }) {
+    this.bibles = bibles;
+    this.formatter = formatter;
+    this.translator = translator;
+  }
   async getPassageFromReference(
     bibles: BibleId[],
     reference: string

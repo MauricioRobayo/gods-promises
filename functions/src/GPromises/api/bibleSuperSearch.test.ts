@@ -56,11 +56,11 @@ describe("bibleSuperSearch", () => {
         data: mockResponse,
       });
     });
-    const bibleSuperSearch = new BibleSuperSearch(
+    const bibleSuperSearch = new BibleSuperSearch({
       bibles,
-      mockTranslator,
-      mockFormatter
-    );
+      translator: mockTranslator,
+      formatter: mockFormatter,
+    });
     const content = await bibleSuperSearch.getPassageFromReference(
       requestedBibles,
       requestedReference
@@ -144,11 +144,11 @@ describe("bibleSuperSearch", () => {
         data: mockResponse,
       });
     });
-    const bibleSuperSearch = new BibleSuperSearch(
+    const bibleSuperSearch = new BibleSuperSearch({
       bibles,
-      mockTranslator,
-      mockFormatter
-    );
+      translator: mockTranslator,
+      formatter: mockFormatter,
+    });
     const content = await bibleSuperSearch.getPassageFromReference(
       requestedBibles,
       requestedReference
