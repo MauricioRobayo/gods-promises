@@ -1,18 +1,23 @@
 import axios from "axios";
 import {bibles} from "../../config";
 import BibleSuperSearch, {ApiResponse} from "./bibleSuperSearch";
-import {Lang} from "../../types";
+import {BibleId, Lang} from "../../types";
+import {Content} from "../../models/GPromise";
 
 const mockVerses = ["verse 1", "verse 2", "verse 3", "verse 4"];
-const mockTranslator = jest.fn((_lang: Lang, reference: string) => reference);
+const mockTranslator = jest.fn(
+  (_lang: Lang, reference: string): string => reference
+);
+const mockFormatter = jest.fn((text: string): string => text);
 
 afterEach(() => {
   mockTranslator.mockClear();
+  mockFormatter.mockClear();
 });
 
 describe("bibleSuperSearch", () => {
   it("should return the correct response for one bible", async () => {
-    const requestedBibles: (keyof typeof bibles)[] = ["kjv"];
+    const requestedBibles: BibleId[] = ["kjv"];
     const requestedReference = "Book 1:1-2,3; 2:1";
     const mockResponse: ApiResponse = {
       results: [
@@ -51,12 +56,16 @@ describe("bibleSuperSearch", () => {
         data: mockResponse,
       });
     });
-    const bibleSuperSearch = new BibleSuperSearch(bibles, mockTranslator);
+    const bibleSuperSearch = new BibleSuperSearch(
+      bibles,
+      mockTranslator,
+      mockFormatter
+    );
     const content = await bibleSuperSearch.getPassageFromReference(
       requestedBibles,
       requestedReference
     );
-    const expected = {
+    const expected: Content = {
       kjv: {
         text: "verse 1 verse 2 …verse 3 …verse 4",
         reference: requestedReference,
@@ -69,8 +78,10 @@ describe("bibleSuperSearch", () => {
         requestedBibles
       )}&reference=${requestedReference}`
     );
+    expect(mockFormatter).toBeCalledTimes(1);
     expect(mockTranslator).toBeCalledTimes(1);
     requestedBibles.forEach((bible) => {
+      expect(mockFormatter).toBeCalledWith(expected[bible]?.text);
       expect(mockTranslator).toBeCalledWith(
         bibles[bible].lang,
         requestedReference
@@ -78,7 +89,7 @@ describe("bibleSuperSearch", () => {
     });
   });
   it("should return the correct response for two bibles", async () => {
-    const requestedBibles: (keyof typeof bibles)[] = ["kjv", "rvg"];
+    const requestedBibles: BibleId[] = ["kjv", "rvg"];
     const requestedReference = "Book 1:1-2,3; 2:1";
     const mockResponse: ApiResponse = {
       results: [
@@ -133,12 +144,16 @@ describe("bibleSuperSearch", () => {
         data: mockResponse,
       });
     });
-    const bibleSuperSearch = new BibleSuperSearch(bibles, mockTranslator);
+    const bibleSuperSearch = new BibleSuperSearch(
+      bibles,
+      mockTranslator,
+      mockFormatter
+    );
     const content = await bibleSuperSearch.getPassageFromReference(
       requestedBibles,
       requestedReference
     );
-    const expected = {
+    const expected: Content = {
       kjv: {
         text: "verse 1 verse 2 …verse 3 …verse 4",
         reference: requestedReference,
@@ -156,7 +171,9 @@ describe("bibleSuperSearch", () => {
       )}&reference=${requestedReference}`
     );
     expect(mockTranslator).toBeCalledTimes(2);
+    expect(mockFormatter).toBeCalledTimes(2);
     requestedBibles.forEach((bible) => {
+      expect(mockFormatter).toBeCalledWith(expected[bible]?.text);
       expect(mockTranslator).toBeCalledWith(
         bibles[bible].lang,
         requestedReference

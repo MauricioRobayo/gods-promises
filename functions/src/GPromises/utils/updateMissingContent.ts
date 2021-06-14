@@ -3,8 +3,13 @@ import {bibleIds, bibles} from "../../config";
 import {BibleSuperSearch} from "../api";
 import {translator, getMissingBibles} from ".";
 import {getMongoDbCollection} from "../../utils";
+import {formatPassage} from "./formatPassage";
 
-const bibleSuperSearch = new BibleSuperSearch(bibles, translator);
+const bibleSuperSearch = new BibleSuperSearch(
+  bibles,
+  translator,
+  formatPassage
+);
 const collection = getMongoDbCollection<IGPromise>("g-promises");
 
 export const updateMissingContent = async (
