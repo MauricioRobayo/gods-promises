@@ -9,7 +9,6 @@ type ApiResult = {
     [bibleId: string]: {
       [chapter: string]: {
         [verse: string]: {
-          book: number;
           text: string;
         };
       };
@@ -32,16 +31,15 @@ class BibleSuperSearch implements BibleSearcher {
     const {data} = await axios.get(
       `https://api.biblesupersearch.com/api?bible=${JSON.stringify(
         bibles
-      )}&reference=${reference}`
+      )}&reference=${reference.replace(/–/g, "-")}`
     );
-    const c: Content = {};
     const content = bibles.reduce((acc, curr) => {
       acc[curr] = {
         text: buildPassageTextFromResponse(curr, data),
         reference: this.translator(this.bibles[curr].lang, reference),
       };
       return acc;
-    }, c);
+    }, {} as Content);
     return content;
   }
 }
