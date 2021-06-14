@@ -1,18 +1,15 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { Route, useLocation } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 import styled from "styled-components/macro";
+import { Normalize } from "styled-normalize";
 import GPromise from "./features/gPromises/GPromise";
-import { selectCurrentGPromise } from "./features/gPromises/gPromisesSlice";
 import { Home } from "./features/home";
 import { LanguageSelector } from "./features/i18next";
 import Twemoji from "./features/twemoji/Twemoji";
 import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
-import { theme } from "./styles";
-import { GlobalStyle } from "./styles";
-import { Normalize } from "styled-normalize";
-import { ThemeProvider } from "styled-components";
+import { GlobalStyle, theme } from "./styles";
 
 const Wrapper = styled.div`
   display: flex;
@@ -47,7 +44,6 @@ const Footer = styled.footer`
 function App() {
   const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
-  const currentGPromise = useSelector(selectCurrentGPromise);
   const preferredColorScheme = usePreferredColorScheme();
 
   useEffect(() => {
@@ -64,7 +60,12 @@ function App() {
           <Title>
             <Twemoji emoji="🙏" /> {t("God's Promises")}
           </Title>
-          {currentGPromise ? <GPromise gPromise={currentGPromise} /> : <Home />}
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/(en|es)/:gPromiseId">
+            <GPromise />
+          </Route>
         </Main>
         <Footer>
           <LanguageSelector />

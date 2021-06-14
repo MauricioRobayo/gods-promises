@@ -1,18 +1,13 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
+import { useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import useGPromise from "../../hooks/useGPromise";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { langs } from "../i18next";
 import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
-import {
-  GPromise as GPromiseType,
-  selectNextGPromise,
-  setCurrentGPromise,
-  setNextGPromise,
-} from "./gPromisesSlice";
 
 const Article = styled.article`
   width: 90vw;
@@ -93,36 +88,33 @@ const ButtonsWrapper = styled.div`
   }
 `;
 
-type GPromiseProps = {
-  gPromise: GPromiseType;
-};
-
-export default function GPromiseContainer({ gPromise }: GPromiseProps) {
+export default function GPromiseContainer() {
   const { t, i18n } = useTranslation();
+  const { push } = useHistory();
   const { bibleId } = langs[i18n.language];
-  const nextGPromise = useAppSelector(selectNextGPromise);
-  const dispatch = useAppDispatch();
+  const { gPromiseId } = useParams<{ gPromiseId: string }>();
+  const { isError: isErrorGPromise, data: gPromise } = useGPromise(gPromiseId);
+  const {
+    isFetching: isFetchingRandomGPromise,
+    isError: isErrorRandomGPromise,
+    data: randomGPromise,
+  } = useRandomGPromise();
   const queryClient = useQueryClient();
-  const { isFetching, isError, data: randomGPromise } = useRandomGPromise();
 
   useEffect(() => {
+    queryClient.refetchQueries("randomGPromise");
+  }, [queryClient]);
+
+  const onNextClickHandler = () => {
     if (!randomGPromise) {
       return;
     }
 
-    dispatch(setNextGPromise(randomGPromise));
-  }, [randomGPromise, dispatch]);
-
-  const onNextClickHandler = () => {
     queryClient.refetchQueries("randomGPromise");
-    if (!nextGPromise) {
-      return;
-    }
-    dispatch(setCurrentGPromise(nextGPromise));
-    dispatch(setNextGPromise(null));
+    push(`/${i18n.language}/${randomGPromise.id}`);
   };
 
-  if (isError) {
+  if (isErrorGPromise || isErrorRandomGPromise || !gPromise) {
     return <div>{t("Something unexpected happened!")}</div>;
   }
 
@@ -139,7 +131,7 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
       </BlockquoteWrapper>
       <Footer>
         <ButtonsWrapper>
-          {isFetching ? (
+          {isFetchingRandomGPromise ? (
             <Loader size={8} />
           ) : (
             <Button onClick={onNextClickHandler}>

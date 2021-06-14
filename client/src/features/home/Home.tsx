@@ -1,10 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useQueryClient } from "react-query";
+import { useHistory } from "react-router-dom";
 import styled, { keyframes } from "styled-components/macro";
-import { useAppDispatch } from "../../app/hooks";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
-import { setCurrentGPromise } from "../gPromises/gPromisesSlice";
 import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
 
@@ -49,16 +47,16 @@ const Angel = styled.div`
 `;
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { isLoading, isError, data: randomGPromise } = useRandomGPromise();
-  const dispatch = useAppDispatch();
-  const queryClient = useQueryClient();
+  const { push } = useHistory();
 
   const getAPromise = () => {
-    queryClient.refetchQueries("randomGPromise");
-    if (randomGPromise) {
-      dispatch(setCurrentGPromise(randomGPromise));
+    if (!randomGPromise) {
+      return;
     }
+
+    push(`/${i18n.language}/${randomGPromise.id}`);
   };
 
   if (isError) {

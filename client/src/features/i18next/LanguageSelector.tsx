@@ -22,15 +22,13 @@ export const LanguageSelector = ({ className = "" }: LanguageSelectorProps) => {
   return (
     <Wrapper className={className}>
       {Object.keys(langs).map((lang) => {
-        const [, , ...path] = pathname.split("/");
         if (i18n.language === lang) {
           return <span key={lang}>{langs[lang].nativeName}</span>;
         }
+
+        const [, , ...path] = pathname.split("/");
         return (
-          <Link
-            key={lang}
-            to={`${lang === "en" ? "/" : "/es/"}${path.join("/")}`}
-          >
+          <Link key={lang} to={`/${lang}/${path.join("/")}`}>
             {langs[lang].nativeName}
           </Link>
         );
