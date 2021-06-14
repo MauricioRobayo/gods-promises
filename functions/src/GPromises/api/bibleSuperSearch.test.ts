@@ -7,7 +7,7 @@ const mockVerses = ["verse 1", "verse 2", "verse 3", "verse 4"];
 
 describe("bibleSuperSearch", () => {
   it("should return the correct response for one bible", async () => {
-    const requestedBibles = ["kjv"] as any;
+    const requestedBibles: (keyof typeof bibles)[] = ["kjv"];
     const requestedReference = "Book 1:1-2,3; 2:1";
     const mockResult1 = {
       verses: {
@@ -52,7 +52,7 @@ describe("bibleSuperSearch", () => {
     );
     const expected = {
       kjv: {
-        text: mockVerses.join("\n"),
+        text: "verse 1 verse 2 …verse 3 …verse 4",
         reference: requestedReference,
       },
     };
