@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
 import styled from "styled-components";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { langs } from "../i18next";
@@ -15,9 +16,26 @@ import {
 } from "./gPromisesSlice";
 import { formatPassage } from "./utils";
 
+const cssTransitionPrefix = "passage-";
+const cssTransitionDuration = 300;
+
 const Article = styled.article`
   width: 90vw;
   max-width: ${({ theme }) => theme.size.medium};
+`;
+
+const Passage = styled.div`
+  &.${cssTransitionPrefix}-exit {
+    opacity: 0;
+    transition: opacity ${cssTransitionDuration}ms ease-in;
+  }
+  &.${cssTransitionPrefix}-enter {
+    opacity: 0;
+  }
+  &.${cssTransitionPrefix}-enter-active {
+    opacity: 1;
+    transition: opacity ${cssTransitionDuration}ms ease-out;
+  }
 `;
 
 const Header = styled.div`
@@ -131,13 +149,23 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
   const passage = formatPassage(text);
   return (
     <Article>
-      <Header>
-        <Title>{reference}</Title>
-        <Subtitle>{bibleName}</Subtitle>
-      </Header>
-      <BlockquoteWrapper>
-        <Blockquote>{passage}</Blockquote>
-      </BlockquoteWrapper>
+      <SwitchTransition>
+        <CSSTransition
+          key={text}
+          classNames={cssTransitionPrefix}
+          timeout={cssTransitionDuration}
+        >
+          <Passage>
+            <Header>
+              <Title>{reference}</Title>
+              <Subtitle>{bibleName}</Subtitle>
+            </Header>
+            <BlockquoteWrapper>
+              <Blockquote>{passage}</Blockquote>
+            </BlockquoteWrapper>
+          </Passage>
+        </CSSTransition>
+      </SwitchTransition>
       <Footer>
         <ButtonsWrapper>
           {isFetching ? (
