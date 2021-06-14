@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Route, useLocation } from "react-router-dom";
+import { Route, useLocation, Redirect } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import styled from "styled-components/macro";
 import { Normalize } from "styled-normalize";
@@ -61,11 +61,14 @@ function App() {
           <Title>
             <Twemoji emoji="🙏" /> {t("God's Promises")}
           </Title>
-          <Route exact path="/">
+          <Route exact path="/(en|es)">
             <Home />
           </Route>
           <Route exact path={`/(en|es)/${PROMISE_PATH}/:gPromiseId`}>
             <GPromise />
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/en" />
           </Route>
         </Main>
         <Footer>
