@@ -1,1 +1,0 @@
-export { formatPassage } from "./formatPassage";

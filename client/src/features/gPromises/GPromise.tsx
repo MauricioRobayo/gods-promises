@@ -13,7 +13,6 @@ import {
   setCurrentGPromise,
   setNextGPromise,
 } from "./gPromisesSlice";
-import { formatPassage } from "./utils";
 
 const Article = styled.article`
   width: 90vw;
@@ -128,7 +127,7 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
   }
 
   const { text, reference, bibleName } = gPromise.content[bibleId];
-  const passage = formatPassage(text);
+  const passage = text;
   return (
     <Article>
       <Header>
