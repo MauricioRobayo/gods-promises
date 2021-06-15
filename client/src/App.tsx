@@ -1,18 +1,20 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { Route, useLocation, Redirect } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 import styled from "styled-components/macro";
+import { Normalize } from "styled-normalize";
 import GPromise from "./features/gPromises/GPromise";
-import { selectCurrentGPromise } from "./features/gPromises/gPromisesSlice";
 import { Home } from "./features/home";
-import { LanguageSelector } from "./features/i18next";
+import {
+  DEFAULT_LANG,
+  LanguageSelector,
+  supportedLngs,
+} from "./features/i18next";
 import Twemoji from "./features/twemoji/Twemoji";
 import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
-import { theme } from "./styles";
-import { GlobalStyle } from "./styles";
-import { Normalize } from "styled-normalize";
-import { ThemeProvider } from "styled-components";
+import { GlobalStyle, theme } from "./styles";
+import { PROMISE_PATH } from "./config";
 
 const Wrapper = styled.div`
   display: flex;
@@ -44,15 +46,16 @@ const Footer = styled.footer`
   padding: 1rem 0;
 `;
 
+const basePath = `/(${supportedLngs.join("|")})`;
+
 function App() {
   const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
-  const currentGPromise = useSelector(selectCurrentGPromise);
   const preferredColorScheme = usePreferredColorScheme();
 
   useEffect(() => {
     const [, lang] = pathname.split("/");
-    i18n.changeLanguage(lang || "en");
+    i18n.changeLanguage(lang);
   }, [pathname, i18n]);
 
   return (
@@ -64,7 +67,15 @@ function App() {
           <Title>
             <Twemoji emoji="🙏" /> {t("God's Promises")}
           </Title>
-          {currentGPromise ? <GPromise gPromise={currentGPromise} /> : <Home />}
+          <Route exact path={basePath}>
+            <Home />
+          </Route>
+          <Route exact path={`${basePath}/${PROMISE_PATH}/:gPromiseId`}>
+            <GPromise />
+          </Route>
+          <Route exact path="/">
+            <Redirect to={`/${DEFAULT_LANG}`} />
+          </Route>
         </Main>
         <Footer>
           <LanguageSelector />

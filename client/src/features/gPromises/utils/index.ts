@@ -1,1 +1,1 @@
-export { formatPassage } from "./formatPassage";
+export { createTweet } from "./createTweet";

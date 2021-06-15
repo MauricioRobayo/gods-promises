@@ -1,19 +1,15 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
+import { Link, useLocation, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { PROMISE_PATH } from "../../config";
+import useGPromise from "../../hooks/useGPromise";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
-import { langs } from "../i18next";
+import { lngs } from "../i18next";
 import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
-import {
-  GPromise as GPromiseType,
-  selectNextGPromise,
-  setCurrentGPromise,
-  setNextGPromise,
-} from "./gPromisesSlice";
-import { formatPassage } from "./utils";
+import { createTweet } from "./utils";
 
 const Article = styled.article`
   width: 90vw;
@@ -74,61 +70,57 @@ const Footer = styled.footer`
   }
 `;
 
-const Button = styled.button`
-  background-color: transparent;
-  border: none;
-  display: flex;
-  align-items: center;
-  gap: 0.25em;
-  cursor: pointer;
-  text-transform: capitalize;
-  color: ${({ theme }) => theme.color.brand};
-  & > *:not(:last-child) {
-    margin-right: 0.25em;
-  }
-`;
-
 const ButtonsWrapper = styled.div`
-  & > button:not(:last-child) {
-    margin-right: 1em;
+  display: flex;
+  & > a {
+    &:not(:last-child) {
+      margin-right: 1em;
+    }
+    & > *:not(:last-child) {
+      margin-right: 0.5em;
+    }
   }
 `;
 
-type GPromiseProps = {
-  gPromise: GPromiseType;
-};
-
-export default function GPromiseContainer({ gPromise }: GPromiseProps) {
+export default function GPromiseContainer() {
   const { t, i18n } = useTranslation();
-  const { bibleId } = langs[i18n.language];
-  const nextGPromise = useAppSelector(selectNextGPromise);
-  const dispatch = useAppDispatch();
+  const { bibleId } = lngs[i18n.language];
+  const { gPromiseId } = useParams<{ gPromiseId: string }>();
+  const { isError: isErrorGPromise, data: gPromise } = useGPromise(gPromiseId);
+  const {
+    isFetching: isFetchingRandomGPromise,
+    isError: isErrorRandomGPromise,
+    data: randomGPromise,
+  } = useRandomGPromise();
   const queryClient = useQueryClient();
-  const { isFetching, isError, data: randomGPromise } = useRandomGPromise();
+  const location = useLocation();
 
   useEffect(() => {
-    if (!randomGPromise) {
-      return;
-    }
-
-    dispatch(setNextGPromise(randomGPromise));
-  }, [randomGPromise, dispatch]);
-
-  const onNextClickHandler = () => {
     queryClient.refetchQueries("randomGPromise");
-    if (!nextGPromise) {
-      return;
+  }, [queryClient]);
+
+  const goToNextPromise = () => {
+    if (!randomGPromise) {
+      return location.pathname;
     }
-    dispatch(setCurrentGPromise(nextGPromise));
-    dispatch(setNextGPromise(null));
+
+    if (gPromiseId === randomGPromise.id) {
+      queryClient.refetchQueries("randomGPromise");
+    }
+
+    return `/${i18n.language}/${PROMISE_PATH}/${randomGPromise.id}`;
   };
 
-  if (isError) {
+  if (isErrorGPromise || isErrorRandomGPromise || !gPromise) {
     return <div>{t("Something unexpected happened!")}</div>;
   }
 
   const { text, reference, bibleName } = gPromise.content[bibleId];
-  const passage = formatPassage(text);
+  const tweet = createTweet({
+    text,
+    reference,
+    link: `https://godspromises.bible${location.pathname}`,
+  });
   return (
     <Article>
       <Header>
@@ -136,19 +128,23 @@ export default function GPromiseContainer({ gPromise }: GPromiseProps) {
         <Subtitle>{bibleName}</Subtitle>
       </Header>
       <BlockquoteWrapper>
-        <Blockquote>{passage}</Blockquote>
+        <Blockquote>{text}</Blockquote>
       </BlockquoteWrapper>
       <Footer>
-        <ButtonsWrapper>
-          {isFetching ? (
-            <Loader size={8} />
-          ) : (
-            <Button onClick={onNextClickHandler}>
+        {isFetchingRandomGPromise ? (
+          <Loader size={8} />
+        ) : (
+          <ButtonsWrapper>
+            <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>
+              <span>{t("Tweet")}</span>
+              <Twemoji emoji="📣" />
+            </a>
+            <Link to={goToNextPromise}>
               <span>{t("next")}</span>
               <Twemoji emoji="⏩" />
-            </Button>
-          )}
-        </ButtonsWrapper>
+            </Link>
+          </ButtonsWrapper>
+        )}
       </Footer>
     </Article>
   );

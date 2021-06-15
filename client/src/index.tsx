@@ -4,7 +4,7 @@ import App from "./App";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import { ReactQueryDevtools } from "react-query/devtools";
 import "./features/i18next";
@@ -16,9 +16,9 @@ ReactDOM.render(
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <Suspense fallback="....is loading">
-          <Router>
+          <BrowserRouter>
             <App />
-          </Router>
+          </BrowserRouter>
         </Suspense>
         <ReactQueryDevtools />
       </Provider>

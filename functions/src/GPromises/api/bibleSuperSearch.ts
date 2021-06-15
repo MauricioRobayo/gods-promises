@@ -4,12 +4,13 @@ import {BibleId, Bibles, Lang} from "../../types";
 import {BibleSearcher} from "./interface";
 import {buildPassageTextFromResponse} from "./utils";
 
+type Translator = (lang: Lang, reference: string) => string;
+type Formatter = (text: string) => string;
 type ApiResult = {
   verses: {
     [bibleId: string]: {
       [chapter: string]: {
         [verse: string]: {
-          book: number;
           text: string;
         };
       };
@@ -21,27 +22,41 @@ export type ApiResponse = {
 };
 
 class BibleSuperSearch implements BibleSearcher {
-  constructor(
-    private bibles: Bibles,
-    private translator: (lang: Lang, reference: string) => string
-  ) {}
+  private bibles: Bibles;
+  private formatter: Formatter;
+  private translator: Translator;
+  constructor({
+    bibles,
+    formatter,
+    translator,
+  }: {
+    bibles: Bibles;
+    formatter: Formatter;
+    translator: Translator;
+  }) {
+    this.bibles = bibles;
+    this.formatter = formatter;
+    this.translator = translator;
+  }
   async getPassageFromReference(
     bibles: BibleId[],
     reference: string
   ): Promise<Content> {
+    // We need to convert en-dash to hyphen so the API can understand the reference.
+    // https://github.com/MauricioRobayo/promesas/issues/10#issue-919895469
+    const referenceWithHyphen = reference.replace(/–/g, "-");
     const {data} = await axios.get(
       `https://api.biblesupersearch.com/api?bible=${JSON.stringify(
         bibles
-      )}&reference=${reference}`
+      )}&reference=${referenceWithHyphen}`
     );
-    const c: Content = {};
     const content = bibles.reduce((acc, curr) => {
       acc[curr] = {
-        text: buildPassageTextFromResponse(curr, data),
+        text: this.formatter(buildPassageTextFromResponse(curr, data)),
         reference: this.translator(this.bibles[curr].lang, reference),
       };
       return acc;
-    }, c);
+    }, {} as Content);
     return content;
   }
 }

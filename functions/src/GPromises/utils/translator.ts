@@ -1,7 +1,7 @@
 import {Lang} from "../../types";
 
-export const translator = (lang: Lang, reference: string): string => {
-  switch (lang) {
+export const translateReference = (to: Lang, reference: string): string => {
+  switch (to) {
     case "es":
       return nivLongToSpanish(reference);
     case "en":

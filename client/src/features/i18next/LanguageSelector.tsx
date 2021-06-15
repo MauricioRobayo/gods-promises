@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { langs } from "./";
+import { lngs } from "./";
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,17 +21,15 @@ export const LanguageSelector = ({ className = "" }: LanguageSelectorProps) => {
   const { i18n } = useTranslation();
   return (
     <Wrapper className={className}>
-      {Object.keys(langs).map((lang) => {
-        const [, , ...path] = pathname.split("/");
+      {Object.keys(lngs).map((lang) => {
         if (i18n.language === lang) {
-          return <span key={lang}>{langs[lang].nativeName}</span>;
+          return <span key={lang}>{lngs[lang].nativeName}</span>;
         }
+
+        const [, , ...path] = pathname.split("/");
         return (
-          <Link
-            key={lang}
-            to={`${lang === "en" ? "/" : "/es/"}${path.join("/")}`}
-          >
-            {langs[lang].nativeName}
+          <Link key={lang} to={`/${lang}/${path.join("/")}`}>
+            {lngs[lang].nativeName}
           </Link>
         );
       })}

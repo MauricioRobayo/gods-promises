@@ -5,17 +5,18 @@ export function buildPassageTextFromResponse(
   response: ApiResponse
 ): string {
   const text = response.results
-    .map(({verses}) => {
-      const chapters = Object.values(verses[bible]);
-      return chapters
-        .map((chapter) => {
-          const verses = Object.values(chapter);
-          return verses.map(({text}) => text).join("\n");
+    .map(({verses}, index) => {
+      const result = index === 0 ? "" : "…";
+      const bibleVerses = Object.values(verses[bible]);
+      return bibleVerses
+        .map((verse) => {
+          const content = Object.values(verse);
+          return `${result}${content.map(({text}) => text).join(" ")}`;
         })
-        .join("\n")
+        .join(" ")
         .trim();
     })
-    .join("\n")
+    .join(" ")
     .trim();
   return text;
 }
