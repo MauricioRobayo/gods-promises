@@ -86,8 +86,13 @@ const Button = styled.button`
 
 const ButtonsWrapper = styled.div`
   display: flex;
-  & > button:not(:last-child) {
+  & > *:not(:last-child) {
     margin-right: 1em;
+  }
+  a {
+    & > *:not(:last-child) {
+      margin-right: 0.5em;
+    }
   }
 `;
 
@@ -142,7 +147,7 @@ export default function GPromiseContainer() {
           <Loader size={8} />
         ) : (
           <ButtonsWrapper>
-            <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>
+            <a href={`https://twitter.com/intent/tweet?text=${tweet.trim()}`}>
               <span>{t("Tweet")}</span>
               <Twemoji emoji="📣" />
             </a>
