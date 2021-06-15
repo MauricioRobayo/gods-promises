@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import { ReactQueryDevtools } from "react-query/devtools";
 import "./features/i18next";
+import { FullPageLoader } from "./features/loaders";
 
 const queryClient = new QueryClient();
 
@@ -15,7 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <Suspense fallback="....is loading">
+        <Suspense fallback={<FullPageLoader />}>
           <BrowserRouter>
             <App />
           </BrowserRouter>

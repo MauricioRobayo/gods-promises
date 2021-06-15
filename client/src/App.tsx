@@ -1,20 +1,15 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Route, useLocation, Redirect } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
-import styled from "styled-components/macro";
+import { Redirect, Route, useLocation } from "react-router-dom";
+import styled, { ThemeProvider } from "styled-components/macro";
 import { Normalize } from "styled-normalize";
+import { PROMISE_PATH } from "./config";
 import GPromise from "./features/gPromises/GPromise";
 import { Home } from "./features/home";
-import {
-  DEFAULT_LANG,
-  LanguageSelector,
-  supportedLngs,
-} from "./features/i18next";
-import Twemoji from "./features/twemoji/Twemoji";
+import { DEFAULT_LANG, supportedLngs } from "./features/i18next";
+import { Navbar } from "./features/Navbar";
 import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
 import { GlobalStyle, theme } from "./styles";
-import { PROMISE_PATH } from "./config";
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,20 +17,15 @@ const Wrapper = styled.div`
   height: 100vh;
 `;
 
+const StyledNavbar = styled(Navbar)`
+  margin-bottom: 2rem;
+`;
+
 const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
-`;
-
-const Title = styled.h1`
-  font-size: 1.75rem;
-  @media ${({ theme }) => theme.device.medium} {
-    font-size: 2rem;
-  }
-  margin: 2em 0 2em;
-  font-weight: 900;
 `;
 
 const Footer = styled.footer`
@@ -50,7 +40,7 @@ const basePath = `/(${supportedLngs.join("|")})`;
 
 function App() {
   const { pathname } = useLocation();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const preferredColorScheme = usePreferredColorScheme();
 
   useEffect(() => {
@@ -63,10 +53,8 @@ function App() {
       <Normalize />
       <GlobalStyle />
       <Wrapper>
+        <StyledNavbar />
         <Main>
-          <Title>
-            <Twemoji emoji="🙏" /> {t("God's Promises")}
-          </Title>
           <Route exact path={basePath}>
             <Home />
           </Route>
@@ -78,7 +66,7 @@ function App() {
           </Route>
         </Main>
         <Footer>
-          <LanguageSelector />
+          <a href="https://github.com/MauricioRobayo/godspromises">GitHub</a>
         </Footer>
       </Wrapper>
     </ThemeProvider>

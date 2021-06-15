@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.font.family.primary};
   }
   a {
-    color: ${({ theme }) => theme.color.brand}
-
+    color: ${({ theme }) => theme.color.brand};
+    text-decoration: none
   }
 `;

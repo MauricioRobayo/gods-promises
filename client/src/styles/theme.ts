@@ -14,7 +14,7 @@ type Color = {
   surfaceShadow2: string;
 };
 
-type ThemeType = {
+export type ThemeType = {
   color: Color;
 } & typeof sharedStyles;
 

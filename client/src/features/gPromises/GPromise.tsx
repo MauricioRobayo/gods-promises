@@ -7,7 +7,7 @@ import { PROMISE_PATH } from "../../config";
 import useGPromise from "../../hooks/useGPromise";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { lngs } from "../i18next";
-import Loader from "../loaders/Loader";
+import { AppLoader } from "../loaders";
 import Twemoji from "../twemoji/Twemoji";
 import { createTweet } from "./utils";
 
@@ -86,12 +86,8 @@ export default function GPromiseContainer() {
   const { t, i18n } = useTranslation();
   const { bibleId } = lngs[i18n.language];
   const { gPromiseId } = useParams<{ gPromiseId: string }>();
-  const { isError: isErrorGPromise, data: gPromise } = useGPromise(gPromiseId);
-  const {
-    isFetching: isFetchingRandomGPromise,
-    isError: isErrorRandomGPromise,
-    data: randomGPromise,
-  } = useRandomGPromise();
+  const gPromiseQuery = useGPromise(gPromiseId);
+  const randomGPromiseQuery = useRandomGPromise();
   const queryClient = useQueryClient();
   const location = useLocation();
 
@@ -100,22 +96,26 @@ export default function GPromiseContainer() {
   }, [queryClient]);
 
   const goToNextPromise = () => {
-    if (!randomGPromise) {
+    if (!randomGPromiseQuery.data) {
       return location.pathname;
     }
 
-    if (gPromiseId === randomGPromise.id) {
+    if (gPromiseId === randomGPromiseQuery.data.id) {
       queryClient.refetchQueries("randomGPromise");
     }
 
-    return `/${i18n.language}/${PROMISE_PATH}/${randomGPromise.id}`;
+    return `/${i18n.language}/${PROMISE_PATH}/${randomGPromiseQuery.data.id}`;
   };
 
-  if (isErrorGPromise || isErrorRandomGPromise || !gPromise) {
+  if (gPromiseQuery.isLoading || gPromiseQuery.isIdle) {
+    return <AppLoader />;
+  }
+
+  if (gPromiseQuery.isError || randomGPromiseQuery.isError) {
     return <div>{t("Something unexpected happened!")}</div>;
   }
 
-  const { text, reference, bibleName } = gPromise.content[bibleId];
+  const { text, reference, bibleName } = gPromiseQuery.data.content[bibleId];
   const tweet = createTweet({
     text,
     reference,
@@ -131,8 +131,8 @@ export default function GPromiseContainer() {
         <Blockquote>{text}</Blockquote>
       </BlockquoteWrapper>
       <Footer>
-        {isFetchingRandomGPromise ? (
-          <Loader size={8} />
+        {randomGPromiseQuery.isFetching ? (
+          <AppLoader size={8} />
         ) : (
           <ButtonsWrapper>
             <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>

@@ -1,15 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { lngs } from "./";
+import styled from "styled-components";
+import { lngs, DEFAULT_LANG } from "./config";
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  & > *:not(:last-child) {
-    margin-right: 1rem;
-  }
+const Select = styled.select`
+  border: none;
+  padding: 0.25em;
+  background-color: ${({ theme }) => theme.color.surface2};
+  color: ${({ theme }) => theme.color.text1};
+  border-radius: 4px;
 `;
 
 type LanguageSelectorProps = {
@@ -17,22 +16,31 @@ type LanguageSelectorProps = {
 };
 
 export const LanguageSelector = ({ className = "" }: LanguageSelectorProps) => {
-  const { pathname } = useLocation();
   const { i18n } = useTranslation();
+  const [value, setValue] = useState(i18n.language || DEFAULT_LANG);
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    i18n.changeLanguage(e.target.value);
+    setValue(e.target.value);
+  };
+
   return (
-    <Wrapper className={className}>
+    <Select className={className} value={value} onChange={onChangeHandler}>
       {Object.keys(lngs).map((lang) => {
         if (i18n.language === lang) {
-          return <span key={lang}>{lngs[lang].nativeName}</span>;
+          return (
+            <option key={lang} value={lang}>
+              {lngs[lang].nativeName}
+            </option>
+          );
         }
 
-        const [, , ...path] = pathname.split("/");
         return (
-          <Link key={lang} to={`/${lang}/${path.join("/")}`}>
+          <option key={lang} value={lang}>
             {lngs[lang].nativeName}
-          </Link>
+          </option>
         );
       })}
-    </Wrapper>
+    </Select>
   );
 };

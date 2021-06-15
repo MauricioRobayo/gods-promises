@@ -2,9 +2,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 import styled, { keyframes } from "styled-components/macro";
-import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { PROMISE_PATH } from "../../config";
-import Loader from "../loaders/Loader";
+import useRandomGPromise from "../../hooks/useRandomGPromise";
+import { AppLoader } from "../loaders";
 import Twemoji from "../twemoji/Twemoji";
 
 const rotate = keyframes`
@@ -70,7 +70,7 @@ export default function Home() {
         <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
       {isLoading ? (
-        <Loader />
+        <AppLoader />
       ) : (
         <Button onClick={getAPromise} title={t("start")}>
           <div>{t("Get a promise!")}</div>
