@@ -10,6 +10,7 @@ import { DEFAULT_LANG, supportedLngs } from "./features/i18next";
 import { Navbar } from "./features/Navbar";
 import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
 import { GlobalStyle, theme } from "./styles";
+import { Helmet } from "react-helmet";
 
 const Wrapper = styled.div`
   display: flex;
@@ -40,7 +41,7 @@ const basePath = `/(${supportedLngs.join("|")})`;
 
 function App() {
   const { pathname } = useLocation();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const preferredColorScheme = usePreferredColorScheme();
 
   useEffect(() => {
@@ -53,6 +54,16 @@ function App() {
       <Normalize />
       <GlobalStyle />
       <Wrapper>
+        <Helmet>
+          <html lang={i18n.language} />
+          <title>{t("God's Promises")}</title>
+          <meta
+            name="description"
+            content={t(
+              "If you need wisdom, ask our generous God, and he will give it to you. He will not rebuke you for asking."
+            )}
+          />
+        </Helmet>
         <StyledNavbar />
         <Main>
           <Route exact path={basePath}>

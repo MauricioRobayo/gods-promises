@@ -6,7 +6,6 @@ import { PROMISE_PATH } from "../../config";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { AppLoader } from "../loaders";
 import Twemoji from "../twemoji/Twemoji";
-import { Helmet } from "react-helmet";
 
 const rotate = keyframes`
   0% {
@@ -67,15 +66,6 @@ export default function Home() {
 
   return (
     <Wrapper>
-      <Helmet>
-        <title>{t("God's Promises")}</title>
-        <meta
-          name="description"
-          content={t(
-            "If you need wisdom, ask our generous God, and he will give it to you. He will not rebuke you for asking."
-          )}
-        />
-      </Helmet>
       <Angel>
         <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
