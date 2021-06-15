@@ -11,10 +11,10 @@ import {
   LanguageSelector,
   supportedLngs,
 } from "./features/i18next";
-import Twemoji from "./features/twemoji/Twemoji";
 import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
 import { GlobalStyle, theme } from "./styles";
 import { PROMISE_PATH } from "./config";
+import { Navbar } from "./features/Navbar";
 
 const Wrapper = styled.div`
   display: flex;
@@ -29,15 +29,6 @@ const Main = styled.main`
   margin: 0;
 `;
 
-const Title = styled.h1`
-  font-size: 1.75rem;
-  @media ${({ theme }) => theme.device.medium} {
-    font-size: 2rem;
-  }
-  margin: 2em 0 2em;
-  font-weight: 900;
-`;
-
 const Footer = styled.footer`
   flex: 1;
   align-items: flex-end;
@@ -50,7 +41,7 @@ const basePath = `/(${supportedLngs.join("|")})`;
 
 function App() {
   const { pathname } = useLocation();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const preferredColorScheme = usePreferredColorScheme();
 
   useEffect(() => {
@@ -63,10 +54,8 @@ function App() {
       <Normalize />
       <GlobalStyle />
       <Wrapper>
+        <Navbar />
         <Main>
-          <Title>
-            <Twemoji emoji="🙏" /> {t("God's Promises")}
-          </Title>
           <Route exact path={basePath}>
             <Home />
           </Route>
