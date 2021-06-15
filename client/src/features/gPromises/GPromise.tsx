@@ -147,7 +147,7 @@ export default function GPromiseContainer() {
           <Loader size={8} />
         ) : (
           <ButtonsWrapper>
-            <a href={`https://twitter.com/intent/tweet?text=${tweet.trim()}`}>
+            <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>
               <span>{t("Tweet")}</span>
               <Twemoji emoji="📣" />
             </a>
