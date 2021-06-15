@@ -7,7 +7,7 @@ import { PROMISE_PATH } from "../../config";
 import useGPromise from "../../hooks/useGPromise";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { lngs } from "../i18next";
-import Loader from "../loaders/Loader";
+import { AppLoader } from "../loaders";
 import Twemoji from "../twemoji/Twemoji";
 import { createTweet } from "./utils";
 
@@ -132,7 +132,7 @@ export default function GPromiseContainer() {
       </BlockquoteWrapper>
       <Footer>
         {isFetchingRandomGPromise ? (
-          <Loader size={8} />
+          <AppLoader size={8} />
         ) : (
           <ButtonsWrapper>
             <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>

@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Redirect, Route, useLocation } from "react-router-dom";
-import { ThemeProvider } from "styled-components/macro";
-import styled from "styled-components/macro";
+import styled, { ThemeProvider } from "styled-components/macro";
 import { Normalize } from "styled-normalize";
 import { PROMISE_PATH } from "./config";
 import GPromise from "./features/gPromises/GPromise";
