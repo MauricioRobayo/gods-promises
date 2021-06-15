@@ -68,7 +68,6 @@ describe("createTweet", () => {
     it("should trim the given text without splitting a word", () => {
       const text = `Hello, world! ${"x".repeat(285)}`;
       const tweet = createTweet({ text, reference });
-      console.log(tweet);
       const expectedTweet = `Hello, world! … -${reference}`;
 
       expect(tweet.length).toBe(expectedTweet.length);
