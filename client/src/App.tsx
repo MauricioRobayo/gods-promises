@@ -65,7 +65,9 @@ function App() {
             <Redirect to={`/${DEFAULT_LANG}`} />
           </Route>
         </Main>
-        <Footer></Footer>
+        <Footer>
+          <a href="https://github.com/MauricioRobayo/godspromises">GitHub</a>
+        </Footer>
       </Wrapper>
     </ThemeProvider>
   );
