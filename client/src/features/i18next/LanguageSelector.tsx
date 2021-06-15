@@ -16,8 +16,8 @@ type LanguageSelectorProps = {
 };
 
 export const LanguageSelector = ({ className = "" }: LanguageSelectorProps) => {
-  const [value, setValue] = useState(DEFAULT_LANG);
   const { i18n } = useTranslation();
+  const [value, setValue] = useState(i18n.language || DEFAULT_LANG);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     i18n.changeLanguage(e.target.value);
