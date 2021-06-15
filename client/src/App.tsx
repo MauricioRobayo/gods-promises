@@ -1,25 +1,25 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Route, useLocation, Redirect } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
+import { Redirect, Route, useLocation } from "react-router-dom";
+import { ThemeProvider } from "styled-components/macro";
 import styled from "styled-components/macro";
 import { Normalize } from "styled-normalize";
+import { PROMISE_PATH } from "./config";
 import GPromise from "./features/gPromises/GPromise";
 import { Home } from "./features/home";
-import {
-  DEFAULT_LANG,
-  LanguageSelector,
-  supportedLngs,
-} from "./features/i18next";
+import { DEFAULT_LANG, supportedLngs } from "./features/i18next";
+import { Navbar } from "./features/Navbar";
 import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
 import { GlobalStyle, theme } from "./styles";
-import { PROMISE_PATH } from "./config";
-import { Navbar } from "./features/Navbar";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+`;
+
+const StyledNavbar = styled(Navbar)`
+  margin-bottom: 2rem;
 `;
 
 const Main = styled.main`
@@ -54,7 +54,7 @@ function App() {
       <Normalize />
       <GlobalStyle />
       <Wrapper>
-        <Navbar />
+        <StyledNavbar />
         <Main>
           <Route exact path={basePath}>
             <Home />

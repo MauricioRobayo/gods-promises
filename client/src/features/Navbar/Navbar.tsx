@@ -32,10 +32,13 @@ const Title = styled.h1`
   font-weight: 900;
 `;
 
-function Navbar() {
+type NavbarProps = {
+  className?: string;
+};
+function Navbar({ className = "" }: NavbarProps) {
   const { t } = useTranslation();
   return (
-    <StyledNavbar>
+    <StyledNavbar className={className}>
       <NavbarWrapper>
         <Title>
           <Twemoji emoji="🙏" /> {t("God's Promises")}
