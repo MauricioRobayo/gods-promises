@@ -46,7 +46,7 @@ const Footer = styled.footer`
   padding: 1rem 0;
 `;
 
-const basePath = `(${supportedLngs.join("|")})`;
+const basePath = `/(${supportedLngs.join("|")})`;
 
 function App() {
   const { pathname } = useLocation();
