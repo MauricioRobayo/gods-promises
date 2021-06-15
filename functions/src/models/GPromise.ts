@@ -6,7 +6,7 @@ type Passage = {
   reference: string;
 };
 
-export type Content = Partial<Record<BibleId, Passage>>;
+export type Content = Partial<Record<BibleId, Passage & {apiUrl: string}>>;
 
 export type GPromiseDTO = {
   id: string;
