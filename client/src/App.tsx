@@ -70,7 +70,7 @@ function App() {
           <Route exact path={basePath}>
             <Home />
           </Route>
-          <Route exact path={`/${basePath}/${PROMISE_PATH}/:gPromiseId`}>
+          <Route exact path={`${basePath}/${PROMISE_PATH}/:gPromiseId`}>
             <GPromise />
           </Route>
           <Route exact path="/">
