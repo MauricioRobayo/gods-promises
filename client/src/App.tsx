@@ -66,9 +66,7 @@ function App() {
             <Redirect to={`/${DEFAULT_LANG}`} />
           </Route>
         </Main>
-        <Footer>
-          <LanguageSelector />
-        </Footer>
+        <Footer></Footer>
       </Wrapper>
     </ThemeProvider>
   );
