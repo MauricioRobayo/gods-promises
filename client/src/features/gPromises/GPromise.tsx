@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { PROMISE_PATH } from "../../config";
 import useGPromise from "../../hooks/useGPromise";
@@ -70,26 +70,12 @@ const Footer = styled.footer`
   }
 `;
 
-const Button = styled.button`
-  background-color: transparent;
-  border: none;
-  display: flex;
-  align-items: center;
-  gap: 0.25em;
-  cursor: pointer;
-  text-transform: capitalize;
-  color: ${({ theme }) => theme.color.brand};
-  & > *:not(:last-child) {
-    margin-right: 0.25em;
-  }
-`;
-
 const ButtonsWrapper = styled.div`
   display: flex;
-  & > *:not(:last-child) {
-    margin-right: 1em;
-  }
-  a {
+  & > a {
+    &:not(:last-child) {
+      margin-right: 1em;
+    }
     & > *:not(:last-child) {
       margin-right: 0.5em;
     }
@@ -98,7 +84,6 @@ const ButtonsWrapper = styled.div`
 
 export default function GPromiseContainer() {
   const { t, i18n } = useTranslation();
-  const { push } = useHistory();
   const { bibleId } = lngs[i18n.language];
   const { gPromiseId } = useParams<{ gPromiseId: string }>();
   const { isError: isErrorGPromise, data: gPromise } = useGPromise(gPromiseId);
@@ -114,13 +99,16 @@ export default function GPromiseContainer() {
     queryClient.refetchQueries("randomGPromise");
   }, [queryClient]);
 
-  const onNextClickHandler = () => {
+  const goToNextPromise = () => {
     if (!randomGPromise) {
-      return;
+      return location.pathname;
     }
 
-    queryClient.refetchQueries("randomGPromise");
-    push(`/${i18n.language}/${PROMISE_PATH}/${randomGPromise.id}`);
+    if (gPromiseId === randomGPromise.id) {
+      queryClient.refetchQueries("randomGPromise");
+    }
+
+    return `/${i18n.language}/${PROMISE_PATH}/${randomGPromise.id}`;
   };
 
   if (isErrorGPromise || isErrorRandomGPromise || !gPromise) {
@@ -151,10 +139,10 @@ export default function GPromiseContainer() {
               <span>{t("Tweet")}</span>
               <Twemoji emoji="📣" />
             </a>
-            <Button onClick={onNextClickHandler}>
+            <Link to={goToNextPromise}>
               <span>{t("next")}</span>
               <Twemoji emoji="⏩" />
-            </Button>
+            </Link>
           </ButtonsWrapper>
         )}
       </Footer>
