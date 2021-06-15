@@ -5,6 +5,10 @@ import { lngs, DEFAULT_LANG } from "./config";
 
 const Select = styled.select`
   border: none;
+  padding: 0.25em;
+  background-color: ${({ theme }) => theme.color.surface2};
+  color: ${({ theme }) => theme.color.text1};
+  border-radius: 4px;
 `;
 
 type LanguageSelectorProps = {
