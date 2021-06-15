@@ -10,6 +10,7 @@ import { lngs } from "../i18next";
 import { AppLoader } from "../loaders";
 import Twemoji from "../twemoji/Twemoji";
 import { createTweet } from "./utils";
+import { Helmet } from "react-helmet";
 
 const Article = styled.article`
   width: 90vw;
@@ -123,6 +124,10 @@ export default function GPromiseContainer() {
   });
   return (
     <Article>
+      <Helmet>
+        <title>{`${reference} | ${t("God's Promises")}`}</title>
+        <meta name="description" content={text} />
+      </Helmet>
       <Header>
         <Title>{reference}</Title>
         <Subtitle>{bibleName}</Subtitle>
