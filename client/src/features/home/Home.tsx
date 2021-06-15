@@ -47,6 +47,22 @@ const Angel = styled.div`
   }
 `;
 
+const Tagline = styled.p`
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: ${({ theme }) => theme.size.small};
+  width: 100%;
+  font-size: 1.25rem;
+  line-height: 1.5em;
+  font-family: ${({ theme }) => theme.font.family.secondary};
+  &::before {
+    content: "“";
+  }
+  &::after {
+    content: "”";
+  }
+`;
+
 export default function Home() {
   const { t, i18n } = useTranslation();
   const { isLoading, isError, data: randomGPromise } = useRandomGPromise();
@@ -69,11 +85,16 @@ export default function Home() {
       <Angel>
         <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
+      <Tagline>
+        {t(
+          "If you need wisdom, ask our generous God, and he will give it to you. He will not rebuke you for asking."
+        )}
+      </Tagline>
       {isLoading ? (
         <AppLoader />
       ) : (
         <Button onClick={getAPromise} title={t("start")}>
-          <div>{t("Get a promise!")}</div>
+          <div>{t("Give me a promise!")}</div>
         </Button>
       )}
     </Wrapper>
