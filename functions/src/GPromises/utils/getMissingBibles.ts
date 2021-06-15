@@ -3,6 +3,7 @@ import {bibleIds} from "../../config";
 import {Content} from "../../models/GPromise";
 import {BibleIds, BibleId} from "../../types";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isBibleIdArray(arr: any[]): arr is BibleId[] {
   return arr.every((el) => bibleIds.includes(el));
 }
