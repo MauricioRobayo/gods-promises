@@ -65,19 +65,19 @@ describe("bibleSuperSearch", () => {
       requestedBibles,
       requestedReference
     );
+    const expectedApiUrl = `https://api.biblesupersearch.com/api?bible=${JSON.stringify(
+      requestedBibles
+    )}&reference=${requestedReference}`;
     const expected: Content = {
       kjv: {
         text: "verse 1 verse 2 …verse 3 …verse 4",
         reference: requestedReference,
+        apiUrl: expectedApiUrl,
       },
     };
 
     expect(content).toEqual(expected);
-    expect(mockedGet).toBeCalledWith(
-      `https://api.biblesupersearch.com/api?bible=${JSON.stringify(
-        requestedBibles
-      )}&reference=${requestedReference}`
-    );
+    expect(mockedGet).toBeCalledWith(expectedApiUrl);
     expect(mockFormatter).toBeCalledTimes(1);
     expect(mockTranslator).toBeCalledTimes(1);
     requestedBibles.forEach((bible) => {
@@ -153,23 +153,24 @@ describe("bibleSuperSearch", () => {
       requestedBibles,
       requestedReference
     );
+    const expectedApiUrl = `https://api.biblesupersearch.com/api?bible=${JSON.stringify(
+      requestedBibles
+    )}&reference=${requestedReference}`;
     const expected: Content = {
       kjv: {
         text: "verse 1 verse 2 …verse 3 …verse 4",
         reference: requestedReference,
+        apiUrl: expectedApiUrl,
       },
       rvg: {
         text: "verse 1 verse 2 …verse 3 …verse 4",
         reference: requestedReference,
+        apiUrl: expectedApiUrl,
       },
     };
 
     expect(content).toEqual(expected);
-    expect(mockedGet).toBeCalledWith(
-      `https://api.biblesupersearch.com/api?bible=${JSON.stringify(
-        requestedBibles
-      )}&reference=${requestedReference}`
-    );
+    expect(mockedGet).toBeCalledWith(expectedApiUrl);
     expect(mockTranslator).toBeCalledTimes(2);
     expect(mockFormatter).toBeCalledTimes(2);
     requestedBibles.forEach((bible) => {
