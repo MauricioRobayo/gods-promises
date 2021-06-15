@@ -1,22 +1,19 @@
+import difference from "lodash/difference";
+import {bibleIds} from "../../config";
 import {Content} from "../../models/GPromise";
 import {BibleIds, BibleId} from "../../types";
 
-export function getMissingKeysInObject<T extends string>(
-  ids: T[],
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  content: Record<string, any> = {}
-): T[] {
-  const objectKeys = Object.keys(content);
-  const missingKeys = [];
-  for (const key of ids) {
-    if (!objectKeys.includes(key)) {
-      missingKeys.push(key);
-    }
-  }
-  return missingKeys;
+function isBibleIdArray(arr: any[]): arr is BibleId[] {
+  return arr.every((el) => bibleIds.includes(el));
 }
 
-export const getMissingBibles = (
+export function getMissingBibles(
   bibles: BibleIds,
   content: Content
-): BibleId[] => getMissingKeysInObject(bibles as unknown as BibleId[], content);
+): BibleId[] {
+  const bibleIds = Object.keys(content);
+  if (!isBibleIdArray(bibleIds)) {
+    throw new Error(`getMissingBibles: ${bibles} is not a BibleId array!`);
+  }
+  return difference<BibleId>(bibles, bibleIds);
+}
