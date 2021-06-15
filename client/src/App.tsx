@@ -11,6 +11,7 @@ import { Navbar } from "./features/Navbar";
 import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
 import { GlobalStyle, theme } from "./styles";
 import { Helmet } from "react-helmet";
+import { Twemoji } from "./features/twemoji";
 
 const Wrapper = styled.div`
   display: flex;
@@ -35,6 +36,9 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   padding: 1rem 0;
+  a {
+    color: ${({ theme }) => theme.color.text1};
+  }
 `;
 
 const basePath = `/(${supportedLngs.join("|")})`;
@@ -77,7 +81,9 @@ function App() {
           </Route>
         </Main>
         <Footer>
-          <a href="https://github.com/MauricioRobayo/godspromises">GitHub</a>
+          <a href="https://godspromises.bible">
+            <Twemoji emoji="🙏" /> {t("God's Promises")}
+          </a>
         </Footer>
       </Wrapper>
     </ThemeProvider>
