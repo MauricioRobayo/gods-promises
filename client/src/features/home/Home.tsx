@@ -47,19 +47,46 @@ const Angel = styled.div`
   }
 `;
 
-const Tagline = styled.p`
+const Tagline = styled.figure`
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 0 0 2rem;
+  padding: 0;
   max-width: ${({ theme }) => theme.size.small};
   width: 100%;
+`;
+
+const Blockquote = styled.blockquote`
   font-size: 1.25rem;
   line-height: 1.5em;
   font-family: ${({ theme }) => theme.font.family.secondary};
+  &::before,
+  &::after {
+    opacity: 0.5;
+  }
   &::before {
     content: "“";
+    margin-right: 0.25em;
   }
   &::after {
     content: "”";
+    margin-left: 0.25em;
+  }
+`;
+
+const Figcaption = styled.figcaption`
+  color: ${({ theme }) => theme.color.text2};
+  margin-top: 1em;
+  &::before,
+  &::after {
+    opacity: 0.5;
+  }
+  &::before {
+    content: "~";
+    margin-right: 0.25em;
+  }
+  &::after {
+    content: "~";
+    margin-left: 0.25em;
   }
 `;
 
@@ -86,9 +113,12 @@ export default function Home() {
         <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
       <Tagline>
-        {t(
-          "If you need wisdom, ask our generous God, and he will give it to you. He will not rebuke you for asking."
-        )}
+        <Blockquote>
+          {t(
+            "If you need wisdom, ask our generous God, and he will give it to you. He will not rebuke you for asking."
+          )}
+        </Blockquote>
+        <Figcaption>{t("James 1.5")}</Figcaption>
       </Tagline>
       {isLoading ? (
         <AppLoader />
