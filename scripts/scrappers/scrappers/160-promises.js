@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const axios = require("axios");
 const cheerio = require("cheerio");
-const { makePromise } = require("../helpers");
+const { makePromise, writeData } = require("../helpers");
 
 const url = "https://outuponthewaters.com/160-promises-of-god-from-scripture/";
 axios.get(url).then(({ data }) => {
@@ -22,9 +22,5 @@ axios.get(url).then(({ data }) => {
     });
   });
 
-  const filename = `${__dirname}/scrapped-data/160-promises.json`;
-
-  fs.writeFile(filename, JSON.stringify(promises))
-    .then(() => console.log(`wrote ${promises.length} promises to ${filename}`))
-    .catch((err) => console.log(err));
+  writeData(promises, "160-promises.json");
 });

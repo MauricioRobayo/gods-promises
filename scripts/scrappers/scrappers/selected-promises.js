@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const axios = require("axios");
 const cheerio = require("cheerio");
-const { makePromise } = require("../helpers");
+const { makePromise, writeData } = require("../helpers");
 
 const url = "https://bible.org/article/selected-promises-god-each-book-bible";
 axios.get(url).then(({ data }) => {
@@ -44,9 +44,5 @@ axios.get(url).then(({ data }) => {
       }
     });
 
-  const filename = `${__dirname}/scrapped-data/selected-promises.json`;
-
-  fs.writeFile(filename, JSON.stringify(promises))
-    .then(() => console.log(`wrote ${promises.length} promises to ${filename}`))
-    .catch((err) => console.log(err));
+  writeData(promises, "selected-promises.json");
 });

@@ -1,10 +1,24 @@
 require("dotenv").config();
+const fs = require("fs").promises;
 const { MongoClient } = require("mongodb");
 const osisToEn = require("bible-reference-formatter");
 const bcv_parser =
   require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
 
 const bcv = new bcv_parser();
+
+async function writeData(promises, filename) {
+  const dataDir = `${__dirname}/scrapped-data`;
+  const filePath = `${dataDir}/${filename}`;
+
+  try {
+    await fs.mkdir(dataDir, { recursive: true });
+    await fs.writeFile(filePath, JSON.stringify(promises));
+    console.log(`wrote ${promises.length} promises to ${filePath}`);
+  } catch (err) {
+    console.log(`writeData: ${JSON.stringify(err)}`);
+  }
+}
 
 const getMongoDbCollection = async ({ mongodbUri, mongoDb, collection }) => {
   const client = new MongoClient(mongodbUri, {
@@ -62,3 +76,4 @@ const makePromise = ({ reference, source }) => {
 exports.shuffle = shuffle;
 exports.makePromise = makePromise;
 exports.getMongoDbCollection = getMongoDbCollection;
+exports.writeData = writeData;
