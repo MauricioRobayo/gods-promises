@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient } from "react-query";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { PROMISE_PATH } from "../../config";
 import useGPromise from "../../hooks/useGPromise";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
-import { PROMISE_PATH } from "../../config";
 import { lngs } from "../i18next";
 import Loader from "../loaders/Loader";
 import Twemoji from "../twemoji/Twemoji";
+import { createTweet } from "./utils";
 
 const Article = styled.article`
   width: 90vw;
@@ -84,6 +85,7 @@ const Button = styled.button`
 `;
 
 const ButtonsWrapper = styled.div`
+  display: flex;
   & > button:not(:last-child) {
     margin-right: 1em;
   }
@@ -101,6 +103,7 @@ export default function GPromiseContainer() {
     data: randomGPromise,
   } = useRandomGPromise();
   const queryClient = useQueryClient();
+  const location = useLocation();
 
   useEffect(() => {
     queryClient.refetchQueries("randomGPromise");
@@ -120,7 +123,11 @@ export default function GPromiseContainer() {
   }
 
   const { text, reference, bibleName } = gPromise.content[bibleId];
-  const passage = text;
+  const tweet = createTweet({
+    text,
+    reference,
+    link: `https://godspromises.bible${location.pathname}`,
+  });
   return (
     <Article>
       <Header>
@@ -128,19 +135,23 @@ export default function GPromiseContainer() {
         <Subtitle>{bibleName}</Subtitle>
       </Header>
       <BlockquoteWrapper>
-        <Blockquote>{passage}</Blockquote>
+        <Blockquote>{text}</Blockquote>
       </BlockquoteWrapper>
       <Footer>
-        <ButtonsWrapper>
-          {isFetchingRandomGPromise ? (
-            <Loader size={8} />
-          ) : (
+        {isFetchingRandomGPromise ? (
+          <Loader size={8} />
+        ) : (
+          <ButtonsWrapper>
+            <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>
+              <span>{t("Tweet")}</span>
+              <Twemoji emoji="📣" />
+            </a>
             <Button onClick={onNextClickHandler}>
               <span>{t("next")}</span>
               <Twemoji emoji="⏩" />
             </Button>
-          )}
-        </ButtonsWrapper>
+          </ButtonsWrapper>
+        )}
       </Footer>
     </Article>
   );
