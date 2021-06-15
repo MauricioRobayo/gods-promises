@@ -136,20 +136,20 @@ export default function GPromiseContainer() {
         <Blockquote>{text}</Blockquote>
       </BlockquoteWrapper>
       <Footer>
-        {randomGPromiseQuery.isFetching ? (
-          <AppLoader size={8} />
-        ) : (
-          <ButtonsWrapper>
-            <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>
-              <span>{t("Tweet")}</span>
-              <Twemoji emoji="📣" />
-            </a>
+        <ButtonsWrapper>
+          <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>
+            <span>{t("Tweet")}</span>
+            <Twemoji emoji="📣" />
+          </a>
+          {randomGPromiseQuery.isFetching ? (
+            <AppLoader size={8} />
+          ) : (
             <Link to={goToNextPromise}>
               <span>{t("next")}</span>
               <Twemoji emoji="⏩" />
             </Link>
-          </ButtonsWrapper>
-        )}
+          )}
+        </ButtonsWrapper>
       </Footer>
     </Article>
   );
