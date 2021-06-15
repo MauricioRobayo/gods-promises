@@ -45,15 +45,15 @@ class BibleSuperSearch implements BibleSearcher {
     // We need to convert en-dash to hyphen so the API can understand the reference.
     // https://github.com/MauricioRobayo/promesas/issues/10#issue-919895469
     const referenceWithHyphen = reference.replace(/–/g, "-");
-    const {data} = await axios.get(
-      `https://api.biblesupersearch.com/api?bible=${JSON.stringify(
-        bibles
-      )}&reference=${referenceWithHyphen}`
-    );
+    const apiUrl = `https://api.biblesupersearch.com/api?bible=${JSON.stringify(
+      bibles
+    )}&reference=${referenceWithHyphen}`;
+    const {data} = await axios.get(apiUrl);
     const content = bibles.reduce((acc, curr) => {
       acc[curr] = {
         text: this.formatter(buildPassageTextFromResponse(curr, data)),
         reference: this.translator(this.bibles[curr].lang, reference),
+        apiUrl,
       };
       return acc;
     }, {} as Content);

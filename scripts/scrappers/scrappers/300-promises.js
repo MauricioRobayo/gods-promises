@@ -1,7 +1,7 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs").promises;
-const { makePromise } = require("../helpers");
+const { makePromise, writeData } = require("../helpers");
 
 const url = "https://believersportal.com/list-of-3000-promises-in-the-bible/";
 
@@ -49,9 +49,5 @@ axios.get(url).then(({ data }) => {
       }
     });
 
-  const filename = `${__dirname}/scrapped-data/300-promises.json`;
-
-  fs.writeFile(filename, JSON.stringify(promises))
-    .then(() => console.log(`wrote ${promises.length} promises to ${filename}`))
-    .catch((err) => console.log(err));
+  writeData(promises, "300-promises.json");
 });
