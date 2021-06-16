@@ -78,14 +78,8 @@ const Footer = styled.footer`
 `;
 
 function App() {
-  const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
   const preferredColorScheme = usePreferredColorScheme();
-
-  useEffect(() => {
-    const [, lang] = pathname.split("/");
-    i18n.changeLanguage(lang);
-  }, [pathname, i18n]);
 
   return (
     <ThemeProvider theme={theme[preferredColorScheme]}>

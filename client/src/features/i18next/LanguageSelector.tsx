@@ -23,9 +23,11 @@ export const LanguageSelector = ({ className = "" }: LanguageSelectorProps) => {
   const [value, setValue] = useState(i18n.language || DEFAULT_LANG);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newLang = e.target.value;
     const [, , ...currentPath] = pathname.split("/");
-    const newPath = ["", e.target.value, ...currentPath].join("/");
-    setValue(e.target.value);
+    const newPath = ["", newLang, ...currentPath].join("/");
+    setValue(newLang);
+    i18n.changeLanguage(newLang);
     push(newPath);
   };
 
