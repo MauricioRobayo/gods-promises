@@ -61,6 +61,12 @@ const makePromise = ({ reference, source }) => {
   try {
     const osis = bcv.parse(reference).osis();
     const niv = osisToNivLong(osis);
+    if (!niv.includes(":")) {
+      console.log(
+        `Skipping '${niv}' as seems to be reference a full chapter and no specific verses.`
+      );
+      return null;
+    }
     return makePromiseOrThrow({
       niv,
       originalReference: reference,
