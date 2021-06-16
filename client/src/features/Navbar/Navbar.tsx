@@ -30,6 +30,9 @@ const Title = styled.h1`
   }
   margin: 0;
   font-weight: 900;
+  a {
+    color: ${({ theme }) => theme.color.text1};
+  }
 `;
 
 type NavbarProps = {
@@ -41,7 +44,9 @@ function Navbar({ className = "" }: NavbarProps) {
     <StyledNavbar className={className}>
       <NavbarWrapper>
         <Title>
-          <Twemoji emoji="🙏" /> {t("God's Promises")}
+          <a href="https://godspromises.bible">
+            <Twemoji emoji="🙏" /> {t("God's Promises")}
+          </a>
         </Title>
 
         <LanguageSelector />
