@@ -11,10 +11,25 @@ import { AppLoader } from "../loaders";
 import Twemoji from "../twemoji/Twemoji";
 import { createTweet } from "./utils";
 import { Helmet } from "react-helmet";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
+
+const cssTransitionClassNamesPrefix = "passage-";
+const cssTransitionTimeout = 300;
 
 const Article = styled.article`
   width: 90vw;
   max-width: ${({ theme }) => theme.size.medium};
+  &.${cssTransitionClassNamesPrefix}-exit {
+    opacity: 0;
+    transition: opacity ${cssTransitionTimeout}ms ease-in;
+  }
+  &.${cssTransitionClassNamesPrefix}-enter {
+    opacity: 0;
+  }
+  &.${cssTransitionClassNamesPrefix}-enter-active {
+    opacity: 1;
+    transition: opacity ${cssTransitionTimeout}ms ease-out;
+  }
 `;
 
 const Header = styled.div`
@@ -123,34 +138,42 @@ export default function GPromiseContainer() {
     link: `https://godspromises.bible${location.pathname}`,
   });
   return (
-    <Article>
-      <Helmet>
-        <title>{`${reference} | ${t("God's Promises")}`}</title>
-        <meta name="description" content={text} />
-      </Helmet>
-      <Header>
-        <Title>{reference}</Title>
-        <Subtitle>{bibleName}</Subtitle>
-      </Header>
-      <BlockquoteWrapper>
-        <Blockquote>{text}</Blockquote>
-      </BlockquoteWrapper>
-      <Footer>
-        <ButtonsWrapper>
-          <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>
-            <span>{t("Tweet")}</span>
-            <Twemoji emoji="📣" />
-          </a>
-          {randomGPromiseQuery.isFetching ? (
-            <AppLoader size={8} />
-          ) : (
-            <Link to={goToNextPromise}>
-              <span>{t("next")}</span>
-              <Twemoji emoji="⏩" />
-            </Link>
-          )}
-        </ButtonsWrapper>
-      </Footer>
-    </Article>
+    <SwitchTransition>
+      <CSSTransition
+        key={text}
+        classNames={cssTransitionClassNamesPrefix}
+        timeout={cssTransitionTimeout}
+      >
+        <Article>
+          <Helmet>
+            <title>{`${reference} | ${t("God's Promises")}`}</title>
+            <meta name="description" content={text} />
+          </Helmet>
+          <Header>
+            <Title>{reference}</Title>
+            <Subtitle>{bibleName}</Subtitle>
+          </Header>
+          <BlockquoteWrapper>
+            <Blockquote>{text}</Blockquote>
+          </BlockquoteWrapper>
+          <Footer>
+            <ButtonsWrapper>
+              <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>
+                <span>{t("Tweet")}</span>
+                <Twemoji emoji="📣" />
+              </a>
+              {randomGPromiseQuery.isFetching ? (
+                <AppLoader size={8} />
+              ) : (
+                <Link to={goToNextPromise}>
+                  <span>{t("next")}</span>
+                  <Twemoji emoji="⏩" />
+                </Link>
+              )}
+            </ButtonsWrapper>
+          </Footer>
+        </Article>
+      </CSSTransition>
+    </SwitchTransition>
   );
 }
