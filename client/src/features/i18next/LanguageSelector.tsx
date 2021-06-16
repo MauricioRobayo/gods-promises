@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useHistory, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { lngs, DEFAULT_LANG } from "./config";
 
@@ -17,11 +18,15 @@ type LanguageSelectorProps = {
 
 export const LanguageSelector = ({ className = "" }: LanguageSelectorProps) => {
   const { i18n } = useTranslation();
+  const { push } = useHistory();
+  const { pathname } = useLocation();
   const [value, setValue] = useState(i18n.language || DEFAULT_LANG);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    i18n.changeLanguage(e.target.value);
+    const [, , ...currentPath] = pathname.split("/");
+    const newPath = ["", e.target.value, ...currentPath].join("/");
     setValue(e.target.value);
+    push(newPath);
   };
 
   return (
