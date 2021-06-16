@@ -62,14 +62,15 @@ const Blockquote = styled.blockquote`
   &::before,
   &::after {
     opacity: 0.5;
+    font-size: 1.15em;
   }
   &::before {
     content: "“";
-    margin-right: 0.25em;
+    margin-right: 0.05em;
   }
   &::after {
     content: "”";
-    margin-left: 0.25em;
+    margin-left: 0.05em;
   }
 `;
 
