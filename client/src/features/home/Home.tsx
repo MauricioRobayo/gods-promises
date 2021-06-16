@@ -38,7 +38,7 @@ const Button = styled.button.attrs({
 
 const Angel = styled.div`
   background-color: transparent;
-  margin: 2rem 0 3rem;
+  margin: 0 0 3rem;
   img {
     filter: drop-shadow(
       0px 12px 24px ${({ theme }) => theme.color.surfaceShadow1}

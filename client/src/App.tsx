@@ -12,10 +12,21 @@ import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
 import { GlobalStyle, theme } from "./styles";
 import { Helmet } from "react-helmet";
 import { Twemoji } from "./features/twemoji";
+import { CSSTransition } from "react-transition-group";
+
+const CSSTransitionClassNamesPrefix = "page";
+const CSSTransitionTimeout = 800;
+
+const basePath = `/(${supportedLngs.join("|")})`;
+
+const paths = [
+  { path: basePath, Component: Home },
+  { path: `${basePath}/${PROMISE_PATH}/:gPromiseId`, Component: GPromise },
+];
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   height: 100vh;
 `;
 
@@ -24,24 +35,47 @@ const StyledNavbar = styled(Navbar)`
 `;
 
 const Main = styled.main`
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  place-items: center;
+  margin: 0 0 20vh 0;
+`;
+
+const Page = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
+  grid-row: 1/2;
+  grid-column: 1/2;
+  &.${CSSTransitionClassNamesPrefix}-enter {
+    opacity: 0;
+  }
+
+  &.${CSSTransitionClassNamesPrefix}-enter-active {
+    opacity: 1;
+    transition: opacity ${CSSTransitionTimeout}ms;
+  }
+
+  &.${CSSTransitionClassNamesPrefix}-exit {
+    opacity: 1;
+  }
+
+  &.${CSSTransitionClassNamesPrefix}-exit-active {
+    opacity: 0;
+    transition: opacity ${CSSTransitionTimeout}ms;
+  }
 `;
 
 const Footer = styled.footer`
-  flex: 1;
-  align-items: flex-end;
   display: flex;
+  align-items: flex-end;
   justify-content: center;
   padding: 1rem 0;
   a {
     color: ${({ theme }) => theme.color.text1};
   }
 `;
-
-const basePath = `/(${supportedLngs.join("|")})`;
 
 function App() {
   const { pathname } = useLocation();
@@ -70,12 +104,22 @@ function App() {
         </Helmet>
         <StyledNavbar />
         <Main>
-          <Route exact path={basePath}>
-            <Home />
-          </Route>
-          <Route exact path={`${basePath}/${PROMISE_PATH}/:gPromiseId`}>
-            <GPromise />
-          </Route>
+          {paths.map(({ path, Component }) => (
+            <Route key={path} path={path} exact>
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={CSSTransitionTimeout}
+                  classNames={CSSTransitionClassNamesPrefix}
+                  unmountOnExit
+                >
+                  <Page>
+                    <Component />
+                  </Page>
+                </CSSTransition>
+              )}
+            </Route>
+          ))}
           <Route exact path="/">
             <Redirect to={`/${DEFAULT_LANG}`} />
           </Route>
