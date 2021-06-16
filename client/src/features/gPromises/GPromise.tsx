@@ -71,6 +71,19 @@ const Blockquote = styled.blockquote`
   color: ${({ theme }) => theme.color.text1};
   line-height: 1.5em;
   font-size: 1.25rem;
+  &::before,
+  &::after {
+    opacity: 0.5;
+    font-size: 1.15em;
+  }
+  &::before {
+    content: "“";
+    margin-right: 0.05em;
+  }
+  &::after {
+    content: "”";
+    margin-left: 0.05em;
+  }
 `;
 
 const Footer = styled.footer`
