@@ -14,8 +14,8 @@ import { Helmet } from "react-helmet";
 import { Twemoji } from "./features/twemoji";
 import { CSSTransition } from "react-transition-group";
 
-const CSSTransitionClassNamesPrefix = "page";
-const CSSTransitionTimeout = 800;
+const cssTransitionClassNamesPrefix = "page";
+const cssTransitionTimeout = 800;
 
 const basePath = `/(${supportedLngs.join("|")})`;
 
@@ -48,22 +48,22 @@ const Page = styled.div`
   align-items: center;
   grid-row: 1/2;
   grid-column: 1/2;
-  &.${CSSTransitionClassNamesPrefix}-enter {
+  &.${cssTransitionClassNamesPrefix}-enter {
     opacity: 0;
   }
 
-  &.${CSSTransitionClassNamesPrefix}-enter-active {
+  &.${cssTransitionClassNamesPrefix}-enter-active {
     opacity: 1;
-    transition: opacity ${CSSTransitionTimeout}ms;
+    transition: opacity ${cssTransitionTimeout}ms;
   }
 
-  &.${CSSTransitionClassNamesPrefix}-exit {
+  &.${cssTransitionClassNamesPrefix}-exit {
     opacity: 1;
   }
 
-  &.${CSSTransitionClassNamesPrefix}-exit-active {
+  &.${cssTransitionClassNamesPrefix}-exit-active {
     opacity: 0;
-    transition: opacity ${CSSTransitionTimeout}ms;
+    transition: opacity ${cssTransitionTimeout}ms;
   }
 `;
 
@@ -109,8 +109,8 @@ function App() {
               {({ match }) => (
                 <CSSTransition
                   in={match != null}
-                  timeout={CSSTransitionTimeout}
-                  classNames={CSSTransitionClassNamesPrefix}
+                  timeout={cssTransitionTimeout}
+                  classNames={cssTransitionClassNamesPrefix}
                   unmountOnExit
                 >
                   <Page>
