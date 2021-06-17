@@ -13,7 +13,7 @@
     "test": "jest"
   },
   "engines": {
-    "node": "12"
+    "node": "14"
   },
   "main": "lib/index.js",
   "dependencies": {
@@ -48,6 +48,6 @@
     "bracketSpacing": false
   },
   "volta": {
-    "node": "12.22.1"
+    "node": "14.17.1"
   }
 }
