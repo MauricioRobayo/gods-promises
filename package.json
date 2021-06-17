@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "npm --prefix functions run dev",
     "start:client": "npm --prefix client run start"
