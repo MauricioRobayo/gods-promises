@@ -4,6 +4,12 @@
   "description": "",
   "main": "index.js",
   "private": true,
+  "workspaces": [
+    "client",
+    "functions",
+    "core",
+    "scripts/*"
+  ],
   "scripts": {
     "dev": "npm --prefix functions run dev",
     "start:client": "npm --prefix client run start"
