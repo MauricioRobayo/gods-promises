@@ -5,9 +5,9 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "emulators": "run.env firebase emulators:start --only=functions",
-    "dev": "npm run build && run-p watch emulators",
-    "shell": "npm run build && firebase functions:shell",
-    "start": "npm run shell",
+    "dev": "yarn build && run-p watch emulators",
+    "shell": "yarn build && firebase functions:shell",
+    "start": "yarn shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
     "test": "jest"
