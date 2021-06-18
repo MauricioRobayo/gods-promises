@@ -9,10 +9,7 @@
     "functions",
     "core"
   ],
-  "scripts": {
-    "dev": "npm --prefix functions run dev",
-    "start:client": "npm --prefix client run start"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MauricioRobayo/promesas.git"
