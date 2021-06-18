@@ -1,7 +1,7 @@
 import difference from "lodash/difference";
-import {bibleIds} from "../../config";
-import {Content} from "../../models/GPromise";
-import {BibleIds, BibleId} from "../../types";
+import {bibleIds} from "@mauriciorobayo/gods-promises/lib/config";
+import {Content} from "@mauriciorobayo/gods-promises/lib/models";
+import {BibleIds, BibleId} from "@mauriciorobayo/gods-promises/lib/types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isBibleIdArray(arr: any[]): arr is BibleId[] {

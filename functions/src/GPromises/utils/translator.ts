@@ -1,4 +1,4 @@
-import {Lang} from "../../types";
+import {Lang} from "@mauriciorobayo/gods-promises/lib/types";
 
 export const translateReference = (to: Lang, reference: string): string => {
   switch (to) {

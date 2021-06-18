@@ -1,8 +1,8 @@
 import axios from "axios";
-import {bibles} from "../../config";
+import {bibles} from "@mauriciorobayo/gods-promises/lib/config";
 import BibleSuperSearch, {ApiResponse} from "./bibleSuperSearch";
-import {BibleId, Lang} from "../../types";
-import {Content} from "../../models/GPromise";
+import {BibleId, Lang} from "@mauriciorobayo/gods-promises/lib/types";
+import {Content} from "@mauriciorobayo/gods-promises/lib/models";
 
 const mockVerses = ["verse 1", "verse 2", "verse 3", "verse 4"];
 const mockTranslator = jest.fn(

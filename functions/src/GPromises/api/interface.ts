@@ -1,5 +1,5 @@
-import {Content} from "../../models/GPromise";
-import {BibleId} from "../../types";
+import {Content} from "@mauriciorobayo/gods-promises/lib/models";
+import {BibleId} from "@mauriciorobayo/gods-promises/lib/types";
 
 export interface BibleSearcher {
   getPassageFromReference: (

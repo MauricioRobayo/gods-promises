@@ -1,5 +1,5 @@
-import {GPromise, IGPromise} from "../../models/GPromise";
-import {bibleIds, bibles} from "../../config";
+import {GPromise, IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
+import {bibleIds, bibles} from "@mauriciorobayo/gods-promises/lib/config";
 import {BibleSuperSearch} from "../api";
 import {translateReference, getMissingBibles} from ".";
 import {getMongoDbCollection} from "../../utils";

@@ -1,0 +1,22 @@
+{
+  "name": "@mauriciorobayo/gods-promises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/eslint": "^7",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "typescript": "^4.3.4"
+  }
+}

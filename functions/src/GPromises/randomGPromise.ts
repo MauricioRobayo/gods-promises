@@ -2,7 +2,7 @@ import * as functions from "firebase-functions";
 import {getMongoDbCollection} from "../utils";
 import {updateMissingContent} from "./utils";
 import {getRandomPromises} from "../queries";
-import {GPromiseDTO, IGPromise} from "../models/GPromise";
+import {GPromiseDTO, IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
 
 export const randomGPromise = functions.https.onRequest(
   async (_req: functions.Request, res: functions.Response<GPromiseDTO>) => {

@@ -1,6 +1,6 @@
 import {getMongoDbCollection} from "../utils";
-import {GPromise, IGPromise} from "../models/GPromise";
-import {bibles} from "../config";
+import {GPromise, IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
+import {bibles} from "@mauriciorobayo/gods-promises/lib/config";
 
 export default async function getGPromiseById(
   id: string
