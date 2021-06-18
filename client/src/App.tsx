@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { Redirect, Route, useLocation } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 import styled, { ThemeProvider } from "styled-components/macro";
 import { Normalize } from "styled-normalize";
 import { PROMISE_PATH } from "./config";
@@ -8,11 +9,9 @@ import GPromise from "./features/gPromises/GPromise";
 import { Home } from "./features/home";
 import { DEFAULT_LANG, supportedLngs } from "./features/i18next";
 import { Navbar } from "./features/Navbar";
+import { Twemoji } from "./features/twemoji";
 import usePreferredColorScheme from "./hooks/usePreferredColorScheme";
 import { GlobalStyle, theme } from "./styles";
-import { Helmet } from "react-helmet";
-import { Twemoji } from "./features/twemoji";
-import { CSSTransition } from "react-transition-group";
 
 const cssTransitionClassNamesPrefix = "page";
 const cssTransitionTimeout = 800;
