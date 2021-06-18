@@ -2761,6 +2761,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mauriciorobayo/gods-promises@workspace:core":
+  version: 0.0.0-use.local
+  resolution: "@mauriciorobayo/gods-promises@workspace:core"
+  dependencies:
+    "@types/eslint": ^7
+    eslint: ^7.28.0
+    eslint-config-prettier: ^8.3.0
+    typescript: ^4.3.4
+  languageName: unknown
+  linkType: soft
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"

@@ -6,7 +6,8 @@
   "private": true,
   "workspaces": [
     "client",
-    "functions"
+    "functions",
+    "core"
   ],
   "scripts": {
     "dev": "npm --prefix functions run dev",
