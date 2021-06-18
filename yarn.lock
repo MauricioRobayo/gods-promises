@@ -2761,7 +2761,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mauriciorobayo/gods-promises@workspace:core":
+"@mauriciorobayo/gods-promises@^1.0.0, @mauriciorobayo/gods-promises@workspace:core":
   version: 0.0.0-use.local
   resolution: "@mauriciorobayo/gods-promises@workspace:core"
   dependencies:
@@ -8810,6 +8810,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "functions@workspace:functions"
   dependencies:
+    "@mauriciorobayo/gods-promises": ^1.0.0
     "@types/jest": ^26.0.23
     "@types/jsdom": ^16.2.10
     "@types/lodash": ^4.14.170

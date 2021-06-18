@@ -1,6 +1,6 @@
 import axios from "axios";
-import {Content} from "../../models/GPromise";
-import {BibleId, Bibles, Lang} from "../../types";
+import {Content} from "@mauriciorobayo/gods-promises/lib/models";
+import {BibleId, Bibles, Lang} from "@mauriciorobayo/gods-promises/lib/types";
 import {BibleSearcher} from "./interface";
 import {buildPassageTextFromResponse} from "./utils";
 
