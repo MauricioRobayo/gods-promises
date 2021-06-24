@@ -1,6 +1,5 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const fs = require("fs").promises;
 const { makePromise, writeData } = require("../helpers");
 
 const url = "https://believersportal.com/list-of-3000-promises-in-the-bible/";
