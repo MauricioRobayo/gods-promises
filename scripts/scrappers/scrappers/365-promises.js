@@ -21,22 +21,19 @@ const months = [
 ];
 
 Promise.all(
-  months.map((month) => axios.get(`${url}/${month}-devotionals.html`))
+  months.map(async (month) => {
+    const response = await axios.get(`${url}/${month}-devotionals.html`);
+    return [month, response.data];
+  })
 ).then((responses) => {
-  let totalPromises = 0;
-  for (let i = 0; i < months.length; i++) {
-    const month = months[i];
-    console.log({ month });
-    const refs = bcv.parse(responses[i].data).osis().split(",");
-    totalPromises += refs.length;
+  for (const [month, data] of responses) {
+    const refs = bcv.parse(data).osis().split(",");
     const promises = refs.map((ref) =>
       makePromise({
         reference: ref,
         source: `${url}/${month}-devotionals.html`,
       })
     );
-    console.log({ month, promises: promises.length });
     writeData(promises, `365-${month}-promises.json`);
   }
-  console.log({ totalPromises });
 });
