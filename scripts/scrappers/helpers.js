@@ -79,7 +79,19 @@ const makePromise = ({ reference, source }) => {
   }
 };
 
+function getReferences(data, source) {
+  const refs = bcv.parse(data).osis().split(",");
+  const promises = refs.map((reference) =>
+    makePromise({
+      reference,
+      source,
+    })
+  );
+  return promises;
+}
+
 exports.shuffle = shuffle;
 exports.makePromise = makePromise;
+exports.getReferences = getReferences;
 exports.getMongoDbCollection = getMongoDbCollection;
 exports.writeData = writeData;
