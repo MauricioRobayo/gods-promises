@@ -20,12 +20,10 @@ const months = [
 Promise.all(
   months.map(async (month) => {
     const source = `${url}/${month}-devotionals.html`;
-    const response = await axios.get(source);
-    return { source, data: response.data };
+    const { data } = await axios.get(source);
+    const references = getReferences(data, source);
+    return references;
   })
-).then((responses) => {
-  const allPromises = responses
-    .map(({ data, source }) => getReferences(data, source))
-    .flat();
-  writeData(allPromises, `365-promises.json`);
+).then((references) => {
+  writeData(references.flat(), `365-promises.json`);
 });
