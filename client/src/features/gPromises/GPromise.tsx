@@ -21,14 +21,17 @@ const Article = styled.article`
   max-width: ${({ theme }) => theme.size.medium};
   &.${cssTransitionClassNamesPrefix}-exit {
     opacity: 0;
-    transition: opacity ${cssTransitionTimeout}ms ease-in;
+    transform: translateX(500px);
+    transition: opacity ${cssTransitionTimeout}ms ease-in, transform ${cssTransitionTimeout}ms ease-in;
   }
   &.${cssTransitionClassNamesPrefix}-enter {
     opacity: 0;
+    transform: translateX(-500px);
   }
   &.${cssTransitionClassNamesPrefix}-enter-active {
     opacity: 1;
-    transition: opacity ${cssTransitionTimeout}ms ease-out;
+    transform: translateX(0);
+    transition: opacity ${cssTransitionTimeout}ms ease-out, transform ${cssTransitionTimeout}ms cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 `;
 
