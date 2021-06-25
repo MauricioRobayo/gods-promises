@@ -20,7 +20,11 @@ const bcv = new bcv_parser();
 export type BaseGPromise = Omit<IGPromise, "_id">;
 
 function isGPromise(gPromise: any): gPromise is BaseGPromise {
-  return "niv" in gPromise && "osis" in gPromise && "source" in gPromise;
+  return (
+    typeof gPromise?.niv === "string" &&
+    typeof gPromise?.osis === "string" &&
+    typeof gPromise?.source === "string"
+  );
 }
 
 function idGenerator(): string {
