@@ -4075,6 +4075,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/yargs@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "@types/yargs@npm:17.0.0"
+  dependencies:
+    "@types/yargs-parser": "*"
+  checksum: 92ea97fa209768b993d1a06b9f2453161fc7fc3b25211d1235d112bc960e57b180c0b8616eb10c3e89b5d1bc6add255b0b10e550165ee318560bc0531dfe13b3
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/eslint-plugin@npm:^3.9.1":
   version: 3.10.1
   resolution: "@typescript-eslint/eslint-plugin@npm:3.10.1"
@@ -16540,8 +16549,10 @@ resolve@^2.0.0-next.3:
     "@mauriciorobayo/gods-promises": ^1.0.0
     "@types/bible-reference-formatter": ^1.0.0
     "@types/eslint": ^7
+    "@types/lodash": ^4.14.170
     "@types/mongodb": ^3.6.18
     "@types/node": ^15.12.4
+    "@types/yargs": ^17.0.0
     axios: ^0.21.1
     bible-passage-reference-parser: ^2.0.1
     bible-reference-formatter: ^1.0.1
@@ -16551,6 +16562,7 @@ resolve@^2.0.0-next.3:
     eslint: ^7.29.0
     eslint-config-prettier: ^8.3.0
     firebase: ^8.6.3
+    lodash: ^4.17.21
     mongodb: ^3.6.9
     nanoid: ^3.1.23
     tslib: ^2.3.0
