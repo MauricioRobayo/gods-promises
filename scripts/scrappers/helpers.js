@@ -38,18 +38,17 @@ const shuffle = (array) => {
   return array;
 };
 
-const makePromiseOrThrow = (options) => {
-  const requirements = ["niv", "originalReference", "osis", "source"];
+const makeGPromiseOrThrow = (options) => {
+  const requirements = ["niv", "osis", "source"];
   requirements.forEach((requirement) => {
     const option = options[requirement];
     if (!option || !typeof option === "string" || option.trim() === "") {
       throw new Error(`makePromise: missing required '${requirement}'`);
     }
   });
-  const { osis, originalReference, niv, source } = options;
+  const { osis, niv, source } = options;
   return {
     niv,
-    originalReference,
     osis,
     source,
   };
@@ -57,19 +56,16 @@ const makePromiseOrThrow = (options) => {
 
 const osisToNivLong = (osis) => osisToEn("niv-long", osis);
 
-const makePromise = ({ reference, source }) => {
+const makeGPromise = ({ reference, source }) => {
   try {
     const osis = bcv.parse(reference).osis();
     const niv = osisToNivLong(osis);
     if (!niv.includes(":")) {
-      console.log(
-        `Skipping '${niv}' as seems to be reference a full chapter and no specific verses.`
-      );
+      console.log(`Skipping '${niv}', full chapter and no specific verses.`);
       return null;
     }
-    return makePromiseOrThrow({
+    return makeGPromiseOrThrow({
       niv,
-      originalReference: reference,
       osis,
       source,
     });
@@ -82,7 +78,7 @@ const makePromise = ({ reference, source }) => {
 function getReferences(data, source) {
   const refs = bcv.parse(data).osis().split(",");
   const promises = refs.map((reference) =>
-    makePromise({
+    makeGPromise({
       reference,
       source,
     })
@@ -91,7 +87,7 @@ function getReferences(data, source) {
 }
 
 exports.shuffle = shuffle;
-exports.makePromise = makePromise;
+exports.makeGPromise = makeGPromise;
 exports.getReferences = getReferences;
 exports.getMongoDbCollection = getMongoDbCollection;
 exports.writeData = writeData;

@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const axios = require("axios");
 const cheerio = require("cheerio");
-const { makePromise, writeData } = require("../helpers");
+const { makeGPromise, writeData } = require("../helpers");
 
 const url = "https://bible.org/article/selected-promises-god-each-book-bible";
 axios.get(url).then(({ data }) => {
@@ -35,7 +35,7 @@ axios.get(url).then(({ data }) => {
           if (match) {
             const verses = match[1];
             const reference = `${book} ${verses}`;
-            const promise = makePromise({ reference, source: url });
+            const promise = makeGPromise({ reference, source: url });
             if (promise) {
               promises.push(promise);
             }

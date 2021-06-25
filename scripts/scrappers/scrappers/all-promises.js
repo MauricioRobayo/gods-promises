@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const axios = require("axios");
 const cheerio = require("cheerio");
-const { makePromise, writeData } = require("../helpers");
+const { makeGPromise, writeData } = require("../helpers");
 
 const url =
   "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible";
@@ -20,7 +20,7 @@ axios.get(url).then(({ data }) => {
 
       if (book.toLowerCase() === "my favorite promises") {
         const reference = $el.find("strong").text();
-        const promise = makePromise({ reference, source: url });
+        const promise = makeGPromise({ reference, source: url });
         if (promise) {
           promises.push(promise);
         }
@@ -31,7 +31,7 @@ axios.get(url).then(({ data }) => {
       if (book && match) {
         const verses = match[1];
         const reference = `${book} ${verses}`;
-        const promise = makePromise({ reference, source: url });
+        const promise = makeGPromise({ reference, source: url });
         if (promise) {
           promises.push(promise);
         }
