@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@mauriciorobayo/gods-promises": "^2.0.0",
+    "@mauriciorobayo/gods-promises": "^2.0.1",
     "@types/bible-reference-formatter": "^1.0.0",
     "@types/mongodb": "^3.6.18",
     "@types/node": "^15.12.4",
