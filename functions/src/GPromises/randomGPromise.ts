@@ -1,14 +1,12 @@
 import * as functions from "firebase-functions";
-import {getMongoDbCollection} from "../utils";
+import {getGPromisesCollection} from "../utils";
 import {updateMissingContent} from "./utils";
 import {getRandomPromises} from "../queries";
-import {GPromiseDTO, IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
+import {GPromiseDTO} from "@mauriciorobayo/gods-promises/lib/models";
 
 export const randomGPromise = functions.https.onRequest(
   async (_req: functions.Request, res: functions.Response<GPromiseDTO>) => {
-    const gPromisesCollection = await getMongoDbCollection<IGPromise>(
-      "g-promises"
-    );
+    const gPromisesCollection = await getGPromisesCollection();
     const randomGPromises = await getRandomPromises(100);
 
     for (const randomGPromise of randomGPromises) {

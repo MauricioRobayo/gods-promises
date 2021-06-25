@@ -5,9 +5,9 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "emulators": "run.env firebase emulators:start --only=functions",
-    "dev": "yarn build && run-p watch emulators",
-    "shell": "yarn build && firebase functions:shell",
-    "start": "yarn shell",
+    "dev": "npm run build && run-p watch emulators",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
     "test": "jest"
@@ -17,8 +17,9 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "@mauriciorobayo/gods-promises": "^1.0.0",
+    "@mauriciorobayo/gods-promises": "^2.0.2",
     "@types/mongodb": "^3.6.17",
+    "@typescript-eslint/experimental-utils": "^4.28.0",
     "axios": "^0.21.1",
     "bible-reference-formatter": "^1.0.1",
     "firebase-admin": "^9.2.0",

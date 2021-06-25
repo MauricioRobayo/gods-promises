@@ -12,3 +12,6 @@ export const bibles: Record<BibleId, { lang: Lang; name: string }> = {
 };
 export const bibleIds = ["kjv", "rvg"] as const;
 export const langs = ["en", "es"] as const;
+
+export const G_PROMISES_COLLECTION = "gPromises";
+export const GODS_PROMISES_DATABASE = "godsPromises";

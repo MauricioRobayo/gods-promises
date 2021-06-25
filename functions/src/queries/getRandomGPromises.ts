@@ -1,10 +1,10 @@
 import {bibles} from "@mauriciorobayo/gods-promises/lib/config";
 import {GPromise, IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
-import {getMongoDbCollection} from "../utils";
+import {getGPromisesCollection} from "../utils";
 
 const getRandomPromises = async (size: number): Promise<GPromise[]> => {
-  const collection = await getMongoDbCollection<IGPromise>("g-promises");
-  const cursor = collection.aggregate<IGPromise>([
+  const gPromisesCollection = await getGPromisesCollection();
+  const cursor = gPromisesCollection.aggregate<IGPromise>([
     {$match: {failed: {$exists: false}}},
     {$sample: {size}},
   ]);

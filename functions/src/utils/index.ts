@@ -1,1 +1,1 @@
-export {getMongoDbCollection} from "./utils";
+export {getGPromisesCollection} from "./utils";

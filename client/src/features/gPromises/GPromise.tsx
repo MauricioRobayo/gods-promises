@@ -21,12 +21,12 @@ const Article = styled.article`
   max-width: ${({ theme }) => theme.size.medium};
   &.${cssTransitionClassNamesPrefix}-exit {
     opacity: 0;
-    transform: translateX(500px);
+    transform: translateX(-500px);
     transition: opacity ${cssTransitionTimeout}ms ease-in, transform ${cssTransitionTimeout}ms ease-in;
   }
   &.${cssTransitionClassNamesPrefix}-enter {
     opacity: 0;
-    transform: translateX(-500px);
+    transform: translateX(500px);
   }
   &.${cssTransitionClassNamesPrefix}-enter-active {
     opacity: 1;
