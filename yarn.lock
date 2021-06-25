@@ -3466,6 +3466,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/bible-reference-formatter@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@types/bible-reference-formatter@npm:1.0.0"
+  checksum: 4cee676e478c8e10b540e21c89158cc668c4e2c560c0cab947f860963daa3b7f4049b16df2026dd269ff9dddd6c2c1cbbbbc2d18f8bcfcf5bb7364a70109924e
+  languageName: node
+  linkType: hard
+
 "@types/body-parser@npm:*":
   version: 1.19.0
   resolution: "@types/body-parser@npm:1.19.0"
@@ -3728,7 +3735,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mongodb@npm:^3.6.17":
+"@types/mongodb@npm:^3.6.17, @types/mongodb@npm:^3.6.18":
   version: 3.6.18
   resolution: "@types/mongodb@npm:3.6.18"
   dependencies:
@@ -3749,6 +3756,13 @@ __metadata:
   version: 12.20.15
   resolution: "@types/node@npm:12.20.15"
   checksum: 1233326726d017e9fdc1b89e966e5e4a3944060e00308ba6fbf4c6e91f307612dbf2e2bcab4132c35f6195b310a902ef6fe10a107e3e67c7582d31b79f1bef30
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^15.12.4":
+  version: 15.12.4
+  resolution: "@types/node@npm:15.12.4"
+  checksum: 64b121a7e805379382aeb3eefed56c4c34f1ebf5e818ba2c732e43beebc4fbde20be438f3eaaffd8dba5062f0e0c9ae085127b7239906d170eda816885a6c508
   languageName: node
   linkType: hard
 
@@ -16523,7 +16537,11 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "scrappers@workspace:scripts/scrappers"
   dependencies:
+    "@mauriciorobayo/gods-promises": ^1.0.0
+    "@types/bible-reference-formatter": ^1.0.0
     "@types/eslint": ^7
+    "@types/mongodb": ^3.6.18
+    "@types/node": ^15.12.4
     axios: ^0.21.1
     bible-passage-reference-parser: ^2.0.1
     bible-reference-formatter: ^1.0.1
@@ -16535,6 +16553,7 @@ resolve@^2.0.0-next.3:
     firebase: ^8.6.3
     mongodb: ^3.6.9
     nanoid: ^3.1.23
+    tslib: ^2.3.0
     typescript: ^4.3.4
     yargs: ^17.0.1
   languageName: unknown
@@ -17953,7 +17972,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.2.0":
+"tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.2.0, tslib@npm:^2.3.0":
   version: 2.3.0
   resolution: "tslib@npm:2.3.0"
   checksum: 7b4fc9feff0f704743c3760f5d8d708f6417fac6458159e63df3a6b1100f0736e3b99edb9fe370f274ad15160a1f49ff05cb49402534c818ff552c48e38c3e6e
