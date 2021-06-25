@@ -1,4 +1,3 @@
-const fs = require("fs").promises;
 const axios = require("axios");
 const cheerio = require("cheerio");
 const { makeGPromise, writeData } = require("../helpers");
