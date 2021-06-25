@@ -141,7 +141,7 @@ export function makeGPromise({
   }
 }
 
-export function getReferences(data: string, source: string): GPromise[] {
+export function getReferences(data: string, source: string): BaseGPromise[] {
   const refs: string[] = bcv.parse(data).osis().split(",");
   const promises = refs
     .map((reference) =>
