@@ -39,6 +39,7 @@ const Main = styled.main`
   grid-template-columns: 1fr;
   place-items: center;
   margin: 0 0 20vh 0;
+  overflow: hidden;
 `;
 
 const Page = styled.div`
