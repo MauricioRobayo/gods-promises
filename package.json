@@ -4,12 +4,6 @@
   "description": "",
   "main": "index.js",
   "private": true,
-  "workspaces": [
-    "client",
-    "functions",
-    "core",
-    "scripts/*"
-  ],
   "scripts": {},
   "repository": {
     "type": "git",
