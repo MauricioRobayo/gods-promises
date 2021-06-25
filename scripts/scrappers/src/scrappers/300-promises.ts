@@ -1,13 +1,12 @@
-const axios = require("axios");
-const cheerio = require("cheerio");
-const { makeGPromise, writeData } = require("../helpers");
+import axios from "axios";
+import cheerio from "cheerio";
+import { GPromise, makeGPromise, writeData } from "../helpers";
 
 const url = "https://believersportal.com/list-of-3000-promises-in-the-bible/";
 
 axios.get(url).then(({ data }) => {
   let book = "";
-  let bookId = "";
-  const promises = [];
+  const gPromises: GPromise[] = [];
   const $ = cheerio.load(data);
   $(".td-post-content")
     .children()
@@ -41,12 +40,12 @@ axios.get(url).then(({ data }) => {
             const reference = `${book} ${verses}`;
             const promise = makeGPromise({ reference, source: url });
             if (promise) {
-              promises.push(promise);
+              gPromises.push(promise);
             }
           }
         });
       }
     });
 
-  writeData(promises, "300-promises.json");
+  writeData(gPromises, "300-promises.json");
 });

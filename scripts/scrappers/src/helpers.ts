@@ -9,7 +9,7 @@ const bcv_parser =
 
 const bcv = new bcv_parser();
 
-type GPromise = {
+export type GPromise = {
   niv: string;
   osis: string;
   source: string;

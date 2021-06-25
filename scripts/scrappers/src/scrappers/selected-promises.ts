@@ -1,11 +1,11 @@
-const axios = require("axios");
-const cheerio = require("cheerio");
-const { makeGPromise, writeData } = require("../helpers");
+import axios from "axios";
+import cheerio from "cheerio";
+import { GPromise, makeGPromise, writeData } from "../helpers";
 
 const url = "https://bible.org/article/selected-promises-god-each-book-bible";
 axios.get(url).then(({ data }) => {
   let book = "";
-  const promises = [];
+  const gPromises: GPromise[] = [];
   const $ = cheerio.load(data);
   $(
     "#block-system-main > div > div > article > div.field.field-name-body.field-type-text-with-summary.field-label-hidden > div > div"
@@ -36,12 +36,12 @@ axios.get(url).then(({ data }) => {
             const reference = `${book} ${verses}`;
             const promise = makeGPromise({ reference, source: url });
             if (promise) {
-              promises.push(promise);
+              gPromises.push(promise);
             }
           }
         });
       }
     });
 
-  writeData(promises, "selected-promises.json");
+  writeData(gPromises, "selected-promises.json");
 });

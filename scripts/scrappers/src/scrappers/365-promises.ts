@@ -1,6 +1,6 @@
-const axios = require("axios");
+import axios from "axios";
 const url = "https://www.365promises.com";
-const { getReferences, writeData } = require("../helpers");
+import { getReferences, writeData } from "../helpers";
 
 const months = [
   "january",
