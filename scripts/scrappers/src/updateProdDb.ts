@@ -6,16 +6,9 @@ dotenv.config();
 
 (async () => {
   const mongodbUri = process.env.MONGODB_URI;
-  const database = process.env.MONGODB_DB;
-  const collection = "gPromises";
 
   if (!mongodbUri) {
     console.error("MONGODB_URI is missing!");
-    process.exit(1);
-  }
-
-  if (!database) {
-    console.error("MONGODB_DB is missing!");
     process.exit(1);
   }
 
@@ -35,11 +28,7 @@ dotenv.config();
   const gPromises = await gPromisesFromFiles(files);
 
   try {
-    const result = await updateDb(gPromises, {
-      mongodbUri,
-      database,
-      collection,
-    });
+    const result = await updateDb(gPromises, mongodbUri);
     console.log({ insertedCount: result.insertedCount });
     process.exit();
   } catch (err) {

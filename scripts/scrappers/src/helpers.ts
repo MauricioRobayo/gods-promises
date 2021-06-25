@@ -7,6 +7,10 @@ import { nanoid } from "nanoid";
 import { MongoClient, Collection, InsertWriteOpResult, WithId } from "mongodb";
 import uniqBy from "lodash/uniqBy";
 import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
+import {
+  GODS_PROMISES_DATABASE,
+  G_PROMISES_COLLECTION,
+} from "@mauriciorobayo/gods-promises/lib/config";
 
 const bcv_parser =
   require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
@@ -50,20 +54,12 @@ function createUniqueIndex(
 
 export async function updateDb(
   gPromises: IGPromise[],
-  {
-    mongodbUri,
-    database,
-    collection,
-  }: {
-    mongodbUri: string;
-    database: string;
-    collection: string;
-  }
+  mongodbUri: string
 ): Promise<InsertWriteOpResult<WithId<IGPromise>>> {
   const promisesCollection = await getMongoDbCollection<IGPromise>({
     mongodbUri,
-    database,
-    collection,
+    database: GODS_PROMISES_DATABASE,
+    collection: G_PROMISES_COLLECTION,
   });
   const index = await createUniqueIndex(promisesCollection, "osis");
   console.log(`Successfully created index ${index}!`);

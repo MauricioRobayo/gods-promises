@@ -21,11 +21,7 @@ import { gPromisesFromFiles, updateDb } from "./helpers";
   const sample = n <= 0 ? gPromises : sampleSize(gPromises, n);
 
   try {
-    const result = await updateDb(sample, {
-      mongodbUri: "mongodb://localhost:27017",
-      database: "godsPromises",
-      collection: "gPromises",
-    });
+    const result = await updateDb(sample, "mongodb://localhost:27017");
     console.log({ insertedCount: result.insertedCount });
     process.exit();
   } catch (err) {
