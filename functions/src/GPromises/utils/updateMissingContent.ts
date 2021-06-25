@@ -1,8 +1,8 @@
-import {GPromise, IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
+import {GPromise} from "@mauriciorobayo/gods-promises/lib/models";
 import {bibleIds, bibles} from "@mauriciorobayo/gods-promises/lib/config";
 import {BibleSuperSearch} from "../api";
 import {translateReference, getMissingBibles} from ".";
-import {getMongoDbCollection} from "../../utils";
+import {getGPromisesCollection} from "../../utils";
 import {formatPassage} from "./formatPassage";
 
 const bibleSuperSearch = new BibleSuperSearch({
@@ -10,7 +10,7 @@ const bibleSuperSearch = new BibleSuperSearch({
   translator: translateReference,
   formatter: formatPassage,
 });
-const collection = getMongoDbCollection<IGPromise>("g-promises");
+const collection = getGPromisesCollection();
 
 export const updateMissingContent = async (
   gPromise: GPromise
