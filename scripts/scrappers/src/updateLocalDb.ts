@@ -1,5 +1,5 @@
 import yargs from "yargs";
-import _ from "lodash";
+import sampleSize from "lodash/sampleSize";
 import { gPromisesFromFiles, updateDb } from "./helpers";
 
 (async () => {
@@ -7,9 +7,9 @@ import { gPromisesFromFiles, updateDb } from "./helpers";
     yargs.option("sampleSize", { number: true, default: 5, alias: "s" }).argv
   );
 
-  const { _: files, sampleSize } = args;
+  const { _: files, sampleSize: n } = args;
 
-  console.log({ files, sampleSize });
+  console.log({ files, n });
 
   if (files.length === 0) {
     console.error("ERROR! No files provided.");
@@ -18,8 +18,7 @@ import { gPromisesFromFiles, updateDb } from "./helpers";
 
   const gPromises = await gPromisesFromFiles(files);
 
-  const sample =
-    sampleSize <= 0 ? gPromises : _.sampleSize(gPromises, sampleSize);
+  const sample = n <= 0 ? gPromises : sampleSize(gPromises, n);
 
   try {
     const result = await updateDb(sample, {
