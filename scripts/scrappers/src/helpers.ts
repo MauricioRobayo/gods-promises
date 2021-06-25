@@ -2,8 +2,11 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import fs from "fs/promises";
-import { Collection, MongoClient } from "mongodb";
 import osisToEn from "bible-reference-formatter";
+import { nanoid } from "nanoid";
+import { MongoClient, Collection, InsertWriteOpResult, WithId } from "mongodb";
+import uniqBy from "lodash/uniqBy";
+
 const bcv_parser =
   require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
 
@@ -16,6 +19,57 @@ export type GPromise = {
 };
 function isGPromise(gPromise: any): gPromise is GPromise {
   return "niv" in gPromise && "osis" in gPromise && "source" in gPromise;
+}
+
+function idGenerator(): string {
+  return nanoid(8);
+}
+
+function addId(gPromise: GPromise): GPromise & { _id: string } {
+  return {
+    _id: idGenerator(),
+    ...gPromise,
+  };
+}
+
+export async function gPromisesFromFiles(files: (string | number)[]) {
+  const data = await Promise.all(
+    files.map(async (file) => {
+      const data = await fs.readFile(String(file), "utf-8");
+      return JSON.parse(data);
+    })
+  );
+
+  return uniqBy(data.flat(), "osis").map(addId);
+}
+
+function createUniqueIndex(
+  collection: Collection<GPromise>,
+  field: string
+): Promise<string> {
+  return collection.createIndex({ [field]: 1 }, { unique: true });
+}
+
+export async function updateDb(
+  gPromises: GPromise[],
+  {
+    mongodbUri,
+    database,
+    collection,
+  }: {
+    mongodbUri: string;
+    database: string;
+    collection: string;
+  }
+): Promise<InsertWriteOpResult<WithId<GPromise>>> {
+  const promisesCollection = await getMongoDbCollection<GPromise>({
+    mongodbUri,
+    database,
+    collection,
+  });
+  const index = await createUniqueIndex(promisesCollection, "osis");
+  console.log(`Successfully created index ${index}!`);
+  return promisesCollection.insertMany(gPromises, { ordered: false });
 }
 
 export async function writeData(
