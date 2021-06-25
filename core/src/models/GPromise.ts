@@ -17,7 +17,6 @@ export type IGPromise = {
   _id: string;
   osis: string;
   niv: string;
-  originalReference: string;
   source: string;
   content?: Content;
 };
@@ -26,18 +25,16 @@ export class GPromise {
   _id: string;
   osis: string;
   niv: string;
-  originalReference: string;
   source: string;
   content: Content;
 
   constructor(
-    { _id, osis, niv, originalReference, source, content = {} }: IGPromise,
+    { _id, osis, niv, source, content = {} }: IGPromise,
     private bibles: Bibles
   ) {
     this._id = _id;
     this.osis = osis;
     this.niv = niv;
-    this.originalReference = originalReference;
     this.source = source;
     this.content = content;
   }
