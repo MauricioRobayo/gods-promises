@@ -1,12 +1,12 @@
 import axios from "axios";
 import cheerio from "cheerio";
-import { GPromise, makeGPromise, writeData } from "../helpers";
+import { BaseGPromise, makeGPromise, writeData } from "../helpers";
 
 const url = "https://believersportal.com/list-of-3000-promises-in-the-bible/";
 
 axios.get(url).then(({ data }) => {
   let book = "";
-  const gPromises: GPromise[] = [];
+  const gPromises: BaseGPromise[] = [];
   const $ = cheerio.load(data);
   $(".td-post-content")
     .children()
