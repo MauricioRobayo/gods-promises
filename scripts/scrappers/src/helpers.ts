@@ -6,18 +6,16 @@ import osisToEn from "bible-reference-formatter";
 import { nanoid } from "nanoid";
 import { MongoClient, Collection, InsertWriteOpResult, WithId } from "mongodb";
 import uniqBy from "lodash/uniqBy";
+import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
 
 const bcv_parser =
   require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
 
 const bcv = new bcv_parser();
 
-export type GPromise = {
-  niv: string;
-  osis: string;
-  source: string;
-};
-function isGPromise(gPromise: any): gPromise is GPromise {
+export type BaseGPromise = Omit<IGPromise, "_id">;
+
+function isGPromise(gPromise: any): gPromise is BaseGPromise {
   return "niv" in gPromise && "osis" in gPromise && "source" in gPromise;
 }
 
@@ -25,7 +23,7 @@ function idGenerator(): string {
   return nanoid(8);
 }
 
-function addId(gPromise: GPromise): GPromise & { _id: string } {
+function addId(gPromise: BaseGPromise): IGPromise & { _id: string } {
   return {
     _id: idGenerator(),
     ...gPromise,
@@ -44,14 +42,14 @@ export async function gPromisesFromFiles(files: (string | number)[]) {
 }
 
 function createUniqueIndex(
-  collection: Collection<GPromise>,
+  collection: Collection<IGPromise>,
   field: string
 ): Promise<string> {
   return collection.createIndex({ [field]: 1 }, { unique: true });
 }
 
 export async function updateDb(
-  gPromises: GPromise[],
+  gPromises: IGPromise[],
   {
     mongodbUri,
     database,
@@ -61,8 +59,8 @@ export async function updateDb(
     database: string;
     collection: string;
   }
-): Promise<InsertWriteOpResult<WithId<GPromise>>> {
-  const promisesCollection = await getMongoDbCollection<GPromise>({
+): Promise<InsertWriteOpResult<WithId<IGPromise>>> {
+  const promisesCollection = await getMongoDbCollection<IGPromise>({
     mongodbUri,
     database,
     collection,
@@ -73,7 +71,7 @@ export async function updateDb(
 }
 
 export async function writeData(
-  gPromises: GPromise[],
+  gPromises: BaseGPromise[],
   filename: string
 ): Promise<void> {
   const dataDir = `${__dirname}/scrapped-data`;
@@ -124,7 +122,7 @@ export function makeGPromise({
 }: {
   reference: string;
   source: string;
-}): GPromise | null {
+}): BaseGPromise | null {
   try {
     const osis: string = bcv.parse(reference).osis();
     const niv = osisToNivLong(osis);
