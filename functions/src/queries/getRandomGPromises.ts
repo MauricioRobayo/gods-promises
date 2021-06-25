@@ -3,7 +3,7 @@ import {GPromise, IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
 import {getMongoDbCollection} from "../utils";
 
 const getRandomPromises = async (size: number): Promise<GPromise[]> => {
-  const collection = await getMongoDbCollection<IGPromise>("g-promises");
+  const collection = await getMongoDbCollection<IGPromise>("gPromises");
   const cursor = collection.aggregate<IGPromise>([
     {$match: {failed: {$exists: false}}},
     {$sample: {size}},

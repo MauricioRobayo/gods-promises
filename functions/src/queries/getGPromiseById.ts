@@ -5,9 +5,7 @@ import {bibles} from "@mauriciorobayo/gods-promises/lib/config";
 export default async function getGPromiseById(
   id: string
 ): Promise<GPromise | null> {
-  const promisesCollection = await getMongoDbCollection<IGPromise>(
-    "g-promises"
-  );
+  const promisesCollection = await getMongoDbCollection<IGPromise>("gPromises");
   const promise = await promisesCollection.findOne({_id: id});
   if (!promise) {
     return null;
