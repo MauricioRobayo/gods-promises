@@ -1,6 +1,6 @@
 const fs = require("fs").promises;
 const { nanoid } = require("nanoid");
-const { getMongoDbCollection, shuffle } = require("./helpers");
+const { getMongoDbCollection, shuffle } = require("../helpers");
 const argv = require("yargs/yargs")(process.argv.slice(2)).argv;
 const chalk = require("chalk");
 const readline = require("readline");
