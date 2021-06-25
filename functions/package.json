@@ -17,7 +17,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "@mauriciorobayo/gods-promises": "^1.0.0",
+    "@mauriciorobayo/gods-promises": "^2.0.1",
     "@types/mongodb": "^3.6.17",
     "axios": "^0.21.1",
     "bible-reference-formatter": "^1.0.1",
