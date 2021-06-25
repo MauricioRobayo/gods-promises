@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/MauricioRobayo/promesas#readme",
   "volta": {
-    "node": "14.17.1"
+    "node": "14.17.1",
+    "npm": "7.19.0"
   },
   "dependencies": {
     "eslint": "^7.28.0",
