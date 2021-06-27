@@ -7,10 +7,17 @@ type Passage = {
 
 export type Content = Partial<Record<BibleId, Passage & { apiUrl: string }>>;
 
+type DTOContent = Record<
+  BibleId,
+  Passage & {
+    bibleName: string;
+  }
+>;
+
 export type GPromiseDTO = {
   id: string;
   source: string;
-  content: Record<BibleId, Passage & { bibleName: string }>;
+  content: DTOContent;
 };
 
 export type IGPromise = {
@@ -40,22 +47,23 @@ export class GPromise {
   }
 
   toDTO(): GPromiseDTO {
-    const content = Object.entries(this.content).reduce(
-      (acc, [bibleId, content]) => {
+    const content = Object.fromEntries(
+      Object.entries(this.content).map(([bibleId, content]) => {
         if (!content) {
           throw new Error(
             "GPromise.toDTO: cannot return DTO with missing content!"
           );
         }
-        acc[bibleId as BibleId] = {
-          text: content.text,
-          reference: content.reference,
-          bibleName: this.bibles[bibleId as BibleId].name,
-        };
-        return acc;
-      },
-      {} as GPromiseDTO["content"]
-    );
+        return [
+          bibleId,
+          {
+            text: content.text,
+            reference: content.reference,
+            bibleName: this.bibles[bibleId as BibleId].name,
+          },
+        ];
+      })
+    ) as DTOContent;
 
     return {
       id: this._id,

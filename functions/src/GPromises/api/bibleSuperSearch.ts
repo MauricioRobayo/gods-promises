@@ -49,14 +49,16 @@ class BibleSuperSearch implements BibleSearcher {
       bibles
     )}&reference=${referenceWithHyphen}`;
     const {data} = await axios.get(apiUrl);
-    const content = bibles.reduce((acc, curr) => {
-      acc[curr] = {
-        text: this.formatter(buildPassageTextFromResponse(curr, data)),
-        reference: this.translator(this.bibles[curr].lang, reference),
-        apiUrl,
-      };
-      return acc;
-    }, {} as Content);
+    const content = Object.fromEntries(
+      bibles.map((bible) => [
+        bible,
+        {
+          text: this.formatter(buildPassageTextFromResponse(bible, data)),
+          reference: this.translator(this.bibles[bible].lang, reference),
+          apiUrl,
+        },
+      ])
+    ) as Content;
     return content;
   }
 }
