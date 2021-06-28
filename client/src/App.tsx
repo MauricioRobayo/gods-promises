@@ -31,6 +31,8 @@ const Wrapper = styled.div`
 
 const StyledNavbar = styled(Navbar)`
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 0;
 `;
 
 const Main = styled.main`
