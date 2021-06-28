@@ -7,7 +7,7 @@ import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { AppLoader } from "../loaders";
 import Twemoji from "../twemoji/Twemoji";
 
-const rotate = keyframes`
+const float = keyframes`
   0% {
 		transform: translatey(0px);
 	}
@@ -43,7 +43,7 @@ const Angel = styled.div`
     filter: drop-shadow(
       0px 12px 24px ${({ theme }) => theme.color.surfaceShadow1}
     );
-    animation: ${rotate} 6s ease-in-out infinite;
+    animation: ${float} 6s ease-in-out infinite;
   }
 `;
 
