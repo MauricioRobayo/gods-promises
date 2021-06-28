@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/functions";
+import "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBUG2Qt9Jg5hTTZAKbjLn0IxdoA1XlGiZk",
@@ -17,12 +18,8 @@ export function firebaseCallable<T, R>(name: string): (data: R) => Promise<T> {
   const callable = functions.httpsCallable(name);
   return async (data) => (await callable(data)).data;
 }
-export let analytics: firebase.analytics.Analytics | null = null;
+export const analytics = firebase.analytics();
 
 if (process.env.NODE_ENV === "development") {
   functions.useEmulator("127.0.0.1", 5001);
-}
-
-if (process.env.NODE_ENV === "production") {
-  analytics = firebase.analytics();
 }
