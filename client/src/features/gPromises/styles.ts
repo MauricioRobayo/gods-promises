@@ -98,9 +98,6 @@ export const ButtonsWrapper = styled.div`
     &:not(:last-child) {
       margin-right: 1em;
     }
-    & > *:not(:last-child) {
-      margin-right: 0.5em;
-    }
   }
 `;
 
