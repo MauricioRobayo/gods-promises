@@ -108,6 +108,7 @@ export const ShareButton = styled.button`
   background-color: transparent;
   border: none;
   color: ${({ theme }) => theme.color.brand};
+  cursor: pointer;
 `;
 
 const iconStyle = css`
