@@ -82,7 +82,7 @@ export default function GPromiseContainer() {
 
   const shareButton =
     "share" in navigator ? (
-      <ShareButton type="button" onClick={share}>
+      <ShareButton type="button" onClick={share} title={t("Share")}>
         <ShareIcon />
       </ShareButton>
     ) : (
