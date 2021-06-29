@@ -95,6 +95,8 @@ export const Footer = styled.footer`
 export const ButtonsWrapper = styled.div`
   display: flex;
   & > * {
+    display: flex;
+    align-items: center;
     &:not(:last-child) {
       margin-right: 1em;
     }
