@@ -162,6 +162,8 @@ export default function GPromiseContainer() {
   }
 
   const { text, reference, bibleName } = gPromiseQuery.data.content[bibleId];
+  const title = `${reference} | ${t("God's Promises")}`;
+
   const tweet = createTweet({
     text,
     reference,
@@ -170,7 +172,7 @@ export default function GPromiseContainer() {
 
   const share = () => {
     navigator.share({
-      title: "",
+      title,
       text: createTweet({
         text,
         reference,
@@ -201,7 +203,7 @@ export default function GPromiseContainer() {
       >
         <Article>
           <Helmet>
-            <title>{`${reference} | ${t("God's Promises")}`}</title>
+            <title>{title}</title>
             <meta name="description" content={text} />
           </Helmet>
           <Header>
