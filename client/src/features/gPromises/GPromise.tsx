@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import { FaShareAltSquare } from "react-icons/fa";
 import { useQueryClient } from "react-query";
 import { Link, useLocation, useParams } from "react-router-dom";
-import styled from "styled-components";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
+import styled from "styled-components/macro";
 import { PROMISE_PATH } from "../../config";
 import useGPromise from "../../hooks/useGPromise";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
@@ -10,8 +13,6 @@ import { lngs } from "../i18next";
 import { AppLoader } from "../loaders";
 import Twemoji from "../twemoji/Twemoji";
 import { createTweet } from "./utils";
-import { Helmet } from "react-helmet";
-import { CSSTransition, SwitchTransition } from "react-transition-group";
 
 const cssTransitionClassNamesPrefix = "passage-";
 const cssTransitionTimeout = 300;
@@ -22,7 +23,8 @@ const Article = styled.article`
   &.${cssTransitionClassNamesPrefix}-exit {
     opacity: 0;
     transform: translateX(-500px);
-    transition: opacity ${cssTransitionTimeout}ms ease-in, transform ${cssTransitionTimeout}ms ease-in;
+    transition: opacity ${cssTransitionTimeout}ms ease-in,
+      transform ${cssTransitionTimeout}ms ease-in;
   }
   &.${cssTransitionClassNamesPrefix}-enter {
     opacity: 0;
@@ -31,7 +33,8 @@ const Article = styled.article`
   &.${cssTransitionClassNamesPrefix}-enter-active {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity ${cssTransitionTimeout}ms ease-out, transform ${cssTransitionTimeout}ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: opacity ${cssTransitionTimeout}ms ease-out,
+      transform ${cssTransitionTimeout}ms cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 `;
 
@@ -104,7 +107,7 @@ const Footer = styled.footer`
 
 const ButtonsWrapper = styled.div`
   display: flex;
-  & > a {
+  & > * {
     &:not(:last-child) {
       margin-right: 1em;
     }
@@ -112,6 +115,17 @@ const ButtonsWrapper = styled.div`
       margin-right: 0.5em;
     }
   }
+`;
+
+const ShareButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: ${({ theme }) => theme.color.brand};
+`;
+
+const ShareIcon = styled(FaShareAltSquare)`
+  color: ${({ theme }) => theme.color.brand};
+  margin-left: 0.5em;
 `;
 
 export default function GPromiseContainer() {
@@ -148,11 +162,38 @@ export default function GPromiseContainer() {
   }
 
   const { text, reference, bibleName } = gPromiseQuery.data.content[bibleId];
+  const title = `${reference} | ${t("God's Promises")}`;
+
   const tweet = createTweet({
     text,
     reference,
     link: `https://godspromises.bible${location.pathname}`,
   });
+
+  const share = () => {
+    navigator.share({
+      title,
+      text: createTweet({
+        text,
+        reference,
+      }),
+      url: `https://godspromises.bible${location.pathname}`,
+    });
+  };
+
+  const shareButton =
+    "share" in navigator ? (
+      <ShareButton type="button" onClick={share}>
+        {t("Share")}
+        <ShareIcon />
+      </ShareButton>
+    ) : (
+      <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>
+        <span>{t("Tweet")}</span>
+        <Twemoji emoji="📣" />
+      </a>
+    );
+
   return (
     <SwitchTransition>
       <CSSTransition
@@ -162,7 +203,7 @@ export default function GPromiseContainer() {
       >
         <Article>
           <Helmet>
-            <title>{`${reference} | ${t("God's Promises")}`}</title>
+            <title>{title}</title>
             <meta name="description" content={text} />
           </Helmet>
           <Header>
@@ -174,10 +215,7 @@ export default function GPromiseContainer() {
           </BlockquoteWrapper>
           <Footer>
             <ButtonsWrapper>
-              <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>
-                <span>{t("Tweet")}</span>
-                <Twemoji emoji="📣" />
-              </a>
+              {shareButton}
               {randomGPromiseQuery.isFetching ? (
                 <AppLoader size={8} />
               ) : (
