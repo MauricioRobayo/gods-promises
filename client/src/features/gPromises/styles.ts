@@ -80,7 +80,6 @@ export const Blockquote = styled.blockquote`
 `;
 
 export const Footer = styled.footer`
-  font-size: ${({ theme }) => theme.font.size.small};
   margin: 1em ${({ theme }) => theme.space.side.small} 0;
   @media (min-width: ${({ theme }) => theme.size.small}) {
     margin: 1rem ${({ theme }) => theme.space.side.medium} 0;
@@ -93,6 +92,7 @@ export const Footer = styled.footer`
 `;
 
 export const ButtonsWrapper = styled.div`
+  color: ${({ theme }) => theme.color.brand};
   display: flex;
   & > * {
     display: flex;
@@ -110,10 +110,7 @@ export const ShareButton = styled.button`
   cursor: pointer;
 `;
 
-const iconStyle = css`
-  color: ${({ theme }) => theme.color.brand};
-  margin-left: 0.5em;
-`;
+const iconStyle = css``;
 
 export const ShareIcon = styled(FaShareAlt)`
   ${iconStyle}
