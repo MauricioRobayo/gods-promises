@@ -1,8 +1,10 @@
+import Color from "color";
+
 declare module "styled-components" {
   export interface DefaultTheme extends ThemeType {}
 }
 
-type Color = {
+type ColorType = {
   brand: string;
   text1: string;
   text2: string;
@@ -15,14 +17,15 @@ type Color = {
 };
 
 export type ThemeType = {
-  color: Color;
+  color: ColorType;
 } & typeof sharedStyles;
 
-const brandColor = {
-  hue: 200,
-  saturation: 100,
-  lightness: 50,
-} as const;
+const brandColor = Color({
+  h: 200,
+  s: 100,
+  l: 50,
+});
+
 const size = {
   medium: "768px",
   small: "320px",
@@ -61,29 +64,29 @@ export const theme: { light: ThemeType; dark: ThemeType } = {
   light: {
     ...sharedStyles,
     color: {
-      brand: `hsl(${brandColor.hue} ${brandColor.saturation}% ${brandColor.lightness}%)`,
-      text1: `hsl(${brandColor.hue} ${brandColor.saturation}% 10%)`,
-      text2: `hsl(${brandColor.hue} 30% 30%)`,
-      surface1: `hsl(${brandColor.hue} 25% 90%)`,
-      surface2: `hsl(${brandColor.hue} 20% 99%)`,
-      surface3: `hsl(${brandColor.hue} 20% 92%)`,
-      surface4: `hsl(${brandColor.hue} 20% 85%)`,
-      surfaceShadow1: `hsl(${brandColor.hue} 10% 40%)`,
-      surfaceShadow2: `hsl(${brandColor.hue} 10% 70%)`,
+      brand: brandColor.string(),
+      text1: brandColor.lightness(10).string(),
+      text2: brandColor.saturationl(30).lightness(30).string(),
+      surface1: brandColor.saturationl(25).lightness(90).string(),
+      surface2: brandColor.saturationl(20).lightness(99).string(),
+      surface3: brandColor.saturationl(20).lightness(92).string(),
+      surface4: brandColor.saturationl(20).lightness(85).string(),
+      surfaceShadow1: brandColor.saturationl(10).lightness(40).string(),
+      surfaceShadow2: brandColor.saturationl(10).lightness(70).string(),
     },
   },
   dark: {
     ...sharedStyles,
     color: {
-      brand: `hsl(${brandColor.hue} 82% 70%)`,
-      text1: `hsl(${brandColor.hue} 15% 75%)`,
-      text2: `hsl(${brandColor.hue} 10% 61%)`,
-      surface1: `hsl(${brandColor.hue} 10% 20%)`,
-      surface2: `hsl(${brandColor.hue} 10% 25%)`,
-      surface3: `hsl(${brandColor.hue} 5% 30%)`,
-      surface4: `hsl(${brandColor.hue} 5% 35%)`,
-      surfaceShadow1: `hsl(${brandColor.hue} 30% 3%)`,
-      surfaceShadow2: `hsl(${brandColor.hue} 30% 13%)`,
+      brand: brandColor.saturationl(82).lightness(70).string(),
+      text1: brandColor.saturationl(15).lightness(75).string(),
+      text2: brandColor.saturationl(10).lightness(61).string(),
+      surface1: brandColor.saturationl(10).lightness(20).string(),
+      surface2: brandColor.saturationl(10).lightness(25).string(),
+      surface3: brandColor.saturationl(5).lightness(30).string(),
+      surface4: brandColor.saturationl(5).lightness(35).string(),
+      surfaceShadow1: brandColor.saturationl(30).lightness(3).string(),
+      surfaceShadow2: brandColor.saturationl(30).lightness(13).string(),
     },
   },
 };
