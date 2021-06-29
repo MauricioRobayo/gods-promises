@@ -74,7 +74,7 @@ const Footer = styled.footer`
   justify-content: center;
   padding: 1rem 0;
   a {
-    color: ${({ theme }) => theme.color.text1};
+    color: ${({ theme }) => theme.color.text2};
   }
 `;
 

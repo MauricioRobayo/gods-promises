@@ -18,7 +18,10 @@ export function firebaseCallable<T, R>(name: string): (data: R) => Promise<T> {
   const callable = functions.httpsCallable(name);
   return async (data) => (await callable(data)).data;
 }
-export const analytics = firebase.analytics();
+export let analytics: firebase.analytics.Analytics | null = null;
+if (process.env.NODE_ENV === "production") {
+  analytics = firebase.analytics();
+}
 
 if (process.env.NODE_ENV === "development") {
   functions.useEmulator("127.0.0.1", 5001);
