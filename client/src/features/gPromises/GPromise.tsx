@@ -83,12 +83,10 @@ export default function GPromiseContainer() {
   const shareButton =
     "share" in navigator ? (
       <ShareButton type="button" onClick={share}>
-        {t("Share")}
         <ShareIcon />
       </ShareButton>
     ) : (
-      <a href={`https://twitter.com/intent/tweet?text=${tweet}`}>
-        <span>{t("Tweet")}</span>
+      <a title="tweet" href={`https://twitter.com/intent/tweet?text=${tweet}`}>
         <Twemoji emoji="📣" />
       </a>
     );
@@ -118,8 +116,7 @@ export default function GPromiseContainer() {
               {randomGPromiseQuery.isFetching ? (
                 <AppLoader size={8} />
               ) : (
-                <Link to={goToNextPromise}>
-                  <span>{t("next")}</span>
+                <Link to={goToNextPromise} title={t("Next")}>
                   <ForwardIcon />
                 </Link>
               )}
