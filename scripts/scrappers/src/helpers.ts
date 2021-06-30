@@ -6,27 +6,11 @@ import { nanoid } from "nanoid";
 import { MongoClient, Collection, InsertWriteOpResult, WithId } from "mongodb";
 import uniqBy from "lodash/uniqBy";
 import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
-import {
-  makeGPromise,
-  BaseGPromise,
-} from "@mauriciorobayo/gods-promises/lib/utils";
+import { BaseGPromise } from "@mauriciorobayo/gods-promises/lib/utils";
 import {
   GODS_PROMISES_DATABASE,
   G_PROMISES_COLLECTION,
 } from "@mauriciorobayo/gods-promises/lib/config";
-
-const bcv_parser =
-  require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
-
-const bcv = new bcv_parser();
-
-function isGPromise(gPromise: any): gPromise is BaseGPromise {
-  return (
-    typeof gPromise?.niv === "string" &&
-    typeof gPromise?.osis === "string" &&
-    typeof gPromise?.source === "string"
-  );
-}
 
 function idGenerator(): string {
   return nanoid(8);
@@ -111,17 +95,4 @@ export function shuffle<T>(array: T[]): T[] {
     [array[i], array[randomPosition]] = [array[randomPosition], array[i]];
   }
   return array;
-}
-
-export function getReferences(data: string, source: string): BaseGPromise[] {
-  const refs: string[] = bcv.parse(data).osis().split(",");
-  const promises = refs
-    .map((reference) =>
-      makeGPromise({
-        reference,
-        source,
-      })
-    )
-    .filter(isGPromise);
-  return promises;
 }
