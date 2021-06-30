@@ -1,6 +1,10 @@
 import axios from "axios";
 import cheerio from "cheerio";
-import { BaseGPromise, makeGPromise, writeData } from "../helpers";
+import { writeData } from "../helpers";
+import {
+  BaseGPromise,
+  makeGPromise,
+} from "@mauriciorobayo/gods-promises/lib/utils";
 
 const url =
   "https://www.clintbyars.com/blog/2017/12/12/browse-a-list-of-gods-promises-from-each-book-of-the-bible";

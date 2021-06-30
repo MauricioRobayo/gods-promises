@@ -1,13 +1,17 @@
 import {DocumentReference} from "@google-cloud/firestore";
-import {makeGPromise} from "@mauriciorobayo/gods-promises/lib/utils";
+import {getReferences} from "@mauriciorobayo/gods-promises/lib/utils";
+import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import admin from "firebase-admin";
 import * as functions from "firebase-functions";
 import {Meta, Options, searchRecent} from "./api";
+import {IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
 
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
   databaseURL: "https://promises-edfea.firebaseio.com",
 });
+
+const gPromisesRepository = new GPromisesRepository();
 
 class SearchHistory {
   private docRef: DocumentReference<FirebaseFirestore.DocumentData>;
@@ -60,18 +64,15 @@ async function retweetHashtag(hashtag: string) {
 
     const gPromises = tweets
       .map((tweet) => {
-        const gPromise = makeGPromise({
-          reference: tweet.text,
-          source: `Twitter: ${tweet.id}`,
-        });
+        const gPromises = getReferences(tweet.text, `tweetId: ${tweet.id}`);
 
-        return {tweet, gPromise};
+        return {tweet, gPromises};
       })
-      .filter((result) => result.gPromise);
+      .filter((result) => result.gPromises.length > 0);
 
-    console.log("👉", gPromises.length);
-
-    console.log(gPromises);
+    gPromisesRepository.insertMany(
+      gPromises.map((result) => result.gPromises).flat() as IGPromise[]
+    );
 
     await searchHistory.setLastSearchMeta(meta);
   } catch (err) {

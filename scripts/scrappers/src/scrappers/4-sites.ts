@@ -1,5 +1,6 @@
+import { getReferences } from "@mauriciorobayo/gods-promises/lib/utils";
 import axios from "axios";
-import { getReferences, writeData } from "../helpers";
+import { writeData } from "../helpers";
 
 const urls = [
   "https://www.compassionuk.org/blogs/gods-promises/",

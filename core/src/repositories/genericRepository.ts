@@ -1,4 +1,10 @@
-import { MongoClient, OptionalId, InsertWriteOpResult, WithId } from "mongodb";
+import {
+  MongoClient,
+  OptionalId,
+  InsertWriteOpResult,
+  WithId,
+  CollectionInsertManyOptions,
+} from "mongodb";
 import { GODS_PROMISES_DATABASE } from "../config";
 
 export interface IRepository<T> {
@@ -10,7 +16,7 @@ export interface IRepository<T> {
 export class GenericRepository<T> implements IRepository<T> {
   private client: Promise<MongoClient>;
   constructor(
-    mongodbUri: string = "mongo://localhost:27017",
+    mongodbUri: string = "mongodb://localhost:27017",
     private collection: string
   ) {
     const client = new MongoClient(mongodbUri, {
@@ -21,11 +27,12 @@ export class GenericRepository<T> implements IRepository<T> {
   }
 
   async insertMany(
-    data: OptionalId<T>[]
+    data: OptionalId<T>[],
+    options: CollectionInsertManyOptions = {}
   ): Promise<InsertWriteOpResult<WithId<T>>> {
     const client = await this.client;
     const db = client.db(GODS_PROMISES_DATABASE);
     const collection = db.collection<T>(this.collection);
-    return collection.insertMany(data, { ordered: false });
+    return collection.insertMany(data, options);
   }
 }
