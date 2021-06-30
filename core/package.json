@@ -15,12 +15,19 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/bible-reference-formatter": "^1.0.0",
     "@types/eslint": "^7",
+    "@types/mongodb": "^3.6.18",
+    "@types/node": "^15.12.5",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
     "typescript": "^4.3.4"
   },
   "dependencies": {
+    "@mauriciorobayo/gods-promises": "^2.0.2",
+    "bible-passage-reference-parser": "^2.0.1",
+    "bible-reference-formatter": "^1.0.1",
+    "mongodb": "^3.6.9",
     "tslib": "^2.3.0"
   }
 }
