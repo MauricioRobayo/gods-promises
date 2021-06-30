@@ -2,11 +2,14 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import fs from "fs/promises";
-import osisToEn from "bible-reference-formatter";
 import { nanoid } from "nanoid";
 import { MongoClient, Collection, InsertWriteOpResult, WithId } from "mongodb";
 import uniqBy from "lodash/uniqBy";
 import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
+import {
+  makeGPromise,
+  BaseGPromise,
+} from "@mauriciorobayo/gods-promises/lib/utils";
 import {
   GODS_PROMISES_DATABASE,
   G_PROMISES_COLLECTION,
@@ -16,8 +19,6 @@ const bcv_parser =
   require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
 
 const bcv = new bcv_parser();
-
-export type BaseGPromise = Omit<IGPromise, "_id">;
 
 function isGPromise(gPromise: any): gPromise is BaseGPromise {
   return (
@@ -110,35 +111,6 @@ export function shuffle<T>(array: T[]): T[] {
     [array[i], array[randomPosition]] = [array[randomPosition], array[i]];
   }
   return array;
-}
-
-export function osisToNivLong(osis: string): string {
-  return osisToEn("niv-long", osis);
-}
-
-export function makeGPromise({
-  reference,
-  source,
-}: {
-  reference: string;
-  source: string;
-}): BaseGPromise | null {
-  try {
-    const osis: string = bcv.parse(reference).osis();
-    const niv = osisToNivLong(osis);
-    if (!niv.includes(":")) {
-      console.log(`Skipping '${niv}', full chapter and no specific verses.`);
-      return null;
-    }
-    return {
-      niv,
-      osis,
-      source,
-    };
-  } catch (err) {
-    console.log(`makePromise failed on reference '${reference}'`, err);
-    return null;
-  }
 }
 
 export function getReferences(data: string, source: string): BaseGPromise[] {

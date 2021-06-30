@@ -16,7 +16,7 @@ export type RecentSearchResult = {
   tweets: Tweet[];
   meta: Meta;
 };
-type Options = {
+export type Options = {
   since_id?: string;
   max_results?: number;
 };

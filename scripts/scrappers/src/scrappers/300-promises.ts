@@ -1,6 +1,10 @@
 import axios from "axios";
 import cheerio from "cheerio";
-import { BaseGPromise, makeGPromise, writeData } from "../helpers";
+import { writeData } from "../helpers";
+import {
+  BaseGPromise,
+  makeGPromise,
+} from "@mauriciorobayo/gods-promises/lib/utils";
 
 const url = "https://believersportal.com/list-of-3000-promises-in-the-bible/";
 

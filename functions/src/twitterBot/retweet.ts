@@ -1,14 +1,8 @@
 import {DocumentReference} from "@google-cloud/firestore";
+import {makeGPromise} from "@mauriciorobayo/gods-promises/lib/utils";
 import admin from "firebase-admin";
 import * as functions from "firebase-functions";
-import {Meta, searchRecent} from "./api";
-const BcvParser =
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
-
-const bcv = new BcvParser();
+import {Meta, Options, searchRecent} from "./api";
 
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
@@ -22,9 +16,9 @@ class SearchHistory {
   }
 
   async getLastSearchMeta(): Promise<Meta | undefined> {
-    const doc = await this.docRef.get();
-    const data = doc.data();
-    return data as Meta | undefined;
+    // const doc = await this.docRef.get();
+    // const data = doc.data();
+    return undefined; // data as Meta | undefined;
   }
 
   setLastSearchMeta(meta: Meta): Promise<FirebaseFirestore.WriteResult> {
@@ -44,9 +38,13 @@ export const retweet = functions.pubsub
 
 async function retweetHashtag(hashtag: string) {
   const lastSearchMeta = await searchHistory.getLastSearchMeta();
-  const options = lastSearchMeta?.newestId
-    ? {since_id: lastSearchMeta.newestId}
-    : {};
+  const options: Options = {
+    max_results: 100,
+  };
+
+  if (lastSearchMeta?.newestId) {
+    options.since_id = lastSearchMeta.newestId;
+  }
 
   try {
     const {meta, tweets} = await searchRecent(
@@ -58,13 +56,22 @@ async function retweetHashtag(hashtag: string) {
       return;
     }
 
-    await searchHistory.setLastSearchMeta(meta);
+    // await searchHistory.setLastSearchMeta(meta);
 
-    tweets.forEach((tweet) => {
-      const osis: string = bcv.parse(tweet.text).osis();
+    const gPromises = tweets
+      .map((tweet) => {
+        const gPromise = makeGPromise({
+          reference: tweet.text,
+          source: `Twitter: ${tweet.id}`,
+        });
 
-      console.log({text: tweet.text, osis});
-    });
+        return {tweet, gPromise};
+      })
+      .filter((result) => result.gPromise);
+
+    console.log("👉", gPromises.length);
+
+    console.log(gPromises);
 
     await searchHistory.setLastSearchMeta(meta);
   } catch (err) {
