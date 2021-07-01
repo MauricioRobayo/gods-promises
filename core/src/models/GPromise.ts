@@ -1,4 +1,5 @@
 import { BibleId, Bibles } from "../types";
+import { WithId, ObjectId } from "mongodb";
 
 type Passage = {
   text: string;
@@ -21,22 +22,23 @@ export type GPromiseDTO = {
 };
 
 export type IGPromise = {
-  _id: string;
   osis: string;
   niv: string;
   source: string;
   content?: Content;
+  pubId: string;
 };
 
 export class GPromise {
-  _id: string;
+  private _id: ObjectId;
   osis: string;
   niv: string;
   source: string;
   content: Content;
+  pubId: string;
 
   constructor(
-    { _id, osis, niv, source, content = {} }: IGPromise,
+    { _id, osis, niv, source, pubId, content = {} }: WithId<IGPromise>,
     private bibles: Bibles
   ) {
     this._id = _id;
@@ -44,6 +46,7 @@ export class GPromise {
     this.niv = niv;
     this.source = source;
     this.content = content;
+    this.pubId = pubId;
   }
 
   toDTO(): GPromiseDTO {
@@ -66,7 +69,7 @@ export class GPromise {
     ) as DTOContent;
 
     return {
-      id: this._id,
+      id: this.pubId,
       source: this.source,
       content,
     };

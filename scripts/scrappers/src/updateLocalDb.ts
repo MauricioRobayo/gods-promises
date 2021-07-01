@@ -1,6 +1,9 @@
 import yargs from "yargs";
 import sampleSize from "lodash/sampleSize";
-import { gPromisesFromFiles, updateDb } from "./helpers";
+import { gPromisesFromFiles } from "./helpers";
+import { GPromisesRepository } from "@mauriciorobayo/gods-promises/lib/repositories";
+
+const gPromisesRepository = new GPromisesRepository();
 
 (async () => {
   const args = await Promise.resolve(
@@ -21,7 +24,9 @@ import { gPromisesFromFiles, updateDb } from "./helpers";
   const sample = n <= 0 ? gPromises : sampleSize(gPromises, n);
 
   try {
-    const result = await updateDb(sample, "mongodb://localhost:27017");
+    const result = await gPromisesRepository.insertMany(sample, {
+      ordered: false,
+    });
     console.log({ insertedCount: result.insertedCount });
     process.exit();
   } catch (err) {

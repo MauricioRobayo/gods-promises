@@ -1,10 +1,11 @@
-import { BaseGPromise, makeGPromise } from "./makeGPromise";
+import { makeGPromise } from "./makeGPromise";
+import { IGPromise } from "../models";
 const bcv_parser =
   require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
 
 const bcv = new bcv_parser();
 
-function isGPromise(gPromise: any): gPromise is BaseGPromise {
+function isGPromise(gPromise: any): gPromise is IGPromise {
   return (
     typeof gPromise?.niv === "string" &&
     typeof gPromise?.osis === "string" &&
@@ -12,7 +13,7 @@ function isGPromise(gPromise: any): gPromise is BaseGPromise {
   );
 }
 
-export function getReferences(data: string, source: string): BaseGPromise[] {
+export function getReferences(data: string, source: string): IGPromise[] {
   const refs: string[] = bcv.parse(data).osis().split(",");
   const promises = refs
     .map((reference) =>

@@ -9,7 +9,8 @@ import { GODS_PROMISES_DATABASE } from "../config";
 
 export interface IRepository<T> {
   insertMany: (
-    data: OptionalId<T>[]
+    data: OptionalId<T>[],
+    options: CollectionInsertManyOptions
   ) => Promise<InsertWriteOpResult<WithId<T>>>;
 }
 

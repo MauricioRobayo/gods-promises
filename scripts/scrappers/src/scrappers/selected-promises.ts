@@ -1,15 +1,13 @@
 import axios from "axios";
 import cheerio from "cheerio";
 import { writeData } from "../helpers";
-import {
-  BaseGPromise,
-  makeGPromise,
-} from "@mauriciorobayo/gods-promises/lib/utils";
+import { makeGPromise } from "@mauriciorobayo/gods-promises/lib/utils";
+import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
 
 const url = "https://bible.org/article/selected-promises-god-each-book-bible";
 axios.get(url).then(({ data }) => {
   let book = "";
-  const gPromises: BaseGPromise[] = [];
+  const gPromises: IGPromise[] = [];
   const $ = cheerio.load(data);
   $(
     "#block-system-main > div > div > article > div.field.field-name-body.field-type-text-with-summary.field-label-hidden > div > div"
