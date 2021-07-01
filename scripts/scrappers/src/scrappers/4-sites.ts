@@ -1,4 +1,7 @@
-import { getReferences } from "@mauriciorobayo/gods-promises/lib/utils";
+import {
+  getOsisReferences,
+  gPromisesFromOsisReferences,
+} from "@mauriciorobayo/gods-promises/lib/utils";
 import axios from "axios";
 import { writeData } from "../helpers";
 
@@ -12,8 +15,9 @@ const urls = [
 Promise.all(
   urls.map(async (url) => {
     const { data } = await axios.get(url);
-    return getReferences(data, url);
+    const osisReferences = getOsisReferences(data);
+    return gPromisesFromOsisReferences(osisReferences, url);
   })
-).then((references) => {
-  writeData(references.flat(), "4-sites.json");
+).then((gPromises) => {
+  writeData(gPromises.flat(), "4-sites.json");
 });

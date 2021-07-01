@@ -1,2 +1,1 @@
-export * from "./makeGPromise";
-export * from "./getReferences";
+export * from "./bible-reference-parser";

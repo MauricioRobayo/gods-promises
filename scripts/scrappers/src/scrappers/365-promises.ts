@@ -1,7 +1,10 @@
 import axios from "axios";
 const url = "https://www.365promises.com";
 import { writeData } from "../helpers";
-import { getReferences } from "@mauriciorobayo/gods-promises/lib/utils";
+import {
+  getOsisReferences,
+  gPromisesFromOsisReferences,
+} from "@mauriciorobayo/gods-promises/lib/utils";
 
 const months = [
   "january",
@@ -22,9 +25,10 @@ Promise.all(
   months.map(async (month) => {
     const source = `${url}/${month}-devotionals.html`;
     const { data } = await axios.get(source);
-    const references = getReferences(data, source);
-    return references;
+    const references = getOsisReferences(data);
+    const gPromises = gPromisesFromOsisReferences(references, source);
+    return gPromises;
   })
-).then((references) => {
-  writeData(references.flat(), `365-promises.json`);
+).then((gPromises) => {
+  writeData(gPromises.flat(), `365-promises.json`);
 });

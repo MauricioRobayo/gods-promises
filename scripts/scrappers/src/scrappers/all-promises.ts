@@ -1,7 +1,10 @@
 import axios from "axios";
 import cheerio from "cheerio";
 import { writeData } from "../helpers";
-import { makeGPromise } from "@mauriciorobayo/gods-promises/lib/utils";
+import {
+  getOsisReference,
+  gPromiseFromOsisReference,
+} from "@mauriciorobayo/gods-promises/lib/utils";
 import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
 
 const url =
@@ -20,10 +23,10 @@ axios.get(url).then(({ data }) => {
       }
 
       if (book.toLowerCase() === "my favorite promises") {
-        const reference = $el.find("strong").text();
-        const promise = makeGPromise({ reference, source: url });
-        if (promise) {
-          promises.push(promise);
+        const osis = getOsisReference($el.find("strong").text());
+        const gPromise = gPromiseFromOsisReference({ osis, source: url });
+        if (gPromise) {
+          promises.push(gPromise);
         }
         return;
       }
@@ -31,10 +34,10 @@ axios.get(url).then(({ data }) => {
       const match = $el.text().match(/^([0-9:,;-]+)/);
       if (book && match) {
         const verses = match[1];
-        const reference = `${book} ${verses}`;
-        const promise = makeGPromise({ reference, source: url });
-        if (promise) {
-          promises.push(promise);
+        const osis = getOsisReference(`${book} ${verses}`);
+        const gPromise = gPromiseFromOsisReference({ osis, source: url });
+        if (gPromise) {
+          promises.push(gPromise);
         }
       }
     });

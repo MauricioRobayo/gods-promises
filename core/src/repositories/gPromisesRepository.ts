@@ -31,14 +31,31 @@ export class GPromisesRepository extends GenericRepository<IGPromise> {
     return promises.map((promise) => new GPromise(promise, bibles));
   }
 
-  async generatePubId(): Promise<string> {
-    const id = nanoid(8);
+  async generatePubId(maxDepth = 10): Promise<string> {
+    return await this.generatePubIdHelper(0, maxDepth);
+  }
+
+  private async generatePubIdHelper(
+    depth: number,
+    maxDepth: number
+  ): Promise<string> {
+    if (depth === maxDepth) {
+      throw new Error(
+        "GPromisesRepository.generatePubId: maxDepth reached! Could not find available pubId."
+      );
+    }
+
+    const id = GPromisesRepository.pubIdGenerator();
     const gPromise = await this.getGPromiseById(id);
 
     if (!gPromise) {
       return id;
     }
 
-    return this.generatePubId();
+    return this.generatePubIdHelper(depth + 1, maxDepth);
+  }
+
+  static pubIdGenerator(): string {
+    return nanoid(8);
   }
 }
