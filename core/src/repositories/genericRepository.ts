@@ -31,9 +31,13 @@ export class GenericRepository<T> implements IRepository<T> {
     data: OptionalId<T>[],
     options: CollectionInsertManyOptions = {}
   ): Promise<InsertWriteOpResult<WithId<T>>> {
+    const collection = await this.getCollection();
+    return collection.insertMany(data, options);
+  }
+
+  protected async getCollection() {
     const client = await this.client;
     const db = client.db(GODS_PROMISES_DATABASE);
-    const collection = db.collection<T>(this.collection);
-    return collection.insertMany(data, options);
+    return db.collection<T>(this.collection);
   }
 }

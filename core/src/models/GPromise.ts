@@ -1,5 +1,4 @@
 import { BibleId, Bibles } from "../types";
-import { WithId, ObjectId } from "mongodb";
 
 type Passage = {
   text: string;
@@ -30,7 +29,6 @@ export type IGPromise = {
 };
 
 export class GPromise {
-  private _id: ObjectId;
   osis: string;
   niv: string;
   source: string;
@@ -38,10 +36,9 @@ export class GPromise {
   pubId: string;
 
   constructor(
-    { _id, osis, niv, source, pubId, content = {} }: WithId<IGPromise>,
+    { osis, niv, source, pubId, content = {} }: IGPromise,
     private bibles: Bibles
   ) {
-    this._id = _id;
     this.osis = osis;
     this.niv = niv;
     this.source = source;
