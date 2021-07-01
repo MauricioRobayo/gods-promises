@@ -1,1 +1,0 @@
-import {getGPromisesCollection} from "../utils";

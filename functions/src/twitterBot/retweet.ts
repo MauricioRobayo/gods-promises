@@ -1,5 +1,8 @@
 import {DocumentReference} from "@google-cloud/firestore";
-import {getReferences} from "@mauriciorobayo/gods-promises/lib/utils";
+import {
+  getOsisReference,
+  gPromiseFromOsisReference,
+} from "@mauriciorobayo/gods-promises/lib/utils";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import admin from "firebase-admin";
 import * as functions from "firebase-functions";
@@ -64,7 +67,11 @@ async function retweetHashtag(hashtag: string) {
 
     const gPromises = tweets
       .map((tweet) => {
-        const gPromises = getReferences(tweet.text, `tweetId: ${tweet.id}`);
+        const osis = getOsisReference(tweet.text);
+        const gPromise = gPromiseFromOsisReference({
+          osis,
+          source: `tweetId: ${tweet.id}`,
+        });
 
         return {tweet, gPromises};
       })

@@ -33,7 +33,7 @@ export const updateMissingContent = async (
       }
     : content;
   await gPromisesCollection.updateOne(
-    {_id: gPromise._id},
+    {pubId: gPromise.pubId},
     {
       $set: {
         content: newContent,

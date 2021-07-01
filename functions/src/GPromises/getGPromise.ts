@@ -1,12 +1,14 @@
 import * as functions from "firebase-functions";
 import {GPromiseDTO} from "@mauriciorobayo/gods-promises/lib/models";
 import {HttpsError} from "firebase-functions/lib/providers/https";
-import {getGPromiseById} from "../queries";
+import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import {updateMissingContent} from "./utils";
+
+const gPromisesRepository = new GPromisesRepository();
 
 export const getGPromise = functions.https.onCall(
   async (gPromiseId: string): Promise<GPromiseDTO> => {
-    const gPromise = await getGPromiseById(gPromiseId);
+    const gPromise = await gPromisesRepository.getGPromiseById(gPromiseId);
 
     if (!gPromise) {
       throw new HttpsError(
