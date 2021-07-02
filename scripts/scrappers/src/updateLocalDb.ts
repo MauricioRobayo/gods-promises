@@ -4,7 +4,9 @@ import { gPromisesFromFiles } from "./helpers";
 import { GPromisesRepository } from "@mauriciorobayo/gods-promises/lib/repositories";
 import { insertGPromises } from "./updateProdDb";
 
-const gPromisesRepository = new GPromisesRepository();
+const gPromisesRepository = new GPromisesRepository(
+  "mongodb://localhost:27017"
+);
 
 (async () => {
   const args = await Promise.resolve(
