@@ -33,6 +33,8 @@ const urls = [
   "https://www.biblestudytools.com/topical-verses/gods-promises-verses-in-the-bible/",
   "https://www.christianity.com/wiki/bible/what-are-god-s-promises-in-the-bible.html",
   "https://www.compassionuk.org/blogs/gods-promises/",
+  "https://www.bibleinfo.com/en/topics/bible-promises",
+  "https://bibleverses70.com/biblical-promises/",
 ];
 
 console.log(`Parsing ${urls.length} urls...`);
