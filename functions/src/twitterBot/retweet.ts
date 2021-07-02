@@ -7,7 +7,6 @@ import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositorie
 import admin from "firebase-admin";
 import * as functions from "firebase-functions";
 import {Meta, Options, searchRecent, Tweet} from "./api";
-import {IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
 
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
