@@ -1,11 +1,11 @@
 export function formatPassage(passage: string): string {
-  const trimmedPassage = passage.trim();
-  const formattedText =
-    trimmedPassage[0].toLocaleUpperCase() !== trimmedPassage[0]
-      ? `…${trimmedPassage}`
-      : trimmedPassage;
-  return formattedText
+  const formattedText = passage
+    .trim()
     .replace("¶", "")
     .replace(/[;:,]$/, "")
+    .trim()
     .replace(/([\w])$/, "$1…");
+  return formattedText[0].toLocaleUpperCase() !== formattedText[0]
+    ? `…${formattedText}`
+    : formattedText;
 }
