@@ -14,32 +14,33 @@ type DTOContent = Record<
   }
 >;
 
+export type Source = {
+  [key: string]: string;
+};
+
 export type GPromiseDTO = {
   id: string;
-  source: string;
+  source: Source;
   content: DTOContent;
 };
 
 export type IGPromise = {
-  osis: string;
   niv: string;
-  source: string;
+  source: Source;
   content?: Content;
   pubId: string;
 };
 
 export class GPromise {
-  osis: string;
   niv: string;
-  source: string;
+  source: Source;
   content: Content;
   pubId: string;
 
   constructor(
-    { osis, niv, source, pubId, content = {} }: IGPromise,
+    { niv, source, pubId, content = {} }: IGPromise,
     private bibles: Bibles
   ) {
-    this.osis = osis;
     this.niv = niv;
     this.source = source;
     this.content = content;
