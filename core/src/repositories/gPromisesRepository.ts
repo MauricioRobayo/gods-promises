@@ -9,7 +9,7 @@ import { GenericRepository } from "./genericRepository";
 import { GPromise } from "../models";
 
 export class GPromisesRepository extends GenericRepository<IGPromise> {
-  constructor(mongodbUri = "mongodb://localhost:27017") {
+  constructor(mongodbUri: string) {
     super(mongodbUri, G_PROMISES_COLLECTION);
   }
 

@@ -19,10 +19,7 @@ export interface IRepository<T> {
 
 export class GenericRepository<T> implements IRepository<T> {
   protected client: Promise<MongoClient>;
-  constructor(
-    mongodbUri: string = "mongodb://localhost:27017",
-    protected collection: string
-  ) {
+  constructor(mongodbUri: string, protected collection: string) {
     const client = new MongoClient(mongodbUri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
