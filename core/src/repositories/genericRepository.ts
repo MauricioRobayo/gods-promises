@@ -15,10 +15,10 @@ export interface IRepository<T> {
 }
 
 export class GenericRepository<T> implements IRepository<T> {
-  private client: Promise<MongoClient>;
+  protected client: Promise<MongoClient>;
   constructor(
     mongodbUri: string = "mongodb://localhost:27017",
-    private collection: string
+    protected collection: string
   ) {
     const client = new MongoClient(mongodbUri, {
       useNewUrlParser: true,
@@ -39,15 +39,6 @@ export class GenericRepository<T> implements IRepository<T> {
     const client = await this.client;
     const db = client.db(GODS_PROMISES_DATABASE);
     const collection = db.collection<T>(this.collection);
-
-    if (!collection.indexExists("niv")) {
-      collection.createIndex("niv", { unique: true, name: "niv" });
-    }
-
-    if (!collection.indexExists("pubId")) {
-      collection.createIndex("pubId", { unique: true, name: "pubId" });
-    }
-
     return collection;
   }
 }
