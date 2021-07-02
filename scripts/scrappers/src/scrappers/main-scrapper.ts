@@ -5,7 +5,23 @@ import {
 import axios from "axios";
 import { writeData } from "../helpers";
 
+const devotionals = [
+  "january",
+  "february",
+  "march",
+  "april",
+  "may",
+  "june",
+  "july",
+  "august",
+  "september",
+  "october",
+  "november",
+  "december",
+].map((month) => `https://www.365promises.com/${month}-devotionals.html`);
+
 const urls = [
+  ...devotionals,
   "https://arabahjoy.com/gods-promises-in-scripture/",
   "https://davidjeremiah.blog/40-bible-verses-for-navigating-gods-promises-and-blessings/",
   "https://garmentsofsplendor.com/promises-of-god/",
