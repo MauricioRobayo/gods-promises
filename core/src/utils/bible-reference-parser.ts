@@ -1,11 +1,12 @@
 import osisToEn from "bible-reference-formatter";
-import { IGPromise } from "../models";
+import { IGPromise, Source } from "../models";
+import { GPromisesRepository } from "../repositories";
 const bcv_parser =
   require("bible-passage-reference-parser/js/en_bcv_parser").bcv_parser;
 
 const bcv = new bcv_parser();
 
-export function getReference(text: string): string[] {
+export function getReferences(text: string): string[] {
   try {
     const osis: string = bcv.parse(text).osis();
 
@@ -13,9 +14,9 @@ export function getReference(text: string): string[] {
       return [];
     }
 
-    const osisRefs = osis.split(",");
+    const osisRefs = new Set(osis.split(","));
 
-    const nivRefs = osisRefs
+    const nivRefs = [...osisRefs]
       .map(osisToNivLong)
       .filter((niv) => niv.includes(":"));
 
@@ -24,6 +25,19 @@ export function getReference(text: string): string[] {
     console.log(`getReference failed on reference '${text}`);
     return [];
   }
+}
+
+export function makeGPromises(
+  nivReferences: string[],
+  source: Source
+): IGPromise[] {
+  return nivReferences.map((nivReference) => {
+    return {
+      niv: nivReference,
+      source,
+      pubId: GPromisesRepository.pubIdGenerator(),
+    };
+  });
 }
 
 function osisToNivLong(osis: string): string {

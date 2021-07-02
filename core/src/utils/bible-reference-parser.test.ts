@@ -1,4 +1,4 @@
-import { getReference } from "./bible-reference-parser";
+import { getReferences } from "./bible-reference-parser";
 
 describe("getReferences", () => {
   const singleReferences = [
@@ -11,9 +11,20 @@ describe("getReferences", () => {
   it.each(singleReferences)(
     "should parse %p into %p",
     (reference, expected) => {
-      expect(getReference(reference)).toEqual(expected);
+      expect(getReferences(reference)).toEqual(expected);
     }
   );
+
+  it("should exclude duplicates", () => {
+    const text = `
+      abc abc Gen 17:4
+      (Gen 17:4)
+      abc abc Gen 17:4,Genesis 17:4 abc abc
+    `;
+    const expected = ["Genesis 17:4"];
+
+    expect(getReferences(text)).toEqual(expected);
+  });
 
   it("should parse simple references", () => {
     const text = `
@@ -21,15 +32,11 @@ describe("getReferences", () => {
       abc (Gen 17: 6)
       abc (Gen 17:6 abc)
       (Gen 17:7) abc
+      abc abc Gen 17:4
     `;
-    const expected = [
-      "Genesis 17:4",
-      "Genesis 17:6",
-      "Genesis 17:6",
-      "Genesis 17:7",
-    ];
+    const expected = ["Genesis 17:4", "Genesis 17:6", "Genesis 17:7"];
 
-    expect(getReference(text)).toEqual(expected);
+    expect(getReferences(text)).toEqual(expected);
   });
 
   it("should parse complex references", () => {
@@ -50,7 +57,7 @@ describe("getReferences", () => {
       "1 Peter 3:2",
     ];
 
-    expect(getReference(text)).toEqual(expected);
+    expect(getReferences(text)).toEqual(expected);
   });
 
   it("should not include chapters without verses", () => {
@@ -69,6 +76,6 @@ describe("getReferences", () => {
       "1 Peter 3:2",
     ];
 
-    expect(getReference(text)).toEqual(expected);
+    expect(getReferences(text)).toEqual(expected);
   });
 });
