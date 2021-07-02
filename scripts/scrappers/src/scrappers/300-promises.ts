@@ -5,14 +5,13 @@ import {
   getReferences,
   makeGPromises,
 } from "@mauriciorobayo/gods-promises/lib/utils";
-import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
 
 const url = "https://believersportal.com/list-of-3000-promises-in-the-bible/";
 
 axios.get(url).then(({ data }) => {
   let book = "";
-  const gPromises: IGPromise[] = [];
   const $ = cheerio.load(data);
+  const uniqueReferences = new Set<string>();
   $(".td-post-content")
     .children()
     .each((_, el) => {
@@ -42,15 +41,15 @@ axios.get(url).then(({ data }) => {
             .match(/\(([v0-9\-;:,. ]+)\)\.?$/);
           if (match) {
             const verses = match[1];
-            const niv = getReferences(`${book} ${verses}`);
-            const promises = makeGPromises(niv, { url });
-            if (promises.length > 0) {
-              gPromises.push(...promises);
-            }
+            const references = getReferences(`${book} ${verses}`);
+            references.forEach((reference) => {
+              uniqueReferences.add(reference);
+            });
           }
         });
       }
     });
 
+  const gPromises = makeGPromises([...uniqueReferences], { url });
   writeData(gPromises, "300-promises.json");
 });
