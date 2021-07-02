@@ -1,1 +1,0 @@
-export {getGPromisesCollection} from "./utils";
