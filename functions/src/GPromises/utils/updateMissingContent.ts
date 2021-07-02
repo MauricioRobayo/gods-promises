@@ -2,21 +2,21 @@ import {GPromise} from "@mauriciorobayo/gods-promises/lib/models";
 import {bibleIds, bibles} from "@mauriciorobayo/gods-promises/lib/config";
 import {BibleSuperSearch} from "../api";
 import {translateReference, getMissingBibles} from ".";
-import {getGPromisesCollection} from "../../utils";
 import {formatPassage} from "./formatPassage";
+import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
+
+const gPromisesRepository = new GPromisesRepository();
 
 const bibleSuperSearch = new BibleSuperSearch({
   bibles,
   translator: translateReference,
   formatter: formatPassage,
 });
-const collection = getGPromisesCollection();
 
 export const updateMissingContent = async (
   gPromise: GPromise
 ): Promise<GPromise> => {
   const missingBibleIds = getMissingBibles(bibleIds, gPromise.content);
-  const gPromisesCollection = await collection;
 
   if (missingBibleIds.length === 0) {
     return gPromise;
@@ -32,7 +32,8 @@ export const updateMissingContent = async (
         ...content,
       }
     : content;
-  await gPromisesCollection.updateOne(
+
+  await gPromisesRepository.updateOne(
     {pubId: gPromise.pubId},
     {
       $set: {

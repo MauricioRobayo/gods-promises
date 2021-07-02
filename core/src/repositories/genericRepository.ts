@@ -4,6 +4,9 @@ import {
   InsertWriteOpResult,
   WithId,
   CollectionInsertManyOptions,
+  FilterQuery,
+  UpdateQuery,
+  UpdateWriteOpResult,
 } from "mongodb";
 import { GODS_PROMISES_DATABASE } from "../config";
 
@@ -33,6 +36,14 @@ export class GenericRepository<T> implements IRepository<T> {
   ): Promise<InsertWriteOpResult<WithId<T>>> {
     const collection = await this.getCollection();
     return collection.insertMany(data, options);
+  }
+
+  async updateOne(
+    filter: FilterQuery<T>,
+    update: UpdateQuery<T>
+  ): Promise<UpdateWriteOpResult> {
+    const collection = await this.getCollection();
+    return collection.updateOne(filter, update);
   }
 
   protected async getCollection() {
