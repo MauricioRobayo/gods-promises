@@ -2,12 +2,17 @@ import {DocumentReference} from "@google-cloud/firestore";
 import {
   getOsisReference,
   gPromiseFromOsisReference,
+  // gPromisesFromOsisReferences,
+  isGPromise,
+  // gPromiseFromOsisReference,
+  // isGPromise,
 } from "@mauriciorobayo/gods-promises/lib/utils";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import admin from "firebase-admin";
 import * as functions from "firebase-functions";
 import {Meta, Options, searchRecent} from "./api";
-import {IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
+// import {IGPromise} from "../../../core/lib/models";
+// import {IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
 
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
@@ -68,18 +73,28 @@ async function retweetHashtag(hashtag: string) {
     const gPromises = tweets
       .map((tweet) => {
         const osis = getOsisReference(tweet.text);
-        const gPromise = gPromiseFromOsisReference({
+        return gPromiseFromOsisReference({
           osis,
-          source: `tweetId: ${tweet.id}`,
+          source: {
+            type: "TwitterBot",
+            id: tweet.id,
+          },
         });
-
-        return {tweet, gPromises};
       })
-      .filter((result) => result.gPromises.length > 0);
+      .filter(isGPromise);
 
-    gPromisesRepository.insertMany(
-      gPromises.map((result) => result.gPromises).flat() as IGPromise[]
-    );
+    console.log(gPromises);
+
+    if (Math.random() > 1) {
+      await gPromisesRepository.insertMany(gPromises);
+    }
+
+    // const validTweets = tweetsAndGPromises.map(({tweet}) => tweet);
+    // const validGPromises = tweetsAndGPromises.map(
+    //   ({gPromise}) => gPromise
+    // ) as IGPromise[];
+
+    // retweet(validTweets);
 
     await searchHistory.setLastSearchMeta(meta);
   } catch (err) {

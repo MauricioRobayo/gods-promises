@@ -5,7 +5,6 @@ import {
   getReferences,
   makeGPromises,
 } from "@mauriciorobayo/gods-promises/lib/utils";
-import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
 
 const url = "https://bible.org/article/selected-promises-god-each-book-bible";
 axios.get(url).then(({ data }) => {
@@ -47,6 +46,6 @@ axios.get(url).then(({ data }) => {
       }
     });
 
-  const gPromises = makeGPromises([...uniqueReferences], { url g});
+  const gPromises = makeGPromises([...uniqueReferences], { url });
   writeData(gPromises, "selected-promises.json");
 });
