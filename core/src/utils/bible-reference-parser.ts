@@ -30,12 +30,11 @@ export function getReferences(text: string): string[] {
 export function makeGPromises(
   nivReferences: string[],
   source: Source
-): IGPromise[] {
+): Omit<IGPromise, "pubId">[] {
   return nivReferences.map((nivReference) => {
     return {
       niv: nivReference,
       source,
-      pubId: GPromisesRepository.pubIdGenerator(),
     };
   });
 }
