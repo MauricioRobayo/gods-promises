@@ -2,8 +2,8 @@ import axios from "axios";
 import cheerio from "cheerio";
 import { writeData } from "../helpers";
 import {
-  gPromiseFromOsisReference,
-  getOsisReference,
+  getReferences,
+  makeGPromises,
 } from "@mauriciorobayo/gods-promises/lib/utils";
 import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
 
@@ -42,10 +42,10 @@ axios.get(url).then(({ data }) => {
             .match(/\(([v0-9\-;:,. ]+)\)\.?$/);
           if (match) {
             const verses = match[1];
-            const osis = getOsisReference(`${book} ${verses}`);
-            const promise = gPromiseFromOsisReference({ osis, source: url });
-            if (promise) {
-              gPromises.push(promise);
+            const niv = getReferences(`${book} ${verses}`);
+            const promises = makeGPromises(niv, { url });
+            if (promises.length > 0) {
+              gPromises.push(...promises);
             }
           }
         });
