@@ -3,41 +3,56 @@ import {
   makeGPromises,
 } from "@mauriciorobayo/gods-promises/lib/utils";
 import axios from "axios";
+import uniqBy from "lodash/uniqBy";
 import { writeData } from "../helpers";
 
-const devotionals = [
-  "january",
-  "february",
-  "march",
-  "april",
-  "may",
-  "june",
-  "july",
-  "august",
-  "september",
-  "october",
-  "november",
-  "december",
-].map((month) => `https://www.365promises.com/${month}-devotionals.html`);
-
 const urls = [
-  ...devotionals,
+  ...Array.from({ length: 147 }, (_, i) => i + 1).map(
+    (page) => `https://dailybiblepromise.com/page/${page}/`
+  ),
+  ...[
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
+  ].map((month) => `https://www.365promises.com/${month}-devotionals.html`),
   "https://arabahjoy.com/gods-promises-in-scripture/",
   "https://davidjeremiah.blog/40-bible-verses-for-navigating-gods-promises-and-blessings/",
   "https://garmentsofsplendor.com/promises-of-god/",
   "https://lisaappelo.com/40-promises-of-god-when-you-need-hope/",
   "https://outuponthewaters.com/160-promises-of-god-from-scripture/",
+  "https://recursoscristianosweb.com/versiculos-de-la-biblia/promesas-biblicas/",
   "https://www.biblestudytools.com/topical-verses/gods-promises-verses-in-the-bible/",
   "https://www.christianity.com/wiki/bible/what-are-god-s-promises-in-the-bible.html",
   "https://www.compassionuk.org/blogs/gods-promises/",
 ];
 
+console.log(`Parsing ${urls.length} urls...`);
+
 Promise.all(
   urls.map(async (url) => {
-    const { data } = await axios.get(url);
-    const osisReferences = getReferences(data);
-    return makeGPromises(osisReferences, { url });
+    try {
+      const { data } = await axios.get(url);
+      return getReferences(data);
+    } catch (e) {
+      console.log(`Request to ${url} failed!`, e);
+      return [];
+    }
   })
-).then((gPromises) => {
-  writeData(gPromises.flat(), "4-sites.json");
-});
+)
+  .then((references) => {
+    const gPromises = references
+      .map((refs, i) => makeGPromises(refs, { url: urls[i] }))
+      .flat();
+    const uniqueGPromises = uniqBy(gPromises, "niv");
+    return writeData(uniqueGPromises, "main-scrapper.json");
+  })
+  .then(() => console.log("Done!"));
