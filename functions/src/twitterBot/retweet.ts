@@ -1,18 +1,13 @@
 import {DocumentReference} from "@google-cloud/firestore";
 import {
-  getOsisReference,
-  gPromiseFromOsisReference,
-  // gPromisesFromOsisReferences,
-  isGPromise,
-  // gPromiseFromOsisReference,
-  // isGPromise,
+  getReferences,
+  makeGPromises,
 } from "@mauriciorobayo/gods-promises/lib/utils";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import admin from "firebase-admin";
 import * as functions from "firebase-functions";
-import {Meta, Options, searchRecent} from "./api";
-// import {IGPromise} from "../../../core/lib/models";
-// import {IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
+import {Meta, Options, searchRecent, Tweet} from "./api";
+import {IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
 
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
@@ -43,7 +38,7 @@ const addHashtagIfMissing = (hashtag: string): string =>
   hashtag.startsWith("#") ? hashtag : `#${hashtag}`;
 
 export const retweet = functions.pubsub
-  .schedule("every 5 minutes")
+  .schedule("every 25 minutes")
   .onRun(() => {
     retweetHashtag("GodsPromises");
   });
@@ -68,38 +63,39 @@ async function retweetHashtag(hashtag: string) {
       return;
     }
 
-    // await searchHistory.setLastSearchMeta(meta);
-
-    const gPromises = tweets
+    const tweetsWithReferences: {tweet: Tweet; references: string[]}[] = tweets
       .map((tweet) => {
-        const osis = getOsisReference(tweet.text);
-        return gPromiseFromOsisReference({
-          osis,
-          source: {
-            type: "TwitterBot",
-            id: tweet.id,
-          },
+        const references = getReferences(tweet.text);
+        return {
+          references,
+          tweet,
+        };
+      })
+      .filter(({references}) => references.length > 0);
+
+    // TODO: Retweet
+    tweetsWithReferences.map(({tweet}) => {
+      console.log(`Retweeting tweet id ${tweet.id}`);
+    });
+
+    const gPromises = tweetsWithReferences
+      .map(({tweet, references}) => {
+        return makeGPromises(references, {
+          type: "tweet",
+          id: tweet.id,
         });
       })
-      .filter(isGPromise);
+      .flat();
 
-    console.log(gPromises);
-
-    if (Math.random() > 1) {
-      await gPromisesRepository.insertMany(gPromises);
-    }
-
-    // const validTweets = tweetsAndGPromises.map(({tweet}) => tweet);
-    // const validGPromises = tweetsAndGPromises.map(
-    //   ({gPromise}) => gPromise
-    // ) as IGPromise[];
-
-    // retweet(validTweets);
-
+    const results = await gPromisesRepository.insertManyCheckUniqueness(
+      gPromises
+    );
+    functions.logger.info(`Inserted ${results.insertedIds.length} IGPromises`);
+    functions.logger.info(`Skipped ${results.skippedNivs.length} IGPromises`);
     await searchHistory.setLastSearchMeta(meta);
   } catch (err) {
     console.log(err);
   }
 }
 
-retweetHashtag("GodsPromises");
+retweetHashtag("GodsPromises").then(() => process.exit());
