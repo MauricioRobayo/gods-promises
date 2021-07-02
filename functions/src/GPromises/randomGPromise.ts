@@ -1,5 +1,4 @@
 import * as functions from "firebase-functions";
-import {getGPromisesCollection} from "../utils";
 import {updateMissingContent} from "./utils";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import {GPromiseDTO} from "@mauriciorobayo/gods-promises/lib/models";
@@ -8,7 +7,6 @@ const gPromisesRepository = new GPromisesRepository();
 
 export const randomGPromise = functions.https.onRequest(
   async (_req: functions.Request, res: functions.Response<GPromiseDTO>) => {
-    const gPromisesCollection = await getGPromisesCollection();
     const randomGPromises = await gPromisesRepository.getRandomPromises(100);
 
     for (const randomGPromise of randomGPromises) {
@@ -22,7 +20,7 @@ export const randomGPromise = functions.https.onRequest(
             randomGPromise.pubId
           }': ${JSON.stringify(err)}`
         );
-        await gPromisesCollection.updateOne(
+        await gPromisesRepository.updateOne(
           {pubId: randomGPromise.pubId},
           {
             $set: {
