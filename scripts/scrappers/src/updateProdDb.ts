@@ -37,6 +37,15 @@ dotenv.config();
     console.log({ insertedCount: result.insertedCount });
     process.exit();
   } catch (err) {
+    if (err.code === 11000) {
+      const { result } = err.result;
+      console.log({
+        ok: result.ok,
+        writeErrors: result.writeErrors.length,
+        insertedIds: result.insertedIds.length,
+      });
+      process.exit();
+    }
     console.error(err);
     process.exit(1);
   }
