@@ -2,6 +2,7 @@ import yargs from "yargs";
 import sampleSize from "lodash/sampleSize";
 import { gPromisesFromFiles } from "./helpers";
 import { GPromisesRepository } from "@mauriciorobayo/gods-promises/lib/repositories";
+import { insertGPromises } from "./updateProdDb";
 
 const gPromisesRepository = new GPromisesRepository();
 
@@ -23,23 +24,5 @@ const gPromisesRepository = new GPromisesRepository();
 
   const sample = n <= 0 ? gPromises : sampleSize(gPromises, n);
 
-  try {
-    const result = await gPromisesRepository.insertMany(sample, {
-      ordered: false,
-    });
-    console.log({ insertedCount: result.insertedCount });
-    process.exit();
-  } catch (err) {
-    if (err.code === 11000) {
-      const { result } = err.result;
-      console.log({
-        ok: result.ok,
-        writeErrors: result.writeErrors.length,
-        insertedIds: result.insertedIds.length,
-      });
-      process.exit();
-    }
-    console.error(err);
-    process.exit(1);
-  }
+  await insertGPromises(sample, gPromisesRepository);
 })();

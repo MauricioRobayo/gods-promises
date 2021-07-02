@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import yargs from "yargs";
 import { gPromisesFromFiles } from "./helpers";
 import { GPromisesRepository } from "@mauriciorobayo/gods-promises/lib/repositories";
+import { IGPromise } from "../../../core/lib/models";
 
 dotenv.config();
 
@@ -30,6 +31,13 @@ dotenv.config();
 
   const gPromises = await gPromisesFromFiles(files);
 
+  await insertGPromises(gPromises, gPromisesRepository);
+})();
+
+export async function insertGPromises(
+  gPromises: IGPromise[],
+  gPromisesRepository: GPromisesRepository
+) {
   try {
     const result = await gPromisesRepository.insertMany(gPromises, {
       ordered: false,
@@ -49,4 +57,4 @@ dotenv.config();
     console.error(err);
     process.exit(1);
   }
-})();
+}
