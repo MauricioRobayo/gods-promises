@@ -38,6 +38,16 @@ export class GenericRepository<T> implements IRepository<T> {
   protected async getCollection() {
     const client = await this.client;
     const db = client.db(GODS_PROMISES_DATABASE);
-    return db.collection<T>(this.collection);
+    const collection = db.collection<T>(this.collection);
+
+    if (!collection.indexExists("niv")) {
+      collection.createIndex("niv", { unique: true, name: "niv" });
+    }
+
+    if (!collection.indexExists("pubId")) {
+      collection.createIndex("pubId", { unique: true, name: "pubId" });
+    }
+
+    return collection;
   }
 }
