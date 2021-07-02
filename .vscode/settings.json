@@ -1,8 +1,5 @@
 {
-  "eslint.workingDirectories": [
-    "functions",
-    "client"
-  ],
+  "eslint.workingDirectories": ["functions", "client", "core"],
   "cSpell.words": [
     "Cardo",
     "Lato",
