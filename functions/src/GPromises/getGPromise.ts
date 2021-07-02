@@ -4,7 +4,9 @@ import {HttpsError} from "firebase-functions/lib/providers/https";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import {updateMissingContent} from "./utils";
 
-const gPromisesRepository = new GPromisesRepository();
+const gPromisesRepository = new GPromisesRepository(
+  functions.config().mongodb.uri
+);
 
 export const getGPromise = functions.https.onCall(
   async (gPromiseId: string): Promise<GPromiseDTO> => {

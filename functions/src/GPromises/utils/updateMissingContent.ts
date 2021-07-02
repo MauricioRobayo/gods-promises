@@ -1,3 +1,4 @@
+import * as functions from "firebase-functions";
 import {GPromise} from "@mauriciorobayo/gods-promises/lib/models";
 import {bibleIds, bibles} from "@mauriciorobayo/gods-promises/lib/config";
 import {BibleSuperSearch} from "../api";
@@ -5,7 +6,9 @@ import {translateReference, getMissingBibles} from ".";
 import {formatPassage} from "./formatPassage";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 
-const gPromisesRepository = new GPromisesRepository();
+const gPromisesRepository = new GPromisesRepository(
+  functions.config().mongodb.uri
+);
 
 const bibleSuperSearch = new BibleSuperSearch({
   bibles,

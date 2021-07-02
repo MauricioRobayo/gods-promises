@@ -13,7 +13,9 @@ admin.initializeApp({
   databaseURL: "https://promises-edfea.firebaseio.com",
 });
 
-const gPromisesRepository = new GPromisesRepository();
+const gPromisesRepository = new GPromisesRepository(
+  functions.config().mongodb.uri
+);
 
 class SearchHistory {
   private docRef: DocumentReference<FirebaseFirestore.DocumentData>;

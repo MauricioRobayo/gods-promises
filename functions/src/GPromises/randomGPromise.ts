@@ -3,7 +3,9 @@ import {updateMissingContent} from "./utils";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import {GPromiseDTO} from "@mauriciorobayo/gods-promises/lib/models";
 
-const gPromisesRepository = new GPromisesRepository();
+const gPromisesRepository = new GPromisesRepository(
+  functions.config().mongodb.uri
+);
 
 export const randomGPromise = functions.https.onRequest(
   async (_req: functions.Request, res: functions.Response<GPromiseDTO>) => {
