@@ -23,9 +23,9 @@ axios.get(url).then(({ data }) => {
 
       if (book.toLowerCase() === "my favorite promises") {
         const references = getReferences($el.find("strong").text());
-        references.forEach((reference) => {
+        for (const reference of references) {
           uniqueReferences.add(reference);
-        });
+        }
         return;
       }
 
@@ -33,9 +33,9 @@ axios.get(url).then(({ data }) => {
       if (book && match) {
         const verses = match[1];
         const references = getReferences(`${book} ${verses}`);
-        references.forEach((reference) => {
+        for (const reference of references) {
           uniqueReferences.add(reference);
-        });
+        }
       }
     });
 

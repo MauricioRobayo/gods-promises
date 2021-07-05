@@ -82,10 +82,10 @@ export const nivLongToSpanish = (passage: string): string => {
 
   let translatedPassage = passage;
 
-  Object.entries(translation).forEach(([en, es]) => {
+  for (const [en, es] of Object.entries(translation)) {
     const regexp = new RegExp(en, "g");
     translatedPassage = translatedPassage.replace(regexp, es);
-  });
+  }
 
   if (passage === translatedPassage) {
     throw new Error(`Could not find spanish translation for ${passage}!`);

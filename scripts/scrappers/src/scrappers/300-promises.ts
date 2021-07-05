@@ -42,9 +42,9 @@ axios.get(url).then(({ data }) => {
           if (match) {
             const verses = match[1];
             const references = getReferences(`${book} ${verses}`);
-            references.forEach((reference) => {
+            for (const reference of references) {
               uniqueReferences.add(reference);
-            });
+            }
           }
         });
       }

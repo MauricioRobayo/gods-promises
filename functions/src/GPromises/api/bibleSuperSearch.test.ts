@@ -80,13 +80,13 @@ describe("bibleSuperSearch", () => {
     expect(mockedGet).toBeCalledWith(expectedApiUrl);
     expect(mockFormatter).toBeCalledTimes(1);
     expect(mockTranslator).toBeCalledTimes(1);
-    requestedBibles.forEach((bible) => {
+    for (const bible of requestedBibles) {
       expect(mockFormatter).toBeCalledWith(expected[bible]?.text);
       expect(mockTranslator).toBeCalledWith(
         bibles[bible].lang,
         requestedReference
       );
-    });
+    }
   });
   it("should return the correct response for two bibles", async () => {
     const requestedBibles: BibleId[] = ["kjv", "rvg"];
@@ -173,12 +173,12 @@ describe("bibleSuperSearch", () => {
     expect(mockedGet).toBeCalledWith(expectedApiUrl);
     expect(mockTranslator).toBeCalledTimes(2);
     expect(mockFormatter).toBeCalledTimes(2);
-    requestedBibles.forEach((bible) => {
+    for (const bible of requestedBibles) {
       expect(mockFormatter).toBeCalledWith(expected[bible]?.text);
       expect(mockTranslator).toBeCalledWith(
         bibles[bible].lang,
         requestedReference
       );
-    });
+    }
   });
 });
