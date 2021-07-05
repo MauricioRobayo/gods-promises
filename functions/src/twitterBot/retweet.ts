@@ -35,16 +35,14 @@ class SearchHistory {
 }
 
 const searchHistory = new SearchHistory();
-const addHashtagIfMissing = (hashtag: string): string =>
-  hashtag.startsWith("#") ? hashtag : `#${hashtag}`;
 
 export const retweet = functions.pubsub
   .schedule("every 25 minutes")
   .onRun(() => {
-    retweetHashtag("GodsPromises");
+    retweetGodsPromises();
   });
 
-async function retweetHashtag(hashtag: string) {
+async function retweetGodsPromises() {
   const lastSearchMeta = await searchHistory.getLastSearchMeta();
   const options: Options = {
     max_results: 100,
@@ -56,7 +54,7 @@ async function retweetHashtag(hashtag: string) {
 
   try {
     const {meta, tweets} = await searchRecent(
-      addHashtagIfMissing(hashtag),
+      "#GodsPromises -is:retweet",
       options
     );
 
@@ -99,4 +97,4 @@ async function retweetHashtag(hashtag: string) {
   }
 }
 
-retweetHashtag("GodsPromises").then(() => process.exit());
+retweetGodsPromises().then(() => process.exit());
