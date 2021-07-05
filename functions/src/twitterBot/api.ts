@@ -33,6 +33,7 @@ export async function searchRecent(
       nextToken?: string;
     };
   }>({
+    // TODO: Probably need to exclude current user from search
     baseURL: "https://api.twitter.com/2/tweets/search/recent",
     params: {
       query,
