@@ -24,9 +24,9 @@ class SearchHistory {
   }
 
   async getLastSearchMeta(): Promise<Meta | undefined> {
-    // const doc = await this.docRef.get();
-    // const data = doc.data();
-    return undefined; // data as Meta | undefined;
+    const doc = await this.docRef.get();
+    const data = doc.data();
+    return data as Meta | undefined;
   }
 
   setLastSearchMeta(meta: Meta): Promise<FirebaseFirestore.WriteResult> {
