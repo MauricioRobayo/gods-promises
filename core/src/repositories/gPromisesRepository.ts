@@ -9,7 +9,7 @@ export class GPromisesRepository extends GenericRepository<IGPromise> {
     super(mongodbUri, G_PROMISES_COLLECTION);
   }
 
-  async insertManyEnsureUniquePubId(
+  async insertManyAssigningUniquePubId(
     gPromises: Omit<IGPromise, "pubId">[]
   ): Promise<{ insertedIds: string[]; skippedNivs: string[] }> {
     const collection = await this.getCollection();
