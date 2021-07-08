@@ -1,4 +1,3 @@
-import {IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import {
   getReferences,
@@ -6,8 +5,7 @@ import {
 } from "@mauriciorobayo/gods-promises/lib/utils";
 import admin from "firebase-admin";
 import * as functions from "firebase-functions";
-import {retweet} from ".";
-import {Options, TwitterApi, Tweet, Meta} from "./api";
+import {Meta, Options, Tweet, TwitterApi} from "./api";
 import FirebaseStore from "./FirestoreStore";
 
 admin.initializeApp({

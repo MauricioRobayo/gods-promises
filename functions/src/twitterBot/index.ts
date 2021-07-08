@@ -1,1 +1,1 @@
-export {retweet} from "./retweet";
+export {scrapeTweets} from "./scrapeTweets";
