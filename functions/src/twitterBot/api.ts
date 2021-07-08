@@ -1,9 +1,7 @@
 /* eslint-disable camelcase */
+import oAuthRequest from "twitter-v1-oauth";
 import axios from "axios";
-import admin from "firebase-admin";
-import {DocumentReference} from "@google-cloud/firestore";
-import * as functions from "firebase-functions";
-import oAuthV1Request from "twitter-v1-oauth";
+import {IStore} from "./IStore";
 export type Tweet = {
   id: string;
   text: string;
@@ -25,34 +23,34 @@ export class TwitterApi {
   private _bearerToken: string;
   private _accessTokenSecret: string;
   private _accessToken: string;
-  private _searchHistory: DocumentReference<FirebaseFirestore.DocumentData>;
+  private _store: IStore<Meta>;
 
-  constructor({
-    apiKey,
-    apiSecretKey,
-    bearerToken,
-    accessTokenSecret,
-    accessToken,
-  }: {
-    apiKey: string;
-    apiSecretKey: string;
-    bearerToken: string;
-    accessTokenSecret: string;
-    accessToken: string;
-  }) {
+  constructor(
+    {
+      apiKey,
+      apiSecretKey,
+      bearerToken,
+      accessTokenSecret,
+      accessToken,
+    }: {
+      apiKey: string;
+      apiSecretKey: string;
+      bearerToken: string;
+      accessTokenSecret: string;
+      accessToken: string;
+    },
+    store: IStore<Meta>
+  ) {
     this._apiKey = apiKey;
     this._apiSecretKey = apiSecretKey;
     this._bearerToken = bearerToken;
     this._accessTokenSecret = accessTokenSecret;
     this._accessToken = accessToken;
-    this._searchHistory = admin
-      .firestore()
-      .collection("retweets")
-      .doc("GodsPromises");
+    this._store = store;
   }
 
   async searchRecent(query: string, options: Options = {}): Promise<Tweet[]> {
-    const lastSearchMeta = await this.getLastSearchMeta();
+    const lastSearchMeta = await this._store.get();
 
     if (lastSearchMeta?.newestId) {
       options.since_id = lastSearchMeta.newestId;
@@ -71,10 +69,10 @@ export class TwitterApi {
         authorization: `Bearer ${this._bearerToken}`,
       },
     });
-    await this.setLastSearchMeta(data.meta);
+    await this._store.set(data.meta);
     return data.data || [];
   }
-  async retweet(id: string): Promise<any> {
+  async retweet(id: string): Promise<void> {
     const oAuthOptions = {
       api_key: this._apiKey,
       api_secret_key: this._apiSecretKey,
@@ -84,36 +82,12 @@ export class TwitterApi {
     const baseURL = `https://api.twitter.com/1.1/statuses/retweet/${id}.json`;
     const method = "POST";
 
-    const retweetRequest = oAuthV1Request({
+    const retweetRequest = oAuthRequest({
       oAuthOptions,
       method,
       baseURL,
     });
 
-    try {
-      const {data} = await axios.request(retweetRequest);
-      console.log({data});
-
-      return data;
-    } catch (err) {
-      if (err.response) {
-        functions.logger.error(err.response.data.errors);
-      }
-      functions.logger.error(
-        `Failed retweeting tweet id '${id}. Error ${err.message}`
-      );
-    }
-  }
-
-  private async getLastSearchMeta(): Promise<Meta | undefined> {
-    const doc = await this._searchHistory.get();
-    const data = doc.data();
-    return Math.random() > 1 ? (data as Meta | undefined) : undefined;
-  }
-
-  private setLastSearchMeta(
-    meta: Meta
-  ): Promise<FirebaseFirestore.WriteResult> {
-    return this._searchHistory.set(meta);
+    await axios.request(retweetRequest);
   }
 }

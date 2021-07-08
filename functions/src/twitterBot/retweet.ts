@@ -5,7 +5,8 @@ import {
 } from "@mauriciorobayo/gods-promises/lib/utils";
 import admin from "firebase-admin";
 import * as functions from "firebase-functions";
-import {Options, TwitterApi, Tweet} from "./api";
+import {Options, TwitterApi, Tweet, Meta} from "./api";
+import FirebaseStore from "./FirestoreStore";
 
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
@@ -16,13 +17,18 @@ const gPromisesRepository = new GPromisesRepository(
   functions.config().mongodb.uri
 );
 
-const twitterApi = new TwitterApi({
-  apiKey: functions.config().twitter.api_key,
-  apiSecretKey: functions.config().twitter.api_secret_key,
-  bearerToken: functions.config().twitter.bearer_token,
-  accessTokenSecret: functions.config().twitter.access_token_secret,
-  accessToken: functions.config().twitter.access_token,
-});
+const store = new FirebaseStore<Meta>("godsPromises", "retweets");
+
+const twitterApi = new TwitterApi(
+  {
+    apiKey: functions.config().twitter.api_key,
+    apiSecretKey: functions.config().twitter.api_secret_key,
+    bearerToken: functions.config().twitter.bearer_token,
+    accessTokenSecret: functions.config().twitter.access_token_secret,
+    accessToken: functions.config().twitter.access_token,
+  },
+  store
+);
 
 export const twitter = functions.pubsub
   .schedule("every 25 minutes")
