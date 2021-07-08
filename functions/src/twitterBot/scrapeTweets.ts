@@ -3,15 +3,9 @@ import {
   getReferences,
   makeGPromises,
 } from "@mauriciorobayo/gods-promises/lib/utils";
-import admin from "firebase-admin";
 import * as functions from "firebase-functions";
 import {Meta, Options, Tweet, TwitterApi} from "./api";
 import FirebaseStore from "./FirestoreStore";
-
-admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
-  databaseURL: "https://promises-edfea.firebaseio.com",
-});
 
 const gPromisesRepository = new GPromisesRepository(
   functions.config().mongodb.uri
