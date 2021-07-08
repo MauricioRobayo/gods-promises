@@ -53,6 +53,6 @@ Promise.all(
       .map((refs, i) => makeGPromises(refs, { url: urls[i] }))
       .flat();
     const uniqueGPromises = uniqBy(gPromises, "niv");
-    return writeData(uniqueGPromises, "main-scrapper.json");
+    return writeData(uniqueGPromises, "main-scraper.json");
   })
   .then(() => process.exit());

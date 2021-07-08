@@ -2,4 +2,5 @@ import * as admin from "firebase-admin";
 
 admin.initializeApp();
 
-export * from "./GPromises";
+export * from "./gPromises";
+export * from "./twitterBot";

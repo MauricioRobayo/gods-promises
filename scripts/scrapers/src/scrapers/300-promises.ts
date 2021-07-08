@@ -6,21 +6,17 @@ import {
   makeGPromises,
 } from "@mauriciorobayo/gods-promises/lib/utils";
 
-const url = "https://bible.org/article/selected-promises-god-each-book-bible";
+const url = "https://believersportal.com/list-of-3000-promises-in-the-bible/";
+
 axios.get(url).then(({ data }) => {
   let book = "";
-  const uniqueReferences = new Set<string>();
   const $ = cheerio.load(data);
-  $(
-    "#block-system-main > div > div > article > div.field.field-name-body.field-type-text-with-summary.field-label-hidden > div > div"
-  )
+  const uniqueReferences = new Set<string>();
+  $(".td-post-content")
     .children()
+    // @ts-ignore
     .each((_, el) => {
       const $el = $(el);
-      if (el.tagName === "p") {
-        return;
-      }
-
       if (el.tagName === "h4") {
         book = $el
           .text()
@@ -30,7 +26,17 @@ axios.get(url).then(({ data }) => {
         return;
       }
 
+      if (el.tagName === "p") {
+        const strong = $el.find("strong");
+        if (strong) {
+          book = strong.text();
+        }
+      }
+
+      book = book === "OLD TESTAMENT" ? "GENESIS" : book;
+
       if (book && el.tagName === "ul") {
+        // @ts-ignore
         $el.children().each((_, li) => {
           const match = $(li)
             .text()
@@ -47,5 +53,5 @@ axios.get(url).then(({ data }) => {
     });
 
   const gPromises = makeGPromises([...uniqueReferences], { url });
-  writeData(gPromises, "selected-promises.json");
+  writeData(gPromises, "300-promises.json");
 });

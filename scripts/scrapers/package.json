@@ -1,12 +1,12 @@
 {
-  "name": "scrappers",
+  "name": "scrapers",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "scrape": "ls src/scrappers/*.ts | xargs -t -n 1 npx ts-node | tee scrape.debug.log",
+    "scrape": "ls src/scrapers/*.ts | xargs -t -n 1 npx ts-node | tee scrape.debug.log",
     "db:update:local": "ts-node src/updateLocalDb.ts",
     "db:update:prod": "ts-node src/updateProdDb.ts"
   },

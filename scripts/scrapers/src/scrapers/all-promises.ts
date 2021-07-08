@@ -14,6 +14,7 @@ axios.get(url).then(({ data }) => {
   const $ = cheerio.load(data);
   $(".html-block > .sqs-block-content")
     .children()
+    // @ts-ignore
     .each((_, el) => {
       const $el = $(el);
       if (el.tagName === "h1") {

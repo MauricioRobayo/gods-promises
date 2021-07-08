@@ -66,7 +66,7 @@ export async function writeData(
   gPromises: Omit<IGPromise, "pubId">[],
   filename: string
 ): Promise<void> {
-  const dataDir = `${__dirname}/scrapped-data`;
+  const dataDir = `${__dirname}/scraped-data`;
   const filePath = `${dataDir}/${filename}`;
 
   try {
