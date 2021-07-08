@@ -37,15 +37,13 @@ const urls = [
   "https://bibleverses70.com/biblical-promises/",
 ];
 
-console.log(`Parsing ${urls.length} urls...`);
-
 Promise.all(
   urls.map(async (url) => {
     try {
       const { data } = await axios.get(url);
       return getReferences(data);
     } catch (e) {
-      console.log(`Request to ${url} failed!`, e);
+      console.log(`Request to ${url} failed!`);
       return [];
     }
   })
@@ -57,4 +55,4 @@ Promise.all(
     const uniqueGPromises = uniqBy(gPromises, "niv");
     return writeData(uniqueGPromises, "main-scrapper.json");
   })
-  .then(() => console.log("Done!"));
+  .then(() => process.exit());
