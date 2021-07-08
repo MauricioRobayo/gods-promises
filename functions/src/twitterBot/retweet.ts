@@ -70,23 +70,12 @@ async function retweetGodsPromises() {
       })
       .flat();
 
-    const retweetsPromises = Promise.all(
-      tweetsWithReferences.map(({tweet}) => twitterApi.retweet(tweet.id))
-    );
-    const insertPromises =
-      gPromisesRepository.insertManyEnsureUniquePubId(gPromises);
-    const [retweets, insertResults] = await Promise.all([
-      retweetsPromises,
-      insertPromises,
+    await Promise.all([
+      Promise.all(
+        tweetsWithReferences.map(({tweet}) => twitterApi.retweet(tweet.id))
+      ),
+      gPromisesRepository.insertManyEnsureUniquePubId(gPromises),
     ]);
-
-    functions.logger.info(`Retweeted ${retweets.length} tweets`);
-    functions.logger.info(
-      `Inserted ${insertResults.insertedIds.length} IGPromises`
-    );
-    functions.logger.info(
-      `Skipped ${insertResults.skippedNivs.length} IGPromises`
-    );
   } catch (err) {
     functions.logger.error(err);
   }
