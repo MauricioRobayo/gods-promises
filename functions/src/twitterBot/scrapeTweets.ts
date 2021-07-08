@@ -33,11 +33,24 @@ const twitterApi = new TwitterApi(
 export const scrapeTweets = functions.pubsub
   .schedule("every 25 minutes")
   .onRun(async () => {
-    const tweetsWithGPromises = await twitterScraper();
-    await twitterApi.retweetBatch(tweetsWithGPromises);
+    const tweetsWithReferences = await twitterScraper();
+
+    const gPromises = tweetsWithReferences
+      .map(({tweet, references}) => {
+        return makeGPromises(references, {
+          type: "tweet",
+          id: tweet.id,
+        });
+      })
+      .flat();
+
+    await gPromisesRepository.insertManyAssigningUniquePubId(gPromises);
+    await twitterApi.retweetBatch(tweetsWithReferences.map(({tweet}) => tweet));
   });
 
-async function twitterScraper(): Promise<Tweet[]> {
+async function twitterScraper(): Promise<
+  {tweet: Tweet; references: string[]}[]
+> {
   const options: Options = {
     max_results: 100,
   };
@@ -52,7 +65,7 @@ async function twitterScraper(): Promise<Tweet[]> {
       return [];
     }
 
-    const tweetsWithReferences: {tweet: Tweet; references: string[]}[] = tweets
+    return tweets
       .map((tweet) => {
         const references = getReferences(tweet.text);
         return {
@@ -61,18 +74,6 @@ async function twitterScraper(): Promise<Tweet[]> {
         };
       })
       .filter(({references}) => references.length > 0);
-
-    const gPromises = tweetsWithReferences
-      .map(({tweet, references}) => {
-        return makeGPromises(references, {
-          type: "tweet",
-          id: tweet.id,
-        });
-      })
-      .flat();
-
-    await gPromisesRepository.insertManyEnsureUniquePubId(gPromises);
-    return tweetsWithReferences.map(({tweet}) => tweet);
   } catch (err) {
     functions.logger.error(err);
     return [];
