@@ -1,18 +1,15 @@
 {
-  "eslint.workingDirectories": [
-    "functions",
-    "client"
-  ],
+  "eslint.workingDirectories": ["functions", "client", "core"],
   "cSpell.words": [
     "Cardo",
     "Lato",
     "Lngs",
+    "Nivs",
     "js",
     "ls",
     "n",
     "node",
     "osis",
-    "scrappers",
     "t",
     "twemoji",
     "xargs"

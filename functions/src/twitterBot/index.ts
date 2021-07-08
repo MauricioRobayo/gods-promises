@@ -1,0 +1,1 @@
+export {scrapeTweets} from "./scrapeTweets";
