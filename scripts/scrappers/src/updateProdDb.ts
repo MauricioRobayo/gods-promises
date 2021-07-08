@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import yargs from "yargs";
 import { gPromisesFromFiles } from "./helpers";
 import { GPromisesRepository } from "@mauriciorobayo/gods-promises/lib/repositories";
-import { insertGPromises } from "./insertPromises";
+import { insertGPromises } from "./helpers";
 
 dotenv.config();
 

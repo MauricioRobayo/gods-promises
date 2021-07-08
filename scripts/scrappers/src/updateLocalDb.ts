@@ -2,7 +2,7 @@ import yargs from "yargs";
 import sampleSize from "lodash/sampleSize";
 import { gPromisesFromFiles } from "./helpers";
 import { GPromisesRepository } from "@mauriciorobayo/gods-promises/lib/repositories";
-import { insertGPromises } from "./insertPromises";
+import { insertGPromises } from "./helpers";
 
 const gPromisesRepository = new GPromisesRepository(
   "mongodb://localhost:27017"
