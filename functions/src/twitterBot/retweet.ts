@@ -1,12 +1,11 @@
-import {DocumentReference} from "@google-cloud/firestore";
+import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import {
   getReferences,
   makeGPromises,
 } from "@mauriciorobayo/gods-promises/lib/utils";
-import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import admin from "firebase-admin";
 import * as functions from "firebase-functions";
-import {Meta, Options, searchRecent, Tweet} from "./api";
+import {Options, TwitterApi, Tweet} from "./api";
 
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
@@ -17,48 +16,32 @@ const gPromisesRepository = new GPromisesRepository(
   functions.config().mongodb.uri
 );
 
-class SearchHistory {
-  private docRef: DocumentReference<FirebaseFirestore.DocumentData>;
-  constructor() {
-    this.docRef = admin.firestore().collection("retweets").doc("GodsPromises");
-  }
+const twitterApi = new TwitterApi({
+  apiKey: functions.config().twitter.api_key,
+  apiSecretKey: functions.config().twitter.api_secret_key,
+  bearerToken: functions.config().twitter.bearer_token,
+  accessTokenSecret: functions.config().twitter.access_token_secret,
+  accessToken: functions.config().twitter.access_token,
+});
 
-  async getLastSearchMeta(): Promise<Meta | undefined> {
-    const doc = await this.docRef.get();
-    const data = doc.data();
-    return data as Meta | undefined;
-  }
-
-  setLastSearchMeta(meta: Meta): Promise<FirebaseFirestore.WriteResult> {
-    return this.docRef.set(meta);
-  }
-}
-
-const searchHistory = new SearchHistory();
-
-export const retweet = functions.pubsub
+export const twitter = functions.pubsub
   .schedule("every 25 minutes")
   .onRun(() => {
     retweetGodsPromises();
   });
 
 async function retweetGodsPromises() {
-  const lastSearchMeta = await searchHistory.getLastSearchMeta();
   const options: Options = {
     max_results: 100,
   };
 
-  if (lastSearchMeta?.newestId) {
-    options.since_id = lastSearchMeta.newestId;
-  }
-
   try {
-    const {meta, tweets} = await searchRecent(
+    const tweets = await twitterApi.searchRecent(
       "#GodsPromises -is:retweet",
       options
     );
 
-    if (meta.resultCount === 0) {
+    if (tweets.length === 0) {
       return;
     }
 
@@ -72,11 +55,6 @@ async function retweetGodsPromises() {
       })
       .filter(({references}) => references.length > 0);
 
-    // TODO: Retweet
-    tweetsWithReferences.map(({tweet}) => {
-      console.log(`Retweeting tweet id ${tweet.id}`);
-    });
-
     const gPromises = tweetsWithReferences
       .map(({tweet, references}) => {
         return makeGPromises(references, {
@@ -86,14 +64,25 @@ async function retweetGodsPromises() {
       })
       .flat();
 
-    const results = await gPromisesRepository.insertManyCheckUniqueness(
-      gPromises
+    const retweetsPromises = Promise.all(
+      tweetsWithReferences.map(({tweet}) => twitterApi.retweet(tweet.id))
     );
-    functions.logger.info(`Inserted ${results.insertedIds.length} IGPromises`);
-    functions.logger.info(`Skipped ${results.skippedNivs.length} IGPromises`);
-    await searchHistory.setLastSearchMeta(meta);
+    const insertPromises =
+      gPromisesRepository.insertManyEnsureUniquePubId(gPromises);
+    const [retweets, insertResults] = await Promise.all([
+      retweetsPromises,
+      insertPromises,
+    ]);
+
+    functions.logger.info(`Retweeted ${retweets.length} tweets`);
+    functions.logger.info(
+      `Inserted ${insertResults.insertedIds.length} IGPromises`
+    );
+    functions.logger.info(
+      `Skipped ${insertResults.skippedNivs.length} IGPromises`
+    );
   } catch (err) {
-    console.log(err);
+    functions.logger.error(err);
   }
 }
 

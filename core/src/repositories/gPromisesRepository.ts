@@ -1,9 +1,5 @@
 import { nanoid } from "nanoid";
-import {
-  bibles,
-  GODS_PROMISES_DATABASE,
-  G_PROMISES_COLLECTION,
-} from "../config";
+import { bibles, G_PROMISES_COLLECTION } from "../config";
 import { IGPromise } from "../models";
 import { GenericRepository } from "./genericRepository";
 import { GPromise } from "../models";
@@ -13,7 +9,7 @@ export class GPromisesRepository extends GenericRepository<IGPromise> {
     super(mongodbUri, G_PROMISES_COLLECTION);
   }
 
-  async insertManyCheckUniqueness(
+  async insertManyEnsureUniquePubId(
     gPromises: Omit<IGPromise, "pubId">[]
   ): Promise<{ insertedIds: string[]; skippedNivs: string[] }> {
     const collection = await this.getCollection();
