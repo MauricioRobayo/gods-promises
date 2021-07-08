@@ -1,3 +1,4 @@
+import {IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import {
   getReferences,
@@ -5,6 +6,7 @@ import {
 } from "@mauriciorobayo/gods-promises/lib/utils";
 import admin from "firebase-admin";
 import * as functions from "firebase-functions";
+import {retweet} from ".";
 import {Options, TwitterApi, Tweet, Meta} from "./api";
 import FirebaseStore from "./FirestoreStore";
 
@@ -30,13 +32,14 @@ const twitterApi = new TwitterApi(
   store
 );
 
-export const twitter = functions.pubsub
+export const scrapeTweets = functions.pubsub
   .schedule("every 25 minutes")
-  .onRun(() => {
-    retweetGodsPromises();
+  .onRun(async () => {
+    const tweetsWithGPromises = await twitterScraper();
+    await twitterApi.retweetBatch(tweetsWithGPromises);
   });
 
-async function retweetGodsPromises() {
+async function twitterScraper(): Promise<Tweet[]> {
   const options: Options = {
     max_results: 100,
   };
@@ -48,7 +51,7 @@ async function retweetGodsPromises() {
     );
 
     if (tweets.length === 0) {
-      return;
+      return [];
     }
 
     const tweetsWithReferences: {tweet: Tweet; references: string[]}[] = tweets
@@ -70,15 +73,10 @@ async function retweetGodsPromises() {
       })
       .flat();
 
-    await Promise.all([
-      Promise.all(
-        tweetsWithReferences.map(({tweet}) => twitterApi.retweet(tweet.id))
-      ),
-      gPromisesRepository.insertManyEnsureUniquePubId(gPromises),
-    ]);
+    await gPromisesRepository.insertManyEnsureUniquePubId(gPromises);
+    return tweetsWithReferences.map(({tweet}) => tweet);
   } catch (err) {
     functions.logger.error(err);
+    return [];
   }
 }
-
-retweetGodsPromises().then(() => process.exit());

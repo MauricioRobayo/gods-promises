@@ -72,6 +72,7 @@ export class TwitterApi {
     await this._store.set(data.meta);
     return data.data || [];
   }
+
   async retweet(id: string): Promise<void> {
     const oAuthOptions = {
       api_key: this._apiKey,
@@ -89,5 +90,10 @@ export class TwitterApi {
     });
 
     await axios.request(retweetRequest);
+  }
+
+  async retweetBatch(tweets: Tweet[]): Promise<void> {
+    await Promise.all(tweets.map(({id}) => this.retweet(id)));
+    return;
   }
 }
