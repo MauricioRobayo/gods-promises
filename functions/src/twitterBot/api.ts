@@ -166,9 +166,11 @@ export class TwitterApi {
   private async request<T>(request: {
     method: "GET" | "POST" | "PUT" | "DELETE";
     baseURL: string;
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     params?: any;
     data?: any;
     headers?: any;
+    /* eslint-enable @typescript-eslint/no-explicit-any */
   }): Promise<T> {
     const {data} = await axios.request<T>(request);
     return data;
