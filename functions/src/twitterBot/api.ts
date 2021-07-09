@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
-import oAuthRequest from "twitter-v1-oauth";
 import axios from "axios";
-import {IStore} from "./IStore";
 import {logger} from "firebase-functions";
+import oAuthRequest from "twitter-v1-oauth";
+import {IStore} from "./IStore";
 export type Tweet = {
   id: string;
   text: string;
@@ -83,7 +83,10 @@ export class TwitterApi {
         authorization: `Bearer ${this._bearerToken}`,
       },
     });
-    await this._store.set(data.meta);
+
+    if (data.meta.result_count > 0) {
+      await this._store.set(data.meta);
+    }
 
     const tweets = data.data || [];
     this._logger.log(
