@@ -1,3 +1,4 @@
+import {IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import {
   getReferences,
@@ -29,6 +30,10 @@ export const scrapeTweets = functions.pubsub
   .onRun(async () => {
     const tweetsWithReferences = await twitterScraper();
 
+    functions.logger.log(
+      `Found ${tweetsWithReferences.length} tweets with references.`
+    );
+
     const gPromises = tweetsWithReferences
       .map(({tweet, references}) => {
         return makeGPromises(references, {
@@ -38,9 +43,37 @@ export const scrapeTweets = functions.pubsub
       })
       .flat();
 
-    await gPromisesRepository.insertManyAssigningUniquePubId(gPromises);
-    await twitterApi.retweetBatch(tweetsWithReferences.map(({tweet}) => tweet));
+    await Promise.all([
+      insertGPromises(gPromises),
+      retweet(tweetsWithReferences),
+    ]);
   });
+
+async function retweet(
+  tweetsWithReferences: {tweet: Tweet; references: string[]}[]
+) {
+  try {
+    await twitterApi.retweetBatch(tweetsWithReferences.map(({tweet}) => tweet));
+  } catch (e) {
+    functions.logger.error(`retweeting gPromises failed: ${e.message}`);
+  }
+}
+
+async function insertGPromises(gPromises: Omit<IGPromise, "pubId">[]) {
+  try {
+    const {insertedIds, skippedNivs} =
+      await gPromisesRepository.insertManyAssigningUniquePubId(gPromises);
+
+    functions.logger.log(
+      `Inserted ${insertedIds.length} new promises in the database.`
+    );
+    functions.logger.log(
+      `Skipped ${skippedNivs.length} promises from inserting in the database.`
+    );
+  } catch (e) {
+    functions.logger.error(`inserting gPromises failed: ${e.message}`);
+  }
+}
 
 async function twitterScraper(): Promise<
   {tweet: Tweet; references: string[]}[]
