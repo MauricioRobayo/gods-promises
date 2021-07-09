@@ -29,10 +29,21 @@ const twitterApi = new TwitterApi(
 export const scrapeTweets = functions.pubsub
   .schedule("every 25 minutes")
   .onRun(async () => {
-    const tweetsWithReferences = await twitterScraper();
+    const tweets = await twitterScraper();
+    functions.logger.log(`Found ${tweets.length} new tweets.`);
+
+    const tweetsWithReferences = tweets.filter(
+      ({references}) => references.length > 0
+    );
+    const tweetsWithoutReferences = tweets.filter(
+      ({references}) => references.length === 0
+    );
 
     functions.logger.log(
-      `Found ${tweetsWithReferences.length} tweets with references.`
+      `${tweetsWithReferences.length} tweets with references.`
+    );
+    functions.logger.log(
+      `${tweetsWithoutReferences.length} tweets without references.`
     );
 
     const gPromises = tweetsWithReferences
@@ -44,10 +55,19 @@ export const scrapeTweets = functions.pubsub
       })
       .flat();
 
-    await Promise.all([
-      insertGPromises(gPromises),
-      twitterApi.retweetBatch(tweetsWithReferences.map(({tweet}) => tweet)),
-    ]);
+    try {
+      await Promise.all([
+        insertGPromises(gPromises),
+        Promise.all(
+          tweetsWithReferences.map(({tweet}) => twitterApi.retweet(tweet.id))
+        ),
+        Promise.all(
+          tweetsWithoutReferences.map(({tweet}) => twitterApi.like(tweet.id))
+        ),
+      ]);
+    } catch (err) {
+      functions.logger.error("scrapeTweets", JSON.stringify(err, null, 2));
+    }
   });
 
 async function insertGPromises(gPromises: Omit<IGPromise, "pubId">[]) {
@@ -83,17 +103,15 @@ async function twitterScraper(): Promise<
       return [];
     }
 
-    return tweets
-      .map((tweet) => {
-        const references = getReferences(tweet.text);
-        return {
-          references,
-          tweet,
-        };
-      })
-      .filter(({references}) => references.length > 0);
+    return tweets.map((tweet) => {
+      const references = getReferences(tweet.text);
+      return {
+        references,
+        tweet,
+      };
+    });
   } catch (err) {
-    functions.logger.error(err);
+    functions.logger.error("twitterScrapper error", err);
     return [];
   }
 }

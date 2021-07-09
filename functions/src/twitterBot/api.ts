@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import axios from "axios";
+import {logger} from "firebase-functions";
 import oAuthRequest from "twitter-v1-oauth";
 import {IStore} from "./IStore";
 export type Tweet = {
@@ -21,13 +22,19 @@ type LikeResponse = {
     liked: boolean;
   };
 };
-type RetweetResponse = {
-  created_at: string;
-  id: number;
-  id_str: string;
-  text: string;
-  // a bunch of fields missing ...
-};
+type RetweetResponse =
+  | {
+      created_at: string;
+      id: number;
+      id_str: string;
+      text: string;
+      // a bunch of fields missing ...
+    }
+  | {
+      data: {
+        retweeted: boolean;
+      };
+    };
 type Logger = {
   /* eslint-disable @typescript-eslint/no-explicit-any */
   log(...args: any[]): void;
@@ -88,6 +95,9 @@ export class TwitterApi {
       },
       oAuthOptions: this._oAuthOptions,
     });
+
+    logger.log(`TwitterApi.like: '${id}'`);
+
     return this.request<LikeResponse>(likeRequest);
   }
 
@@ -98,7 +108,7 @@ export class TwitterApi {
       options.since_id = lastSearchMeta.newest_id;
     }
 
-    this._logger.log("TwitterApi.searchRecent options:", options);
+    this._logger.log("TwitterApi.searchRecent", options);
 
     const response = await this.request<{
       data?: Tweet[];
@@ -115,35 +125,42 @@ export class TwitterApi {
       },
     });
 
-    if (!response) {
-      return null;
-    }
-
     const {meta, data: tweets = []} = response;
 
     if (meta.newest_id) {
       await this._store.set(meta);
     }
 
-    this._logger.log(
-      `TwitterApi.searchRecent found ${tweets.length} new tweets`
-    );
     return tweets;
   }
 
   async retweet(id: string): Promise<RetweetResponse> {
+    const ALREADY_RETWEETED_ERROR_CODE = 327;
     const retweetRequest = oAuthRequest({
       oAuthOptions: this._oAuthOptions,
       baseURL: `${this._v1ApiEndpoint}/statuses/retweet/${id}.json`,
       method: "POST",
     });
 
-    return this.request<RetweetResponse>(retweetRequest);
-  }
+    logger.log(`TwitterApi.retweet: '${id}'`);
 
-  async retweetBatch(tweets: Tweet[]): Promise<void> {
-    await Promise.all(tweets.map(({id}) => this.retweet(id)));
-    return;
+    try {
+      return this.request<RetweetResponse>(retweetRequest);
+    } catch (err) {
+      if (
+        err.data.errors.some(
+          ({code}: {code: number}) => code === ALREADY_RETWEETED_ERROR_CODE
+        )
+      ) {
+        logger.warn(`TwitterApi.retweet: Already retweeted tweet id ${id}!`);
+        return {
+          data: {
+            retweeted: true,
+          },
+        };
+      }
+      throw new Error(err);
+    }
   }
 
   private async request<T>(request: {
