@@ -45,19 +45,9 @@ export const scrapeTweets = functions.pubsub
 
     await Promise.all([
       insertGPromises(gPromises),
-      retweet(tweetsWithReferences),
+      twitterApi.retweetBatch(tweetsWithReferences.map(({tweet}) => tweet)),
     ]);
   });
-
-async function retweet(
-  tweetsWithReferences: {tweet: Tweet; references: string[]}[]
-) {
-  try {
-    await twitterApi.retweetBatch(tweetsWithReferences.map(({tweet}) => tweet));
-  } catch (e) {
-    functions.logger.error(`retweeting gPromises failed: ${e.message}`);
-  }
-}
 
 async function insertGPromises(gPromises: Omit<IGPromise, "pubId">[]) {
   try {

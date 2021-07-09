@@ -2,6 +2,7 @@
 import oAuthRequest from "twitter-v1-oauth";
 import axios from "axios";
 import {IStore} from "./IStore";
+import {logger} from "firebase-functions";
 export type Tweet = {
   id: string;
   text: string;
@@ -89,7 +90,16 @@ export class TwitterApi {
       baseURL,
     });
 
-    await axios.request(retweetRequest);
+    try {
+      await axios.request(retweetRequest);
+    } catch (err) {
+      if (err.response) {
+        logger.error("TwitterApi.retweet response error", err.response);
+        return;
+      }
+      logger.error("TwitterApi.retweet error", err);
+      return;
+    }
   }
 
   async retweetBatch(tweets: Tweet[]): Promise<void> {
