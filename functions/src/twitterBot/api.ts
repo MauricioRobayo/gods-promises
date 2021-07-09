@@ -84,7 +84,7 @@ export class TwitterApi {
       },
     });
 
-    if (data.meta.result_count > 0) {
+    if (data.meta.newest_id) {
       await this._store.set(data.meta);
     }
 
