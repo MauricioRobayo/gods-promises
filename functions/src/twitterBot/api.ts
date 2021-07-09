@@ -8,14 +8,22 @@ export type Tweet = {
   text: string;
 };
 export type Meta = {
-  newestId?: string;
-  oldestId?: string;
-  resultCount: number;
-  nextToken?: string;
+  newest_id?: string;
+  oldest_id?: string;
+  result_count: number;
+  next_token?: string;
 };
 export type Options = {
   since_id?: string;
   max_results?: number;
+};
+type Logger = {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  log(...args: any[]): void;
+  error(...args: any[]): void;
+  warn(...args: any[]): void;
+  info(...args: any[]): void;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 };
 
 export class TwitterApi {
@@ -25,6 +33,7 @@ export class TwitterApi {
   private _accessTokenSecret: string;
   private _accessToken: string;
   private _store: IStore<Meta>;
+  private _logger: Logger;
 
   constructor(
     {
@@ -40,7 +49,8 @@ export class TwitterApi {
       accessTokenSecret: string;
       accessToken: string;
     },
-    store: IStore<Meta>
+    store: IStore<Meta>,
+    logger: Logger = console
   ) {
     this._apiKey = apiKey;
     this._apiSecretKey = apiSecretKey;
@@ -48,14 +58,17 @@ export class TwitterApi {
     this._accessTokenSecret = accessTokenSecret;
     this._accessToken = accessToken;
     this._store = store;
+    this._logger = logger;
   }
 
   async searchRecent(query: string, options: Options = {}): Promise<Tweet[]> {
     const lastSearchMeta = await this._store.get();
 
-    if (lastSearchMeta?.newestId) {
-      options.since_id = lastSearchMeta.newestId;
+    if (lastSearchMeta?.newest_id) {
+      options.since_id = lastSearchMeta.newest_id;
     }
+
+    this._logger.log("TwitterApi.searchRecent options:", options);
 
     const {data} = await axios.request<{
       data?: Tweet[];
@@ -71,7 +84,12 @@ export class TwitterApi {
       },
     });
     await this._store.set(data.meta);
-    return data.data || [];
+
+    const tweets = data.data || [];
+    this._logger.log(
+      `TwitterApi.searchRecent found ${tweets.length} new tweets`
+    );
+    return tweets;
   }
 
   async retweet(id: string): Promise<void> {
