@@ -3,11 +3,16 @@
     "predeploy": [
       "npm --prefix \"$RESOURCE_DIR\" run lint",
       "npm --prefix \"$RESOURCE_DIR\" run build"
-    ]
+    ],
+    "source": "functions"
   },
   "hosting": {
     "public": "client/build",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "rewrites": [
       {
         "source": "/random",
@@ -26,8 +31,18 @@
     "hosting": {
       "port": 5000
     },
+    "pubsub": {
+      "port": 8085
+    },
     "ui": {
       "enabled": true
+    },
+    "firestore": {
+      "port": 8080
     }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
   }
 }

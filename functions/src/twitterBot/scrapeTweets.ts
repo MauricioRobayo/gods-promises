@@ -1,3 +1,4 @@
+import {IGPromise} from "@mauriciorobayo/gods-promises/lib/models";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
 import {
   getReferences,
@@ -21,13 +22,29 @@ const twitterApi = new TwitterApi(
     accessTokenSecret: functions.config().twitter.access_token_secret,
     accessToken: functions.config().twitter.access_token,
   },
-  store
+  store,
+  functions.logger
 );
 
 export const scrapeTweets = functions.pubsub
   .schedule("every 25 minutes")
   .onRun(async () => {
-    const tweetsWithReferences = await twitterScraper();
+    const tweets = await twitterScraper();
+    functions.logger.log(`Found ${tweets.length} new tweets.`);
+
+    const tweetsWithReferences = tweets.filter(
+      ({references}) => references.length > 0
+    );
+    const tweetsWithoutReferences = tweets.filter(
+      ({references}) => references.length === 0
+    );
+
+    functions.logger.log(
+      `${tweetsWithReferences.length} tweets with references.`
+    );
+    functions.logger.log(
+      `${tweetsWithoutReferences.length} tweets without references.`
+    );
 
     const gPromises = tweetsWithReferences
       .map(({tweet, references}) => {
@@ -38,9 +55,36 @@ export const scrapeTweets = functions.pubsub
       })
       .flat();
 
-    await gPromisesRepository.insertManyAssigningUniquePubId(gPromises);
-    await twitterApi.retweetBatch(tweetsWithReferences.map(({tweet}) => tweet));
+    try {
+      await Promise.all([
+        insertGPromises(gPromises),
+        Promise.all(
+          tweetsWithReferences.map(({tweet}) => twitterApi.retweet(tweet.id))
+        ),
+        Promise.all(
+          tweetsWithoutReferences.map(({tweet}) => twitterApi.like(tweet.id))
+        ),
+      ]);
+    } catch (err) {
+      functions.logger.error("scrapeTweets", JSON.stringify(err, null, 2));
+    }
   });
+
+async function insertGPromises(gPromises: Omit<IGPromise, "pubId">[]) {
+  try {
+    const {insertedIds, skippedNivs} =
+      await gPromisesRepository.insertManyAssigningUniquePubId(gPromises);
+
+    functions.logger.log(
+      `Inserted ${insertedIds.length} new promises in the database.`
+    );
+    functions.logger.log(
+      `Skipped ${skippedNivs.length} promises from inserting in the database.`
+    );
+  } catch (e) {
+    functions.logger.error(`inserting gPromises failed: ${e.message}`);
+  }
+}
 
 async function twitterScraper(): Promise<
   {tweet: Tweet; references: string[]}[]
@@ -59,17 +103,15 @@ async function twitterScraper(): Promise<
       return [];
     }
 
-    return tweets
-      .map((tweet) => {
-        const references = getReferences(tweet.text);
-        return {
-          references,
-          tweet,
-        };
-      })
-      .filter(({references}) => references.length > 0);
+    return tweets.map((tweet) => {
+      const references = getReferences(tweet.text);
+      return {
+        references,
+        tweet,
+      };
+    });
   } catch (err) {
-    functions.logger.error(err);
+    functions.logger.error("twitterScrapper error", err);
     return [];
   }
 }
