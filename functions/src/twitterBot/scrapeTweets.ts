@@ -22,7 +22,8 @@ const twitterApi = new TwitterApi(
     accessTokenSecret: functions.config().twitter.access_token_secret,
     accessToken: functions.config().twitter.access_token,
   },
-  store
+  store,
+  functions.logger
 );
 
 export const scrapeTweets = functions.pubsub
