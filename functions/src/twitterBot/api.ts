@@ -70,7 +70,9 @@ export class TwitterApi {
 
     this._logger.log("TwitterApi.searchRecent options:", options);
 
-    const {data} = await axios.request<{
+    const {
+      data: {meta, data: tweets = []},
+    } = await axios.request<{
       data?: Tweet[];
       meta: Meta;
     }>({
@@ -84,11 +86,10 @@ export class TwitterApi {
       },
     });
 
-    if (data.meta.newest_id) {
-      await this._store.set(data.meta);
+    if (meta.newest_id) {
+      await this._store.set(meta);
     }
 
-    const tweets = data.data || [];
     this._logger.log(
       `TwitterApi.searchRecent found ${tweets.length} new tweets`
     );
