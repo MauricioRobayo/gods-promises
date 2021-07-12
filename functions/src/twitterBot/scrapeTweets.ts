@@ -27,7 +27,7 @@ const twitterApi = new TwitterApi(
 );
 
 export const scrapeTweets = functions.pubsub
-  .schedule("every 25 minutes")
+  .schedule("every 4 hours")
   .onRun(async () => {
     const tweets = await twitterScraper();
     functions.logger.log(`Found ${tweets.length} new tweets.`);
