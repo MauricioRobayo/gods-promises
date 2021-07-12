@@ -89,15 +89,10 @@ async function insertGPromises(gPromises: Omit<IGPromise, "pubId">[]) {
 async function twitterScraper(): Promise<
   {tweet: Tweet; references: string[]}[]
 > {
-  const options: SearchOptions = {
-    max_results: 100,
-  };
-
   try {
-    const tweets = await twitterApi.searchRecent(
-      "#GodsPromises -is:retweet",
-      options
-    );
+    const tweets = await twitterApi.searchRecent("#GodsPromises -is:retweet", {
+      max_results: 100,
+    });
 
     if (tweets.length === 0) {
       return [];
