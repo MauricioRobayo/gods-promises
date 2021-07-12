@@ -46,6 +46,10 @@ export const Title = styled.h2`
 export const Subtitle = styled.div`
   color: ${({ theme }) => theme.color.text2};
   font-size: ${({ theme }) => theme.font.size.small};
+  margin-top: 0.5rem;
+  @media (min-width: ${({ theme }) => theme.size.medium}) {
+    margin-top: 0;
+  }
 `;
 
 export const BlockquoteWrapper = styled.section`
