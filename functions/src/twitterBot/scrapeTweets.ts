@@ -5,7 +5,7 @@ import {
   makeGPromises,
 } from "@mauriciorobayo/gods-promises/lib/utils";
 import * as functions from "firebase-functions";
-import {Meta, Options, Tweet, TwitterApi} from "./api";
+import {Meta, SearchOptions, Tweet, TwitterApi} from "./api";
 import FirebaseStore from "./FirestoreStore";
 
 const gPromisesRepository = new GPromisesRepository(
@@ -27,7 +27,7 @@ const twitterApi = new TwitterApi(
 );
 
 export const scrapeTweets = functions.pubsub
-  .schedule("every 25 minutes")
+  .schedule("every 4 hours")
   .onRun(async () => {
     const tweets = await twitterScraper();
     functions.logger.log(`Found ${tweets.length} new tweets.`);
@@ -66,7 +66,7 @@ export const scrapeTweets = functions.pubsub
         ),
       ]);
     } catch (err) {
-      functions.logger.error("scrapeTweets", JSON.stringify(err, null, 2));
+      functions.logger.error(`scrapeTweets error: ${err}`);
     }
   });
 
@@ -89,15 +89,10 @@ async function insertGPromises(gPromises: Omit<IGPromise, "pubId">[]) {
 async function twitterScraper(): Promise<
   {tweet: Tweet; references: string[]}[]
 > {
-  const options: Options = {
-    max_results: 100,
-  };
-
   try {
-    const tweets = await twitterApi.searchRecent(
-      "#GodsPromises -is:retweet",
-      options
-    );
+    const tweets = await twitterApi.searchRecent("#GodsPromises -is:retweet", {
+      max_results: 100,
+    });
 
     if (tweets.length === 0) {
       return [];
