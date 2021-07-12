@@ -66,7 +66,7 @@ export const scrapeTweets = functions.pubsub
         ),
       ]);
     } catch (err) {
-      functions.logger.error("scrapeTweets", JSON.stringify(err, null, 2));
+      functions.logger.error(`scrapeTweets error: ${err}`);
     }
   });
 
