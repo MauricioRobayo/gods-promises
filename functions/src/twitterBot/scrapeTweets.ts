@@ -5,7 +5,7 @@ import {
   makeGPromises,
 } from "@mauriciorobayo/gods-promises/lib/utils";
 import * as functions from "firebase-functions";
-import {Meta, SearchOptions, Tweet, TwitterApi} from "./api";
+import {Meta, Tweet, TwitterApi} from "./api";
 import FirebaseStore from "./FirestoreStore";
 
 const gPromisesRepository = new GPromisesRepository(
