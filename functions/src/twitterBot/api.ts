@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import axios from "axios";
 import {logger} from "firebase-functions";
-import oAuthRequest from "twitter-v1-oauth";
+import oAuth1a, {RequestOptions, OAuthOptions} from "twitter-v1-oauth";
 import {IStore} from "./IStore";
 export type Tweet = {
   id: string;
@@ -13,8 +13,7 @@ export type Meta = {
   result_count: number;
   next_token?: string;
 };
-export type Options = {
-  since_id?: string;
+export type SearchOptions = {
   max_results?: number;
 };
 type LikeResponse = {
@@ -45,12 +44,7 @@ type Logger = {
 };
 
 export class TwitterApi {
-  private _oAuthOptions: {
-    api_key: string;
-    api_secret_key: string;
-    access_token: string;
-    access_token_secret: string;
-  };
+  private _oAuthOptions: OAuthOptions;
   private _bearerToken: string;
   private _store: IStore<Meta>;
   private _logger: Logger;
@@ -87,39 +81,53 @@ export class TwitterApi {
   }
 
   async like(id: string): Promise<LikeResponse> {
-    const likeRequest = oAuthRequest({
-      method: "POST",
-      baseURL: `${this._v2ApiEndpoint}/users/${this._botUserId}/likes`,
-      data: {
-        tweet_id: id,
-      },
-      oAuthOptions: this._oAuthOptions,
-    });
+    const method = "POST" as const;
+    const url = `${this._v2ApiEndpoint}/users/${this._botUserId}/likes`;
+    const data = {
+      tweet_id: id,
+    };
+    const authorization = this.authHeader({method, url});
 
     logger.log(`TwitterApi.like: '${id}'`);
 
+    const likeRequest = {
+      method,
+      url,
+      data,
+      headers: {
+        authorization,
+      },
+    };
     return this.request<LikeResponse>(likeRequest);
   }
 
-  async searchRecent(query: string, options: Options = {}): Promise<Tweet[]> {
+  async searchRecent(
+    query: string,
+    {max_results = 10}: SearchOptions = {}
+  ): Promise<Tweet[]> {
     const lastSearchMeta = await this._store.get();
+    const params: {
+      query: string;
+      max_results: number;
+      since_id?: string;
+    } = {
+      query,
+      max_results,
+    };
 
     if (lastSearchMeta?.newest_id) {
-      options.since_id = lastSearchMeta.newest_id;
+      params.since_id = lastSearchMeta.newest_id;
     }
 
-    this._logger.log("TwitterApi.searchRecent", options);
+    this._logger.log("TwitterApi.searchRecent", params);
 
     const response = await this.request<{
       data?: Tweet[];
       meta: Meta;
     }>({
       method: "GET",
-      baseURL: `${this._v2ApiEndpoint}/tweets/search/recent`,
-      params: {
-        query,
-        ...options,
-      },
+      url: `${this._v2ApiEndpoint}/tweets/search/recent`,
+      params,
       headers: {
         authorization: `Bearer ${this._bearerToken}`,
       },
@@ -136,16 +144,23 @@ export class TwitterApi {
 
   async retweet(id: string): Promise<RetweetResponse> {
     const ALREADY_RETWEETED_ERROR_CODE = 327;
-    const retweetRequest = oAuthRequest({
-      oAuthOptions: this._oAuthOptions,
-      baseURL: `${this._v1ApiEndpoint}/statuses/retweet/${id}.json`,
-      method: "POST",
+    const method = "POST";
+    const url = `${this._v1ApiEndpoint}/statuses/retweet/${id}.json`;
+    const authorization = this.authHeader({
+      url,
+      method,
     });
 
     logger.log(`TwitterApi.retweet: '${id}'`);
 
     try {
-      return this.request<RetweetResponse>(retweetRequest);
+      return this.request<RetweetResponse>({
+        url,
+        method,
+        headers: {
+          authorization,
+        },
+      });
     } catch (err) {
       if (
         err.data.errors.some(
@@ -164,15 +179,19 @@ export class TwitterApi {
   }
 
   private async request<T>(request: {
-    method: "GET" | "POST" | "PUT" | "DELETE";
-    baseURL: string;
-    /* eslint-disable @typescript-eslint/no-explicit-any */
-    params?: any;
-    data?: any;
-    headers?: any;
-    /* eslint-enable @typescript-eslint/no-explicit-any */
+    url: string;
+    method: "POST" | "GET";
+    params?: {[key: string]: string | number | boolean | undefined};
+    data?: {[key: string]: string | number | boolean};
+    headers?: {
+      authorization: string;
+    };
   }): Promise<T> {
     const {data} = await axios.request<T>(request);
     return data;
+  }
+
+  private authHeader(request: RequestOptions): string {
+    return oAuth1a(request, this._oAuthOptions);
   }
 }

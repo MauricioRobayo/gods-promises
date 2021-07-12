@@ -5,7 +5,7 @@ import {
   makeGPromises,
 } from "@mauriciorobayo/gods-promises/lib/utils";
 import * as functions from "firebase-functions";
-import {Meta, Options, Tweet, TwitterApi} from "./api";
+import {Meta, SearchOptions, Tweet, TwitterApi} from "./api";
 import FirebaseStore from "./FirestoreStore";
 
 const gPromisesRepository = new GPromisesRepository(
@@ -89,7 +89,7 @@ async function insertGPromises(gPromises: Omit<IGPromise, "pubId">[]) {
 async function twitterScraper(): Promise<
   {tweet: Tweet; references: string[]}[]
 > {
-  const options: Options = {
+  const options: SearchOptions = {
     max_results: 100,
   };
 
