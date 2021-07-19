@@ -29,6 +29,12 @@ const twitterApi = new TwitterApi(
 export const scrapeTweets = functions.pubsub
   .schedule("every 4 hours")
   .onRun(async () => {
+    const RATE_LIMIT_PER_DAY = 50;
+    const EXECUTIONS_PER_DAY = 24 / 4; // every 4 hours
+    const TWEETS_PER_BATCH = Math.floor(
+      RATE_LIMIT_PER_DAY / EXECUTIONS_PER_DAY
+    );
+
     const tweets = await twitterScraper();
     functions.logger.log(`Found ${tweets.length} new tweets.`);
 
@@ -59,10 +65,14 @@ export const scrapeTweets = functions.pubsub
       await Promise.all([
         insertGPromises(gPromises),
         Promise.all(
-          tweetsWithReferences.map(({tweet}) => twitterApi.retweet(tweet.id))
+          tweetsWithReferences
+            .slice(0, TWEETS_PER_BATCH)
+            .map(({tweet}) => twitterApi.retweet(tweet.id))
         ),
         Promise.all(
-          tweetsWithoutReferences.map(({tweet}) => twitterApi.like(tweet.id))
+          tweetsWithoutReferences
+            .slice(0, TWEETS_PER_BATCH)
+            .map(({tweet}) => twitterApi.like(tweet.id))
         ),
       ]);
     } catch (err) {
