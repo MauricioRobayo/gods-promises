@@ -25,6 +25,7 @@ import {
   ShareButton,
   ShareIcon,
   ForwardIcon,
+  TwitterIcon,
 } from "./styles";
 
 export default function GPromiseContainer() {
@@ -81,13 +82,13 @@ export default function GPromiseContainer() {
   };
 
   const shareButton =
-    "share" in navigator ? (
+    Math.random() > 1 && "share" in navigator ? (
       <ShareButton type="button" onClick={share} title={t("Share")}>
         <ShareIcon />
       </ShareButton>
     ) : (
       <a title="tweet" href={`https://twitter.com/intent/tweet?text=${tweet}`}>
-        <Twemoji emoji="📣" />
+        <TwitterIcon />
       </a>
     );
 
