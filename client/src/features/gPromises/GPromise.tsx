@@ -9,7 +9,6 @@ import useGPromise from "../../hooks/useGPromise";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { lngs } from "../i18next";
 import { AppLoader } from "../loaders";
-import Twemoji from "../twemoji/Twemoji";
 import { createTweet } from "./utils";
 import {
   cssTransitionClassNamesPrefix,
