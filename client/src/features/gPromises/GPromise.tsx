@@ -86,7 +86,7 @@ export default function GPromiseContainer() {
         <ShareIcon />
       </ShareButton>
     ) : (
-      <a title="tweet" href={`https://twitter.com/intent/tweet?text=${tweet}`}>
+      <a title="Tweet" href={`https://twitter.com/intent/tweet?text=${tweet}`}>
         <TwitterIcon />
       </a>
     );
