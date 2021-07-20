@@ -1,4 +1,4 @@
-import { FaForward, FaShareAlt } from "react-icons/fa";
+import { FaForward, FaShareAlt, FaTwitter } from "react-icons/fa";
 import styled, { css } from "styled-components/macro";
 
 export const cssTransitionClassNamesPrefix = "passage-";
@@ -102,6 +102,10 @@ export const ShareButton = styled.button`
 `;
 
 const iconStyle = css``;
+
+export const TwitterIcon = styled(FaTwitter)`
+  ${iconStyle}
+`;
 
 export const ShareIcon = styled(FaShareAlt)`
   ${iconStyle}

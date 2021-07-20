@@ -9,7 +9,6 @@ import useGPromise from "../../hooks/useGPromise";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
 import { lngs } from "../i18next";
 import { AppLoader } from "../loaders";
-import Twemoji from "../twemoji/Twemoji";
 import { createTweet } from "./utils";
 import {
   cssTransitionClassNamesPrefix,
@@ -25,6 +24,7 @@ import {
   ShareButton,
   ShareIcon,
   ForwardIcon,
+  TwitterIcon,
 } from "./styles";
 
 export default function GPromiseContainer() {
@@ -86,8 +86,8 @@ export default function GPromiseContainer() {
         <ShareIcon />
       </ShareButton>
     ) : (
-      <a title="tweet" href={`https://twitter.com/intent/tweet?text=${tweet}`}>
-        <Twemoji emoji="📣" />
+      <a title="Tweet" href={`https://twitter.com/intent/tweet?text=${tweet}`}>
+        <TwitterIcon />
       </a>
     );
 
