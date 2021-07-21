@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { LanguageSelector } from "../i18next";
-import { Twemoji } from "../twemoji";
+import { Twemoji } from "../Twemoji";
 
 const StyledNavbar = styled.nav`
   display: flex;

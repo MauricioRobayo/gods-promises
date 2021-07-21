@@ -2,10 +2,10 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 import styled, { keyframes } from "styled-components/macro";
-import { PROMISE_PATH } from "../../config";
+import { PROMISE_PATH } from "../../../config";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
-import { AppLoader } from "../loaders";
-import Twemoji from "../twemoji/Twemoji";
+import { AppLoader } from "../Loader";
+import Twemoji from "../Twemoji/Twemoji";
 
 const float = keyframes`
   0% {
