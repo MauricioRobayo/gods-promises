@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Twemoji } from "../Twemoji";
+import { LanguageSelector } from "../i18n";
 
 const StyledNavbar = styled.nav`
   display: flex;
@@ -45,6 +46,7 @@ function Navbar({ className = "" }: NavbarProps) {
             <Twemoji emoji="🙏" /> God&apos;s Promises
           </a>
         </Title>
+        <LanguageSelector />
       </NavbarWrapper>
     </StyledNavbar>
   );
