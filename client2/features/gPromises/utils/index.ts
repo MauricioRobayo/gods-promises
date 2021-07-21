@@ -1,1 +1,0 @@
-export { createTweet } from "./createTweet";
