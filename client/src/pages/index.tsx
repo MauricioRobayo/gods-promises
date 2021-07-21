@@ -19,7 +19,7 @@ export default function Home() {
       </Angel>
       <Tagline>
         <Blockquote>{t("home:intro")}</Blockquote>
-        <Figcaption>{t("home:author")} 1.5</Figcaption>
+        <Figcaption>{t("home:author")}</Figcaption>
       </Tagline>
       <Button title={t("home:start")}>
         <div>{t("home:start")}</div>
