@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { ChangeEvent } from "react";
 import styled from "styled-components";
 
 const Select = styled.select`
@@ -20,7 +21,7 @@ export default function LanguageSelector({
   if (!locales) {
     return null;
   }
-  const onSelectChange = (e) => {
+  const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const locale = e.target.value;
     push(asPath, asPath, {
       locale,
