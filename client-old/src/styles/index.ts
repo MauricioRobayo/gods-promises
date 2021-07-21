@@ -1,3 +1,3 @@
 export * from "./global";
-export { theme, lightTheme } from "./theme";
+export { theme } from "./theme";
 export type { ThemeType } from "./theme";

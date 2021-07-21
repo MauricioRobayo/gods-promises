@@ -90,5 +90,3 @@ export const theme: { light: ThemeType; dark: ThemeType } = {
     },
   },
 };
-
-export const lightTheme = theme.light;
