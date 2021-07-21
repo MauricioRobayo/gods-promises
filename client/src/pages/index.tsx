@@ -1,8 +1,6 @@
-import styled, { keyframes } from "styled-components";
-import { PROMISE_PATH } from "../config";
-import { AppLoader } from "../components/Loader";
-import { Twemoji } from "../components/Twemoji";
 import useTranslation from "next-translate/useTranslation";
+import styled, { keyframes } from "styled-components";
+import { Twemoji } from "../components/Twemoji";
 
 const float = keyframes`
   0% {
