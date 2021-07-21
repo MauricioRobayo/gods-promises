@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Navbar } from "../Navbar";
-import { Twemoji } from "../Twemoji";
+import { Footer } from "../Footer";
 
 const Wrapper = styled.div`
   display: grid;
@@ -23,16 +23,6 @@ const Main = styled.main`
   overflow: hidden;
 `;
 
-const Footer = styled.footer`
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 1rem 0;
-  a {
-    color: ${({ theme }) => theme.color.text2};
-  }
-`;
-
 type LayoutProps = {
   children?: React.ReactNode;
 };
@@ -41,11 +31,7 @@ function Layout({ children }: LayoutProps) {
     <Wrapper>
       <StyledNavbar />
       <Main>{children}</Main>
-      <Footer>
-        <a href="https://godspromises.bible">
-          <Twemoji emoji="🙏" /> God&apos;s Promises
-        </a>
-      </Footer>
+      <Footer />
     </Wrapper>
   );
 }
