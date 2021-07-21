@@ -1,9 +1,9 @@
 import { useQuery } from "react-query";
-import { firebaseCallable } from "../features/firebase";
-import { GPromise } from "../features/gPromises/gPromisesSlice";
+import { firebaseCallable } from "../services/firebase";
+import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
 
 export default function useGPromise(gPromiseId: string) {
-  const getPromiseById = firebaseCallable<GPromise, string>("promise");
+  const getPromiseById = firebaseCallable<IGPromise, string>("promise");
   return useQuery(["promise", gPromiseId], () => getPromiseById(gPromiseId), {
     staleTime: Infinity,
   });

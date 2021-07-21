@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
-import { GPromise } from "../features/gPromises/gPromisesSlice";
+import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
 
 export default function useRandomGPromise() {
   const queryClient = useQueryClient();
@@ -10,7 +10,7 @@ export default function useRandomGPromise() {
     queryClient.setQueryData(["promise", data.id], data);
     return data;
   }
-  const { data, isLoading, isFetching, isError } = useQuery<GPromise>(
+  const { data, isLoading, isFetching, isError } = useQuery<IGPromise>(
     "randomGPromise",
     randomGPromise,
     {
