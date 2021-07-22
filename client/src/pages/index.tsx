@@ -2,9 +2,9 @@ import useTranslation from "next-translate/useTranslation";
 import { Twemoji } from "../components/Twemoji";
 import useRandomGPromise from "../hooks/useRandomGPromise";
 import { AppLoader } from "../components/Loader";
+import Link from "next/link";
 import {
   Wrapper,
-  Button,
   Angel,
   Tagline,
   Blockquote,
@@ -14,7 +14,7 @@ import {
 export default function Home() {
   const { t } = useTranslation("home");
   const { t: tError } = useTranslation("error");
-  const { isLoading, isError, data } = useRandomGPromise();
+  const randomGPromiseQuery = useRandomGPromise();
 
   return (
     <Wrapper>
@@ -25,14 +25,16 @@ export default function Home() {
         <Blockquote>{t("intro")}</Blockquote>
         <Figcaption>{t("author")}</Figcaption>
       </Tagline>
-      {isLoading ? (
+      {randomGPromiseQuery.isLoading || randomGPromiseQuery.isIdle ? (
         <AppLoader />
-      ) : isError || Math.random() > 0 ? (
+      ) : randomGPromiseQuery.isError ? (
         tError("generic error")
       ) : (
-        <Button title={t("start")}>
-          <div>{t("start")}</div>
-        </Button>
+        <Link href={`/p/${randomGPromiseQuery.data.id}`}>
+          <a>
+            <div>{t("start")}</div>
+          </a>
+        </Link>
       )}
     </Wrapper>
   );
