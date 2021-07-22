@@ -5,7 +5,7 @@ import { firebaseCallable } from "../services/firebase";
 
 export default function useRandomGPromise() {
   const queryClient = useQueryClient();
-  const getRandomGPromise = firebaseCallable<GPromiseDTO>("randomGPromise");
+  const getRandomGPromise = firebaseCallable<GPromiseDTO>("random");
 
   async function randomGPromise() {
     const gPromise = await getRandomGPromise();
