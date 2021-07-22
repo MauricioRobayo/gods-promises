@@ -13,8 +13,7 @@ const firebaseConfig = {
 };
 
 export const app =
-  firebase.apps.find((app) => app.name === APP_NAME) ||
-  firebase.initializeApp(firebaseConfig, APP_NAME);
+  firebase.app(APP_NAME) || firebase.initializeApp(firebaseConfig, APP_NAME);
 export const functions = app.functions();
 export function firebaseCallable<T, R = undefined>(
   name: string
