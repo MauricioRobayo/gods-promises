@@ -12,6 +12,7 @@ export default function useRandomGPromise() {
     queryClient.setQueryData(["promise", gPromise.id], gPromise);
     return gPromise;
   }
+
   const { data, isLoading, isFetching, isError } = useQuery<GPromiseDTO>(
     "randomGPromise",
     randomGPromise,
