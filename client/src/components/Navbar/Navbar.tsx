@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Twemoji } from "../Twemoji";
 import { LanguageSelector } from "../i18n";
+import useTranslation from "next-translate/useTranslation";
 
 const StyledNavbar = styled.nav`
   display: flex;
@@ -38,12 +39,13 @@ type NavbarProps = {
   className?: string;
 };
 function Navbar({ className = "" }: NavbarProps) {
+  const { t } = useTranslation();
   return (
     <StyledNavbar className={className}>
       <NavbarWrapper>
         <Title>
           <a href="https://godspromises.bible">
-            <Twemoji emoji="🙏" /> God&apos;s Promises
+            <Twemoji emoji="🙏" /> {t("common:God's Promises")}
           </a>
         </Title>
         <LanguageSelector />
