@@ -1,6 +1,5 @@
 import firebase from "firebase/app";
 import "firebase/functions";
-import "firebase/analytics";
 
 const APP_NAME = "gods-promises";
 
@@ -11,7 +10,6 @@ const firebaseConfig = {
   storageBucket: "promises-edfea.appspot.com",
   messagingSenderId: "838543239018",
   appId: "1:838543239018:web:e967c86dc829edce226713",
-  measurementId: "G-XVBML7K8Z1",
 };
 
 export const app =
@@ -23,10 +21,6 @@ export function firebaseCallable<T, R = undefined>(
 ): (data?: R) => Promise<T> {
   const callable = functions.httpsCallable(name);
   return async (data) => (await callable(data)).data;
-}
-export let analytics: firebase.analytics.Analytics | null = null;
-if (process.env.NODE_ENV === "production") {
-  analytics = firebase.analytics();
 }
 
 if (process.env.NODE_ENV === "development") {
