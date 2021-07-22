@@ -1,9 +1,7 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components/macro";
+import styled, { ThemeProvider } from "styled-components";
 import { AppLoader } from ".";
-import usePreferredColorScheme from "../../../../client-old/src/hooks/usePreferredColorScheme";
-import { theme } from "../../../../client-old/src/styles";
-import { ThemeType, GlobalStyle } from "../../../../client-old/src/styles";
+import { ThemeType, GlobalStyle, lightTheme } from "../../styles";
 
 type WrapperProps = {
   theme: ThemeType;
@@ -15,12 +13,11 @@ const Wrapper = styled.div<WrapperProps>`
 `;
 
 function FullPageLoader() {
-  const preferredColorScheme = usePreferredColorScheme();
   return (
     <>
-      <ThemeProvider theme={theme[preferredColorScheme]}>
+      <ThemeProvider theme={lightTheme}>
         <GlobalStyle />
-        <Wrapper theme={theme[preferredColorScheme]}>
+        <Wrapper theme={lightTheme}>
           <AppLoader />
         </Wrapper>
       </ThemeProvider>
