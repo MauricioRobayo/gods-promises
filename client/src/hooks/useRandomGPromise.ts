@@ -13,18 +13,7 @@ export default function useRandomGPromise() {
     return gPromise;
   }
 
-  const { data, isLoading, isFetching, isError } = useQuery<GPromiseDTO>(
-    "randomGPromise",
-    randomGPromise,
-    {
-      staleTime: Infinity,
-    }
-  );
-
-  return {
-    data,
-    isLoading,
-    isFetching,
-    isError,
-  };
+  return useQuery("randomGPromise", randomGPromise, {
+    staleTime: Infinity,
+  });
 }
