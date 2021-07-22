@@ -91,7 +91,7 @@ export default function GPromise() {
           {randomGPromiseQuery.isFetching ? (
             <AppLoader size={8} />
           ) : (
-            <Link href="">
+            <Link href={`/p/${gPromiseId}`}>
               <a>
                 <ForwardIcon />
               </a>
