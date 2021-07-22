@@ -1,16 +1,18 @@
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
-import { IGPromise } from "@mauriciorobayo/gods-promises/lib/models";
+import { GPromiseDTO } from "@mauriciorobayo/gods-promises/lib/models";
+import { firebaseCallable } from "../services/firebase";
 
 export default function useRandomGPromise() {
   const queryClient = useQueryClient();
+  const getRandomGPromise = firebaseCallable<GPromiseDTO>("randomGPromise");
 
   async function randomGPromise() {
-    const { data } = await axios.get("/random");
-    queryClient.setQueryData(["promise", data.id], data);
-    return data;
+    const gPromise = await getRandomGPromise();
+    queryClient.setQueryData(["promise", gPromise.id], gPromise);
+    return gPromise;
   }
-  const { data, isLoading, isFetching, isError } = useQuery<IGPromise>(
+  const { data, isLoading, isFetching, isError } = useQuery<GPromiseDTO>(
     "randomGPromise",
     randomGPromise,
     {
