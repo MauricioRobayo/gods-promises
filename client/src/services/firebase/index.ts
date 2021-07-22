@@ -3,7 +3,7 @@ import "firebase/functions";
 
 const APP_NAME = "gods-promises";
 
-const firebaseConfig = {
+const config = {
   apiKey: "AIzaSyBUG2Qt9Jg5hTTZAKbjLn0IxdoA1XlGiZk",
   authDomain: "promises-edfea.firebaseapp.com",
   projectId: "promises-edfea",
@@ -12,8 +12,14 @@ const firebaseConfig = {
   appId: "1:838543239018:web:e967c86dc829edce226713",
 };
 
-export const app =
-  firebase.app(APP_NAME) || firebase.initializeApp(firebaseConfig, APP_NAME);
+let app: firebase.app.App;
+
+try {
+  app = firebase.app(APP_NAME);
+} catch (_) {
+  app = firebase.initializeApp(config, APP_NAME);
+}
+
 export const functions = app.functions();
 export function firebaseCallable<T, R = undefined>(
   name: string
