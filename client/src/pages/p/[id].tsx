@@ -61,7 +61,7 @@ export default function GPromise() {
   };
 
   const shareButton =
-    Math.random() > 1 && "share" in navigator ? (
+    "share" in navigator ? (
       <ShareButton type="button" onClick={share} title={t("Share")}>
         <ShareIcon />
       </ShareButton>
