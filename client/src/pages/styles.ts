@@ -17,9 +17,7 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
-export const Button = styled.button.attrs({
-  type: "button",
-})`
+export const Button = styled.a`
   background-color: transparent;
   border: 2px solid currentColor;
   color: ${({ theme }) => theme.color.brand};

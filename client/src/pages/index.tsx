@@ -4,12 +4,13 @@ import useRandomGPromise from "../hooks/useRandomGPromise";
 import { AppLoader } from "../components/Loader";
 import Link from "next/link";
 import {
+  Button,
   Wrapper,
   Angel,
   Tagline,
   Blockquote,
   Figcaption,
-} from "./index.styles";
+} from "./styles";
 
 export default function Home() {
   const { t } = useTranslation("home");
@@ -30,10 +31,10 @@ export default function Home() {
       ) : randomGPromiseQuery.isError ? (
         tError("generic error")
       ) : (
-        <Link href={`/p/${randomGPromiseQuery.data.id}`}>
-          <a>
+        <Link href={`/p/${randomGPromiseQuery.data.id}`} passHref>
+          <Button>
             <div>{t("start")}</div>
-          </a>
+          </Button>
         </Link>
       )}
     </Wrapper>
