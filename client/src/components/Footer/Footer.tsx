@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 import Logo from "../Logo/Logo";
 
@@ -14,9 +15,11 @@ const StyledFooter = styled.footer`
 function Footer() {
   return (
     <StyledFooter>
-      <a href="https://godspromises.bible">
-        <Logo />
-      </a>
+      <Link href="/">
+        <a>
+          <Logo />
+        </a>
+      </Link>
     </StyledFooter>
   );
 }

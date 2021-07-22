@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { LanguageSelector } from "../i18n";
@@ -42,9 +43,11 @@ function Navbar({ className = "" }: NavbarProps) {
     <StyledNavbar className={className}>
       <NavbarWrapper>
         <Title>
-          <a href="https://godspromises.bible">
-            <Logo />
-          </a>
+          <Link href="/">
+            <a>
+              <Logo />
+            </a>
+          </Link>
         </Title>
         <LanguageSelector />
       </NavbarWrapper>
