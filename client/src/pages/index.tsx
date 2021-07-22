@@ -10,7 +10,7 @@ import {
 } from "./index.styles";
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("home");
 
   return (
     <Wrapper>
@@ -18,11 +18,11 @@ export default function Home() {
         <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
       <Tagline>
-        <Blockquote>{t("home:intro")}</Blockquote>
-        <Figcaption>{t("home:author")}</Figcaption>
+        <Blockquote>{t("intro")}</Blockquote>
+        <Figcaption>{t("author")}</Figcaption>
       </Tagline>
-      <Button title={t("home:start")}>
-        <div>{t("home:start")}</div>
+      <Button title={t("start")}>
+        <div>{t("start")}</div>
       </Button>
     </Wrapper>
   );

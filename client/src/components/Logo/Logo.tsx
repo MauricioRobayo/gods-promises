@@ -5,10 +5,10 @@ import { Twemoji } from "../Twemoji";
 const Wrapper = styled.div``;
 
 export default function Logo() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   return (
     <Wrapper>
-      <Twemoji emoji="🙏" /> {t("common:God's Promises")}
+      <Twemoji emoji="🙏" /> {t("God's Promises")}
     </Wrapper>
   );
 }

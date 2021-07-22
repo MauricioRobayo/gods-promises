@@ -23,7 +23,7 @@ import { useQueryClient } from "react-query";
 import React, { useEffect } from "react";
 
 export default function GPromise() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const router = useRouter();
 
   const locale = router.locale as string;
@@ -49,7 +49,7 @@ export default function GPromise() {
   }
 
   const { text, reference, bibleName } = gPromiseQuery.data.content[bibleId];
-  const title = `${reference} | ${t("common:God's Promises")}`;
+  const title = `${reference} | ${t("God's Promises")}`;
 
   // const tweet = createTweet({
   //   text,
