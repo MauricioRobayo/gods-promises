@@ -2,6 +2,8 @@ import firebase from "firebase/app";
 import "firebase/functions";
 import "firebase/analytics";
 
+const APP_NAME = "gods-promises";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBUG2Qt9Jg5hTTZAKbjLn0IxdoA1XlGiZk",
   authDomain: "promises-edfea.firebaseapp.com",
@@ -12,9 +14,13 @@ const firebaseConfig = {
   measurementId: "G-XVBML7K8Z1",
 };
 
-export const app = firebase.initializeApp(firebaseConfig);
+export const app =
+  firebase.apps.find((app) => app.name === APP_NAME) ||
+  firebase.initializeApp(firebaseConfig, APP_NAME);
 export const functions = app.functions();
-export function firebaseCallable<T, R>(name: string): (data: R) => Promise<T> {
+export function firebaseCallable<T, R = undefined>(
+  name: string
+): (data?: R) => Promise<T> {
   const callable = functions.httpsCallable(name);
   return async (data) => (await callable(data)).data;
 }
