@@ -49,7 +49,7 @@ export default function GPromise() {
   }
 
   const { text, reference, bibleName } = gPromiseQuery.data.content[bibleId];
-  const title = `${reference} | ${t("God's Promises")}`;
+  const title = `${reference} | ${t("common:God's Promises")}`;
 
   // const tweet = createTweet({
   //   text,
