@@ -1,7 +1,6 @@
-import * as functions from "firebase-functions";
 import {GPromiseDTO} from "@mauriciorobayo/gods-promises/lib/models";
-import {HttpsError} from "firebase-functions/lib/providers/https";
 import {GPromisesRepository} from "@mauriciorobayo/gods-promises/lib/repositories";
+import * as functions from "firebase-functions";
 import {updateMissingContent} from "./utils";
 
 const gPromisesRepository = new GPromisesRepository(
@@ -13,7 +12,7 @@ export const getGPromise = functions.https.onCall(
     const gPromise = await gPromisesRepository.getGPromiseById(gPromiseId);
 
     if (!gPromise) {
-      throw new HttpsError(
+      throw new functions.https.HttpsError(
         "not-found",
         `No promise with id '${gPromiseId}' found!`
       );
