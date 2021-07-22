@@ -1,6 +1,5 @@
-import useTranslation from "next-translate/useTranslation";
 import styled from "styled-components";
-import { Twemoji } from "../Twemoji";
+import Logo from "../Logo/Logo";
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -13,11 +12,10 @@ const StyledFooter = styled.footer`
 `;
 
 function Footer() {
-  const { t } = useTranslation();
   return (
     <StyledFooter>
       <a href="https://godspromises.bible">
-        <Twemoji emoji="🙏" /> {t("common:God's Promises")}
+        <Logo />
       </a>
     </StyledFooter>
   );
