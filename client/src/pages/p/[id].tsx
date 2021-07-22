@@ -24,6 +24,7 @@ import React, { useEffect } from "react";
 
 export default function GPromise() {
   const { t } = useTranslation("common");
+  const { t: tError } = useTranslation("error");
   const router = useRouter();
 
   const locale = router.locale as string;
@@ -43,7 +44,7 @@ export default function GPromise() {
   }
 
   if (gPromiseQuery.isError || randomGPromiseQuery.isError) {
-    return <div>{t("Something unexpected happened!")}</div>;
+    return <div>{tError("generic error")}</div>;
   }
 
   const baseUrl = "https://godspromises.bible";
