@@ -38,8 +38,6 @@ export default function GPromise() {
     queryClient.refetchQueries("randomGPromise");
   }, [queryClient]);
 
-  const goToNextPromise = () => {};
-
   if (gPromiseQuery.isLoading || gPromiseQuery.isIdle) {
     return <AppLoader />;
   }
@@ -48,30 +46,30 @@ export default function GPromise() {
     return <div>{t("Something unexpected happened!")}</div>;
   }
 
+  const baseUrl = "https://godspromises.bible";
   const { text, reference, bibleName } = gPromiseQuery.data.content[bibleId];
   const title = `${reference} | ${t("God's Promises")}`;
-
-  // const tweet = createTweet({
-  //   text,
-  //   reference,
-  //   link: `https://godspromises.bible${location.pathname}`,
-  // });
+  const description = `${text} ${reference}`;
+  const link = `${baseUrl}${router.asPath}`;
 
   const share = () => {
     navigator.share({
       title,
       text,
-      url: `https://godspromises.bible${location.pathname}`,
+      url: link,
     });
   };
 
   const shareButton =
-    "share" in navigator ? (
+    Math.random() > 1 && "share" in navigator ? (
       <ShareButton type="button" onClick={share} title={t("Share")}>
         <ShareIcon />
       </ShareButton>
     ) : (
-      <a title="Tweet" href={`https://twitter.com/intent/tweet?text=${text}`}>
+      <a
+        title="Tweet"
+        href={`https://twitter.com/intent/tweet?text=${description} ${link}`}
+      >
         <TwitterIcon />
       </a>
     );
