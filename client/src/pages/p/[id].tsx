@@ -47,26 +47,26 @@ export const getServerSideProps = async (
 export default function GPromise({
   gPromise,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const { t } = useTranslation("common");
-  const router = useRouter();
-
-  const locale = router.locale as string;
-  const gPromiseId = router.query.id as string;
-
-  const { bibleId } = localeInfo[locale];
   const randomGPromiseQuery = useRandomGPromise();
+  const { t } = useTranslation("common");
+  const { t: tError } = useTranslation("error");
+  const router = useRouter();
   const queryClient = useQueryClient();
 
-  useEffect(() => {
-    // TODO: #76 promise Id is the same as the current page
-    queryClient.refetchQueries("randomGPromise");
-  }, [queryClient]);
-
+  const gPromiseId = router.query.id as string;
+  const locale = router.locale as string;
+  const { bibleId } = localeInfo[locale];
   const baseUrl = "https://godspromises.bible";
   const { text, reference, bibleName } = gPromise.content[bibleId];
   const title = `${reference} | ${t("God's Promises")}`;
   const description = `${text} ${reference}`;
   const link = `${baseUrl}${router.asPath}`;
+
+  useEffect(() => {
+    if (gPromiseId === randomGPromiseQuery?.data?.id) {
+      queryClient.refetchQueries("randomGPromise");
+    }
+  }, [queryClient, randomGPromiseQuery, gPromiseId]);
 
   const share = () => {
     navigator.share({
@@ -103,10 +103,14 @@ export default function GPromise({
       <Footer>
         <ButtonsWrapper>
           {shareButton}
-          {randomGPromiseQuery.isFetching ? (
+          {randomGPromiseQuery.isLoading ||
+          randomGPromiseQuery.isFetching ||
+          randomGPromiseQuery.isIdle ? (
             <AppLoader size={8} />
+          ) : randomGPromiseQuery.isError ? (
+            <div>{tError("generic error")}</div>
           ) : (
-            <Link href={`/p/${gPromiseId}`}>
+            <Link href={`/p/${randomGPromiseQuery.data.id}`}>
               <a>
                 <ForwardIcon />
               </a>
