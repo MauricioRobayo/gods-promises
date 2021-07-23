@@ -1,3 +1,4 @@
+import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import { ChangeEvent } from "react";
 import styled from "styled-components";
@@ -16,6 +17,7 @@ type LanguageSelectorProps = {
 export default function LanguageSelector({
   className = "",
 }: LanguageSelectorProps) {
+  const { t } = useTranslation("common");
   const { push, asPath, locale: currentLocale, locales } = useRouter();
 
   if (!locales) {
@@ -34,6 +36,7 @@ export default function LanguageSelector({
       className={className}
       value={currentLocale}
       onChange={onSelectChange}
+      title={t("language")}
     >
       {locales.map((locale) => (
         <option key={locale} value={locale}>
