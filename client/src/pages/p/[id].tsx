@@ -45,7 +45,8 @@ export const getServerSideProps = async (
 
   try {
     const { data } = await axios.post<{ result: GPromiseDTO }>(
-      "http://127.0.0.1:5001/promises-edfea/us-central1/promise",
+      // TODO: #79 override this url
+      "https://us-central1-promises-edfea.cloudfunctions.net/random",
       {
         data: params.id,
       }
