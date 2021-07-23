@@ -1,33 +1,37 @@
-import useRandomGPromise from "../../hooks/useRandomGPromise";
-import { AppLoader } from "../../components/Loader";
+import { GPromiseDTO } from "@mauriciorobayo/gods-promises/lib/models";
+import axios from "axios";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import { useQueryClient } from "react-query";
+import { AppLoader } from "../../components/Loader";
+import { localeInfo } from "../../config";
+import useRandomGPromise from "../../hooks/useRandomGPromise";
 import {
   Article,
-  Header,
-  Title,
-  Subtitle,
-  BlockquoteWrapper,
   Blockquote,
-  Footer,
+  BlockquoteWrapper,
   ButtonsWrapper,
+  Footer,
+  ForwardIcon,
+  Header,
   ShareButton,
   ShareIcon,
-  ForwardIcon,
+  Subtitle,
+  Title,
   TwitterIcon,
 } from "./styles";
-import useTranslation from "next-translate/useTranslation";
-import { useRouter } from "next/router";
-import { localeInfo } from "../../config";
-import React, { useEffect } from "react";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { useQueryClient } from "react-query";
-import axios from "axios";
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const { params } = context;
   if (typeof params?.id !== "string") {
     throw new Error();
   }
-  const { data } = await axios.post(
+  const { data } = await axios.post<{ result: GPromiseDTO }>(
     "http://127.0.0.1:5001/promises-edfea/us-central1/promise",
     {
       data: params.id,
@@ -35,13 +39,13 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   );
   return {
     props: {
-      data: data.result,
+      gPromise: data.result,
     },
   };
 };
 
 export default function GPromise({
-  data, // TODO: #75 fix type of data
+  gPromise,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { t } = useTranslation("common");
   const router = useRouter();
@@ -59,7 +63,7 @@ export default function GPromise({
   }, [queryClient]);
 
   const baseUrl = "https://godspromises.bible";
-  const { text, reference, bibleName } = data.content[bibleId];
+  const { text, reference, bibleName } = gPromise.content[bibleId];
   const title = `${reference} | ${t("God's Promises")}`;
   const description = `${text} ${reference}`;
   const link = `${baseUrl}${router.asPath}`;
