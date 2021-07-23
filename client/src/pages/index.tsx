@@ -1,19 +1,19 @@
 import useTranslation from "next-translate/useTranslation";
+import Link from "next/link";
+import { AppLoader } from "../components/Loader";
 import { Twemoji } from "../components/Twemoji";
 import useRandomGPromise from "../hooks/useRandomGPromise";
-import { AppLoader } from "../components/Loader";
-import Link from "next/link";
 import {
-  Button,
-  Wrapper,
   Angel,
-  Tagline,
   Blockquote,
+  Button,
   Figcaption,
+  Tagline,
+  Wrapper,
 } from "./styles";
 
-export default function IndexPage() {
-  const { t } = useTranslation("home");
+export default function Home() {
+  const { t: tHome } = useTranslation("home");
   const { t: tError } = useTranslation("error");
   const randomGPromiseQuery = useRandomGPromise();
 
@@ -23,8 +23,8 @@ export default function IndexPage() {
         <Twemoji emoji="👼" height={"4rem"} />
       </Angel>
       <Tagline>
-        <Blockquote>{t("intro")}</Blockquote>
-        <Figcaption>{t("author")}</Figcaption>
+        <Blockquote>{tHome("intro")}</Blockquote>
+        <Figcaption>{tHome("author")}</Figcaption>
       </Tagline>
       {randomGPromiseQuery.isLoading || randomGPromiseQuery.isIdle ? (
         <AppLoader />
@@ -33,7 +33,7 @@ export default function IndexPage() {
       ) : (
         <Link href={`/p/${randomGPromiseQuery.data.id}`} passHref>
           <Button>
-            <div>{t("start")}</div>
+            <div>{tHome("start")}</div>
           </Button>
         </Link>
       )}

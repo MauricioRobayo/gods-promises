@@ -3,6 +3,7 @@ import axios from "axios";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useQueryClient } from "react-query";
@@ -85,12 +86,14 @@ export default function GPromisePage({
 
   if (!gPromise) {
     return (
-      <GPromise
-        title="404"
-        subtitle="¯\_(ツ)_/¯"
-        text={tError("promise not found")}
-        buttons={[nextButton]}
-      />
+      <>
+        <GPromise
+          title="404"
+          subtitle="¯\_(ツ)_/¯"
+          text={tError("promise not found")}
+          buttons={[nextButton]}
+        />
+      </>
     );
   }
 
@@ -123,11 +126,21 @@ export default function GPromisePage({
   );
 
   return (
-    <GPromise
-      title={reference}
-      subtitle={bibleName}
-      text={text}
-      buttons={[shareButton, nextButton]}
-    />
+    <>
+      <NextSeo
+        title={`${reference} | ${t("God's Promises")}`}
+        description={text}
+        openGraph={{
+          title: `${reference} | ${t("God's Promises")}`,
+          description: text,
+        }}
+      />
+      <GPromise
+        title={reference}
+        subtitle={bibleName}
+        text={text}
+        buttons={[shareButton, nextButton]}
+      />
+    </>
   );
 }
