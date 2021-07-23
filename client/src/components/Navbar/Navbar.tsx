@@ -22,7 +22,7 @@ const NavbarWrapper = styled.div`
   width: 100%;
 `;
 
-const Title = styled.h1`
+const Title = styled.div`
   font-size: 1.25rem;
 
   @media ${({ theme }) => theme.device.medium} {
