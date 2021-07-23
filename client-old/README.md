@@ -1,1 +1,0 @@
-# 🙏 God's Promises
