@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Article = styled.article`
   width: 90vw;
@@ -17,7 +17,8 @@ export const Header = styled.div`
   }
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h1`
+  margin: 0;
   font-family: ${({ theme }) => theme.font.family.secondary};
   font-size: ${({ theme }) => theme.font.size.large};
   font-style: italic;
