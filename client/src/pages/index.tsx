@@ -12,7 +12,7 @@ import {
   Figcaption,
 } from "./styles";
 
-export default function Home() {
+export default function IndexPage() {
   const { t } = useTranslation("home");
   const { t: tError } = useTranslation("error");
   const randomGPromiseQuery = useRandomGPromise();

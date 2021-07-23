@@ -1,3 +1,4 @@
 {
-  "generic error": "Something went wrong!"
+  "generic error": "Something went wrong!",
+  "promise not found": "We lost track of that promise."
 }

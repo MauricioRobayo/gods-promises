@@ -9,42 +9,42 @@ import { useQueryClient } from "react-query";
 import { AppLoader } from "../../components/Loader";
 import { localeInfo } from "../../config";
 import useRandomGPromise from "../../hooks/useRandomGPromise";
-import {
-  Article,
-  Blockquote,
-  BlockquoteWrapper,
-  ButtonsWrapper,
-  Footer,
-  ForwardIcon,
-  Header,
-  ShareButton,
-  ShareIcon,
-  Subtitle,
-  Title,
-  TwitterIcon,
-} from "./styles";
+import { GPromise } from "../../components/GPromise";
+import { ForwardIcon, ShareButton, ShareIcon, TwitterIcon } from "./styles";
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
   const { params } = context;
   if (typeof params?.id !== "string") {
-    throw new Error();
+    throw new Error(`id must be of type string`);
   }
-  const { data } = await axios.post<{ result: GPromiseDTO }>(
-    "http://127.0.0.1:5001/promises-edfea/us-central1/promise",
-    {
-      data: params.id,
+
+  try {
+    const { data } = await axios.post<{ result: GPromiseDTO }>(
+      "http://127.0.0.1:5001/promises-edfea/us-central1/promise",
+      {
+        data: params.id,
+      }
+    );
+    return {
+      props: {
+        gPromise: data.result,
+      },
+    };
+  } catch (err) {
+    if (err.response?.status === 404) {
+      return {
+        props: {
+          gPromise: null,
+        },
+      };
     }
-  );
-  return {
-    props: {
-      gPromise: data.result,
-    },
-  };
+    throw new Error(err);
+  }
 };
 
-export default function GPromise({
+export default function GPromisePage({
   gPromise,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const randomGPromiseQuery = useRandomGPromise();
@@ -57,16 +57,43 @@ export default function GPromise({
   const locale = router.locale as string;
   const { bibleId } = localeInfo[locale];
   const baseUrl = "https://godspromises.bible";
-  const { text, reference, bibleName } = gPromise.content[bibleId];
-  const title = `${reference} | ${t("God's Promises")}`;
-  const description = `${text} ${reference}`;
-  const link = `${baseUrl}${router.asPath}`;
 
   useEffect(() => {
     if (gPromiseId === randomGPromiseQuery?.data?.id) {
       queryClient.refetchQueries("randomGPromise");
     }
   }, [queryClient, randomGPromiseQuery, gPromiseId]);
+
+  const nextButton =
+    randomGPromiseQuery.isLoading ||
+    randomGPromiseQuery.isFetching ||
+    randomGPromiseQuery.isIdle ? (
+      <AppLoader size={8} />
+    ) : randomGPromiseQuery.isError ? (
+      <div>{tError("generic error")}</div>
+    ) : (
+      <Link href={`/p/${randomGPromiseQuery.data.id}`}>
+        <a>
+          <ForwardIcon />
+        </a>
+      </Link>
+    );
+
+  if (!gPromise) {
+    return (
+      <GPromise
+        title="404"
+        subtitle="¯\_(ツ)_/¯"
+        text={tError("promise not found")}
+        buttons={[nextButton]}
+      />
+    );
+  }
+
+  const { text, reference, bibleName } = gPromise.content[bibleId];
+  const title = `${reference} | ${t("God's Promises")}`;
+  const description = `${text} ${reference}`;
+  const link = `${baseUrl}${router.asPath}`;
 
   const share = () => {
     navigator.share({
@@ -92,32 +119,11 @@ export default function GPromise({
   );
 
   return (
-    <Article>
-      <Header>
-        <Title>{reference}</Title>
-        <Subtitle>{bibleName}</Subtitle>
-      </Header>
-      <BlockquoteWrapper>
-        <Blockquote>{text}</Blockquote>
-      </BlockquoteWrapper>
-      <Footer>
-        <ButtonsWrapper>
-          {shareButton}
-          {randomGPromiseQuery.isLoading ||
-          randomGPromiseQuery.isFetching ||
-          randomGPromiseQuery.isIdle ? (
-            <AppLoader size={8} />
-          ) : randomGPromiseQuery.isError ? (
-            <div>{tError("generic error")}</div>
-          ) : (
-            <Link href={`/p/${randomGPromiseQuery.data.id}`}>
-              <a>
-                <ForwardIcon />
-              </a>
-            </Link>
-          )}
-        </ButtonsWrapper>
-      </Footer>
-    </Article>
+    <GPromise
+      title={reference}
+      subtitle={bibleName}
+      text={text}
+      buttons={[shareButton, nextButton]}
+    />
   );
 }
