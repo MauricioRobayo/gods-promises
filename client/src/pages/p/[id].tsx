@@ -33,6 +33,7 @@ export const getServerSideProps = async (
       },
     };
   } catch (err) {
+    context.res.statusCode = 404;
     if (err.response?.status === 404) {
       return {
         props: {
@@ -53,16 +54,19 @@ export default function GPromisePage({
   const router = useRouter();
   const queryClient = useQueryClient();
 
-  const gPromiseId = router.query.id as string;
   const locale = router.locale as string;
   const { bibleId } = localeInfo[locale];
   const baseUrl = "https://godspromises.bible";
 
   useEffect(() => {
-    if (gPromiseId === randomGPromiseQuery?.data?.id) {
+    if (!gPromise) {
+      return;
+    }
+
+    if (gPromise.id === randomGPromiseQuery?.data?.id) {
       queryClient.refetchQueries("randomGPromise");
     }
-  }, [queryClient, randomGPromiseQuery, gPromiseId]);
+  }, [queryClient, randomGPromiseQuery, gPromise]);
 
   const nextButton =
     randomGPromiseQuery.isLoading ||
