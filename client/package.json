@@ -24,7 +24,8 @@
     "react-spinners": "^0.11.0",
     "react-transition-group": "^4.4.2",
     "styled-components": "^5.3.0",
-    "styled-normalize": "^8.0.7"
+    "styled-normalize": "^8.0.7",
+    "switch-emoji": "^1.0.5"
   },
   "devDependencies": {
     "@types/color": "^3.0.2",
