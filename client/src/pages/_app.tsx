@@ -15,10 +15,11 @@ const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }: AppProps) {
   const { t } = useTranslation("common");
   const { t: tHome } = useTranslation("home");
-  const { asPath, locale } = useRouter();
+  const { asPath, locale, defaultLocale } = useRouter();
   const pageTitle = t("God's Promises");
   const pageDescription = tHome("intro");
-  const pageUrl = `https://godspromises.bible/${locale}${asPath}`;
+  const pathLocale = locale === defaultLocale ? "" : `/${locale}`;
+  const pageUrl = `https://godspromises.bible${pathLocale}${asPath}`;
 
   return (
     <>
