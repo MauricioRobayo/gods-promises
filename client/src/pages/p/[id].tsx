@@ -43,13 +43,19 @@ export const getServerSideProps = async (
     throw new Error(`id must be of type string`);
   }
 
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? "https://us-central1-promises-edfea.cloudfunctions.net"
+      : "http://127.0.0.1:5001/promises-edfea/us-central1";
+
   try {
     const { data } = await axios.post<{ result: GPromiseDTO }>(
-      "https://us-central1-promises-edfea.cloudfunctions.net/random",
+      `${apiUrl}/promise`,
       {
         data: params.id,
       }
     );
+
     return {
       props: {
         gPromise: data.result,
