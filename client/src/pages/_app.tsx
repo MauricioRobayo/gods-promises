@@ -7,6 +7,7 @@ import { Layout } from "../components/Layout";
 import { GlobalStyle, lightTheme } from "../styles";
 import { DefaultSeo } from "next-seo";
 import useTranslation from "next-translate/useTranslation";
+import NextNprogress from "nextjs-progressbar";
 import { useRouter } from "next/router";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         <GlobalStyle />
         <Layout>
           <QueryClientProvider client={queryClient}>
+            <NextNprogress
+              color={lightTheme.color.brand}
+              startPosition={0.3}
+              stopDelayMs={200}
+              height={3}
+              showOnShallow={true}
+            />
             <Component {...pageProps} />
             <ReactQueryDevtools />
           </QueryClientProvider>
