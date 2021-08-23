@@ -80,11 +80,10 @@ export default function GPromisePage({
   const randomGPromiseQuery = useRandomGPromise();
   const { t } = useTranslation("common");
   const { t: tError } = useTranslation("error");
-  const router = useRouter();
+  const { locale, defaultLocale, asPath } = useRouter();
   const queryClient = useQueryClient();
 
-  const locale = router.locale as string;
-  const { bibleId } = localeInfo[locale];
+  const { bibleId } = localeInfo[locale || defaultLocale || "en"];
   const baseUrl = "https://godspromises.bible";
 
   useEffect(() => {
@@ -128,7 +127,8 @@ export default function GPromisePage({
   const { text, reference, bibleName } = gPromise.content[bibleId];
   const title = `${reference} | ${t("God's Promises")}`;
   const description = `${text} ${reference}`;
-  const link = `${baseUrl}${router.asPath}`;
+  const pathLocale = locale === defaultLocale ? "" : `/${locale}`;
+  const link = `${baseUrl}${pathLocale}${asPath}`;
 
   const share = () => {
     navigator.share({
