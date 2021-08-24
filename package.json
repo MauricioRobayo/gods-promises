@@ -16,8 +16,8 @@
   },
   "homepage": "https://github.com/MauricioRobayo/promesas#readme",
   "volta": {
-    "node": "14.17.1",
-    "npm": "7.19.0"
+    "node": "14.17.5",
+    "npm": "7.21.0"
   },
   "dependencies": {}
 }
