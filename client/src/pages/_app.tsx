@@ -9,10 +9,14 @@ import { DefaultSeo } from "next-seo";
 import useTranslation from "next-translate/useTranslation";
 import NextNprogress from "nextjs-progressbar";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { pageView } from "../lib/gtag";
 
 const queryClient = new QueryClient();
+const isProduction = process.env.NODE_ENV === "production";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   const { t } = useTranslation("common");
   const { t: tHome } = useTranslation("home");
   const { asPath, locale, defaultLocale } = useRouter();
@@ -20,6 +24,18 @@ function MyApp({ Component, pageProps }: AppProps) {
   const pageDescription = tHome("intro");
   const pathLocale = locale === defaultLocale ? "" : `/${locale}`;
   const pageUrl = `https://godspromises.bible${pathLocale}${asPath}`;
+
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      if (isProduction) {
+        pageView(url);
+      }
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <>

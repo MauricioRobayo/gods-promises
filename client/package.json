@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mauriciorobayo/gods-promises": "^2.0.4",
+    "@types/gtag.js": "^0.0.7",
     "axios": "^0.21.1",
     "color": "^4.0.0",
     "firebase": "^8.7.1",
