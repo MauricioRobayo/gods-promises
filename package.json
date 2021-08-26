@@ -18,5 +18,8 @@
   "volta": {
     "node": "14.17.5",
     "npm": "7.21.0"
+  },
+  "dependencies": {
+    "nextjs-google-analytics": "^0.1.9"
   }
 }
