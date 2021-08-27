@@ -45,7 +45,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Cardo:ital@0;1&family=Lato:wght@400;700;900&display=swap"
             rel="stylesheet"
           />
-          <GoogleAnalytics gaMeasurementId={GA_MEASUREMENT_ID} />
+          <GoogleAnalytics />
         </Head>
         <body>
           <Main />
