@@ -17,3 +17,15 @@ To leave you as you are
 And if He felt He had to direct you
 Then direct you into my arms
 ```
+
+## Contributing
+
+Contributions, issues and feature requests are welcome!
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## LICENSE
+
+[MIT](LICENSE)
