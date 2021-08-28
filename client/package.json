@@ -17,7 +17,7 @@
     "next": "11.0.1",
     "next-seo": "^4.26.0",
     "next-translate": "^1.0.7",
-    "nextjs-google-analytics": "^0.1.10",
+    "nextjs-google-analytics": "^0.1.12",
     "nextjs-progressbar": "^0.0.11",
     "react": "17.0.2",
     "react-content-loader": "^6.0.3",

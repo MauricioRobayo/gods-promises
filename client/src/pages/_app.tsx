@@ -9,7 +9,7 @@ import { DefaultSeo } from "next-seo";
 import useTranslation from "next-translate/useTranslation";
 import NextNprogress from "nextjs-progressbar";
 import { useRouter } from "next/router";
-import { usePageView } from "nextjs-google-analytics";
+import { GoogleAnalytics, usePagesViews } from "nextjs-google-analytics";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const pathLocale = locale === defaultLocale ? "" : `/${locale}`;
   const pageUrl = `https://godspromises.bible${pathLocale}${asPath}`;
 
-  usePageView();
+  usePagesViews();
 
   return (
     <>
@@ -43,6 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <ThemeProvider theme={lightTheme}>
+        <GoogleAnalytics />
         <Normalize />
         <GlobalStyle />
         <Layout>

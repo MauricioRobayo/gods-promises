@@ -6,9 +6,6 @@ import Document, {
   DocumentContext,
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import { GoogleAnalytics } from "nextjs-google-analytics";
-
-const GA_MEASUREMENT_ID = "G-6MFKBLF62E";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -45,7 +42,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Cardo:ital@0;1&family=Lato:wght@400;700;900&display=swap"
             rel="stylesheet"
           />
-          <GoogleAnalytics />
         </Head>
         <body>
           <Main />
