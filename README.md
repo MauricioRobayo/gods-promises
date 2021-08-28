@@ -1,3 +1,6 @@
 # God's Promises 🙏
 
-https://godspromises.bible
+An ever growing lists of God's promises from the bible.
+
+- https://twitter.com/GodsPromisesBot
+- https://godspromises.bible
