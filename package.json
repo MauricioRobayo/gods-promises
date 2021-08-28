@@ -20,6 +20,6 @@
     "npm": "7.21.0"
   },
   "dependencies": {
-    "nextjs-google-analytics": "^0.1.9"
+    "nextjs-google-analytics": "^0.1.12"
   }
 }
